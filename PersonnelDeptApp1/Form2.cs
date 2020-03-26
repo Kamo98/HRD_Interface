@@ -40,5 +40,11 @@ namespace PersonnelDeptApp1
         {
             this.Close();
         }
+
+        private void приказыToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form4 f4 = new Form4();
+            f4.Show();
+        }
     }
 }
