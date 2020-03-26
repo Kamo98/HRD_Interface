@@ -134,6 +134,9 @@
             this.richTextBox11 = new System.Windows.Forms.RichTextBox();
             this.richTextBox12 = new System.Windows.Forms.RichTextBox();
             this.richTextBox13 = new System.Windows.Forms.RichTextBox();
+            this.button4 = new System.Windows.Forms.Button();
+            this.button5 = new System.Windows.Forms.Button();
+            this.button6 = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -190,6 +193,7 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 6.666668F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 6.666668F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 6.666668F));
+            this.tableLayoutPanel1.Controls.Add(this.button6, 12, 9);
             this.tableLayoutPanel1.Controls.Add(this.label9, 1, 5);
             this.tableLayoutPanel1.Controls.Add(this.dataGridView2, 1, 5);
             this.tableLayoutPanel1.Controls.Add(this.label15, 1, 0);
@@ -247,8 +251,8 @@
             this.dataGridView2.Location = new System.Drawing.Point(3, 213);
             this.dataGridView2.Name = "dataGridView2";
             this.dataGridView2.RowHeadersVisible = false;
-            this.tableLayoutPanel1.SetRowSpan(this.dataGridView2, 4);
-            this.dataGridView2.Size = new System.Drawing.Size(780, 142);
+            this.tableLayoutPanel1.SetRowSpan(this.dataGridView2, 3);
+            this.dataGridView2.Size = new System.Drawing.Size(780, 99);
             this.dataGridView2.TabIndex = 1;
             // 
             // dataGridViewTextBoxColumn1
@@ -560,6 +564,7 @@
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 6.666668F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 6.666668F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 6.666668F));
+            this.tableLayoutPanel2.Controls.Add(this.button5, 12, 9);
             this.tableLayoutPanel2.Controls.Add(this.label27, 1, 5);
             this.tableLayoutPanel2.Controls.Add(this.dataGridView3, 1, 5);
             this.tableLayoutPanel2.Controls.Add(this.label28, 1, 0);
@@ -617,8 +622,8 @@
             this.dataGridView3.Location = new System.Drawing.Point(3, 213);
             this.dataGridView3.Name = "dataGridView3";
             this.dataGridView3.RowHeadersVisible = false;
-            this.tableLayoutPanel2.SetRowSpan(this.dataGridView3, 4);
-            this.dataGridView3.Size = new System.Drawing.Size(780, 142);
+            this.tableLayoutPanel2.SetRowSpan(this.dataGridView3, 3);
+            this.dataGridView3.Size = new System.Drawing.Size(780, 99);
             this.dataGridView3.TabIndex = 1;
             // 
             // dataGridViewTextBoxColumn9
@@ -956,6 +961,7 @@
             this.tableLayoutPanel3.Controls.Add(this.label3, 5, 0);
             this.tableLayoutPanel3.Controls.Add(this.dateTimePicker1, 8, 0);
             this.tableLayoutPanel3.Controls.Add(this.panel1, 1, 1);
+            this.tableLayoutPanel3.Controls.Add(this.button4, 12, 9);
             this.tableLayoutPanel3.Controls.Add(this.label1, 1, 5);
             this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel3.Location = new System.Drawing.Point(3, 3);
@@ -997,8 +1003,8 @@
             this.dataGridView1.Location = new System.Drawing.Point(3, 213);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersVisible = false;
-            this.tableLayoutPanel3.SetRowSpan(this.dataGridView1, 4);
-            this.dataGridView1.Size = new System.Drawing.Size(780, 142);
+            this.tableLayoutPanel3.SetRowSpan(this.dataGridView1, 3);
+            this.dataGridView1.Size = new System.Drawing.Size(780, 99);
             this.dataGridView1.TabIndex = 1;
             // 
             // Column1
@@ -1384,6 +1390,39 @@
             this.richTextBox13.TabIndex = 61;
             this.richTextBox13.Text = "";
             // 
+            // button4
+            // 
+            this.button4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.tableLayoutPanel3.SetColumnSpan(this.button4, 3);
+            this.button4.Location = new System.Drawing.Point(627, 325);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(156, 23);
+            this.button4.TabIndex = 60;
+            this.button4.Text = "Добавить приказ";
+            this.button4.UseVisualStyleBackColor = true;
+            // 
+            // button5
+            // 
+            this.button5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.tableLayoutPanel2.SetColumnSpan(this.button5, 3);
+            this.button5.Location = new System.Drawing.Point(627, 325);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(156, 23);
+            this.button5.TabIndex = 61;
+            this.button5.Text = "Добавить приказ";
+            this.button5.UseVisualStyleBackColor = true;
+            // 
+            // button6
+            // 
+            this.button6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.tableLayoutPanel1.SetColumnSpan(this.button6, 3);
+            this.button6.Location = new System.Drawing.Point(627, 325);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(156, 23);
+            this.button6.TabIndex = 61;
+            this.button6.Text = "Добавить приказ";
+            this.button6.UseVisualStyleBackColor = true;
+            // 
             // Form4
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1522,5 +1561,8 @@
         private System.Windows.Forms.RichTextBox richTextBox11;
         private System.Windows.Forms.RichTextBox richTextBox12;
         private System.Windows.Forms.RichTextBox richTextBox13;
+        private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Button button4;
     }
 }
