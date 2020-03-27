@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace HRD_GenerateData
+namespace PersonnelDeptApp1
 {
 	class Connection
 	{
