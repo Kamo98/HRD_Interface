@@ -15,8 +15,16 @@ namespace PersonnelDeptApp1
     public partial class Form3 : Form
     {
         Connection connectPSQL;
-
         NpgsqlConnection npgSqlConnection;
+
+        Color colorYavka = System.Drawing.Color.ForestGreen;
+        Color colorOtpusk = System.Drawing.Color.Orange;
+        Color colorKomandirovka = System.Drawing.Color.Gold;
+        Color colorProgul = System.Drawing.Color.Tomato;
+        Color colorHollyday = System.Drawing.Color.SteelBlue;
+        Color colorSick = System.Drawing.Color.Pink;
+
+
         public Form3()
         {
             InitializeComponent();
@@ -145,7 +153,8 @@ namespace PersonnelDeptApp1
                 //получаем факты явки
                 List<Int32> data = new List<Int32>();
                 List<string> mark = new List<string>();
-                com = new NpgsqlCommand("SELECT \"MarkTimeTracking\".\"ShortName\",\"Fact\".\"data\" FROM \"Fact\",\"MarkTimeTracking\" WHERE \"Fact\".\"pk_mark_time_tracking\" = \"MarkTimeTracking\".\"pk_mark_time_tracking\" AND \"Fact\".\"pk_string_time_tracking\" = '" + pk_string_time_tracking[i] + "'", npgSqlConnection);
+                List<Int32> count_of_hours = new List<Int32>();
+                com = new NpgsqlCommand("SELECT \"MarkTimeTracking\".\"ShortName\",\"Fact\".\"data\", \"Fact\".\"count_of_hours\" FROM \"Fact\",\"MarkTimeTracking\" WHERE \"Fact\".\"pk_mark_time_tracking\" = \"MarkTimeTracking\".\"pk_mark_time_tracking\" AND \"Fact\".\"pk_string_time_tracking\" = '" + pk_string_time_tracking[i] + "'", npgSqlConnection);
                 reader = com.ExecuteReader();
                 if (reader.HasRows)
                 {
@@ -153,6 +162,7 @@ namespace PersonnelDeptApp1
                     {
                         mark.Add(rec.GetString(0));
                         data.Add(rec.GetDateTime(1).Day);
+                        count_of_hours.Add(rec.GetInt32(2));
                     }
                 }
                 reader.Close();
@@ -166,6 +176,16 @@ namespace PersonnelDeptApp1
                 {
                     // + 1 к индексу, потому что первые два столбца это фио и должность
                     dataGridView1.Rows[dataGridView1.Rows.Count - 1].Cells[data[j] + 1].Value = mark[j];
+                    paintingCells(dataGridView1.Rows.Count - 1, data[j] + 1, mark[j]);
+                }
+
+                //добавляем строку часов сотрудника
+                dataGridView1.Rows.Add();
+                dataGridView1.Rows[dataGridView1.Rows.Count - 1].Cells[1].Value = "Количество часов:";
+                for (int j = 0; j < data.Count; j++)
+                {
+                    // + 1 к индексу, потому что первые два столбца это фио и должность
+                    dataGridView1.Rows[dataGridView1.Rows.Count - 1].Cells[data[j] + 1].Value = count_of_hours[j];
                 }
             }        
         }
@@ -196,6 +216,34 @@ namespace PersonnelDeptApp1
             {
                 dataGridView1.Columns[32].Visible = false;
                 dataGridView1.Columns[31].Visible = false;
+            }
+        }
+
+        void paintingCells(int row, int colmn, string shifr)
+        {
+            if (shifr == "Я" || shifr == "Н" || shifr == "РВ" || shifr == "С")
+            {
+                dataGridView1.Rows[row].Cells[colmn].Style.BackColor = colorYavka;
+            }
+            else if (shifr == "К")
+            {
+                dataGridView1.Rows[row].Cells[colmn].Style.BackColor = colorKomandirovka;
+            }
+            else if (shifr == "ОТ" || shifr == "ОД")
+            {
+                dataGridView1.Rows[row].Cells[colmn].Style.BackColor = colorOtpusk;
+            }
+            else if (shifr == "Б")
+            {
+                dataGridView1.Rows[row].Cells[colmn].Style.BackColor = colorSick;
+            }
+            else if (shifr == "В")
+            {
+                dataGridView1.Rows[row].Cells[colmn].Style.BackColor = colorHollyday;
+            }
+            else if (shifr == "ПР" || shifr == "НН")
+            {
+                dataGridView1.Rows[row].Cells[colmn].Style.BackColor = colorProgul;
             }
         }
     }
