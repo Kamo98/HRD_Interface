@@ -85,6 +85,7 @@ namespace PersonnelDeptApp1
         private void button1_Click(object sender, EventArgs e)
         {
             dataGridView1.Rows.Clear();
+            blockCellsDays(); //блокируем дни в datagridView
             //ключ подразделения
             NpgsqlCommand com;
             com = new NpgsqlCommand("select \"pk_unit\" from \"Unit\" where \"Unit\".\"Name\" = '" + comboBox1.Text + "'", npgSqlConnection);
@@ -166,12 +167,36 @@ namespace PersonnelDeptApp1
                     // + 1 к индексу, потому что первые два столбца это фио и должность
                     dataGridView1.Rows[dataGridView1.Rows.Count - 1].Cells[data[j] + 1].Value = mark[j];
                 }
+            }        
+        }
+
+        private void numericUpDown2_ValueChanged(object sender, EventArgs e)
+        { 
+        }
+
+        void blockCellsDays() //блокировка дней в datagridView
+        {
+            Int32 count_day = DateTime.DaysInMonth(Convert.ToInt32(numericUpDown1.Value), Convert.ToInt32(numericUpDown2.Value));
+
+            dataGridView1.Columns[32].Visible = true;
+            dataGridView1.Columns[31].Visible = true;
+            dataGridView1.Columns[30].Visible = true;
+            if (count_day == 30)
+            {
+                dataGridView1.Columns[32].Visible = false;
+
             }
-
-
-
-            
-            
+            else if (count_day == 28)
+            {
+                dataGridView1.Columns[32].Visible = false;
+                dataGridView1.Columns[31].Visible = false;
+                dataGridView1.Columns[30].Visible = false;
+            }
+            else if (count_day == 29)
+            {
+                dataGridView1.Columns[32].Visible = false;
+                dataGridView1.Columns[31].Visible = false;
+            }
         }
     }
 }
