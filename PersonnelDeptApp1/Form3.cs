@@ -293,7 +293,7 @@ namespace PersonnelDeptApp1
                     {
                         MessageBox.Show("Неверный шифр в ячейке!");                   
                         dataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex].Value = "";
-                        dataGridView1.Rows[e.RowIndex + 1].Cells[e.ColumnIndex].Value = "";
+                        dataGridView1.Rows[e.RowIndex + 1].Cells[e.ColumnIndex].Value = "0";
                         dataGridView1.CellValueChanged += dataGridView1_CellValueChanged;
                         return;
                         
@@ -323,7 +323,7 @@ namespace PersonnelDeptApp1
                         if( !(shifr[i] >= '0' && shifr[i] <= '9'))
                         {
                             MessageBox.Show("Неверное значение в ячейке часов!");    
-                            dataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex].Value = "";
+                            dataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex].Value = "0";
                             dataGridView1.CellValueChanged -= dataGridView1_CellValueChanged;
                             return;
                         }
@@ -375,24 +375,113 @@ namespace PersonnelDeptApp1
                     string data = numericUpDown1.Value.ToString() + "-" + numericUpDown2.Value.ToString() + "-" + (y - 1).ToString();
                     //часы
                     string hours = dataGridView1.Rows[x + 1].Cells[y].Value.ToString();
+                    if (hours == "")
+                        hours = "0";
 
                     com = new NpgsqlCommand("INSERT INTO \"Fact\"(\"pk_string_time_tracking\", \"pk_mark_time_tracking\", \"data\", \"count_of_hours\") VALUES('" + pk_string + "', '" + pk_mark + "', '" + data + "', '" + hours + "')", npgSqlConnection);
                     com.ExecuteNonQuery();
                 }
-                else //если ключ существует, то update
+                else //если ключ существует, то update или delete
                 {
-                    //определяем ключ метки шифра
-                    com = new NpgsqlCommand("SELECT \"pk_mark_time_tracking\" FROM \"MarkTimeTracking\" WHERE \"MarkTimeTracking\".\"ShortName\" = '" + dataGridView1.Rows[x].Cells[y].Value + "'", npgSqlConnection);
-                    string pk_mark = com.ExecuteScalar().ToString();
-                    //часы
-                    string hours = dataGridView1.Rows[x + 1].Cells[y].Value.ToString();
-                    com = new NpgsqlCommand("UPDATE \"Fact\" SET \"pk_mark_time_tracking\" = '" + pk_mark + "', \"count_of_hours\" = '" + hours + "' WHERE \"Fact\".\"pk_fact\" = '" + pk_fact[x][y] + "'", npgSqlConnection);
-                    com.ExecuteNonQuery();
+                    if(dataGridView1.Rows[x].Cells[y].Value == null) //удаление
+                    {
+                        com = new NpgsqlCommand("DELETE FROM \"Fact\"  WHERE \"Fact\".\"pk_fact\" = '" + pk_fact[x][y] + "'", npgSqlConnection);
+                        com.ExecuteNonQuery();
+                    }
+                    else if (dataGridView1.Rows[x].Cells[y].Value.ToString() == "")
+                    {
+                        com = new NpgsqlCommand("DELETE FROM \"Fact\"  WHERE \"Fact\".\"pk_fact\" = '" + pk_fact[x][y] + "'", npgSqlConnection);
+                        com.ExecuteNonQuery();
+                    }
+                    else
+                    {
+                        //определяем ключ метки шифра
+                        com = new NpgsqlCommand("SELECT \"pk_mark_time_tracking\" FROM \"MarkTimeTracking\" WHERE \"MarkTimeTracking\".\"ShortName\" = '" + dataGridView1.Rows[x].Cells[y].Value + "'", npgSqlConnection);
+                        string pk_mark = com.ExecuteScalar().ToString();
+                        //часы
+                        string hours = dataGridView1.Rows[x + 1].Cells[y].Value.ToString();
+                        if (hours == "")
+                            hours = "0";
+                        com = new NpgsqlCommand("UPDATE \"Fact\" SET \"pk_mark_time_tracking\" = '" + pk_mark + "', \"count_of_hours\" = '" + hours + "' WHERE \"Fact\".\"pk_fact\" = '" + pk_fact[x][y] + "'", npgSqlConnection);
+                        com.ExecuteNonQuery();
+                    }   
                 }
             }
             //обновляем, чтобы подгрузились ключи в датагрид
             pk_fact.Clear();
             button1_Click(null,null);
+        }
+
+        private void comboBox1_SelectedValueChanged(object sender, EventArgs e)
+        {
+            dataGridView1.Rows.Clear();
+            pk_fact.Clear();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            CellFilling("Я");
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            CellFilling("Б");
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            CellFilling("В");
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            CellFilling("НН");
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            CellFilling("ПР");
+        }
+
+        private void button8_Click(object sender, EventArgs e)
+        {
+            CellFilling("Н");
+        }
+
+        private void button9_Click(object sender, EventArgs e)
+        {
+            CellFilling("РВ");
+        }
+
+        private void button11_Click(object sender, EventArgs e)
+        {
+            CellFilling("С");
+        }
+
+        private void button12_Click(object sender, EventArgs e)
+        {
+            CellFilling("К");
+        }
+
+        private void button10_Click(object sender, EventArgs e)
+        {
+            CellFilling("ОТ");
+        }
+
+        private void button13_Click(object sender, EventArgs e)
+        {
+            CellFilling("ОД");
+        }
+
+        void CellFilling(string shifr)
+        {
+            if (dataGridView1.SelectedCells.Count == 0)
+            {
+                MessageBox.Show("Сперва выделите ячейки!");
+            }
+            for (int i = 0; i < dataGridView1.SelectedCells.Count; i++)
+                if (dataGridView1.CurrentCellAddress.X != 0 && dataGridView1.CurrentCellAddress.X != 1)
+                    dataGridView1.SelectedCells[i].Value = shifr;
         }
     }
 
