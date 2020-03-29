@@ -24,6 +24,8 @@ namespace PersonnelDeptApp1
         Color colorHollyday = System.Drawing.Color.SteelBlue;
         Color colorSick = System.Drawing.Color.Pink;
 
+        List<List<Int32>> pk_fact = new List<List<Int32>>(); //ключи фактов явки
+        List<Pair> modinfied_cells = new List<Pair>(); //координаты измененных ячеек DataGridView
 
         public Form3()
         {
@@ -92,7 +94,9 @@ namespace PersonnelDeptApp1
 
         private void button1_Click(object sender, EventArgs e)
         {
-            dataGridView1.Rows.Clear();
+            dataGridView1.CellValueChanged -= dataGridView1_CellValueChanged; //отписываемся от события
+            dataGridView1.Rows.Clear(); //очещаем грид
+            pk_fact.Clear(); //очищаем ключи фактов явки 
             blockCellsDays(); //блокируем дни в datagridView
             //ключ подразделения
             NpgsqlCommand com;
@@ -154,16 +158,24 @@ namespace PersonnelDeptApp1
                 List<Int32> data = new List<Int32>();
                 List<string> mark = new List<string>();
                 List<Int32> count_of_hours = new List<Int32>();
-                com = new NpgsqlCommand("SELECT \"MarkTimeTracking\".\"ShortName\",\"Fact\".\"data\", \"Fact\".\"count_of_hours\" FROM \"Fact\",\"MarkTimeTracking\" WHERE \"Fact\".\"pk_mark_time_tracking\" = \"MarkTimeTracking\".\"pk_mark_time_tracking\" AND \"Fact\".\"pk_string_time_tracking\" = '" + pk_string_time_tracking[i] + "'", npgSqlConnection);
+                com = new NpgsqlCommand("SELECT \"MarkTimeTracking\".\"ShortName\",\"Fact\".\"data\", \"Fact\".\"count_of_hours\",\"Fact\".\"pk_fact\" FROM \"Fact\",\"MarkTimeTracking\" WHERE \"Fact\".\"pk_mark_time_tracking\" = \"MarkTimeTracking\".\"pk_mark_time_tracking\" AND \"Fact\".\"pk_string_time_tracking\" = '" + pk_string_time_tracking[i] + "'", npgSqlConnection);
                 reader = com.ExecuteReader();
                 if (reader.HasRows)
                 {
+                    List<Int32> pk = new List<Int32>(); //строка ключей фактов явки
+                    for (int k = 0; k < 31; k++) //максимум 31 день
+                        pk.Add(0);
                     foreach (DbDataRecord rec in reader)
                     {
                         mark.Add(rec.GetString(0));
                         data.Add(rec.GetDateTime(1).Day);
                         count_of_hours.Add(rec.GetInt32(2));
+
+                        //сохраняем первичный ключ факта явки для будущего редактирования
+                        //как бы делаем копию датагрид, где хранятся первичные ключи фактов явки           
+                        pk[data[data.Count-1] - 1] = rec.GetInt32(3);
                     }
+                    pk_fact.Add(pk); //сохраняем строку ключей фактов явки для будущего редактирования.
                 }
                 reader.Close();
 
@@ -187,11 +199,14 @@ namespace PersonnelDeptApp1
                     // + 1 к индексу, потому что первые два столбца это фио и должность
                     dataGridView1.Rows[dataGridView1.Rows.Count - 1].Cells[data[j] + 1].Value = count_of_hours[j];
                 }
-            }        
+            }
+            dataGridView1.CellValueChanged += dataGridView1_CellValueChanged; //обратно подписываемся на событие 
         }
 
         private void numericUpDown2_ValueChanged(object sender, EventArgs e)
-        { 
+        {
+            dataGridView1.Rows.Clear();
+            pk_fact.Clear();
         }
 
         void blockCellsDays() //блокировка дней в datagridView
@@ -246,5 +261,58 @@ namespace PersonnelDeptApp1
                 dataGridView1.Rows[row].Cells[colmn].Style.BackColor = colorProgul;
             }
         }
+
+        private void numericUpDown1_ValueChanged(object sender, EventArgs e)
+        {
+            dataGridView1.Rows.Clear();
+            pk_fact.Clear();
+        }
+
+        private void dataGridView1_CellValueChanged(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex != -1)
+            {
+                string shifr = dataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString();
+
+                if(e.RowIndex % 2 == 0) //если меняется строки с шифрами
+                {
+                    if (shifr != "Я" && shifr != "Н" && shifr != "РВ" && shifr != "С" && shifr != "К" &&
+                        shifr != "ОТ" && shifr != "ОД" && shifr != "Б" && shifr != "ПР" && shifr != "В" && shifr != "НН")
+                    {
+                        MessageBox.Show("Неверный шифр в ячейке!");
+                        dataGridView1.CellValueChanged -= dataGridView1_CellValueChanged;
+                        dataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex].Value = "";
+                        dataGridView1.CellValueChanged += dataGridView1_CellValueChanged;
+                        return;
+                    }
+                    modinfied_cells.Add(new Pair(e.RowIndex, e.ColumnIndex)); //добавляем координаты изменной ячейки
+                    paintingCells(e.RowIndex, e.ColumnIndex, shifr);
+                }
+                else //если меняется строка с часами
+                {
+                    for(int i = 0; i < shifr.Length; i++)
+                        if( !(shifr[i] >= '0' && shifr[i] <= '9'))
+                        {
+                            MessageBox.Show("Неверное значение в ячейке часов!");
+                            dataGridView1.CellValueChanged -= dataGridView1_CellValueChanged;
+                            dataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex].Value = "";
+                            dataGridView1.CellValueChanged += dataGridView1_CellValueChanged;
+                            return;
+                        }
+
+                    modinfied_cells.Add(new Pair(e.RowIndex, e.ColumnIndex)); //добавляем координаты изменной ячейки
+                }
+
+                
+            }
+               
+        }
+    }
+
+    public class Pair
+    {
+        public Pair(Int32 x, Int32 y) { X = x; Y = y; }
+        public Int32 X { get; set; }
+        public Int32 Y { get; set; }
     }
 }

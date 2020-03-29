@@ -81,8 +81,8 @@
             this.button1 = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
@@ -219,6 +219,7 @@
             // 
             this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.AllowUserToDeleteRows = false;
+            this.dataGridView1.AllowUserToResizeRows = false;
             this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
@@ -263,6 +264,7 @@
             this.dataGridView1.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.dataGridView1.Size = new System.Drawing.Size(1176, 371);
             this.dataGridView1.TabIndex = 5;
+            this.dataGridView1.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellValueChanged);
             // 
             // FIO
             // 
@@ -531,6 +533,7 @@
             0,
             0,
             0});
+            this.numericUpDown1.ValueChanged += new System.EventHandler(this.numericUpDown1_ValueChanged);
             // 
             // numericUpDown2
             // 
@@ -592,17 +595,6 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Расшифровки";
             // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label5.Location = new System.Drawing.Point(6, 25);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(221, 78);
-            this.label5.TabIndex = 15;
-            this.label5.Text = "Я - Работа в дневное время\r\nБ - Больничный\r\nВ - Выходные и праздничные дни\r\nНН - " +
-    "Неявка по невыясненным  причинам\r\nПР - Прогрул\r\nН - Ночные смены";
-            // 
             // label6
             // 
             this.label6.AutoSize = true;
@@ -613,6 +605,17 @@
             this.label6.TabIndex = 16;
             this.label6.Text = "РВ - Работа в выходные и праздничные дни\r\nС - Сверхурочная работа\r\nК - Служебная " +
     "командировка\r\nОТ - Основной отпуск\r\nОД - Дополнительный отпуск";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label5.Location = new System.Drawing.Point(6, 25);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(221, 78);
+            this.label5.TabIndex = 15;
+            this.label5.Text = "Я - Работа в дневное время\r\nБ - Больничный\r\nВ - Выходные и праздничные дни\r\nНН - " +
+    "Неявка по невыясненным  причинам\r\nПР - Прогрул\r\nН - Ночные смены";
             // 
             // Form3
             // 
