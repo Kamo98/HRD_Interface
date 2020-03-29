@@ -64,6 +64,13 @@ namespace PersonnelDeptApp1
 
         private void Form3_FormClosed(object sender, FormClosedEventArgs e)
         {
+            if (modinfied_cells.Count != 0)
+            {
+                DialogResult result = MessageBox.Show("Изменения не были сохранены. Вы уверены, что хотите выйти?", "Сообщение", MessageBoxButtons.YesNo, MessageBoxIcon.Information, MessageBoxDefaultButton.Button2, MessageBoxOptions.DefaultDesktopOnly);
+                if (result == DialogResult.Yes)
+                    return;
+            }
+            
             Form ifrm = Application.OpenForms[0];
             ifrm.Show();
         }
@@ -159,13 +166,13 @@ namespace PersonnelDeptApp1
                 List<Int32> data = new List<Int32>();
                 List<string> mark = new List<string>();
                 List<Int32> count_of_hours = new List<Int32>();
+                List<Int32> pk = new List<Int32>(); //строка ключей фактов явки
+                for (int k = 0; k < dataGridView1.ColumnCount; k++)
+                    pk.Add(-1);
                 com = new NpgsqlCommand("SELECT \"MarkTimeTracking\".\"ShortName\",\"Fact\".\"data\", \"Fact\".\"count_of_hours\",\"Fact\".\"pk_fact\" FROM \"Fact\",\"MarkTimeTracking\" WHERE \"Fact\".\"pk_mark_time_tracking\" = \"MarkTimeTracking\".\"pk_mark_time_tracking\" AND \"Fact\".\"pk_string_time_tracking\" = '" + pk_string_time_tracking[i] + "'", npgSqlConnection);
                 reader = com.ExecuteReader();
                 if (reader.HasRows)
-                {
-                    List<Int32> pk = new List<Int32>(); //строка ключей фактов явки
-                    for (int k = 0; k < dataGridView1.ColumnCount; k++)
-                        pk.Add(-1);
+                {           
                     foreach (DbDataRecord rec in reader)
                     {
                         mark.Add(rec.GetString(0));
@@ -176,9 +183,9 @@ namespace PersonnelDeptApp1
                         //как бы делаем копию датагрид, где хранятся первичные ключи фактов явки           
                         pk[data[data.Count-1] + 1] = rec.GetInt32(3);
                     }
-                    pk_fact.Add(pk); //сохраняем строку ключей фактов явки для будущего редактирования.               
-                    pk_fact.Add(new List<Int32>()); 
                 }
+                pk_fact.Add(pk); //сохраняем строку ключей фактов явки для будущего редактирования.               
+                pk_fact.Add(new List<Int32>());
                 reader.Close();
 
                 //добавляем строку в datagridView
@@ -271,7 +278,6 @@ namespace PersonnelDeptApp1
         private void numericUpDown1_ValueChanged(object sender, EventArgs e)
         {
             dataGridView1.Rows.Clear();
-            pk_fact.Clear();
         }
 
         private void dataGridView1_CellValueChanged(object sender, DataGridViewCellEventArgs e)
@@ -323,14 +329,15 @@ namespace PersonnelDeptApp1
                         if( !(shifr[i] >= '0' && shifr[i] <= '9'))
                         {
                             MessageBox.Show("Неверное значение в ячейке часов!");    
-                            dataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex].Value = "0";
-                            dataGridView1.CellValueChanged -= dataGridView1_CellValueChanged;
+                            dataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex].Value = "";
+                            dataGridView1.CellValueChanged += dataGridView1_CellValueChanged;
                             return;
                         }
 
                     if (dataGridView1.Rows[e.RowIndex - 1].Cells[e.ColumnIndex].Value == null)
                     {
                         dataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex].Value = null;
+                        dataGridView1.CellValueChanged += dataGridView1_CellValueChanged;
                         return;
                     }
                     else if (dataGridView1.Rows[e.RowIndex - 1].Cells[e.ColumnIndex].Value.ToString() != "Я"
@@ -407,15 +414,15 @@ namespace PersonnelDeptApp1
                     }   
                 }
             }
+            MessageBox.Show("Изменения успешно сохранены!");
             //обновляем, чтобы подгрузились ключи в датагрид
-            pk_fact.Clear();
-            button1_Click(null,null);
+            button1_Click(null, null);
+            modinfied_cells.Clear();         
         }
 
         private void comboBox1_SelectedValueChanged(object sender, EventArgs e)
         {
             dataGridView1.Rows.Clear();
-            pk_fact.Clear();
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -482,6 +489,16 @@ namespace PersonnelDeptApp1
             for (int i = 0; i < dataGridView1.SelectedCells.Count; i++)
                 if (dataGridView1.CurrentCellAddress.X != 0 && dataGridView1.CurrentCellAddress.X != 1)
                     dataGridView1.SelectedCells[i].Value = shifr;
+        }
+
+        private void button14_Click(object sender, EventArgs e)
+        {
+            CellFilling(numericUpDown3.Value.ToString());
+        }
+
+        private void Form3_FormClosing(object sender, FormClosingEventArgs e)
+        {
+
         }
     }
 

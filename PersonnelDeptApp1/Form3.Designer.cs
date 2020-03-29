@@ -92,6 +92,10 @@
             this.button12 = new System.Windows.Forms.Button();
             this.button13 = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.numericUpDown3 = new System.Windows.Forms.NumericUpDown();
+            this.label7 = new System.Windows.Forms.Label();
+            this.button14 = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
@@ -99,6 +103,8 @@
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
+            this.groupBox4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -629,112 +635,123 @@
             // 
             // button3
             // 
+            this.button3.BackColor = System.Drawing.Color.ForestGreen;
             this.button3.Location = new System.Drawing.Point(24, 32);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(45, 23);
             this.button3.TabIndex = 15;
             this.button3.Text = "Я";
-            this.button3.UseVisualStyleBackColor = true;
+            this.button3.UseVisualStyleBackColor = false;
             this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // button4
             // 
+            this.button4.BackColor = System.Drawing.Color.Pink;
             this.button4.Location = new System.Drawing.Point(75, 32);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(45, 23);
             this.button4.TabIndex = 16;
             this.button4.Text = "Б";
-            this.button4.UseVisualStyleBackColor = true;
+            this.button4.UseVisualStyleBackColor = false;
             this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // button5
             // 
+            this.button5.BackColor = System.Drawing.Color.SteelBlue;
             this.button5.Location = new System.Drawing.Point(126, 32);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(45, 23);
             this.button5.TabIndex = 17;
             this.button5.Text = "В";
-            this.button5.UseVisualStyleBackColor = true;
+            this.button5.UseVisualStyleBackColor = false;
             this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
             // button6
             // 
+            this.button6.BackColor = System.Drawing.Color.Tomato;
             this.button6.Location = new System.Drawing.Point(177, 32);
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(45, 23);
             this.button6.TabIndex = 18;
             this.button6.Text = "НН";
-            this.button6.UseVisualStyleBackColor = true;
+            this.button6.UseVisualStyleBackColor = false;
             this.button6.Click += new System.EventHandler(this.button6_Click);
             // 
             // button7
             // 
+            this.button7.BackColor = System.Drawing.Color.Tomato;
             this.button7.Location = new System.Drawing.Point(24, 61);
             this.button7.Name = "button7";
             this.button7.Size = new System.Drawing.Size(45, 23);
             this.button7.TabIndex = 19;
             this.button7.Text = "ПР";
-            this.button7.UseVisualStyleBackColor = true;
+            this.button7.UseVisualStyleBackColor = false;
             this.button7.Click += new System.EventHandler(this.button7_Click);
             // 
             // button8
             // 
+            this.button8.BackColor = System.Drawing.Color.ForestGreen;
             this.button8.Location = new System.Drawing.Point(75, 61);
             this.button8.Name = "button8";
             this.button8.Size = new System.Drawing.Size(45, 23);
             this.button8.TabIndex = 20;
             this.button8.Text = "Н";
-            this.button8.UseVisualStyleBackColor = true;
+            this.button8.UseVisualStyleBackColor = false;
             this.button8.Click += new System.EventHandler(this.button8_Click);
             // 
             // button9
             // 
+            this.button9.BackColor = System.Drawing.Color.ForestGreen;
             this.button9.Location = new System.Drawing.Point(126, 61);
             this.button9.Name = "button9";
             this.button9.Size = new System.Drawing.Size(45, 23);
             this.button9.TabIndex = 21;
             this.button9.Text = "РВ";
-            this.button9.UseVisualStyleBackColor = true;
+            this.button9.UseVisualStyleBackColor = false;
             this.button9.Click += new System.EventHandler(this.button9_Click);
             // 
             // button10
             // 
+            this.button10.BackColor = System.Drawing.Color.Orange;
             this.button10.Location = new System.Drawing.Point(75, 90);
             this.button10.Name = "button10";
             this.button10.Size = new System.Drawing.Size(45, 23);
             this.button10.TabIndex = 22;
             this.button10.Text = "ОТ";
-            this.button10.UseVisualStyleBackColor = true;
+            this.button10.UseVisualStyleBackColor = false;
             this.button10.Click += new System.EventHandler(this.button10_Click);
             // 
             // button11
             // 
+            this.button11.BackColor = System.Drawing.Color.ForestGreen;
             this.button11.Location = new System.Drawing.Point(177, 61);
             this.button11.Name = "button11";
             this.button11.Size = new System.Drawing.Size(45, 23);
             this.button11.TabIndex = 22;
             this.button11.Text = "С";
-            this.button11.UseVisualStyleBackColor = true;
+            this.button11.UseVisualStyleBackColor = false;
             this.button11.Click += new System.EventHandler(this.button11_Click);
             // 
             // button12
             // 
+            this.button12.BackColor = System.Drawing.Color.Gold;
             this.button12.Location = new System.Drawing.Point(24, 90);
             this.button12.Name = "button12";
             this.button12.Size = new System.Drawing.Size(45, 23);
             this.button12.TabIndex = 23;
             this.button12.Text = "К";
-            this.button12.UseVisualStyleBackColor = true;
+            this.button12.UseVisualStyleBackColor = false;
             this.button12.Click += new System.EventHandler(this.button12_Click);
             // 
             // button13
             // 
+            this.button13.BackColor = System.Drawing.Color.Orange;
             this.button13.Location = new System.Drawing.Point(126, 90);
             this.button13.Name = "button13";
             this.button13.Size = new System.Drawing.Size(45, 23);
             this.button13.TabIndex = 24;
             this.button13.Text = "ОД";
-            this.button13.UseVisualStyleBackColor = true;
+            this.button13.UseVisualStyleBackColor = false;
             this.button13.Click += new System.EventHandler(this.button13_Click);
             // 
             // groupBox3
@@ -750,18 +767,57 @@
             this.groupBox3.Controls.Add(this.button7);
             this.groupBox3.Controls.Add(this.button9);
             this.groupBox3.Controls.Add(this.button8);
-            this.groupBox3.Location = new System.Drawing.Point(480, 42);
+            this.groupBox3.Location = new System.Drawing.Point(368, 42);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(239, 124);
             this.groupBox3.TabIndex = 25;
             this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Множественное заполнение";
+            this.groupBox3.Text = "Множественное заполнение шифров";
+            // 
+            // groupBox4
+            // 
+            this.groupBox4.Controls.Add(this.button14);
+            this.groupBox4.Controls.Add(this.label7);
+            this.groupBox4.Controls.Add(this.numericUpDown3);
+            this.groupBox4.Location = new System.Drawing.Point(613, 42);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Size = new System.Drawing.Size(200, 124);
+            this.groupBox4.TabIndex = 26;
+            this.groupBox4.TabStop = false;
+            this.groupBox4.Text = "Множественное заполнение часов";
+            // 
+            // numericUpDown3
+            // 
+            this.numericUpDown3.Location = new System.Drawing.Point(128, 48);
+            this.numericUpDown3.Name = "numericUpDown3";
+            this.numericUpDown3.Size = new System.Drawing.Size(54, 20);
+            this.numericUpDown3.TabIndex = 0;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(21, 50);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(101, 13);
+            this.label7.TabIndex = 1;
+            this.label7.Text = "Количество часов:";
+            // 
+            // button14
+            // 
+            this.button14.Location = new System.Drawing.Point(24, 76);
+            this.button14.Name = "button14";
+            this.button14.Size = new System.Drawing.Size(158, 23);
+            this.button14.TabIndex = 2;
+            this.button14.Text = "Заполнить ячейки";
+            this.button14.UseVisualStyleBackColor = true;
+            this.button14.Click += new System.EventHandler(this.button14_Click);
             // 
             // Form3
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1198, 555);
+            this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
@@ -773,6 +829,7 @@
             this.Name = "Form3";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Табель учёта робочего времени";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form3_FormClosing);
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Form3_FormClosed);
             this.Load += new System.EventHandler(this.Form3_Load);
             this.menuStrip1.ResumeLayout(false);
@@ -785,6 +842,9 @@
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.groupBox3.ResumeLayout(false);
+            this.groupBox4.ResumeLayout(false);
+            this.groupBox4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -855,5 +915,9 @@
         private System.Windows.Forms.Button button12;
         private System.Windows.Forms.Button button13;
         private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.GroupBox groupBox4;
+        private System.Windows.Forms.Button button14;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.NumericUpDown numericUpDown3;
     }
 }
