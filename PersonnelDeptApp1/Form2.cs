@@ -44,7 +44,8 @@ namespace PersonnelDeptApp1
         private void приказыToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Form4 f4 = new Form4();
-            f4.Show();
+            if (f4 != null)
+                f4.Show();
         }
     }
 }
