@@ -396,6 +396,8 @@ namespace PersonnelDeptApp1
             int order = 0;
             try
             {
+                if (moveTable.Rows.Count == 0)
+                    throw new EmptyTableError("Таблица приказа пуста!");
                 order = CreateOrder(OrderType.Move, moveDocNum.Text, moveDocDate.Value.ToString(dateFormat));
                 if (order == -1)
                     return;
@@ -429,6 +431,10 @@ namespace PersonnelDeptApp1
                 new NpgsqlCommand(sql, connection.get_connect()).ExecuteNonQuery();
                 return;
             }
+            catch (EmptyTableError ETerr)
+            {
+                MessageBox.Show(ETerr.Message, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
             catch (Exception ex) {
                 MessageBox.Show("Неизвестная ошибка.\n" + ex.Message, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
@@ -440,6 +446,8 @@ namespace PersonnelDeptApp1
             int order = 0;
             try
             {
+                if (hireTable.Rows.Count == 0)
+                    throw new EmptyTableError("Таблица приказа пуста!");
                 order = CreateOrder(OrderType.Fire, fireDocNum.Text, fireDocDate.Value.ToString(dateFormat));
                 if (order == -1)
                     return;
@@ -453,7 +461,7 @@ namespace PersonnelDeptApp1
                     if (oneString == -1)
                         throw new DbInsertErrorException();
                     orderStrings.Add(oneString);
-                    string sql = "Update \"PeriodPosition\" set \"pk_fire_order_string\" = " + oneString 
+                    string sql = "Update \"PeriodPosition\" set \"pk_fire_order_string\" = " + oneString
                        + " where \"pk_personal_card\" = " + (int)fireTable.Rows[i].Cells[1].Value + " and \"DateTo\" is null;";
                     new NpgsqlCommand(sql, connection.get_connect()).ExecuteNonQuery();
                     ClosePeriodPosition(
@@ -474,6 +482,9 @@ namespace PersonnelDeptApp1
                 new NpgsqlCommand(sql, connection.get_connect()).ExecuteNonQuery();
                 return;
             }
+            catch (EmptyTableError ETerr) {
+                MessageBox.Show(ETerr.Message, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
             catch (Exception ex)
             {
                 MessageBox.Show("Неизвестная ошибка.\n" + ex.Message, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -486,6 +497,9 @@ namespace PersonnelDeptApp1
             int order = 0;
             try
             {
+                if (hireTable.Rows.Count == 0)
+                    throw new EmptyTableError("Таблица приказа пуста!");
+                
                 order = CreateOrder(OrderType.Hire, hireDocNum.Text, hireDocDate.Value.ToString(dateFormat));
                 if (order == -1)
                     return;
@@ -518,6 +532,10 @@ namespace PersonnelDeptApp1
                 sql = "Delete from \"Order\" where \"pk_order\" = " + order;
                 new NpgsqlCommand(sql, connection.get_connect()).ExecuteNonQuery();
                 return;
+            }
+            catch (EmptyTableError ETerr)
+            {
+                MessageBox.Show(ETerr.Message, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             catch (Exception ex)
             {
