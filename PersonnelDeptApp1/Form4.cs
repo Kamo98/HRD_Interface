@@ -420,6 +420,7 @@ namespace PersonnelDeptApp1
                         moveTable.Rows[i].Cells[9].Value.ToString());
                 }
                 MoveTabReset();
+                MessageBox.Show("Приказ успешно добавлен", "Успех", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (DbInsertErrorException ex) {
                 string sql;
@@ -469,6 +470,7 @@ namespace PersonnelDeptApp1
                         fireTable.Rows[i].Cells[7].Value.ToString());
                 }
                 FireTabReset();
+                MessageBox.Show("Приказ успешно добавлен", "Успех", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (DbInsertErrorException ex)
             {
@@ -520,6 +522,7 @@ namespace PersonnelDeptApp1
                         hireTable.Rows[i].Cells[7].Value.ToString());
                 }
                 HireTabReset();
+                MessageBox.Show("Приказ успешно добавлен", "Успех", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (DbInsertErrorException ex)
             {
