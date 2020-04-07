@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 using System.Collections.Generic;
 using System.ComponentModel;
 using Npgsql;
@@ -9,6 +10,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Microsoft.Office.Interop.Excel;
+using System.IO;
 
 namespace PersonnelDeptApp1
 {
@@ -27,11 +30,18 @@ namespace PersonnelDeptApp1
         List<List<Int32>> pk_fact = new List<List<Int32>>(); //ключи фактов явки
         List<Pair> modinfied_cells = new List<Pair>(); //координаты измененных ячеек DataGridView
 
+        string file_name = @"";
+
+        string pk_time_tracking; //ключ табеля
+
         public Form3()
         {
             InitializeComponent();
-            connectPSQL = Connection.get_instance("postgres","Ntcnbhjdfybt_01");
+            
+
+            connectPSQL = Connection.get_instance("postgres", "Ntcnbhjdfybt_01");
             npgSqlConnection = connectPSQL.get_connect();
+
             numericUpDown1.Value = DateTime.Now.Year;
             numericUpDown2.Value = DateTime.Now.Month;
             //button2.Enabled = false;
@@ -71,7 +81,7 @@ namespace PersonnelDeptApp1
                     return;
             }
             
-            Form ifrm = Application.OpenForms[0];
+            Form ifrm = System.Windows.Forms.Application.OpenForms[0];
             ifrm.Show();
         }
 
@@ -81,6 +91,7 @@ namespace PersonnelDeptApp1
             AutoCompleteStringCollection listUnit = new AutoCompleteStringCollection();
 
             NpgsqlCommand com = new NpgsqlCommand("SELECT \"Name\" FROM \"Unit\"", npgSqlConnection);
+            //com.Connection = npgSqlConnection;
             NpgsqlDataReader reader = com.ExecuteReader();
 
             if (reader.HasRows)
@@ -116,7 +127,6 @@ namespace PersonnelDeptApp1
 
             //находим ключ табеля
             com = new NpgsqlCommand("SELECT \"pk_time_tracking\" FROM \"TimeTracking\" WHERE \"TimeTracking\".\"pk_unit\" = " + pk_unit + " AND \"TimeTracking\".\"from\" = '" + date + "'", npgSqlConnection);
-            string pk_time_tracking;
             try
             {
                 pk_time_tracking = com.ExecuteScalar().ToString();
@@ -160,8 +170,24 @@ namespace PersonnelDeptApp1
                 reader.Close();
                 //получаем должность сотрудника
                 com = new NpgsqlCommand("SELECT \"Position\".\"Name\" FROM \"PeriodPosition\",\"Position\" WHERE \"PeriodPosition\".\"pk_position\" = \"Position\".\"pk_position\" AND \"PeriodPosition\".\"pk_personal_card\" = '" + pk_personal_card[i] + "' AND \"PeriodPosition\".\"DateTo\" is null", npgSqlConnection);
-                string name_position = com.ExecuteScalar().ToString();
-
+                string name_position ="";
+                try
+                {
+                    name_position = com.ExecuteScalar().ToString();
+                }
+                catch
+                {  
+                    com = new NpgsqlCommand("SELECT \"Position\".\"Name\" FROM \"PeriodPosition\",\"Position\" WHERE  \"PeriodPosition\".\"pk_personal_card\" = '" + pk_personal_card[i] + "' AND \"PeriodPosition\".\"DataFrom\" = (select max(\"PeriodPosition\".\"DataFrom\") from \"PeriodPosition\" where \"PeriodPosition\".\"pk_personal_card\" = '" + pk_personal_card[i] + "') AND \"PeriodPosition\".\"pk_position\" = \"Position\".\"pk_position\"", npgSqlConnection);
+                    reader = com.ExecuteReader();
+                    if (reader.HasRows)
+                    {
+                        foreach (DbDataRecord rec in reader)
+                        {
+                            name_position = rec.GetString(0);
+                        }
+                    }
+                    reader.Close();
+                }
                 //получаем факты явки
                 List<Int32> data = new List<Int32>();
                 List<string> mark = new List<string>();
@@ -212,12 +238,14 @@ namespace PersonnelDeptApp1
             }
             dataGridView1.CellValueChanged += dataGridView1_CellValueChanged; //обратно подписываемся на событие 
             button2.Enabled = false;
+            button15.Enabled = true;
         }
 
         private void numericUpDown2_ValueChanged(object sender, EventArgs e)
         {
             dataGridView1.Rows.Clear();
             pk_fact.Clear();
+            button15.Enabled = false;
         }
 
         void blockCellsDays() //блокировка дней в datagridView
@@ -278,6 +306,7 @@ namespace PersonnelDeptApp1
         private void numericUpDown1_ValueChanged(object sender, EventArgs e)
         {
             dataGridView1.Rows.Clear();
+            button15.Enabled = false;
         }
 
         private void dataGridView1_CellValueChanged(object sender, DataGridViewCellEventArgs e)
@@ -423,6 +452,7 @@ namespace PersonnelDeptApp1
         private void comboBox1_SelectedValueChanged(object sender, EventArgs e)
         {
             dataGridView1.Rows.Clear();
+            button15.Enabled = false;
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -500,8 +530,211 @@ namespace PersonnelDeptApp1
         {
 
         }
-    }
 
+        private void button15_Click(object sender, EventArgs e)
+        {
+            SaveFileDialog sfd = new SaveFileDialog();
+            sfd.FileName = "Без названия";
+            sfd.Filter = "Excel Files(.xls)|*.xls| Excel Files(.xlsx) | *.xlsx | Excel Files(*.xlsm) | *.xlsm";
+
+            if (sfd.ShowDialog() == DialogResult.OK)
+            {
+                file_name = @sfd.FileName;
+                if (file_name == "")
+                {
+                    MessageBox.Show("Имя файла не может быть пустым");
+                    return;
+                }
+                try
+                {
+                    File.Delete(file_name);
+                }
+                catch
+                {
+                    MessageBox.Show("Невозможно перезаписать файл. Файл используется в другом процессе.");
+                    return;
+                }
+                File.Copy(Directory.GetCurrentDirectory() + "\\tabel.xls", file_name);
+                writeToExcel();
+
+                MessageBox.Show("Табель успешно экспортирован! Дождитесь открытия файла.");
+                Process.Start(file_name);
+            }
+
+ 
+        }
+
+        public void writeToExcel()
+        {
+            // Создаём приложение.
+            Microsoft.Office.Interop.Excel.Application ObjExcel = new Microsoft.Office.Interop.Excel.Application();
+            //Открываем книгу.                                                                                                                                                        
+            Microsoft.Office.Interop.Excel.Workbook ObjWorkBook = ObjExcel.Workbooks.Open(file_name, 0, false, 5, "", "", false, Microsoft.Office.Interop.Excel.XlPlatform.xlWindows, "", true, false, 0, true, false, false);
+            //Выбираем таблицу(лист).
+            Microsoft.Office.Interop.Excel.Worksheet ObjWorkSheet;
+            ObjWorkSheet = (Microsoft.Office.Interop.Excel.Worksheet)ObjWorkBook.Sheets[1];
+
+            //шапка
+            ObjWorkSheet.Cells[7, "A"] = "Городская больница №5"; //наименование организации
+            ObjWorkSheet.Cells[9, "A"] = comboBox1.Text; //подразделение
+            ObjWorkSheet.Cells[7, "GV"] = "00034237";
+
+            //ключ подразделения
+            NpgsqlCommand com;
+            com = new NpgsqlCommand("select * from \"TimeTracking\" where \"TimeTracking\".\"pk_time_tracking\" = '" + pk_time_tracking + "'", npgSqlConnection);
+            NpgsqlDataReader reader = com.ExecuteReader();
+            if (reader.HasRows)
+            {
+                foreach (DbDataRecord rec in reader)
+                {
+                    ObjWorkSheet.Cells[13, "EE"] = rec.GetString(1);
+                    ObjWorkSheet.Cells[13, "EU"] = rec.GetDateTime(2).ToString("dd.MM.yyyy");
+                    ObjWorkSheet.Cells[13, "FN"] = rec.GetDateTime(4).ToString("dd.MM.yyyy");
+                    ObjWorkSheet.Cells[13, "FY"] = rec.GetDateTime(3).ToString("dd.MM.yyyy");
+                }
+            }
+            reader.Close();
+
+            ObjWorkSheet = (Microsoft.Office.Interop.Excel.Worksheet)ObjWorkBook.Sheets[2];
+            //строки табеля
+            int first_half_hours, second_half_hours, first_half_days, second_half_days;
+            int overtime_hours, night_hours, holliday_hours, hollidays_days;
+            int neyavka_days, prichina_days;
+            for (int i = 0, j = 9; i  < dataGridView1.RowCount; i++, j++)
+            {
+                if ( i % 2 == 0) //строка с шифром
+                {
+                    first_half_days = 0; second_half_days = 0;
+                    hollidays_days = 0; neyavka_days = 0; prichina_days = 0;
+                    ObjWorkSheet.Cells[j, "A"] = i / 2  + 1; //номер по порядку
+                    ObjWorkSheet.Cells[j, "F"] = dataGridView1.Rows[i].Cells[0].Value.ToString(); //имя 
+                    com = new NpgsqlCommand("select \"pk_personal_card\" from \"StringTimeTracking\" where \"StringTimeTracking\".\"pk_string_time_tracking\" = '" + dataGridView1.Rows[i].Cells[33].Value.ToString() + "'", npgSqlConnection);
+                    ObjWorkSheet.Cells[j, "V"] = com.ExecuteScalar().ToString(); //табельный номер
+
+                    List<string> word_indx = new List<string>() {"AG", "AK", "AO", "AS", "AW", "BA", "BE", "BI", "BM", "BQ", "BU", "BY", "CC", "CG", "CK"};
+                    for (int k = 0; k < 15; k++) //первая половина месяца
+                    {
+                        if (dataGridView1.Rows[i].Cells[k+2].Value != null)
+                            if (dataGridView1.Rows[i].Cells[k+2].Value.ToString() != "")
+                            {
+                                string shfr = dataGridView1.Rows[i].Cells[k + 2].Value.ToString();
+                                ObjWorkSheet.Cells[j, word_indx[0]] = shfr;
+                                
+                                if (shfr == "Я" || shfr == "Н" || shfr == "РВ" || shfr == "С")
+                                    first_half_days++;
+                                else if (shfr == "В")
+                                    hollidays_days++;
+                                else if (shfr == "Б" || shfr == "НН" || shfr == "ПР")
+                                {
+                                    neyavka_days++;
+                                    if (shfr == "Б")
+                                        prichina_days++;
+                                }
+                            }
+                        word_indx.RemoveAt(0);
+                    }
+                    ObjWorkSheet.Cells[j, "CO"] = first_half_days;
+
+                    word_indx.AddRange( new string[] { "CV", "CZ", "DD", "DH", "DL", "DP", "DT", "DX", "EB", "EF", "EJ", "EN", "ER", "EV", "EZ", "FD" });
+
+                    for (int k = 15; k < 31; k++) //первая половина месяца
+                    {
+                        if (dataGridView1.Rows[i].Cells[k + 2].Value != null && dataGridView1.Columns[k+2].Visible == true)
+                            if (dataGridView1.Rows[i].Cells[k + 2].Value.ToString() != "")
+                            {
+                                string shfr = dataGridView1.Rows[i].Cells[k + 2].Value.ToString();
+                                ObjWorkSheet.Cells[j, word_indx[0]] = shfr;
+                                if (shfr == "Я" || shfr == "Н" || shfr == "РВ" || shfr == "С")
+                                    second_half_days++;
+                                else if (shfr == "В")
+                                    hollidays_days++;
+                                else if (shfr == "Б" || shfr == "НН" || shfr == "ПР")
+                                {
+                                    neyavka_days++;
+                                    if (shfr == "Б")
+                                        prichina_days++;
+                                }
+                            }
+                        word_indx.RemoveAt(0);
+                    }
+                    ObjWorkSheet.Cells[j, "FH"] = second_half_days;
+
+                    ObjWorkSheet.Cells[j, "FO"] = (first_half_days + second_half_days).ToString();
+                    ObjWorkSheet.Cells[j, "HE"] = neyavka_days.ToString();
+                    ObjWorkSheet.Cells[j, "HM"] = "Б";
+                    ObjWorkSheet.Cells[j, "HS"] = prichina_days.ToString();
+                    ObjWorkSheet.Cells[j, "IA"] = hollidays_days;
+                }
+                else //строка с часами
+                {
+                    first_half_hours = 0; second_half_hours = 0;
+                    overtime_hours = 0; night_hours = 0; holliday_hours = 0;
+                    
+                    List<string> word_indx = new List<string>() { "AG", "AK", "AO", "AS", "AW", "BA", "BE", "BI", "BM", "BQ", "BU", "BY", "CC", "CG", "CK" };
+                    for (int k = 0; k < 15; k++) //первая половина месяца
+                    {
+                        if (dataGridView1.Rows[i].Cells[k + 2].Value != null)
+                            if (dataGridView1.Rows[i].Cells[k + 2].Value.ToString() != "")
+                            {
+                                int cnt_hours = Convert.ToInt32(dataGridView1.Rows[i].Cells[k + 2].Value);
+                                ObjWorkSheet.Cells[j, word_indx[0]] = cnt_hours.ToString();
+                                first_half_hours += cnt_hours;
+
+                                if (dataGridView1.Rows[i - 1].Cells[k + 2].Value.ToString() == "С")
+                                    overtime_hours += cnt_hours;
+                                else if (dataGridView1.Rows[i-1].Cells[k + 2].Value.ToString() == "Н")
+                                    night_hours += cnt_hours;
+                                else if (dataGridView1.Rows[i - 1].Cells[k + 2].Value.ToString() == "РВ")
+                                    holliday_hours += cnt_hours;
+                            }
+                        word_indx.RemoveAt(0);
+                    }
+                    ObjWorkSheet.Cells[j, "CO"] = first_half_hours;
+
+                    word_indx.AddRange(new string[] { "CV", "CZ", "DD", "DH", "DL", "DP", "DT", "DX", "EB", "EF", "EJ", "EN", "ER", "EV", "EZ", "FD" });
+
+                    for (int k = 15; k < 31; k++) //первая половина месяца
+                    {
+                        if (dataGridView1.Rows[i].Cells[k + 2].Value != null && dataGridView1.Columns[k + 2].Visible == true)
+                            if (dataGridView1.Rows[i].Cells[k + 2].Value.ToString() != "")
+                            {
+                                int cnt_hours = Convert.ToInt32(dataGridView1.Rows[i].Cells[k + 2].Value);
+                                ObjWorkSheet.Cells[j, word_indx[0]] = cnt_hours.ToString();
+                                second_half_hours += cnt_hours;
+
+                                if (dataGridView1.Rows[i - 1].Cells[k + 2].Value.ToString() == "С")
+                                    overtime_hours += cnt_hours;
+                                else if (dataGridView1.Rows[i - 1].Cells[k + 2].Value.ToString() == "Н")
+                                    night_hours += cnt_hours;
+                                else if (dataGridView1.Rows[i - 1].Cells[k + 2].Value.ToString() == "РВ")
+                                    holliday_hours += cnt_hours;
+                            }
+                        word_indx.RemoveAt(0);
+                    }
+                    ObjWorkSheet.Cells[j, "FH"] = second_half_hours;
+
+                    ObjWorkSheet.Cells[j - 1, "FV"] = (first_half_hours + second_half_hours).ToString();
+                    ObjWorkSheet.Cells[j - 1, "GC"] = overtime_hours.ToString();
+                    ObjWorkSheet.Cells[j - 1, "GJ"] = night_hours.ToString();
+                    ObjWorkSheet.Cells[j - 1, "GQ"] = holliday_hours.ToString();
+
+                    ObjWorkSheet.Cells[j, "HE"] = (Convert.ToInt32(ObjWorkSheet.Cells[j - 1, "HE"].Text) * 8).ToString();
+                    ObjWorkSheet.Cells[j, "HM"] = "Б";
+                    ObjWorkSheet.Cells[j, "HS"] = (Convert.ToInt32(ObjWorkSheet.Cells[j - 1, "HS"].Text) * 8).ToString();
+
+                }
+
+            }
+
+            //закрытие документа
+            ObjWorkBook.Close(true);
+            ObjExcel.Quit();
+            ObjExcel = null;
+            ObjWorkBook = null;
+            ObjWorkSheet = null;
+            GC.Collect();
+        }
+    }
     public class Pair
     {
         public Pair(Int32 x, Int32 y) { X = x; Y = y; }
