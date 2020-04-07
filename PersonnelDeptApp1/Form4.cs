@@ -417,8 +417,10 @@ namespace PersonnelDeptApp1
                         GetPositionPKByName(moveTable.Rows[i].Cells[5].Value.ToString()), 
                         moveTable.Rows[i].Cells[9].Value.ToString());
                 }
+
+                if (MessageBox.Show("Приказ успешно добавлен!\nСохранить в Excel-файл?", "Успех", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+                    MoveToExcel();
                 MoveTabReset();
-                MessageBox.Show("Приказ успешно добавлен", "Успех", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (DbInsertErrorException ex) {
                 string sql;
@@ -672,159 +674,16 @@ namespace PersonnelDeptApp1
         private void HireToExcel()
         {
             Excel.Application app = new Excel.Application();
-            app.SheetsInNewWorkbook = 2;
-            Excel.Workbook workbook =  app.Application.Workbooks.Add(Type.Missing);
+            string openFile = Environment.CurrentDirectory + "\\Orders\\Templates\\HireOrderTemplate.xls";
+            app.Workbooks.Open(openFile, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing,
+                Type.Missing, Type.Missing, Type.Missing);
             app.DisplayAlerts = false;
 
             Excel.Worksheet sheet = (Excel.Worksheet)app.Worksheets.Item[1];
 
-            sheet.StandardWidth = 0.56;
             sheet.PageSetup.Orientation = Excel.XlPageOrientation.xlLandscape;
-
-            ((Excel.Range)(sheet.Range[sheet.Cells[1, "A"], sheet.Cells[1000, "EE"]])).Cells.HorizontalAlignment = Excel.XlHAlign.xlHAlignCenter;
-            ((Excel.Range)(sheet.Range[sheet.Cells[1, "A"], sheet.Cells[1000, "EE"]])).Cells.VerticalAlignment = Excel.XlVAlign.xlVAlignCenter;
-            ((Excel.Range)(sheet.Range[sheet.Cells[1, "A"], sheet.Cells[1000, "EE"]])).Cells.NumberFormat = "@";
-            ((Excel.Range)(sheet.Range[sheet.Cells[1, "A"], sheet.Cells[1000, "EE"]])).Cells.Font.Name = "Times New Roman";
-            ((Excel.Range)(sheet.Range[sheet.Cells[1, "A"], sheet.Cells[1000, "EE"]])).Cells.Font.Size = 10;
-
-            sheet.Range[sheet.Cells[2, "DD"], sheet.Cells[2, "EA"]].Merge();
-            sheet.Range[sheet.Cells[2, "DD"], sheet.Cells[2, "EA"]] = "Код";
-
-            sheet.Range[sheet.Cells[3, "CM"], sheet.Cells[3, "DB"]].Merge();
-            sheet.Range[sheet.Cells[3, "CM"], sheet.Cells[3, "DB"]] = "Форма по ОКУД";
-
-            sheet.Range[sheet.Cells[3, "DD"], sheet.Cells[3, "EA"]].Merge();
-            sheet.Range[sheet.Cells[3, "DD"], sheet.Cells[3, "EA"]] = "0301015";
-
-            sheet.Range[sheet.Cells[4, "CT"], sheet.Cells[4, "DB"]].Merge();
-            sheet.Range[sheet.Cells[4, "CT"], sheet.Cells[4, "DB"]] = "по ОКПО";
-            
-            sheet.Range[sheet.Cells[4, "DD"], sheet.Cells[4, "EA"]].Merge();
-            sheet.Range[sheet.Cells[4, "DD"], sheet.Cells[4, "EA"]] = "00034237";
-
-            sheet.Range[sheet.Cells[4, "A"], sheet.Cells[4, "CP"]].Merge();
-            sheet.Range[sheet.Cells[4, "A"], sheet.Cells[4, "CP"]] = "Городская больница номер 5";
-            ((Excel.Range)(sheet.Range[sheet.Cells[4, "A"], sheet.Cells[4, "CP"]])).Cells.Borders[Excel.XlBordersIndex.xlEdgeBottom].LineStyle = Excel.XlLineStyle.xlContinuous;
-
-            sheet.Range[sheet.Cells[5, "A"], sheet.Cells[5, "CP"]].Merge();
-            sheet.Range[sheet.Cells[5, "A"], sheet.Cells[5, "CP"]] = "(наименование организации)";
-            ((Excel.Range)(sheet.Range[sheet.Cells[5, "A"], sheet.Cells[5, "CP"]])).Cells.Font.Size = 8;
-
-
-            ((Excel.Range)(sheet.Range[sheet.Cells[2, "DD"], sheet.Cells[4, "EA"]])).Cells.Borders.LineStyle = Excel.XlLineStyle.xlContinuous;
-
-            sheet.Range[sheet.Cells[8, "BW"], sheet.Cells[8, "CN"]].Merge();
-            sheet.Range[sheet.Cells[8, "BW"], sheet.Cells[8, "CN"]] = "Номер документа";
-            sheet.Range[sheet.Cells[9, "BW"], sheet.Cells[9, "CN"]].Merge();
             sheet.Range[sheet.Cells[9, "BW"], sheet.Cells[9, "CN"]] = hireDocNum.Text;
-
-            sheet.Range[sheet.Cells[8, "CO"], sheet.Cells[8, "DG"]].Merge();
-            sheet.Range[sheet.Cells[8, "CO"], sheet.Cells[8, "DG"]] = "Дата составления";
-            sheet.Range[sheet.Cells[9, "CO"], sheet.Cells[9, "DG"]].Merge();
             sheet.Range[sheet.Cells[9, "CO"], sheet.Cells[9, "DG"]] = hireDocDate.Value.ToString(dateFormat);
-
-            ((Excel.Range)(sheet.Range[sheet.Cells[8, "BW"], sheet.Cells[9, "DG"]])).Cells.Borders.LineStyle = Excel.XlLineStyle.xlContinuous;
-
-            sheet.Range[sheet.Cells[9, "BL"], sheet.Cells[9, "BT"]].Merge();
-            sheet.Range[sheet.Cells[9, "BL"], sheet.Cells[9, "BT"]] = "ПРИКАЗ";
-            ((Excel.Range)(sheet.Range[sheet.Cells[9, "BL"], sheet.Cells[9, "BT"]])).Cells.Font.Size = 12;
-            ((Excel.Range)(sheet.Range[sheet.Cells[9, "BL"], sheet.Cells[9, "BT"]])).Cells.Font.Bold = true;
-
-            sheet.Range[sheet.Cells[10, "A"], sheet.Cells[10, "ED"]].Merge();
-            sheet.Range[sheet.Cells[10, "A"], sheet.Cells[10, "ED"]] = "(распоряжение)";
-            ((Excel.Range)(sheet.Range[sheet.Cells[10, "A"], sheet.Cells[10, "ED"]])).Cells.Font.Size = 12;
-            ((Excel.Range)(sheet.Range[sheet.Cells[10, "A"], sheet.Cells[10, "ED"]])).Cells.Font.Bold = true;
-
-            sheet.Range[sheet.Cells[11, "A"], sheet.Cells[11, "ED"]].Merge();
-            sheet.Range[sheet.Cells[11, "A"], sheet.Cells[11, "ED"]] = "о приеме работников на работу";
-            ((Excel.Range)(sheet.Range[sheet.Cells[11, "A"], sheet.Cells[11, "ED"]])).Cells.Font.Size = 12;
-            ((Excel.Range)(sheet.Range[sheet.Cells[11, "A"], sheet.Cells[11, "ED"]])).Cells.Font.Bold = true;
-
-            sheet.Range[sheet.Cells[13, "E"], sheet.Cells[13, "V"]].Merge();
-            sheet.Range[sheet.Cells[13, "E"], sheet.Cells[13, "V"]] = "Принять на работу";
-            ((Excel.Range)(sheet.Range[sheet.Cells[13, "E"], sheet.Cells[13, "E"]])).Cells.Font.Bold = true;
-
-            sheet.Range[sheet.Cells[15, "A"], sheet.Cells[16, "W"]].Merge();
-            sheet.Range[sheet.Cells[15, "A"], sheet.Cells[16, "W"]] = "Фамилия, имя, отчество";
-
-            sheet.Range[sheet.Cells[15, "X"], sheet.Cells[16, "AF"]].Merge();
-            sheet.Range[sheet.Cells[15, "X"], sheet.Cells[16, "AF"]] = "Табельный номер";
-
-            sheet.Range[sheet.Cells[15, "AG"], sheet.Cells[16, "AS"]].Merge();
-            sheet.Range[sheet.Cells[15, "AG"], sheet.Cells[16, "AS"]] = "Структурное подразделение";
-
-
-            sheet.Range[sheet.Cells[15, "AT"], sheet.Cells[16, "BH"]].Merge();
-            sheet.Range[sheet.Cells[15, "AT"], sheet.Cells[16, "BH"]] = "Должность (специальность, профессия), разряд, класс (категория) квалификации";
-
-            sheet.Range[sheet.Cells[15, "BI"], sheet.Cells[16, "BS"]].Merge();
-            sheet.Range[sheet.Cells[15, "BI"], sheet.Cells[16, "BS"]] = "Тарифная ставка (оклад), надбавка, руб.";
-
-            sheet.Range[sheet.Cells[15, "BT"], sheet.Cells[15, "CI"]].Merge();
-            sheet.Range[sheet.Cells[15, "BT"], sheet.Cells[15, "CI"]] = "Основание: трудовой договор";
-
-            sheet.Range[sheet.Cells[16, "BT"], sheet.Cells[16, "CA"]].Merge();
-            sheet.Range[sheet.Cells[16, "BT"], sheet.Cells[16, "CA"]] = "номер";
-
-            sheet.Range[sheet.Cells[16, "CB"], sheet.Cells[16, "CI"]].Merge();
-            sheet.Range[sheet.Cells[16, "CB"], sheet.Cells[16, "CI"]] = "дата";
-
-            sheet.Range[sheet.Cells[15, "CJ"], sheet.Cells[15, "CX"]].Merge();
-            sheet.Range[sheet.Cells[15, "CJ"], sheet.Cells[15, "CX"]] = "Преиод работы";
-
-            sheet.Range[sheet.Cells[16, "CJ"], sheet.Cells[16, "CQ"]].Merge();
-            sheet.Range[sheet.Cells[16, "CJ"], sheet.Cells[16, "CQ"]] = "с";
-
-            sheet.Range[sheet.Cells[16, "CR"], sheet.Cells[16, "CX"]].Merge();
-            sheet.Range[sheet.Cells[16, "CR"], sheet.Cells[16, "CX"]] = "по";
-
-            sheet.Range[sheet.Cells[15, "CY"], sheet.Cells[16, "DH"]].Merge();
-            sheet.Range[sheet.Cells[15, "CY"], sheet.Cells[16, "DH"]] = "Испытание на срок, месяцев";
-
-            sheet.Range[sheet.Cells[15, "DI"], sheet.Cells[16, "ED"]].Merge();
-            sheet.Range[sheet.Cells[15, "DI"], sheet.Cells[16, "ED"]] = "С приказом (распоряжением) работник ознакомлен, Личная подпись, Дата";
-
-            sheet.Range[sheet.Cells[17, "A"], sheet.Cells[17, "W"]].Merge();
-            sheet.Range[sheet.Cells[17, "A"], sheet.Cells[17, "W"]] = "1";
-
-            sheet.Range[sheet.Cells[17, "X"], sheet.Cells[17, "AF"]].Merge();
-            sheet.Range[sheet.Cells[17, "X"], sheet.Cells[17, "AF"]] = "2";
-
-            sheet.Range[sheet.Cells[17, "AG"], sheet.Cells[17, "AS"]].Merge();
-            sheet.Range[sheet.Cells[17, "AG"], sheet.Cells[17, "AS"]] = "3";
-
-            sheet.Range[sheet.Cells[17, "AT"], sheet.Cells[17, "BH"]].Merge();
-            sheet.Range[sheet.Cells[17, "AT"], sheet.Cells[17, "BH"]] = "4";
-
-            sheet.Range[sheet.Cells[17, "BI"], sheet.Cells[17, "BS"]].Merge();
-            sheet.Range[sheet.Cells[17, "BI"], sheet.Cells[17, "BS"]] = "5";
-
-            sheet.Range[sheet.Cells[17, "BT"], sheet.Cells[17, "CA"]].Merge();
-            sheet.Range[sheet.Cells[17, "BT"], sheet.Cells[17, "CA"]] = "6";
-
-            sheet.Range[sheet.Cells[17, "CB"], sheet.Cells[17, "CI"]].Merge();
-            sheet.Range[sheet.Cells[17, "CB"], sheet.Cells[17, "CI"]] = "7";
-
-            sheet.Range[sheet.Cells[17, "CJ"], sheet.Cells[17, "CQ"]].Merge();
-            sheet.Range[sheet.Cells[17, "CJ"], sheet.Cells[17, "CQ"]] = "8";
-
-            sheet.Range[sheet.Cells[17, "CR"], sheet.Cells[17, "CX"]].Merge();
-            sheet.Range[sheet.Cells[17, "CR"], sheet.Cells[17, "CX"]] = "9";
-
-            sheet.Range[sheet.Cells[17, "CY"], sheet.Cells[17, "DH"]].Merge();
-            sheet.Range[sheet.Cells[17, "CY"], sheet.Cells[17, "DH"]] = "10";
-
-            sheet.Range[sheet.Cells[17, "DI"], sheet.Cells[17, "ED"]].Merge();
-            sheet.Range[sheet.Cells[17, "DI"], sheet.Cells[17, "ED"]] = "11";
-
-            ((Excel.Range)sheet.Range[sheet.Cells[15, "A"], sheet.Cells[17, "ED"]]).Cells.Borders.LineStyle = Excel.XlLineStyle.xlContinuous;
-            ((Excel.Range)sheet.Range[sheet.Cells[15, "A"], sheet.Cells[1000, "EE"]]).Cells.WrapText = true;
-            ((Excel.Range)sheet.Range[sheet.Cells[15, "A"], sheet.Cells[1000, "EE"]]).Cells.Font.Size = 9;
-
-            sheet.Rows[15].RowHeight = 21;
-            sheet.Rows[16].RowHeight = 27;
-
-
 
             int currentRow = 18;
             for (int i = 0; i < hireTable.Rows.Count; i++, currentRow++)
@@ -864,7 +723,10 @@ namespace PersonnelDeptApp1
 
                 
                 ((Excel.Range)sheet.Range[sheet.Cells[currentRow, "A"], sheet.Cells[currentRow, "ED"]]).Cells.Borders.LineStyle = Excel.XlLineStyle.xlContinuous;
-
+                ((Excel.Range)sheet.Range[sheet.Cells[currentRow, "A"], sheet.Cells[currentRow, "ED"]]).Cells.WrapText = true;
+                ((Excel.Range)sheet.Range[sheet.Cells[currentRow, "A"], sheet.Cells[currentRow, "ED"]]).Cells.Font.Size = 9;
+                ((Excel.Range)sheet.Range[sheet.Cells[currentRow, "A"], sheet.Cells[currentRow, "ED"]]).Cells.HorizontalAlignment = Excel.XlHAlign.xlHAlignCenter;
+                ((Excel.Range)sheet.Range[sheet.Cells[currentRow, "A"], sheet.Cells[currentRow, "ED"]]).Cells.VerticalAlignment = Excel.XlVAlign.xlVAlignCenter;
             }
             currentRow++;
             sheet.Range[sheet.Cells[currentRow, "A"], sheet.Cells[currentRow, "Z"]].Merge();
@@ -891,173 +753,36 @@ namespace PersonnelDeptApp1
                 Directory.CreateDirectory(fileDir);
 
             string fileName = fileDir + "\\HIRE_" + hireDocNum.Text + "_" + hireDocDate.Value.ToString(dateFormat);
-            if (File.Exists(fileName + ".xlsx"))
+            if (File.Exists(fileName + ".xls"))
                 fileName = fileName + "(" + DateTime.Now.ToString("dd-MM-yyyy HH-mm") + ")";
             
-            app.Application.ActiveWorkbook.SaveAs(fileName + ".xlsx", Type.Missing, Type.Missing, Type.Missing,
+            app.Application.ActiveWorkbook.SaveAs(fileName + ".xls", Type.Missing, Type.Missing, Type.Missing,
                           Type.Missing, Type.Missing, Excel.XlSaveAsAccessMode.xlNoChange, 
                           Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing);
 
             app.Application.ActiveWorkbook.Close();
             app.Quit();
-            MessageBox.Show("Приказ сохранен по пути: " + fileName + ".xlsx", "Успех", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBox.Show("Приказ сохранен по пути: " + fileName + ".xls", "Успех", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private void FireToExcel()
         {
             Excel.Application app = new Excel.Application();
-            app.SheetsInNewWorkbook = 2;
-            Excel.Workbook workbook = app.Application.Workbooks.Add(Type.Missing);
+            string openFile = Environment.CurrentDirectory + "\\Orders\\Templates\\FireOrderTemplate.xls";
+            app.Workbooks.Open(openFile, Type.Missing, Type.Missing, Type.Missing,
+                Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing,
+                Type.Missing, Type.Missing, Type.Missing);
             app.DisplayAlerts = false;
 
             Excel.Worksheet sheet = (Excel.Worksheet)app.Worksheets.Item[1];
 
-            sheet.StandardWidth = 2;
             sheet.PageSetup.Orientation = Excel.XlPageOrientation.xlLandscape;
 
-            ((Excel.Range)(sheet.Range[sheet.Cells[1, "A"], sheet.Cells[1000, "BB"]])).Cells.HorizontalAlignment = Excel.XlHAlign.xlHAlignCenter;
-            ((Excel.Range)(sheet.Range[sheet.Cells[1, "A"], sheet.Cells[1000, "BB"]])).Cells.VerticalAlignment = Excel.XlVAlign.xlVAlignCenter;
-            ((Excel.Range)(sheet.Range[sheet.Cells[1, "A"], sheet.Cells[1000, "BB"]])).Cells.NumberFormat = "@";
-            ((Excel.Range)(sheet.Range[sheet.Cells[1, "A"], sheet.Cells[1000, "BB"]])).Cells.Font.Name = "Times New Roman";
-            ((Excel.Range)(sheet.Range[sheet.Cells[1, "A"], sheet.Cells[1000, "BB"]])).Cells.Font.Size = 10;
-
-            sheet.Range[sheet.Cells[2, "AR"], sheet.Cells[2, "AU"]].Merge();
-            sheet.Range[sheet.Cells[2, "AR"], sheet.Cells[2, "AU"]] = "Код";
-
-            sheet.Range[sheet.Cells[3, "AR"], sheet.Cells[3, "AU"]].Merge();
-            sheet.Range[sheet.Cells[3, "AR"], sheet.Cells[3, "AU"]] = "0301021";
-
-            sheet.Range[sheet.Cells[4, "AR"], sheet.Cells[4, "AU"]].Merge();
-            sheet.Range[sheet.Cells[4, "AR"], sheet.Cells[4, "AU"]] = "00034237";
-
-            sheet.Range[sheet.Cells[3, "AL"], sheet.Cells[3, "AQ"]].Merge();
-            sheet.Range[sheet.Cells[3, "AL"], sheet.Cells[3, "AQ"]] = "Форма по ОКУД";
-            ((Excel.Range)(sheet.Range[sheet.Cells[3, "AL"], sheet.Cells[3, "AQ"]])).Cells.HorizontalAlignment = Excel.XlHAlign.xlHAlignRight;
-
-            sheet.Range[sheet.Cells[4, "AL"], sheet.Cells[4, "AQ"]].Merge();
-            sheet.Range[sheet.Cells[4, "AL"], sheet.Cells[4, "AQ"]] = "Форма по ОКПО";
-            ((Excel.Range)(sheet.Range[sheet.Cells[4, "AL"], sheet.Cells[4, "AQ"]])).Cells.HorizontalAlignment = Excel.XlHAlign.xlHAlignRight;
-
-            sheet.Range[sheet.Cells[4, "A"], sheet.Cells[4, "AK"]].Merge();
-            sheet.Range[sheet.Cells[4, "A"], sheet.Cells[4, "AK"]] = "Городская больница номер 5";
-            ((Excel.Range)(sheet.Range[sheet.Cells[4, "A"], sheet.Cells[4, "AK"]])).Cells.Borders[Excel.XlBordersIndex.xlEdgeBottom].LineStyle = Excel.XlLineStyle.xlContinuous;
-
-            sheet.Range[sheet.Cells[5, "A"], sheet.Cells[5, "AK"]].Merge();
-            sheet.Range[sheet.Cells[5, "A"], sheet.Cells[5, "AK"]] = "(наименование организации)";
-            ((Excel.Range)(sheet.Range[sheet.Cells[5, "A"], sheet.Cells[5, "AK"]])).Cells.Font.Size = 8;
-
-
-            ((Excel.Range)(sheet.Range[sheet.Cells[2, "AR"], sheet.Cells[4, "AU"]])).Cells.Borders.LineStyle = Excel.XlLineStyle.xlContinuous;
-
-            sheet.Range[sheet.Cells[8, "AA"], sheet.Cells[8, "AF"]].Merge();
-            sheet.Range[sheet.Cells[8, "AA"], sheet.Cells[8, "AF"]] = "Номер документа";
-            sheet.Range[sheet.Cells[9, "AA"], sheet.Cells[9, "AF"]].Merge();
+            
+            
             sheet.Range[sheet.Cells[9, "AA"], sheet.Cells[9, "AF"]] = fireDocNum.Text;
 
-            sheet.Range[sheet.Cells[8, "AG"], sheet.Cells[8, "AN"]].Merge();
-            sheet.Range[sheet.Cells[8, "AG"], sheet.Cells[8, "AN"]] = "Дата составления";
-            sheet.Range[sheet.Cells[9, "AG"], sheet.Cells[9, "AN"]].Merge();
             sheet.Range[sheet.Cells[9, "AG"], sheet.Cells[9, "AN"]] = fireDocDate.Value.ToString(dateFormat);
-
-            ((Excel.Range)(sheet.Range[sheet.Cells[8, "AA"], sheet.Cells[9, "AN"]])).Cells.Borders.LineStyle = Excel.XlLineStyle.xlContinuous;
-
-            sheet.Range[sheet.Cells[9, "W"], sheet.Cells[9, "Z"]].Merge();
-            sheet.Range[sheet.Cells[9, "W"], sheet.Cells[9, "Z"]] = "ПРИКАЗ";
-            ((Excel.Range)(sheet.Range[sheet.Cells[9, "W"], sheet.Cells[9, "Z"]])).Cells.Font.Size = 12;
-            ((Excel.Range)(sheet.Range[sheet.Cells[9, "W"], sheet.Cells[9, "Z"]])).Cells.Font.Bold = true;
-
-            sheet.Range[sheet.Cells[10, "A"], sheet.Cells[10, "AV"]].Merge();
-            sheet.Range[sheet.Cells[10, "A"], sheet.Cells[10, "AV"]] = "(распоряжение)";
-            ((Excel.Range)(sheet.Range[sheet.Cells[10, "A"], sheet.Cells[10, "AV"]])).Cells.Font.Size = 12;
-            ((Excel.Range)(sheet.Range[sheet.Cells[10, "A"], sheet.Cells[10, "AV"]])).Cells.Font.Bold = true;
-
-            sheet.Range[sheet.Cells[11, "A"], sheet.Cells[11, "AV"]].Merge();
-            sheet.Range[sheet.Cells[11, "A"], sheet.Cells[11, "AV"]] = "о прекращении (расторжении) трудового договора с работниками (увольнении)";
-            ((Excel.Range)(sheet.Range[sheet.Cells[11, "A"], sheet.Cells[11, "AV"]])).Cells.Font.Size = 12;
-            ((Excel.Range)(sheet.Range[sheet.Cells[11, "A"], sheet.Cells[11, "AV"]])).Cells.Font.Bold = true;
-
-            sheet.Range[sheet.Cells[13, "A"], sheet.Cells[13, "T"]].Merge();
-            sheet.Range[sheet.Cells[13, "A"], sheet.Cells[13, "T"]] = "Прекратить действие трудовых договоров с работниками (уволить)";
-            ((Excel.Range)(sheet.Range[sheet.Cells[13, "A"], sheet.Cells[13, "T"]])).Cells.Font.Bold = true;
-
-            sheet.Range[sheet.Cells[14, "A"], sheet.Cells[14, "T"]].Merge();
-            sheet.Range[sheet.Cells[14, "A"], sheet.Cells[14, "T"]] = "(ненужное зачеркнуть)";
-            ((Excel.Range)(sheet.Range[sheet.Cells[14, "A"], sheet.Cells[14, "T"]])).Cells.Font.Size = 8;
-            ((Excel.Range)(sheet.Range[sheet.Cells[14, "A"], sheet.Cells[14, "T"]])).Cells.RowHeight = 9;
-
-            sheet.Range[sheet.Cells[15, "A"], sheet.Cells[16, "G"]].Merge();
-            sheet.Range[sheet.Cells[15, "A"], sheet.Cells[16, "G"]] = "Фамилия, имя, отчество";
-
-            sheet.Range[sheet.Cells[15, "H"], sheet.Cells[16, "J"]].Merge();
-            sheet.Range[sheet.Cells[15, "H"], sheet.Cells[16, "J"]] = "Табельный номер";
-
-            sheet.Range[sheet.Cells[15, "K"], sheet.Cells[16, "O"]].Merge();
-            sheet.Range[sheet.Cells[15, "K"], sheet.Cells[16, "O"]] = "Структурное подразделение";
-
-
-            sheet.Range[sheet.Cells[15, "P"], sheet.Cells[16, "T"]].Merge();
-            sheet.Range[sheet.Cells[15, "P"], sheet.Cells[16, "T"]] = "Должность (специальность, профессия), разряд, класс (категория) квалификации";
-
-            sheet.Range[sheet.Cells[15, "U"], sheet.Cells[15, "AA"]].Merge();
-            sheet.Range[sheet.Cells[15, "U"], sheet.Cells[15, "AA"]] = "Трудовой договор";
-
-            sheet.Range[sheet.Cells[16, "U"], sheet.Cells[16, "X"]].Merge();
-            sheet.Range[sheet.Cells[16, "U"], sheet.Cells[16, "X"]] = "номер";
-
-            sheet.Range[sheet.Cells[16, "Y"], sheet.Cells[16, "AA"]].Merge();
-            sheet.Range[sheet.Cells[16, "Y"], sheet.Cells[16, "AA"]] = "дата";
-
-            sheet.Range[sheet.Cells[15, "AB"], sheet.Cells[16, "AE"]].Merge();
-            sheet.Range[sheet.Cells[15, "AB"], sheet.Cells[16, "AE"]] = "Дата прекращения (расторжения) трудового договора (увольнения)";
-
-            sheet.Range[sheet.Cells[15, "AF"], sheet.Cells[16, "AJ"]].Merge();
-            sheet.Range[sheet.Cells[15, "AF"], sheet.Cells[16, "AJ"]] = "Основание прекращения (расторжения) трудового договора (увольнения)";
-
-            sheet.Range[sheet.Cells[15, "AK"], sheet.Cells[16, "AP"]].Merge();
-            sheet.Range[sheet.Cells[15, "AK"], sheet.Cells[16, "AP"]] = "Документ, номер, дата";
-
-            sheet.Range[sheet.Cells[15, "AQ"], sheet.Cells[16, "AV"]].Merge();
-            sheet.Range[sheet.Cells[15, "AQ"], sheet.Cells[16, "AV"]] = "С приказом (распоряжением) работник ознакомлен. Личная подпись. Дата";
-
-            sheet.Range[sheet.Cells[17, "A"], sheet.Cells[17, "G"]].Merge();
-            sheet.Range[sheet.Cells[17, "A"], sheet.Cells[17, "G"]] = "1";
-
-            sheet.Range[sheet.Cells[17, "H"], sheet.Cells[17, "J"]].Merge();
-            sheet.Range[sheet.Cells[17, "H"], sheet.Cells[17, "J"]] = "2";
-
-            sheet.Range[sheet.Cells[17, "K"], sheet.Cells[17, "O"]].Merge();
-            sheet.Range[sheet.Cells[17, "K"], sheet.Cells[17, "O"]] = "3";
-
-            sheet.Range[sheet.Cells[17, "P"], sheet.Cells[17, "T"]].Merge();
-            sheet.Range[sheet.Cells[17, "P"], sheet.Cells[17, "T"]] = "4";
-
-            sheet.Range[sheet.Cells[17, "U"], sheet.Cells[17, "X"]].Merge();
-            sheet.Range[sheet.Cells[17, "U"], sheet.Cells[17, "X"]] = "5";
-
-            sheet.Range[sheet.Cells[17, "Y"], sheet.Cells[17, "AA"]].Merge();
-            sheet.Range[sheet.Cells[17, "Y"], sheet.Cells[17, "AA"]] = "6";
-
-            sheet.Range[sheet.Cells[17, "AB"], sheet.Cells[17, "AE"]].Merge();
-            sheet.Range[sheet.Cells[17, "AB"], sheet.Cells[17, "AE"]] = "7";
-
-            sheet.Range[sheet.Cells[17, "AF"], sheet.Cells[17, "AJ"]].Merge();
-            sheet.Range[sheet.Cells[17, "AF"], sheet.Cells[17, "AJ"]] = "8";
-
-            sheet.Range[sheet.Cells[17, "AK"], sheet.Cells[17, "AP"]].Merge();
-            sheet.Range[sheet.Cells[17, "AK"], sheet.Cells[17, "AP"]] = "9";
-
-            sheet.Range[sheet.Cells[17, "AQ"], sheet.Cells[17, "AV"]].Merge();
-            sheet.Range[sheet.Cells[17, "AQ"], sheet.Cells[17, "AV"]] = "10";
-
-            ((Excel.Range)sheet.Range[sheet.Cells[15, "A"], sheet.Cells[17, "AV"]]).Cells.Borders.LineStyle = Excel.XlLineStyle.xlContinuous;
-            ((Excel.Range)sheet.Range[sheet.Cells[15, "A"], sheet.Cells[1000, "AV"]]).Cells.WrapText = true;
-            ((Excel.Range)sheet.Range[sheet.Cells[15, "A"], sheet.Cells[1000, "AV"]]).Cells.Font.Size = 9;
-
-            sheet.Rows[15].RowHeight = 21;
-            sheet.Rows[16].RowHeight = 27;
-
-
-
             int currentRow = 18;
             for (int i = 0; i < fireTable.Rows.Count; i++, currentRow++)
             {
@@ -1092,7 +817,10 @@ namespace PersonnelDeptApp1
                 sheet.Range[sheet.Cells[currentRow, "AQ"], sheet.Cells[currentRow, "AV"]].Merge();
 
                 ((Excel.Range)sheet.Range[sheet.Cells[currentRow, "A"], sheet.Cells[currentRow, "AV"]]).Cells.Borders.LineStyle = Excel.XlLineStyle.xlContinuous;
-
+                ((Excel.Range)sheet.Range[sheet.Cells[currentRow, "A"], sheet.Cells[currentRow, "AV"]]).Cells.WrapText = true;
+                ((Excel.Range)sheet.Range[sheet.Cells[currentRow, "A"], sheet.Cells[currentRow, "AV"]]).Cells.Font.Size = 9;
+                ((Excel.Range)sheet.Range[sheet.Cells[currentRow, "A"], sheet.Cells[currentRow, "AV"]]).Cells.HorizontalAlignment = Excel.XlHAlign.xlHAlignCenter;
+                ((Excel.Range)sheet.Range[sheet.Cells[currentRow, "A"], sheet.Cells[currentRow, "AV"]]).Cells.VerticalAlignment = Excel.XlVAlign.xlVAlignCenter;
             }
             currentRow++;
             sheet.Range[sheet.Cells[currentRow, "A"], sheet.Cells[currentRow, "J"]].Merge();
@@ -1129,28 +857,117 @@ namespace PersonnelDeptApp1
             if (!Directory.Exists(fileDir))
                 Directory.CreateDirectory(fileDir);
             string fileName = fileDir + "\\FIRE_" + hireDocNum.Text + "_" + hireDocDate.Value.ToString(dateFormat);
-            if (File.Exists(fileName + ".xlsx"))
+            if (File.Exists(fileName + ".xls"))
                 fileName = fileName + "(" + DateTime.Now.ToString("dd-MM-yyyy HH-mm") + ")";
 
-            app.Application.ActiveWorkbook.SaveAs(fileName + ".xlsx", Type.Missing, Type.Missing, Type.Missing,
+            app.Application.ActiveWorkbook.SaveAs(fileName + ".xls", Type.Missing, Type.Missing, Type.Missing,
                           Type.Missing, Type.Missing, Excel.XlSaveAsAccessMode.xlNoChange,
                           Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing);
 
-            MessageBox.Show("Приказ сохранен по пути: " + fileName + ".xlsx", "Успех", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            app.Application.ActiveWorkbook.Close();
+            app.Quit();
+
+            MessageBox.Show("Приказ сохранен по пути: " + fileName + ".xls", "Успех", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        private void MoveToExcel()
+        {
+            Excel.Application app = new Excel.Application();
+            string openFile = Environment.CurrentDirectory + "\\Orders\\Templates\\MoveOrderTemplate.xls";
+            app.Workbooks.Open(openFile, Type.Missing, Type.Missing, Type.Missing,
+                Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing,
+                Type.Missing, Type.Missing, Type.Missing);
+            app.DisplayAlerts = false;
+
+            Excel.Worksheet sheet = (Excel.Worksheet)app.Worksheets.Item[1];
+
+            sheet.PageSetup.Orientation = Excel.XlPageOrientation.xlLandscape;
+
+            sheet.Range[sheet.Cells[9, "AA"], sheet.Cells[9, "AF"]] = moveDocNum.Text;
+
+            sheet.Range[sheet.Cells[9, "AG"], sheet.Cells[9, "AL"]] = moveDocDate.Value.ToString(dateFormat);
+
+            int currentRow = 17;
+            for (int i = 0; i < moveTable.Rows.Count; i++, currentRow++)
+            {
+                sheet.Rows[currentRow].RowHeight = 30;
+
+                sheet.Range[sheet.Cells[currentRow, "A"], sheet.Cells[currentRow, "H"]].Merge();
+                sheet.Range[sheet.Cells[currentRow, "A"], sheet.Cells[currentRow, "H"]] = moveTable.Rows[i].Cells[0].Value.ToString();
+
+                sheet.Range[sheet.Cells[currentRow, "I"], sheet.Cells[currentRow, "K"]].Merge();
+                sheet.Range[sheet.Cells[currentRow, "I"], sheet.Cells[currentRow, "K"]] = moveTable.Rows[i].Cells[1].Value.ToString();
+
+                sheet.Range[sheet.Cells[currentRow, "L"], sheet.Cells[currentRow, "O"]].Merge();
+                sheet.Range[sheet.Cells[currentRow, "L"], sheet.Cells[currentRow, "O"]] = moveTable.Rows[i].Cells[2].Value.ToString();
+
+                sheet.Range[sheet.Cells[currentRow, "P"], sheet.Cells[currentRow, "S"]].Merge();
+                sheet.Range[sheet.Cells[currentRow, "P"], sheet.Cells[currentRow, "S"]] = moveTable.Rows[i].Cells[3].Value.ToString();
+
+                sheet.Range[sheet.Cells[currentRow, "T"], sheet.Cells[currentRow, "W"]].Merge();
+                sheet.Range[sheet.Cells[currentRow, "T"], sheet.Cells[currentRow, "W"]] = moveTable.Rows[i].Cells[4].Value.ToString();
+
+                sheet.Range[sheet.Cells[currentRow, "X"], sheet.Cells[currentRow, "AA"]].Merge();
+                sheet.Range[sheet.Cells[currentRow, "X"], sheet.Cells[currentRow, "AA"]] = moveTable.Rows[i].Cells[5].Value.ToString();
+
+                sheet.Range[sheet.Cells[currentRow, "AB"], sheet.Cells[currentRow, "AE"]].Merge();
+                sheet.Range[sheet.Cells[currentRow, "AB"], sheet.Cells[currentRow, "AE"]] = moveTable.Rows[i].Cells[6].Value.ToString();
+
+                sheet.Range[sheet.Cells[currentRow, "AF"], sheet.Cells[currentRow, "AH"]].Merge();
+                sheet.Range[sheet.Cells[currentRow, "AF"], sheet.Cells[currentRow, "AH"]] = moveTable.Rows[i].Cells[9].Value.ToString();
+
+                sheet.Range[sheet.Cells[currentRow, "AI"], sheet.Cells[currentRow, "AK"]].Merge();
+
+                sheet.Range[sheet.Cells[currentRow, "AL"], sheet.Cells[currentRow, "AN"]].Merge();
+                sheet.Range[sheet.Cells[currentRow, "AL"], sheet.Cells[currentRow, "AN"]] = moveTable.Rows[i].Cells[7].Value.ToString();
+
+                sheet.Range[sheet.Cells[currentRow, "AO"], sheet.Cells[currentRow, "AQ"]].Merge();
+                sheet.Range[sheet.Cells[currentRow, "AO"], sheet.Cells[currentRow, "AQ"]] = moveTable.Rows[i].Cells[8].Value.ToString();
+
+                sheet.Range[sheet.Cells[currentRow, "AR"], sheet.Cells[currentRow, "AV"]].Merge();
+
+                ((Excel.Range)sheet.Range[sheet.Cells[currentRow, "A"], sheet.Cells[currentRow, "AV"]]).Cells.Borders.LineStyle = Excel.XlLineStyle.xlContinuous;
+                ((Excel.Range)sheet.Range[sheet.Cells[currentRow, "A"], sheet.Cells[currentRow, "AV"]]).Cells.WrapText = true;
+                ((Excel.Range)sheet.Range[sheet.Cells[currentRow, "A"], sheet.Cells[currentRow, "AV"]]).Cells.Font.Size = 9;
+                ((Excel.Range)sheet.Range[sheet.Cells[currentRow, "A"], sheet.Cells[currentRow, "AV"]]).Cells.VerticalAlignment = Excel.XlVAlign.xlVAlignCenter;
+                ((Excel.Range)sheet.Range[sheet.Cells[currentRow, "A"], sheet.Cells[currentRow, "AV"]]).Cells.HorizontalAlignment = Excel.XlHAlign.xlHAlignCenter;
+
+            }
+            currentRow++;
+            sheet.Range[sheet.Cells[currentRow, "A"], sheet.Cells[currentRow, "J"]].Merge();
+            sheet.Range[sheet.Cells[currentRow, "A"], sheet.Cells[currentRow, "J"]] = "Руководитель организации";
+            ((Excel.Range)(sheet.Range[sheet.Cells[currentRow, "A"], sheet.Cells[currentRow, "J"]])).Cells.Font.Size = 12;
+
+            sheet.Range[sheet.Cells[currentRow, "K"], sheet.Cells[currentRow, "T"]].Merge();
+            sheet.Range[sheet.Cells[currentRow + 1, "K"], sheet.Cells[currentRow + 1, "T"]].Merge();
+            sheet.Range[sheet.Cells[currentRow + 1, "K"], sheet.Cells[currentRow + 1, "T"]] = "(должность)";
+            ((Excel.Range)sheet.Range[sheet.Cells[currentRow, "K"], sheet.Cells[currentRow, "T"]]).Cells.Borders[Excel.XlBordersIndex.xlEdgeBottom].LineStyle = Excel.XlLineStyle.xlContinuous;
+
+            sheet.Range[sheet.Cells[currentRow, "V"], sheet.Cells[currentRow, "AC"]].Merge();
+            sheet.Range[sheet.Cells[currentRow + 1, "V"], sheet.Cells[currentRow + 1, "AC"]].Merge();
+            sheet.Range[sheet.Cells[currentRow + 1, "V"], sheet.Cells[currentRow + 1, "AC"]] = "(личная подпись)";
+            ((Excel.Range)sheet.Range[sheet.Cells[currentRow, "V"], sheet.Cells[currentRow, "AC"]]).Cells.Borders[Excel.XlBordersIndex.xlEdgeBottom].LineStyle = Excel.XlLineStyle.xlContinuous;
+
+            sheet.Range[sheet.Cells[currentRow, "AE"], sheet.Cells[currentRow, "AQ"]].Merge();
+            sheet.Range[sheet.Cells[currentRow + 1, "AE"], sheet.Cells[currentRow + 1, "AQ"]].Merge();
+            sheet.Range[sheet.Cells[currentRow + 1, "AE"], sheet.Cells[currentRow + 1, "AQ"]] = "(расшифровка подписи)";
+            ((Excel.Range)sheet.Range[sheet.Cells[currentRow, "AE"], sheet.Cells[currentRow, "AQ"]]).Cells.Borders[Excel.XlBordersIndex.xlEdgeBottom].LineStyle = Excel.XlLineStyle.xlContinuous;
+
+            string fileDir = Environment.CurrentDirectory + "\\Orders";
+            if (!Directory.Exists(fileDir))
+                Directory.CreateDirectory(fileDir);
+            string fileName = fileDir + "\\MOVE_" + hireDocNum.Text + "_" + hireDocDate.Value.ToString(dateFormat);
+            if (File.Exists(fileName + ".xls"))
+                fileName = fileName + "(" + DateTime.Now.ToString("dd-MM-yyyy HH-mm") + ")";
+
+            app.Application.ActiveWorkbook.SaveAs(fileName + ".xls", Type.Missing, Type.Missing, Type.Missing,
+                          Type.Missing, Type.Missing, Excel.XlSaveAsAccessMode.xlNoChange,
+                          Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing);
 
             app.Application.ActiveWorkbook.Close();
             app.Quit();
-        }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            HireToExcel();
-            FireToExcel();
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-            FireToExcel();
+            MessageBox.Show("Приказ сохранен по пути: " + fileName + ".xls", "Успех", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
     }
 }

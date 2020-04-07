@@ -140,7 +140,6 @@
             this.moveDocDate = new System.Windows.Forms.DateTimePicker();
             this.moveDocDate_Label = new System.Windows.Forms.Label();
             this.moveInOrder_Label = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
             this.orderTab.SuspendLayout();
             this.hirePage.SuspendLayout();
             this.TableLayoutPanel1.SuspendLayout();
@@ -208,7 +207,6 @@
             this.TableLayoutPanel1.Controls.Add(this.panel2, 1, 1);
             this.TableLayoutPanel1.Controls.Add(this.hireDocNum, 3, 0);
             this.TableLayoutPanel1.Controls.Add(this.hireInOrder, 0, 5);
-            this.TableLayoutPanel1.Controls.Add(this.button1, 10, 9);
             this.TableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.TableLayoutPanel1.Location = new System.Drawing.Point(4, 4);
             this.TableLayoutPanel1.Margin = new System.Windows.Forms.Padding(4);
@@ -1631,18 +1629,6 @@
             this.moveInOrder_Label.Text = "В приказе";
             this.moveInOrder_Label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // button1
-            // 
-            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.button1.Location = new System.Drawing.Point(704, 405);
-            this.button1.Margin = new System.Windows.Forms.Padding(4);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(62, 28);
-            this.button1.TabIndex = 61;
-            this.button1.Text = "Добавить приказ";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
             // Form4
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -1790,6 +1776,5 @@
         private System.Windows.Forms.DateTimePicker newPositionDate;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Button button1;
     }
 }
