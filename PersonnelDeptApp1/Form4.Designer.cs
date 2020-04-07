@@ -32,7 +32,6 @@
             this.hirePage = new System.Windows.Forms.TabPage();
             this.TableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.addHireOrderBTN = new System.Windows.Forms.Button();
-            this.hireInOrder = new System.Windows.Forms.Label();
             this.hireTable = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -64,6 +63,7 @@
             this.hireTarif_Label = new System.Windows.Forms.Label();
             this.hireOccup = new System.Windows.Forms.ComboBox();
             this.hireDocNum = new System.Windows.Forms.RichTextBox();
+            this.hireInOrder = new System.Windows.Forms.Label();
             this.firePage = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.addFireOrder = new System.Windows.Forms.Button();
@@ -140,6 +140,7 @@
             this.moveDocDate = new System.Windows.Forms.DateTimePicker();
             this.moveDocDate_Label = new System.Windows.Forms.Label();
             this.moveInOrder_Label = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
             this.orderTab.SuspendLayout();
             this.hirePage.SuspendLayout();
             this.TableLayoutPanel1.SuspendLayout();
@@ -162,7 +163,7 @@
             this.orderTab.Controls.Add(this.movePage);
             this.orderTab.Dock = System.Windows.Forms.DockStyle.Top;
             this.orderTab.Location = new System.Drawing.Point(0, 0);
-            this.orderTab.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.orderTab.Margin = new System.Windows.Forms.Padding(4);
             this.orderTab.Name = "orderTab";
             this.orderTab.SelectedIndex = 0;
             this.orderTab.Size = new System.Drawing.Size(1067, 480);
@@ -173,9 +174,9 @@
             // 
             this.hirePage.Controls.Add(this.TableLayoutPanel1);
             this.hirePage.Location = new System.Drawing.Point(4, 25);
-            this.hirePage.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.hirePage.Margin = new System.Windows.Forms.Padding(4);
             this.hirePage.Name = "hirePage";
-            this.hirePage.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.hirePage.Padding = new System.Windows.Forms.Padding(4);
             this.hirePage.Size = new System.Drawing.Size(1059, 451);
             this.hirePage.TabIndex = 0;
             this.hirePage.Text = "Приём";
@@ -200,16 +201,17 @@
             this.TableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 6.666668F));
             this.TableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 6.666668F));
             this.TableLayoutPanel1.Controls.Add(this.addHireOrderBTN, 12, 9);
-            this.TableLayoutPanel1.Controls.Add(this.hireInOrder, 1, 5);
             this.TableLayoutPanel1.Controls.Add(this.hireTable, 1, 5);
             this.TableLayoutPanel1.Controls.Add(this.hireDocNum_Label, 1, 0);
             this.TableLayoutPanel1.Controls.Add(this.hireDocDate_Label, 5, 0);
             this.TableLayoutPanel1.Controls.Add(this.hireDocDate, 8, 0);
             this.TableLayoutPanel1.Controls.Add(this.panel2, 1, 1);
             this.TableLayoutPanel1.Controls.Add(this.hireDocNum, 3, 0);
+            this.TableLayoutPanel1.Controls.Add(this.hireInOrder, 0, 5);
+            this.TableLayoutPanel1.Controls.Add(this.button1, 10, 9);
             this.TableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.TableLayoutPanel1.Location = new System.Drawing.Point(4, 4);
-            this.TableLayoutPanel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.TableLayoutPanel1.Margin = new System.Windows.Forms.Padding(4);
             this.TableLayoutPanel1.Name = "TableLayoutPanel1";
             this.TableLayoutPanel1.RowCount = 10;
             this.TableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
@@ -224,6 +226,8 @@
             this.TableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
             this.TableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
             this.TableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
+            this.TableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.TableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.TableLayoutPanel1.Size = new System.Drawing.Size(1051, 443);
             this.TableLayoutPanel1.TabIndex = 2;
             // 
@@ -232,26 +236,13 @@
             this.addHireOrderBTN.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.TableLayoutPanel1.SetColumnSpan(this.addHireOrderBTN, 3);
             this.addHireOrderBTN.Location = new System.Drawing.Point(844, 405);
-            this.addHireOrderBTN.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.addHireOrderBTN.Margin = new System.Windows.Forms.Padding(4);
             this.addHireOrderBTN.Name = "addHireOrderBTN";
             this.addHireOrderBTN.Size = new System.Drawing.Size(203, 28);
             this.addHireOrderBTN.TabIndex = 61;
             this.addHireOrderBTN.Text = "Добавить приказ";
             this.addHireOrderBTN.UseVisualStyleBackColor = true;
             this.addHireOrderBTN.Click += new System.EventHandler(this.addHireOrderBTN_Click);
-            // 
-            // hireInOrder
-            // 
-            this.hireInOrder.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.hireInOrder.AutoSize = true;
-            this.TableLayoutPanel1.SetColumnSpan(this.hireInOrder, 2);
-            this.hireInOrder.Location = new System.Drawing.Point(74, 233);
-            this.hireInOrder.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.hireInOrder.Name = "hireInOrder";
-            this.hireInOrder.Size = new System.Drawing.Size(132, 17);
-            this.hireInOrder.TabIndex = 0;
-            this.hireInOrder.Text = "В приказе";
-            this.hireInOrder.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // hireTable
             // 
@@ -271,7 +262,7 @@
             this.dataGridViewTextBoxColumn8});
             this.TableLayoutPanel1.SetColumnSpan(this.hireTable, 15);
             this.hireTable.Location = new System.Drawing.Point(4, 268);
-            this.hireTable.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.hireTable.Margin = new System.Windows.Forms.Padding(4);
             this.hireTable.Name = "hireTable";
             this.hireTable.RowHeadersVisible = false;
             this.hireTable.RowHeadersWidth = 51;
@@ -383,7 +374,7 @@
             this.hireDocDate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.TableLayoutPanel1.SetColumnSpan(this.hireDocDate, 3);
             this.hireDocDate.Location = new System.Drawing.Point(564, 11);
-            this.hireDocDate.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.hireDocDate.Margin = new System.Windows.Forms.Padding(4);
             this.hireDocDate.Name = "hireDocDate";
             this.hireDocDate.Size = new System.Drawing.Size(202, 22);
             this.hireDocDate.TabIndex = 2;
@@ -411,7 +402,7 @@
             this.panel2.Controls.Add(this.hireTarif_Label);
             this.panel2.Controls.Add(this.hireOccup);
             this.panel2.Location = new System.Drawing.Point(74, 50);
-            this.panel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel2.Margin = new System.Windows.Forms.Padding(4);
             this.panel2.Name = "panel2";
             this.TableLayoutPanel1.SetRowSpan(this.panel2, 4);
             this.panel2.Size = new System.Drawing.Size(832, 164);
@@ -422,7 +413,7 @@
             this.hireFio_Label.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.hireFio_Label.AutoSize = true;
             this.hireFio_Label.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.hireFio_Label.Location = new System.Drawing.Point(21, 6);
+            this.hireFio_Label.Location = new System.Drawing.Point(21, 14);
             this.hireFio_Label.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.hireFio_Label.Name = "hireFio_Label";
             this.hireFio_Label.Size = new System.Drawing.Size(106, 15);
@@ -433,8 +424,8 @@
             // hireFIO
             // 
             this.hireFIO.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.hireFIO.Location = new System.Drawing.Point(15, 26);
-            this.hireFIO.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.hireFIO.Location = new System.Drawing.Point(15, 34);
+            this.hireFIO.Margin = new System.Windows.Forms.Padding(4);
             this.hireFIO.Name = "hireFIO";
             this.hireFIO.Size = new System.Drawing.Size(250, 25);
             this.hireFIO.TabIndex = 26;
@@ -450,7 +441,7 @@
             this.hireDepartment_Label.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.hireDepartment_Label.AutoSize = true;
             this.hireDepartment_Label.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.hireDepartment_Label.Location = new System.Drawing.Point(323, 6);
+            this.hireDepartment_Label.Location = new System.Drawing.Point(323, 14);
             this.hireDepartment_Label.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.hireDepartment_Label.Name = "hireDepartment_Label";
             this.hireDepartment_Label.Size = new System.Drawing.Size(105, 15);
@@ -462,8 +453,8 @@
             // 
             this.hireDepartment.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.hireDepartment.FormattingEnabled = true;
-            this.hireDepartment.Location = new System.Drawing.Point(275, 26);
-            this.hireDepartment.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.hireDepartment.Location = new System.Drawing.Point(275, 34);
+            this.hireDepartment.Margin = new System.Windows.Forms.Padding(4);
             this.hireDepartment.Name = "hireDepartment";
             this.hireDepartment.Size = new System.Drawing.Size(201, 24);
             this.hireDepartment.TabIndex = 21;
@@ -474,7 +465,7 @@
             this.hireOccup_Label.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.hireOccup_Label.AutoSize = true;
             this.hireOccup_Label.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.hireOccup_Label.Location = new System.Drawing.Point(539, 7);
+            this.hireOccup_Label.Location = new System.Drawing.Point(539, 15);
             this.hireOccup_Label.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.hireOccup_Label.Name = "hireOccup_Label";
             this.hireOccup_Label.Size = new System.Drawing.Size(79, 15);
@@ -485,8 +476,8 @@
             // addIntoHireOrderBTN
             // 
             this.addIntoHireOrderBTN.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.addIntoHireOrderBTN.Location = new System.Drawing.Point(600, 123);
-            this.addIntoHireOrderBTN.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.addIntoHireOrderBTN.Location = new System.Drawing.Point(600, 131);
+            this.addIntoHireOrderBTN.Margin = new System.Windows.Forms.Padding(4);
             this.addIntoHireOrderBTN.Name = "addIntoHireOrderBTN";
             this.addIntoHireOrderBTN.Size = new System.Drawing.Size(222, 28);
             this.addIntoHireOrderBTN.TabIndex = 25;
@@ -497,8 +488,8 @@
             // hireTarif
             // 
             this.hireTarif.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.hireTarif.Location = new System.Drawing.Point(695, 26);
-            this.hireTarif.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.hireTarif.Location = new System.Drawing.Point(695, 34);
+            this.hireTarif.Margin = new System.Windows.Forms.Padding(4);
             this.hireTarif.Name = "hireTarif";
             this.hireTarif.Size = new System.Drawing.Size(101, 25);
             this.hireTarif.TabIndex = 11;
@@ -507,8 +498,8 @@
             // startWork
             // 
             this.startWork.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.startWork.Location = new System.Drawing.Point(603, 80);
-            this.startWork.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.startWork.Location = new System.Drawing.Point(603, 88);
+            this.startWork.Margin = new System.Windows.Forms.Padding(4);
             this.startWork.Name = "startWork";
             this.startWork.Size = new System.Drawing.Size(196, 22);
             this.startWork.TabIndex = 8;
@@ -516,8 +507,8 @@
             // hireContractDate
             // 
             this.hireContractDate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.hireContractDate.Location = new System.Drawing.Point(227, 80);
-            this.hireContractDate.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.hireContractDate.Location = new System.Drawing.Point(227, 88);
+            this.hireContractDate.Margin = new System.Windows.Forms.Padding(4);
             this.hireContractDate.Name = "hireContractDate";
             this.hireContractDate.Size = new System.Drawing.Size(194, 22);
             this.hireContractDate.TabIndex = 9;
@@ -527,7 +518,7 @@
             this.startWork_Label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.startWork_Label2.AutoSize = true;
             this.startWork_Label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.startWork_Label2.Location = new System.Drawing.Point(697, 57);
+            this.startWork_Label2.Location = new System.Drawing.Point(697, 65);
             this.startWork_Label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.startWork_Label2.Name = "startWork_Label2";
             this.startWork_Label2.Size = new System.Drawing.Size(43, 15);
@@ -540,7 +531,7 @@
             this.hireContractDate_Label.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.hireContractDate_Label.AutoSize = true;
             this.hireContractDate_Label.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.hireContractDate_Label.Location = new System.Drawing.Point(275, 57);
+            this.hireContractDate_Label.Location = new System.Drawing.Point(275, 65);
             this.hireContractDate_Label.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.hireContractDate_Label.Name = "hireContractDate_Label";
             this.hireContractDate_Label.Size = new System.Drawing.Size(43, 15);
@@ -551,8 +542,8 @@
             // hireContractNum
             // 
             this.hireContractNum.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.hireContractNum.Location = new System.Drawing.Point(101, 76);
-            this.hireContractNum.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.hireContractNum.Location = new System.Drawing.Point(101, 84);
+            this.hireContractNum.Margin = new System.Windows.Forms.Padding(4);
             this.hireContractNum.Name = "hireContractNum";
             this.hireContractNum.Size = new System.Drawing.Size(120, 30);
             this.hireContractNum.TabIndex = 10;
@@ -563,7 +554,7 @@
             this.hireContractNum_Label.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.hireContractNum_Label.AutoSize = true;
             this.hireContractNum_Label.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.hireContractNum_Label.Location = new System.Drawing.Point(133, 55);
+            this.hireContractNum_Label.Location = new System.Drawing.Point(133, 63);
             this.hireContractNum_Label.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.hireContractNum_Label.Name = "hireContractNum_Label";
             this.hireContractNum_Label.Size = new System.Drawing.Size(52, 15);
@@ -575,7 +566,7 @@
             // 
             this.startWork_Label.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.startWork_Label.AutoSize = true;
-            this.startWork_Label.Location = new System.Drawing.Point(473, 84);
+            this.startWork_Label.Location = new System.Drawing.Point(473, 92);
             this.startWork_Label.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.startWork_Label.Name = "startWork_Label";
             this.startWork_Label.Size = new System.Drawing.Size(122, 17);
@@ -587,7 +578,7 @@
             // 
             this.hireContract_Label.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.hireContract_Label.AutoSize = true;
-            this.hireContract_Label.Location = new System.Drawing.Point(21, 81);
+            this.hireContract_Label.Location = new System.Drawing.Point(21, 89);
             this.hireContract_Label.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.hireContract_Label.Name = "hireContract_Label";
             this.hireContract_Label.Size = new System.Drawing.Size(63, 17);
@@ -600,7 +591,7 @@
             this.hireTarif_Label.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.hireTarif_Label.AutoSize = true;
             this.hireTarif_Label.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.hireTarif_Label.Location = new System.Drawing.Point(663, 7);
+            this.hireTarif_Label.Location = new System.Drawing.Point(663, 15);
             this.hireTarif_Label.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.hireTarif_Label.Name = "hireTarif_Label";
             this.hireTarif_Label.Size = new System.Drawing.Size(143, 15);
@@ -612,8 +603,8 @@
             // 
             this.hireOccup.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.hireOccup.FormattingEnabled = true;
-            this.hireOccup.Location = new System.Drawing.Point(485, 26);
-            this.hireOccup.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.hireOccup.Location = new System.Drawing.Point(485, 34);
+            this.hireOccup.Margin = new System.Windows.Forms.Padding(4);
             this.hireOccup.Name = "hireOccup";
             this.hireOccup.Size = new System.Drawing.Size(201, 24);
             this.hireOccup.TabIndex = 23;
@@ -624,20 +615,33 @@
             this.hireDocNum.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.TableLayoutPanel1.SetColumnSpan(this.hireDocNum, 2);
             this.hireDocNum.Location = new System.Drawing.Point(214, 9);
-            this.hireDocNum.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.hireDocNum.Margin = new System.Windows.Forms.Padding(4);
             this.hireDocNum.Name = "hireDocNum";
             this.hireDocNum.ReadOnly = true;
             this.hireDocNum.Size = new System.Drawing.Size(129, 25);
             this.hireDocNum.TabIndex = 11;
             this.hireDocNum.Text = "";
             // 
+            // hireInOrder
+            // 
+            this.hireInOrder.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.hireInOrder.AutoSize = true;
+            this.TableLayoutPanel1.SetColumnSpan(this.hireInOrder, 2);
+            this.hireInOrder.Location = new System.Drawing.Point(4, 233);
+            this.hireInOrder.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.hireInOrder.Name = "hireInOrder";
+            this.hireInOrder.Size = new System.Drawing.Size(132, 17);
+            this.hireInOrder.TabIndex = 0;
+            this.hireInOrder.Text = "В приказе";
+            this.hireInOrder.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // firePage
             // 
             this.firePage.Controls.Add(this.tableLayoutPanel2);
             this.firePage.Location = new System.Drawing.Point(4, 25);
-            this.firePage.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.firePage.Margin = new System.Windows.Forms.Padding(4);
             this.firePage.Name = "firePage";
-            this.firePage.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.firePage.Padding = new System.Windows.Forms.Padding(4);
             this.firePage.Size = new System.Drawing.Size(1059, 451);
             this.firePage.TabIndex = 1;
             this.firePage.Text = "Увольнение";
@@ -671,7 +675,7 @@
             this.tableLayoutPanel2.Controls.Add(this.fireDocNum, 3, 0);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel2.Location = new System.Drawing.Point(4, 4);
-            this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(4);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 10;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
@@ -694,7 +698,7 @@
             this.addFireOrder.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.tableLayoutPanel2.SetColumnSpan(this.addFireOrder, 3);
             this.addFireOrder.Location = new System.Drawing.Point(844, 405);
-            this.addFireOrder.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.addFireOrder.Margin = new System.Windows.Forms.Padding(4);
             this.addFireOrder.Name = "addFireOrder";
             this.addFireOrder.Size = new System.Drawing.Size(203, 28);
             this.addFireOrder.TabIndex = 61;
@@ -733,7 +737,7 @@
             this.dataGridViewTextBoxColumn16});
             this.tableLayoutPanel2.SetColumnSpan(this.fireTable, 15);
             this.fireTable.Location = new System.Drawing.Point(4, 268);
-            this.fireTable.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.fireTable.Margin = new System.Windows.Forms.Padding(4);
             this.fireTable.Name = "fireTable";
             this.fireTable.RowHeadersVisible = false;
             this.fireTable.RowHeadersWidth = 51;
@@ -845,7 +849,7 @@
             this.fireDocDate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.tableLayoutPanel2.SetColumnSpan(this.fireDocDate, 3);
             this.fireDocDate.Location = new System.Drawing.Point(564, 11);
-            this.fireDocDate.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.fireDocDate.Margin = new System.Windows.Forms.Padding(4);
             this.fireDocDate.Name = "fireDocDate";
             this.fireDocDate.Size = new System.Drawing.Size(202, 22);
             this.fireDocDate.TabIndex = 2;
@@ -875,7 +879,7 @@
             this.panel3.Controls.Add(this.fireTarif_Label);
             this.panel3.Controls.Add(this.fireOccup);
             this.panel3.Location = new System.Drawing.Point(74, 50);
-            this.panel3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel3.Margin = new System.Windows.Forms.Padding(4);
             this.panel3.Name = "panel3";
             this.tableLayoutPanel2.SetRowSpan(this.panel3, 4);
             this.panel3.Size = new System.Drawing.Size(832, 164);
@@ -898,7 +902,7 @@
             // 
             this.fireFIO.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.fireFIO.Location = new System.Drawing.Point(15, 26);
-            this.fireFIO.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.fireFIO.Margin = new System.Windows.Forms.Padding(4);
             this.fireFIO.Name = "fireFIO";
             this.fireFIO.Size = new System.Drawing.Size(250, 25);
             this.fireFIO.TabIndex = 26;
@@ -928,7 +932,7 @@
             this.fireDepartment.Enabled = false;
             this.fireDepartment.FormattingEnabled = true;
             this.fireDepartment.Location = new System.Drawing.Point(275, 26);
-            this.fireDepartment.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.fireDepartment.Margin = new System.Windows.Forms.Padding(4);
             this.fireDepartment.Name = "fireDepartment";
             this.fireDepartment.Size = new System.Drawing.Size(201, 24);
             this.fireDepartment.TabIndex = 21;
@@ -950,7 +954,7 @@
             // 
             this.addIntoFireOrderBTN.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.addIntoFireOrderBTN.Location = new System.Drawing.Point(593, 123);
-            this.addIntoFireOrderBTN.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.addIntoFireOrderBTN.Margin = new System.Windows.Forms.Padding(4);
             this.addIntoFireOrderBTN.Name = "addIntoFireOrderBTN";
             this.addIntoFireOrderBTN.Size = new System.Drawing.Size(222, 28);
             this.addIntoFireOrderBTN.TabIndex = 25;
@@ -962,7 +966,7 @@
             // 
             this.fireReason.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.fireReason.Location = new System.Drawing.Point(101, 126);
-            this.fireReason.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.fireReason.Margin = new System.Windows.Forms.Padding(4);
             this.fireReason.Name = "fireReason";
             this.fireReason.Size = new System.Drawing.Size(346, 25);
             this.fireReason.TabIndex = 11;
@@ -972,7 +976,7 @@
             // 
             this.fireTarif.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.fireTarif.Location = new System.Drawing.Point(695, 26);
-            this.fireTarif.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.fireTarif.Margin = new System.Windows.Forms.Padding(4);
             this.fireTarif.Name = "fireTarif";
             this.fireTarif.ReadOnly = true;
             this.fireTarif.Size = new System.Drawing.Size(101, 25);
@@ -983,7 +987,7 @@
             // 
             this.endWork.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.endWork.Location = new System.Drawing.Point(599, 79);
-            this.endWork.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.endWork.Margin = new System.Windows.Forms.Padding(4);
             this.endWork.Name = "endWork";
             this.endWork.Size = new System.Drawing.Size(198, 22);
             this.endWork.TabIndex = 8;
@@ -993,7 +997,7 @@
             this.fireContractDate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.fireContractDate.Enabled = false;
             this.fireContractDate.Location = new System.Drawing.Point(204, 79);
-            this.fireContractDate.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.fireContractDate.Margin = new System.Windows.Forms.Padding(4);
             this.fireContractDate.Name = "fireContractDate";
             this.fireContractDate.Size = new System.Drawing.Size(194, 22);
             this.fireContractDate.TabIndex = 9;
@@ -1028,7 +1032,7 @@
             // 
             this.fireContractNum.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.fireContractNum.Location = new System.Drawing.Point(103, 75);
-            this.fireContractNum.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.fireContractNum.Margin = new System.Windows.Forms.Padding(4);
             this.fireContractNum.Name = "fireContractNum";
             this.fireContractNum.ReadOnly = true;
             this.fireContractNum.Size = new System.Drawing.Size(94, 30);
@@ -1103,7 +1107,7 @@
             this.fireOccup.Enabled = false;
             this.fireOccup.FormattingEnabled = true;
             this.fireOccup.Location = new System.Drawing.Point(485, 26);
-            this.fireOccup.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.fireOccup.Margin = new System.Windows.Forms.Padding(4);
             this.fireOccup.Name = "fireOccup";
             this.fireOccup.Size = new System.Drawing.Size(201, 24);
             this.fireOccup.TabIndex = 23;
@@ -1113,7 +1117,7 @@
             this.fireDocNum.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.tableLayoutPanel2.SetColumnSpan(this.fireDocNum, 2);
             this.fireDocNum.Location = new System.Drawing.Point(214, 9);
-            this.fireDocNum.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.fireDocNum.Margin = new System.Windows.Forms.Padding(4);
             this.fireDocNum.Name = "fireDocNum";
             this.fireDocNum.ReadOnly = true;
             this.fireDocNum.Size = new System.Drawing.Size(132, 25);
@@ -1124,9 +1128,9 @@
             // 
             this.movePage.Controls.Add(this.tableLayoutPanel3);
             this.movePage.Location = new System.Drawing.Point(4, 25);
-            this.movePage.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.movePage.Margin = new System.Windows.Forms.Padding(4);
             this.movePage.Name = "movePage";
-            this.movePage.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.movePage.Padding = new System.Windows.Forms.Padding(4);
             this.movePage.Size = new System.Drawing.Size(1059, 451);
             this.movePage.TabIndex = 2;
             this.movePage.Text = "Перевод";
@@ -1160,7 +1164,7 @@
             this.tableLayoutPanel3.Controls.Add(this.moveInOrder_Label, 1, 5);
             this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel3.Location = new System.Drawing.Point(4, 4);
-            this.tableLayoutPanel3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tableLayoutPanel3.Margin = new System.Windows.Forms.Padding(4);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RowCount = 10;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
@@ -1198,7 +1202,7 @@
             this.Column8});
             this.tableLayoutPanel3.SetColumnSpan(this.moveTable, 15);
             this.moveTable.Location = new System.Drawing.Point(4, 268);
-            this.moveTable.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.moveTable.Margin = new System.Windows.Forms.Padding(4);
             this.moveTable.Name = "moveTable";
             this.moveTable.RowHeadersVisible = false;
             this.moveTable.RowHeadersWidth = 51;
@@ -1302,7 +1306,7 @@
             this.moveDocNum.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.tableLayoutPanel3.SetColumnSpan(this.moveDocNum, 2);
             this.moveDocNum.Location = new System.Drawing.Point(214, 9);
-            this.moveDocNum.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.moveDocNum.Margin = new System.Windows.Forms.Padding(4);
             this.moveDocNum.Name = "moveDocNum";
             this.moveDocNum.ReadOnly = true;
             this.moveDocNum.Size = new System.Drawing.Size(105, 25);
@@ -1347,7 +1351,7 @@
             this.panel1.Controls.Add(this.moveOccupNew);
             this.panel1.Controls.Add(this.moveOccupOld);
             this.panel1.Location = new System.Drawing.Point(4, 49);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
             this.tableLayoutPanel3.SetRowSpan(this.panel1, 3);
             this.panel1.Size = new System.Drawing.Size(1039, 121);
@@ -1370,7 +1374,7 @@
             // 
             this.moveFIO.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.moveFIO.Location = new System.Drawing.Point(15, 31);
-            this.moveFIO.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.moveFIO.Margin = new System.Windows.Forms.Padding(4);
             this.moveFIO.Name = "moveFIO";
             this.moveFIO.Size = new System.Drawing.Size(245, 25);
             this.moveFIO.TabIndex = 61;
@@ -1399,7 +1403,7 @@
             this.moveDepartmentNew.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.moveDepartmentNew.FormattingEnabled = true;
             this.moveDepartmentNew.Location = new System.Drawing.Point(435, 31);
-            this.moveDepartmentNew.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.moveDepartmentNew.Margin = new System.Windows.Forms.Padding(4);
             this.moveDepartmentNew.Name = "moveDepartmentNew";
             this.moveDepartmentNew.Size = new System.Drawing.Size(151, 24);
             this.moveDepartmentNew.TabIndex = 55;
@@ -1411,7 +1415,7 @@
             this.moveDepartmentOld.Enabled = false;
             this.moveDepartmentOld.FormattingEnabled = true;
             this.moveDepartmentOld.Location = new System.Drawing.Point(275, 31);
-            this.moveDepartmentOld.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.moveDepartmentOld.Margin = new System.Windows.Forms.Padding(4);
             this.moveDepartmentOld.Name = "moveDepartmentOld";
             this.moveDepartmentOld.Size = new System.Drawing.Size(151, 24);
             this.moveDepartmentOld.TabIndex = 54;
@@ -1433,7 +1437,7 @@
             // 
             this.addIntoMoveOrderBTN.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.addIntoMoveOrderBTN.Location = new System.Drawing.Point(800, 80);
-            this.addIntoMoveOrderBTN.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.addIntoMoveOrderBTN.Margin = new System.Windows.Forms.Padding(4);
             this.addIntoMoveOrderBTN.Name = "addIntoMoveOrderBTN";
             this.addIntoMoveOrderBTN.Size = new System.Drawing.Size(213, 28);
             this.addIntoMoveOrderBTN.TabIndex = 60;
@@ -1445,7 +1449,7 @@
             // 
             this.moveTarif.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.moveTarif.Location = new System.Drawing.Point(915, 31);
-            this.moveTarif.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.moveTarif.Margin = new System.Windows.Forms.Padding(4);
             this.moveTarif.Name = "moveTarif";
             this.moveTarif.ReadOnly = true;
             this.moveTarif.Size = new System.Drawing.Size(100, 25);
@@ -1456,7 +1460,7 @@
             // 
             this.newPositionDate.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.newPositionDate.Location = new System.Drawing.Point(595, 82);
-            this.newPositionDate.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.newPositionDate.Margin = new System.Windows.Forms.Padding(4);
             this.newPositionDate.Name = "newPositionDate";
             this.newPositionDate.Size = new System.Drawing.Size(196, 22);
             this.newPositionDate.TabIndex = 44;
@@ -1478,7 +1482,7 @@
             // 
             this.moveContractDate.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.moveContractDate.Location = new System.Drawing.Point(209, 82);
-            this.moveContractDate.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.moveContractDate.Margin = new System.Windows.Forms.Padding(4);
             this.moveContractDate.Name = "moveContractDate";
             this.moveContractDate.Size = new System.Drawing.Size(185, 22);
             this.moveContractDate.TabIndex = 44;
@@ -1500,7 +1504,7 @@
             // 
             this.moveContractNum.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.moveContractNum.Location = new System.Drawing.Point(101, 80);
-            this.moveContractNum.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.moveContractNum.Margin = new System.Windows.Forms.Padding(4);
             this.moveContractNum.Name = "moveContractNum";
             this.moveContractNum.Size = new System.Drawing.Size(100, 30);
             this.moveContractNum.TabIndex = 45;
@@ -1561,7 +1565,7 @@
             this.moveOccupNew.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.moveOccupNew.FormattingEnabled = true;
             this.moveOccupNew.Location = new System.Drawing.Point(755, 31);
-            this.moveOccupNew.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.moveOccupNew.Margin = new System.Windows.Forms.Padding(4);
             this.moveOccupNew.Name = "moveOccupNew";
             this.moveOccupNew.Size = new System.Drawing.Size(151, 24);
             this.moveOccupNew.TabIndex = 57;
@@ -1573,7 +1577,7 @@
             this.moveOccupOld.Enabled = false;
             this.moveOccupOld.FormattingEnabled = true;
             this.moveOccupOld.Location = new System.Drawing.Point(595, 31);
-            this.moveOccupOld.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.moveOccupOld.Margin = new System.Windows.Forms.Padding(4);
             this.moveOccupOld.Name = "moveOccupOld";
             this.moveOccupOld.Size = new System.Drawing.Size(151, 24);
             this.moveOccupOld.TabIndex = 58;
@@ -1583,7 +1587,7 @@
             this.addMoveOrder.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.tableLayoutPanel3.SetColumnSpan(this.addMoveOrder, 3);
             this.addMoveOrder.Location = new System.Drawing.Point(844, 405);
-            this.addMoveOrder.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.addMoveOrder.Margin = new System.Windows.Forms.Padding(4);
             this.addMoveOrder.Name = "addMoveOrder";
             this.addMoveOrder.Size = new System.Drawing.Size(203, 28);
             this.addMoveOrder.TabIndex = 60;
@@ -1596,7 +1600,7 @@
             this.moveDocDate.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.tableLayoutPanel3.SetColumnSpan(this.moveDocDate, 3);
             this.moveDocDate.Location = new System.Drawing.Point(704, 11);
-            this.moveDocDate.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.moveDocDate.Margin = new System.Windows.Forms.Padding(4);
             this.moveDocDate.Name = "moveDocDate";
             this.moveDocDate.Size = new System.Drawing.Size(199, 22);
             this.moveDocDate.TabIndex = 2;
@@ -1627,13 +1631,25 @@
             this.moveInOrder_Label.Text = "В приказе";
             this.moveInOrder_Label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // button1
+            // 
+            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.button1.Location = new System.Drawing.Point(704, 405);
+            this.button1.Margin = new System.Windows.Forms.Padding(4);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(62, 28);
+            this.button1.TabIndex = 61;
+            this.button1.Text = "Добавить приказ";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // Form4
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1067, 554);
             this.Controls.Add(this.orderTab);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "Form4";
@@ -1774,5 +1790,6 @@
         private System.Windows.Forms.DateTimePicker newPositionDate;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button button1;
     }
 }
