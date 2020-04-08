@@ -883,9 +883,9 @@ namespace PersonnelDeptApp1
 
             sheet.PageSetup.Orientation = Excel.XlPageOrientation.xlLandscape;
 
-            sheet.Range[sheet.Cells[9, "AA"], sheet.Cells[9, "AF"]] = moveDocNum.Text;
+            sheet.Range[sheet.Cells[8, "AA"], sheet.Cells[8, "AF"]] = moveDocNum.Text;
 
-            sheet.Range[sheet.Cells[9, "AG"], sheet.Cells[9, "AL"]] = moveDocDate.Value.ToString(dateFormat);
+            sheet.Range[sheet.Cells[8, "AG"], sheet.Cells[8, "AL"]] = moveDocDate.Value.ToString(dateFormat);
 
             int currentRow = 17;
             for (int i = 0; i < moveTable.Rows.Count; i++, currentRow++)
