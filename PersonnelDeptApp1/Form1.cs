@@ -228,7 +228,7 @@ namespace PersonnelDeptApp1
 
             try
             {
-                //Вот тут я запросом считываю из базы характер работы в comboBox
+                //Вот тут я запросом считываю из базы категорию запаса в comboBox
                 string sqlExpression3 = "SELECT * FROM public.\"StockCategory\"";
                 npgSqlConnection.Open();
                 NpgsqlCommand command3 = new NpgsqlCommand(sqlExpression3, npgSqlConnection);
@@ -252,6 +252,57 @@ namespace PersonnelDeptApp1
                 //  MessageBox.Show("Подключение закрыто!!");
             }
 
+            try
+            {
+                //Вот тут я запросом считываю из базы категорию годности в comboBox
+                string sqlExpression4 = "SELECT * FROM public.\"CategoryMilitary\"";
+                npgSqlConnection.Open();
+                NpgsqlCommand command4 = new NpgsqlCommand(sqlExpression4, npgSqlConnection);
+                NpgsqlDataReader reader4 = command4.ExecuteReader();
+                if (reader4.HasRows) // если есть данные
+                {
+                    while (reader4.Read()) // построчно считываем данные
+                    {
+                        object Name = reader4.GetValue(1);
+                        comboBox5.Items.Add(Name);
+                    }
+                }
+            }
+            catch (NpgsqlException ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                npgSqlConnection.Close();
+                //  MessageBox.Show("Подключение закрыто!!");
+            }
+
+            try
+            {
+                //Вот тут я запросом считываю из базы воинское звание в comboBox
+                string sqlExpression5 = "SELECT * FROM public.\"MilitaryRank\"";
+                npgSqlConnection.Open();
+                NpgsqlCommand command5 = new NpgsqlCommand(sqlExpression5, npgSqlConnection);
+                NpgsqlDataReader reader5 = command5.ExecuteReader();
+                if (reader5.HasRows) // если есть данные
+                {
+                    while (reader5.Read()) // построчно считываем данные
+                    {
+                        object Name = reader5.GetValue(1);
+                        comboBox6.Items.Add(Name);
+                    }
+                }
+            }
+            catch (NpgsqlException ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                npgSqlConnection.Close();
+                //  MessageBox.Show("Подключение закрыто!!");
+            }
 
         }
 
