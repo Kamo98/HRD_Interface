@@ -111,12 +111,10 @@
             this.label7 = new System.Windows.Forms.Label();
             this.tabPage11 = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            this.dateTimePicker5 = new System.Windows.Forms.DateTimePicker();
             this.label9 = new System.Windows.Forms.Label();
             this.richTextBox10 = new System.Windows.Forms.RichTextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.richTextBox11 = new System.Windows.Forms.RichTextBox();
-            this.label13 = new System.Windows.Forms.Label();
             this.richTextBox5 = new System.Windows.Forms.RichTextBox();
             this.label36 = new System.Windows.Forms.Label();
             this.label38 = new System.Windows.Forms.Label();
@@ -1363,12 +1361,10 @@
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel2.Controls.Add(this.dateTimePicker5, 1, 2);
             this.tableLayoutPanel2.Controls.Add(this.label9, 0, 0);
             this.tableLayoutPanel2.Controls.Add(this.richTextBox10, 1, 0);
             this.tableLayoutPanel2.Controls.Add(this.label10, 0, 1);
             this.tableLayoutPanel2.Controls.Add(this.richTextBox11, 1, 1);
-            this.tableLayoutPanel2.Controls.Add(this.label13, 0, 2);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel2.Location = new System.Drawing.Point(4, 4);
             this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(4);
@@ -1379,15 +1375,6 @@
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 43F));
             this.tableLayoutPanel2.Size = new System.Drawing.Size(688, 185);
             this.tableLayoutPanel2.TabIndex = 4;
-            // 
-            // dateTimePicker5
-            // 
-            this.dateTimePicker5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.dateTimePicker5.Location = new System.Drawing.Point(176, 152);
-            this.dateTimePicker5.Margin = new System.Windows.Forms.Padding(4);
-            this.dateTimePicker5.Name = "dateTimePicker5";
-            this.dateTimePicker5.Size = new System.Drawing.Size(164, 22);
-            this.dateTimePicker5.TabIndex = 5;
             // 
             // label9
             // 
@@ -1439,18 +1426,6 @@
             this.richTextBox11.Size = new System.Drawing.Size(508, 91);
             this.richTextBox11.TabIndex = 3;
             this.richTextBox11.Text = "";
-            // 
-            // label13
-            // 
-            this.label13.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(4, 155);
-            this.label13.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(164, 17);
-            this.label13.TabIndex = 0;
-            this.label13.Text = "Дата регистрации";
-            this.label13.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // richTextBox5
             // 
@@ -2099,12 +2074,10 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TabPage tabPage11;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
-        private System.Windows.Forms.DateTimePicker dateTimePicker5;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.RichTextBox richTextBox10;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.RichTextBox richTextBox11;
-        private System.Windows.Forms.Label label13;
         private System.Windows.Forms.RichTextBox richTextBox5;
         private System.Windows.Forms.Label label36;
         private System.Windows.Forms.Label label38;
