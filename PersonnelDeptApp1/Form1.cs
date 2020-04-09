@@ -17,11 +17,11 @@ namespace PersonnelDeptApp1
     public partial class Form1 : Form
     {
         SuggestClient api;
-        
         string token = "a1bd42a8be5934f72b0a5802e26c61cd7458ac51";
         public int flag = 0; //Флаг добавления=0/редактирования=1
         public Form1()
         {
+            Program.f1 = this;
             InitializeComponent();
             init_dataGridExpFill();
         }
@@ -520,6 +520,7 @@ namespace PersonnelDeptApp1
             }
         }
 
+        //Ограничение на ввод индекса в фактическом адресе
         private void richTextBox10_KeyPress(object sender, KeyPressEventArgs e)
         {
             //ограничение ввода можем ввести только цифры
@@ -593,6 +594,15 @@ namespace PersonnelDeptApp1
         private void listBox1_SelectedIndexChanged_1(object sender, EventArgs e)
         {
             richTextBox7.Text = listBox1.SelectedItem.ToString();
+        }
+
+        //Открытие формы знание иностранного языка
+        private void button3_Click(object sender, EventArgs e)
+        {
+            Form5 f5 = new Form5();
+            f5.Owner = this;
+            f5.Show();
+            this.Hide();
         }
     }
 }

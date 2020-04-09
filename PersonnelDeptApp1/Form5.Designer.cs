@@ -47,6 +47,8 @@
             // 
             // comboBox1
             // 
+            this.comboBox1.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.comboBox1.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.comboBox1.FormattingEnabled = true;
             this.comboBox1.Location = new System.Drawing.Point(214, 40);
             this.comboBox1.Name = "comboBox1";
@@ -64,6 +66,8 @@
             // 
             // comboBox2
             // 
+            this.comboBox2.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.comboBox2.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.comboBox2.FormattingEnabled = true;
             this.comboBox2.Location = new System.Drawing.Point(214, 79);
             this.comboBox2.Name = "comboBox2";
@@ -80,6 +84,7 @@
             this.button3.TabIndex = 4;
             this.button3.Text = "Добавить язык";
             this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // button1
             // 
@@ -89,8 +94,9 @@
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(235, 30);
             this.button1.TabIndex = 5;
-            this.button1.Text = "Отмена";
+            this.button1.Text = "Выход";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // Form5
             // 
@@ -105,6 +111,8 @@
             this.Controls.Add(this.label1);
             this.Name = "Form5";
             this.Text = "Знание иностранного языка";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Form5_FormClosed);
+            this.Load += new System.EventHandler(this.Form5_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
