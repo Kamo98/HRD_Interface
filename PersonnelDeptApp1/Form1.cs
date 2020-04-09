@@ -226,6 +226,32 @@ namespace PersonnelDeptApp1
                 //  MessageBox.Show("Подключение закрыто!!");
             }
 
+            try
+            {
+                //Вот тут я запросом считываю из базы характер работы в comboBox
+                string sqlExpression3 = "SELECT * FROM public.\"StockCategory\"";
+                npgSqlConnection.Open();
+                NpgsqlCommand command3 = new NpgsqlCommand(sqlExpression3, npgSqlConnection);
+                NpgsqlDataReader reader3 = command3.ExecuteReader();
+                if (reader3.HasRows) // если есть данные
+                {
+                    while (reader3.Read()) // построчно считываем данные
+                    {
+                        object Name = reader3.GetValue(1);
+                        comboBox8.Items.Add(Name);
+                    }
+                }
+            }
+            catch (NpgsqlException ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                npgSqlConnection.Close();
+                //  MessageBox.Show("Подключение закрыто!!");
+            }
+
 
         }
 
