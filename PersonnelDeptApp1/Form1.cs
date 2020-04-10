@@ -604,5 +604,52 @@ namespace PersonnelDeptApp1
             f5.Show();
             this.Hide();
         }
+        //Удаление языка из таблицы
+        private void button2_Click(object sender, EventArgs e)
+        {
+            if ((dataGridView3.Rows.Count == 0))
+            {
+                MessageBox.Show("Не выбрана запись!");
+                return;
+            }
+            if (dataGridView3.SelectedRows.Count < 0)
+            {
+                MessageBox.Show("Не выбрана запись!");
+                return;
+            }
+            else
+            {
+                int a = dataGridView3.CurrentRow.Index;
+                dataGridView3.Rows.Remove(dataGridView3.Rows[a]);
+            }
+        }
+
+        //Открытие формы образование
+        private void button11_Click(object sender, EventArgs e)
+        {
+            Form6 f6 = new Form6();
+            f6.Owner = this;
+            f6.Show();
+            this.Hide();
+        }
+        //Удаление образования из таблицы
+        private void button7_Click(object sender, EventArgs e)
+        {
+            if ((dataGridView4.Rows.Count == 0))
+            {
+                MessageBox.Show("Не выбрана запись!");
+                return;
+            }
+            if (dataGridView4.SelectedRows.Count < 0)
+            {
+                MessageBox.Show("Не выбрана запись!");
+                return;
+            }
+            else
+            {
+                int a = dataGridView4.CurrentRow.Index;
+                dataGridView4.Rows.Remove(dataGridView4.Rows[a]);
+            }
+        }
     }
 }
