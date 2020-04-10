@@ -738,6 +738,7 @@ namespace PersonnelDeptApp1
 
             DialogResult result = FormAddTabel.ShowDialog(this);
 
+            
             if (result == DialogResult.OK)
             {
                 //открытие созданного табеля
@@ -746,6 +747,7 @@ namespace PersonnelDeptApp1
                 numericUpDown2.Value = FormAddTabel.numericUpDown2.Value;
                 button1_Click(null, null);
             }
+            
         }
     }
     public class Pair

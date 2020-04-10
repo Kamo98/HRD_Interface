@@ -60,7 +60,7 @@ namespace PersonnelDeptApp1
                 MessageBox.Show("Создание табеля может занять некоторое время. Программа не зависла!");
 
                 //дата по
-                string date_to = numericUpDown1.Value.ToString() + "-" + numericUpDown2.Value.ToString() + "-" + DateTime.DaysInMonth(Convert.ToInt32(numericUpDown1.Value),Convert.ToInt32(numericUpDown2.Value));
+                string date_to = numericUpDown1.Value.ToString() + "-" + numericUpDown2.Value.ToString() + "-" + DateTime.DaysInMonth(Convert.ToInt32(numericUpDown1.Value), Convert.ToInt32(numericUpDown2.Value));
                 string nomer = rand.Next(10000000, 100000000).ToString();
                 string date_sostav = DateTime.Now.Year + "-" + DateTime.Now.Month + "-" + DateTime.Now.Day;
 
@@ -114,7 +114,7 @@ namespace PersonnelDeptApp1
                     reader = com.ExecuteReader();
                     foreach (DbDataRecord rec in reader)
                     {
-                        pk_string_tabel.Add (rec.GetInt32(0).ToString());
+                        pk_string_tabel.Add(rec.GetInt32(0).ToString());
                     }
                     reader.Close();
                 }
@@ -129,12 +129,18 @@ namespace PersonnelDeptApp1
 
 
                 //вставляем факты в каждую строку
+                progressBar1.Maximum = pk_string_tabel.Count;
+                progressBar1.Value = 0;
                 for (int i = 0; i < pk_string_tabel.Count; i++)
                 {
+                    progressBar1.Value = i + 1;
                     //сколько дней в месяце столько и вставок.
-                    int daysInMonth =  DateTime.DaysInMonth(Convert.ToInt32(numericUpDown1.Value), Convert.ToInt32(numericUpDown2.Value));
+                    int daysInMonth = DateTime.DaysInMonth(Convert.ToInt32(numericUpDown1.Value), Convert.ToInt32(numericUpDown2.Value));
+                    progressBar2.Maximum = daysInMonth;
+                    progressBar2.Value = 0;
                     for (int j = 0; j < daysInMonth; j++)
                     {
+                        progressBar2.Value = j + 1;
                         //формируем дату
                         string dt = numericUpDown1.Text + "-" + numericUpDown2.Text + "-" + (j + 1).ToString();
 
@@ -201,6 +207,16 @@ namespace PersonnelDeptApp1
             comboBox1.AutoCompleteMode = AutoCompleteMode.Suggest;
             comboBox1.AutoCompleteSource = AutoCompleteSource.CustomSource;
             comboBox1.AutoCompleteCustomSource = listUnit;
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void button1_Click_2(object sender, EventArgs e)
+        {
+
         }
     }
 }
