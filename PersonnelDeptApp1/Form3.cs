@@ -87,11 +87,8 @@ namespace PersonnelDeptApp1
 
         private void Form3_Load(object sender, EventArgs e)
         {
-            //List<string> listUnit = new List<string>(); //список подразделений
             AutoCompleteStringCollection listUnit = new AutoCompleteStringCollection();
-
             NpgsqlCommand com = new NpgsqlCommand("SELECT \"Name\" FROM \"Unit\"", npgSqlConnection);
-            //com.Connection = npgSqlConnection;
             NpgsqlDataReader reader = com.ExecuteReader();
 
             if (reader.HasRows)
@@ -733,6 +730,22 @@ namespace PersonnelDeptApp1
             ObjWorkBook = null;
             ObjWorkSheet = null;
             GC.Collect();
+        }
+
+        private void управлениеToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form204 FormAddTabel = new Form204();
+
+            DialogResult result = FormAddTabel.ShowDialog(this);
+
+            if (result == DialogResult.OK)
+            {
+                //открытие созданного табеля
+                comboBox1.Text = FormAddTabel.comboBox1.Text;
+                numericUpDown1.Value = FormAddTabel.numericUpDown1.Value;
+                numericUpDown2.Value = FormAddTabel.numericUpDown2.Value;
+                button1_Click(null, null);
+            }
         }
     }
     public class Pair
