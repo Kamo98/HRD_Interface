@@ -693,13 +693,31 @@ namespace PersonnelDeptApp1
                                 NpgsqlParameter Param7 = new NpgsqlParameter("@Year", Year);
                                 command.Parameters.Add(Param7);
                                 int number = command.ExecuteNonQuery();
-                                MessageBox.Show("Образование добавлено успешно!");
+                                //MessageBox.Show("Образование добавлено успешно!");
 
                             }
                             npgSqlConnection13.Close();
                         }
                     }
-                        
+
+                    //Добавим гражданство в карточку гражданства
+                    string SqlExpression101 = "INSERT INTO \"card-citizenship\" (\"pk_sitizenship\",\"pk_personal_card\") " +
+                                "VALUES (@pk_citizenship,@pk_personal_card)";
+                    NpgsqlConnection npgSqlConnection101 = new NpgsqlConnection(connectionString);
+                    npgSqlConnection101.Open();
+                    using (npgSqlConnection101)
+                    {
+                        NpgsqlCommand command = new NpgsqlCommand(SqlExpression101, npgSqlConnection101);
+                        // создаем параметры и добавляем их к команде
+                        NpgsqlParameter Param1 = new NpgsqlParameter("@pk_citizenship", pk_citizenship);
+                        command.Parameters.Add(Param1);
+                        NpgsqlParameter Param2 = new NpgsqlParameter("@pk_personal_card", pk_personal_card);
+                        command.Parameters.Add(Param2);
+                        int number = command.ExecuteNonQuery();
+                        //MessageBox.Show("Гражданство добавлено успешно!");
+                    }
+                    npgSqlConnection101.Close();
+
                 }
 
 
