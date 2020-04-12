@@ -48,9 +48,8 @@ namespace PersonnelDeptApp1
             {
                 npgSqlConnection.Open();
                // MessageBox.Show("Подключение открыто!!");
-               //Если форма открыта для добавления, делаем добавление
-               if(flag==0)
-                {
+               
+                    //Проверяем, что все необходимые поля заполнены
                     string surname = richTextBox14.Text;
                     //Если фамилия не заполнена
                     if (surname == "")
@@ -75,9 +74,428 @@ namespace PersonnelDeptApp1
                         npgSqlConnection.Close();
                         return;
                     }
-                    DateTime Date_birth = dateTimePicker6.Value;
+                    string Character_work = comboBox4.Text;
+                    int pk_character_work=-1;
+                    //Если характер работы не заполнен
+                    if (string.IsNullOrEmpty(comboBox4.Text))
+                    {
+                        MessageBox.Show("Не выбран характер работы!");
+                        return;
+                    }
+                    else
+                    {
+                        string SqlExpression = "SELECT * FROM public.\"CharacterWork\" WHERE \"Name\"=@Character_work";
+                        NpgsqlConnection npgSqlConnection1 = new NpgsqlConnection(connectionString);
+                        npgSqlConnection1.Open();
+                        using (npgSqlConnection1)
+                        {
+                            
+                            NpgsqlCommand command = new NpgsqlCommand(SqlExpression, npgSqlConnection1);
+                            // создаем параметр для имени
+                            NpgsqlParameter CWParam = new NpgsqlParameter("@Character_work", Character_work);
+                            command.Parameters.Add(CWParam);
+                            NpgsqlDataReader reader = command.ExecuteReader();
+                            if (reader.HasRows) // если есть данные
+                            {
+                                while (reader.Read()) // построчно считываем данные
+                                {
+                                    object character_work = reader.GetValue(0);
+                                    pk_character_work = Convert.ToInt32(character_work);
+                                    
+                                }
+                            }
+                            
 
+                        }
+                        npgSqlConnection1.Close();
+                        // MessageBox.Show(pk_character_work.ToString());
+                    }
+                    DateTime Date_birth = dateTimePicker6.Value;
+                    string Marital_status= comboBox7.Text;
+                    int pk_marital_status = -1;
+                    if (string.IsNullOrEmpty(comboBox7.Text))
+                    {
+                        MessageBox.Show("Не выбрано состояние в браке!");
+                        return;
+                    }
+                    else
+                    {
+                        string SqlExpression = "SELECT * FROM public.\"MaritalStatus\" WHERE \"Name\"=@Marital_status";
+                        NpgsqlConnection npgSqlConnection2 = new NpgsqlConnection(connectionString);
+                        npgSqlConnection2.Open();
+                        using (npgSqlConnection2)
+                        {
+                            
+                            NpgsqlCommand command = new NpgsqlCommand(SqlExpression, npgSqlConnection2);
+                            // создаем параметр для имени
+                            NpgsqlParameter msParam = new NpgsqlParameter("@Marital_status", Marital_status);
+                            command.Parameters.Add(msParam);
+                            NpgsqlDataReader reader1 = command.ExecuteReader();
+                            if (reader1.HasRows) // если есть данные
+                            {
+                                while (reader1.Read()) // построчно считываем данные
+                                {
+                                    object martial_status = reader1.GetValue(0);
+                                    pk_marital_status = Convert.ToInt32(martial_status);
+
+                                }
+                            }
+
+
+                        }
+                        npgSqlConnection2.Close();
+                        //MessageBox.Show(pk_marital_status.ToString());
+                    }
+                    string Citizenship= comboBox9.Text;
+                    int pk_citizenship = -1;
+                    if (string.IsNullOrEmpty(comboBox9.Text))
+                    {
+                        MessageBox.Show("Не выбрано гражданство!");
+                        return;
+                    }
+                    else
+                    {
+                        string SqlExpression = "SELECT * FROM public.\"Citizenship\" WHERE \"Name\"=@Citizenship";
+                        NpgsqlConnection npgSqlConnection3 = new NpgsqlConnection(connectionString);
+                        npgSqlConnection3.Open();
+                        using (npgSqlConnection3)
+                        {
+
+                            NpgsqlCommand command = new NpgsqlCommand(SqlExpression, npgSqlConnection3);
+                            // создаем параметр для имени
+                            NpgsqlParameter CWParam = new NpgsqlParameter("@Citizenship", Citizenship);
+                            command.Parameters.Add(CWParam);
+                            NpgsqlDataReader reader = command.ExecuteReader();
+                            if (reader.HasRows) // если есть данные
+                            {
+                                while (reader.Read()) // построчно считываем данные
+                                {
+                                    object citizenship = reader.GetValue(0);
+                                    pk_citizenship = Convert.ToInt32(citizenship);
+
+                                }
+                            }
+
+
+                        }
+                        npgSqlConnection3.Close();
+                        //MessageBox.Show(pk_citizenship.ToString());
+                    }
+                    string INN = richTextBox4.Text;
+                    //Если ИНН не заполнено
+                    if (INN == "")
+                    {
+                        MessageBox.Show("Введите пожалуйста ИНН сотрудника!");
+                        npgSqlConnection.Close();
+                        return;
+                    }
+                    else if (INN.Length != 12)
+                    {
+                        MessageBox.Show("ИНН должен состоять из 12 цифр!");
+                        npgSqlConnection.Close();
+                        return;
+                    }
+                    string SNN = richTextBox3.Text;
+                    //Если номер страхового свидетельства не заполнен
+                    if (SNN == "")
+                    {
+                        MessageBox.Show("Введите пожалуйста номер страхового свидетельства сотрудника!");
+                        npgSqlConnection.Close();
+                        return;
+                    }
+                    else if (SNN.Length != 14)
+                    {
+                        MessageBox.Show("Номер страхового свидетельства должен состоять из 14 символов!");
+                        npgSqlConnection.Close();
+                        return;
+                    }
+                    string Serial_number = richTextBox6.Text;
+                    //Если серия и номер паспорта не заполнены
+                    if (Serial_number == "")
+                    {
+                        MessageBox.Show("Введите пожалуйста серию и номер паспорта сотрудника!");
+                        npgSqlConnection.Close();
+                        return;
+                    }
+                    //Тут такая проверка, потому что между серией и номером можно поставить пробел, а можно не ставить
+                    else if (Serial_number.Length != 11 && Serial_number.Length != 10)
+                    {
+                        MessageBox.Show("Серия 4 цифры и номер паспорта 6!");
+                        npgSqlConnection.Close();
+                        return;
+                    }
+                    DateTime Passport_date = dateTimePicker4.Value;
+                    string Vidan = richTextBox5.Text;
+                    //Если кем выдан паспорт не заполнено
+                    if (Vidan == "")
+                    {
+                        MessageBox.Show("Введите пожалуйста кем выдан паспорт сотрудника!");
+                        npgSqlConnection.Close();
+                        return;
+                    }
+                    string Index_real = richTextBox8.Text;
+                    //Если индекс прописки не заполнен
+                    if (Index_real == "")
+                    {
+                        MessageBox.Show("Введите пожалуйста индекс прописки сотрудника!");
+                        npgSqlConnection.Close();
+                        return;
+                    }
+                    else if (Index_real.Length!=6)
+                    {
+                        MessageBox.Show("Индекс прописки должен состоять из 6 цифр!");
+                        npgSqlConnection.Close();
+                        return;
+                    }
+                    string Propiska = richTextBox9.Text;
+                    //Если адрес прописки не заполнен
+                    if (Propiska == "")
+                    {
+                        MessageBox.Show("Введите пожалуйста адрес прописки сотрудника!");
+                        npgSqlConnection.Close();
+                        return;
+                    }
+                    DateTime Home_date = dateTimePicker1.Value;
+                    //Фактический адрес считываю без проверки, он может быть не заполнен
+                    string Index_fact = richTextBox10.Text;
+                    if (Index_fact.Length != 6 && Index_fact!="")
+                    {
+                        MessageBox.Show("Индекс фактического адреса должен состоять из 6 цифр!");
+                        npgSqlConnection.Close();
+                        return;
+                    }
+                    string Fact_address = richTextBox11.Text;
+                    //Телефон без проверки, так же может быть не заполнен
+                    string Phone= richTextBox2.Text;
+                    string Birth_place = richTextBox7.Text;
+                    //Если место рождения не заполнено
+                    if (Birth_place == "")
+                    {
+                        MessageBox.Show("Введите пожалуйста место рождения сотрудника!");
+                        npgSqlConnection.Close();
+                        return;
+                    }
+                    DateTime Creation_date = dateTimePicker2.Value;
+                    String Gender;
+                    if (radioButton3.Checked==true)
+                    {
+                        Gender = "М";
+                    }
+                    else
+                    {
+                        Gender = "Ж";
+                    }
+                    string Work_kind = richTextBox12.Text;
+                    //Если вид работы не заполнен
+                    if (Work_kind == "")
+                    {
+                        MessageBox.Show("Введите пожалуйста вид работы сотрудника!");
+                        npgSqlConnection.Close();
+                        return;
+                    }
+
+                    string Military_profile = richTextBox16.Text;
+                    string Military_code = richTextBox17.Text;
+                    string Military_name= richTextBox18.Text;
+                    string Military_status = comboBox11.Text;
+                    string Military_cancel= richTextBox19.Text;
+
+                    string military_rank = comboBox6.Text;
+                    int pk_military_rank = 1;
+                    if (string.IsNullOrEmpty(comboBox6.Text))
+                    {
+                        MessageBox.Show("Не выбрано воинское звание");
+                        return;
+                    }
+                    else
+                    {
+                        string SqlExpression = "SELECT * FROM public.\"MilitaryRank\" WHERE \"Name\"=@military_rank";
+                        NpgsqlConnection npgSqlConnection4 = new NpgsqlConnection(connectionString);
+                        npgSqlConnection4.Open();
+                        using (npgSqlConnection4)
+                        {
+
+                            NpgsqlCommand command = new NpgsqlCommand(SqlExpression, npgSqlConnection4);
+                            // создаем параметр для имени
+                            NpgsqlParameter CWParam = new NpgsqlParameter("@military_rank", military_rank);
+                            command.Parameters.Add(CWParam);
+                            NpgsqlDataReader reader = command.ExecuteReader();
+                            if (reader.HasRows) // если есть данные
+                            {
+                                while (reader.Read()) // построчно считываем данные
+                                {
+                                    object military_rank1 = reader.GetValue(0);
+                                    pk_military_rank = Convert.ToInt32(military_rank1);
+
+                                }
+                            }
+
+
+                        }
+                        npgSqlConnection4.Close();
+                        //MessageBox.Show(pk_military_rank.ToString());
+                    }
+                    string stock_category = comboBox8.Text;
+                    int pk_stock_category = -1;
+                    if (string.IsNullOrEmpty(comboBox8.Text))
+                    {
+                        MessageBox.Show("Не выбрана категория запаса");
+                        return;
+                    }
+                    else
+                    {
+                        string SqlExpression = "SELECT * FROM public.\"StockCategory\" WHERE \"Name\"=@stock_category";
+                        NpgsqlConnection npgSqlConnection5 = new NpgsqlConnection(connectionString);
+                        npgSqlConnection5.Open();
+                        using (npgSqlConnection5)
+                        {
+
+                            NpgsqlCommand command = new NpgsqlCommand(SqlExpression, npgSqlConnection5);
+                            // создаем параметр для имени
+                            NpgsqlParameter CWParam = new NpgsqlParameter("@stock_category", stock_category);
+                            command.Parameters.Add(CWParam);
+                            NpgsqlDataReader reader = command.ExecuteReader();
+                            if (reader.HasRows) // если есть данные
+                            {
+                                while (reader.Read()) // построчно считываем данные
+                                {
+                                    object stock_category1 = reader.GetValue(0);
+                                    pk_stock_category = Convert.ToInt32(stock_category1);
+
+                                }
+                            }
+
+
+                        }
+                        npgSqlConnection5.Close();
+                        //MessageBox.Show(pk_stock_category.ToString());
+                    }
+                    string category_military = comboBox5.Text;
+                    int pk_category_military = -1;
+                    if (string.IsNullOrEmpty(comboBox5.Text))
+                    {
+                        MessageBox.Show("Не выбрана категория годности");
+                        return;
+                    }
+                    else
+                    {
+                        string SqlExpression = "SELECT * FROM public.\"CategoryMilitary\" WHERE \"Name\"=@category_military";
+                        NpgsqlConnection npgSqlConnection6 = new NpgsqlConnection(connectionString);
+                        npgSqlConnection6.Open();
+                        using (npgSqlConnection6)
+                        {
+
+                            NpgsqlCommand command = new NpgsqlCommand(SqlExpression, npgSqlConnection6);
+                            // создаем параметр для имени
+                            NpgsqlParameter CWParam = new NpgsqlParameter("@category_military", category_military);
+                            command.Parameters.Add(CWParam);
+                            NpgsqlDataReader reader = command.ExecuteReader();
+                            if (reader.HasRows) // если есть данные
+                            {
+                                while (reader.Read()) // построчно считываем данные
+                                {
+                                    object category_military1 = reader.GetValue(0);
+                                    pk_category_military = Convert.ToInt32(category_military1);
+
+                                }
+                            }
+
+
+                        }
+                        npgSqlConnection6.Close();
+                       // MessageBox.Show(pk_category_military.ToString());
+                    }
+
+                    /*Надо придумать что-то с характеристикой*/
+                    string Characteristic = "";
+
+                //Если форма открыта для добавления добавляем нового сотрудника
+                if (flag == 0)
+                {
+                    string sqlExpression = "INSERT INTO \"PersonalCard\" (\"pk_marital_status\",\"pk_character_work\",\"surname\"," +
+                        "\"name\",\"otchestvo\",\"birthday\",\"Characteristic\",\"INN\",\"SSN\",\"Serial_number\"" +
+                        ",\"Passport_date\",\"Vidan\",\"Home_date\",\"Propiska\",\"Fact_address\",\"Phone\",\"pk_military_rank\",\"pk_category_military\"," +
+                        "\"pk_stock_category\",\"Birth_place\",\"Creation_date\",\"Gender\",\"Military_profile\",\"Military_code\",\"Military_name\"" +
+                        ",\"Military_status\",\"Military_cancel\",\"Work_kind\",\"Index_fact\",\"Index_real\") " +
+                        "VALUES (@pk_marital_status,@pk_character_work,@surname,@name,@otchestvo,@birthday," +
+                        "@Characteristic,@INN,@SSN,@Serial_number,@Passport_date,@Vidan,@Home_date,@Propiska,@Fact_address," +
+                        "@Phone,@pk_military_rank,@pk_category_military,@pk_stock_category,@Birth_place,@Creation_date,@Gender,@Military_profile," +
+                        "@Military_code,@Military_name,@Military_status,@Military_cancel,@Work_kind,@Index_fact,@Index_real)";
+                    using (npgSqlConnection)
+                    { 
+                        NpgsqlCommand command = new NpgsqlCommand(sqlExpression, npgSqlConnection);
+                        // создаем параметры и добавляем их к команде
+                        NpgsqlParameter Param1 = new NpgsqlParameter("@pk_marital_status", pk_marital_status);
+                        command.Parameters.Add(Param1);
+                        NpgsqlParameter Param2 = new NpgsqlParameter("@pk_character_work", pk_character_work);
+                        command.Parameters.Add(Param2);
+                        NpgsqlParameter Param3 = new NpgsqlParameter("@surname", surname);
+                        command.Parameters.Add(Param3);
+                        NpgsqlParameter Param4 = new NpgsqlParameter("@name", name);
+                        command.Parameters.Add(Param4);
+                        NpgsqlParameter Param5 = new NpgsqlParameter("@otchestvo", otchestvo);
+                        command.Parameters.Add(Param5);
+                        NpgsqlParameter Param6 = new NpgsqlParameter("@birthday", Date_birth);
+                        command.Parameters.Add(Param6);
+                        NpgsqlParameter Param7 = new NpgsqlParameter("@Characteristic", Characteristic);
+                        command.Parameters.Add(Param7);
+                        NpgsqlParameter Param8 = new NpgsqlParameter("@INN", INN);
+                        command.Parameters.Add(Param8);
+                        NpgsqlParameter Param9 = new NpgsqlParameter("@SSN", SNN);
+                        command.Parameters.Add(Param9);
+                        NpgsqlParameter Param10 = new NpgsqlParameter("@Serial_number", Serial_number);
+                        command.Parameters.Add(Param10);
+                        NpgsqlParameter Param11 = new NpgsqlParameter("@Passport_date", Passport_date);
+                        command.Parameters.Add(Param11);
+                        NpgsqlParameter Param12 = new NpgsqlParameter("@Vidan", Vidan);
+                        command.Parameters.Add(Param12);
+                        NpgsqlParameter Param13 = new NpgsqlParameter("@Home_date", Home_date);
+                        command.Parameters.Add(Param13);
+                        NpgsqlParameter Param14 = new NpgsqlParameter("@Propiska", Propiska);
+                        command.Parameters.Add(Param14);
+                        NpgsqlParameter Param15 = new NpgsqlParameter("@Fact_address", Fact_address);
+                        command.Parameters.Add(Param15);
+                        NpgsqlParameter Param16 = new NpgsqlParameter("@Phone", Phone);
+                        command.Parameters.Add(Param16);
+                        NpgsqlParameter Param17 = new NpgsqlParameter("@pk_military_rank", pk_military_rank);
+                        command.Parameters.Add(Param17);
+                        NpgsqlParameter Param18 = new NpgsqlParameter("@pk_category_military", pk_category_military);
+                        command.Parameters.Add(Param18);
+                        NpgsqlParameter Param19 = new NpgsqlParameter("@pk_stock_category", pk_stock_category);
+                        command.Parameters.Add(Param19);
+                        NpgsqlParameter Param20 = new NpgsqlParameter("@Birth_place", Birth_place);
+                        command.Parameters.Add(Param20);
+                        NpgsqlParameter Param21 = new NpgsqlParameter("@Creation_date", Creation_date);
+                        command.Parameters.Add(Param21);
+                        NpgsqlParameter Param22 = new NpgsqlParameter("@Gender", Gender);
+                        command.Parameters.Add(Param22);
+                        NpgsqlParameter Param23 = new NpgsqlParameter("@Military_profile", Military_profile);
+                        command.Parameters.Add(Param23);
+                        NpgsqlParameter Param24 = new NpgsqlParameter("@Military_code", Military_code);
+                        command.Parameters.Add(Param24);
+                        NpgsqlParameter Param25 = new NpgsqlParameter("@Military_name", Military_name);
+                        command.Parameters.Add(Param25);
+                        NpgsqlParameter Param26 = new NpgsqlParameter("@Military_status", Military_status);
+                        command.Parameters.Add(Param26);
+                        NpgsqlParameter Param27 = new NpgsqlParameter("@Military_cancel", Military_cancel);
+                        command.Parameters.Add(Param27);
+                        NpgsqlParameter Param28 = new NpgsqlParameter("@Work_kind", Work_kind);
+                        command.Parameters.Add(Param28);
+                        NpgsqlParameter Param29 = new NpgsqlParameter("@Index_fact", Index_fact);
+                        command.Parameters.Add(Param29);
+                        NpgsqlParameter Param30 = new NpgsqlParameter("@Index_real", Index_real);
+                        command.Parameters.Add(Param30);
+                        int number = command.ExecuteNonQuery();
+
+                        MessageBox.Show("Добавлено!");
+                        
+                        
+                    }
                 }
+
+
+
+                
 
             }
             catch (NpgsqlException ex)
@@ -303,6 +721,9 @@ namespace PersonnelDeptApp1
                 npgSqlConnection.Close();
                 //  MessageBox.Show("Подключение закрыто!!");
             }
+
+            comboBox11.Items.Add("Состоит");
+            comboBox11.Items.Add("Не состоит");
 
         }
 
@@ -584,7 +1005,7 @@ namespace PersonnelDeptApp1
             }
 
             //ограничение на 12 знаков
-            if (richTextBox4.Text.Length > 13)
+            if (richTextBox3.Text.Length > 13)
             {
                 e.Handled = true;
             }

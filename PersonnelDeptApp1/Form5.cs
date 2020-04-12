@@ -89,6 +89,17 @@ namespace PersonnelDeptApp1
         //Обработка нажатия добавления языка
         private void button3_Click(object sender, EventArgs e)
         {
+            //Сначала проверим, что все поля заполнеы
+            if (string.IsNullOrEmpty(comboBox1.Text))
+            {
+                MessageBox.Show("Не выбран язык!");
+                return;
+            }
+            if (string.IsNullOrEmpty(comboBox2.Text))
+            {
+                MessageBox.Show("Не выбрана степень владения языком!");
+                return;
+            }
             //Добавляем язык и степень владения в datagridview на форме 1
             Program.f1.dataGridView3.Rows.Add();
             int kol = Program.f1.dataGridView3.Rows.Count - 1;

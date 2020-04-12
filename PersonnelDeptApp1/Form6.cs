@@ -139,6 +139,37 @@ namespace PersonnelDeptApp1
         //Обработка нажатия добавить образование
         private void button11_Click(object sender, EventArgs e)
         {
+            //Сначала проверим, что все поля заполнеы
+            if (textBox1.Text == "")
+            {
+                MessageBox.Show("Введите пожалуйста наименование документа об образовании!");
+                return;
+            }
+            if (textBox2.Text == "")
+            {
+                MessageBox.Show("Введите пожалуйста серийный номер!");
+                return;
+            }
+            if (textBox3.Text == "")
+            {
+                MessageBox.Show("Введите пожалуйста год!");
+                return;
+            }
+            if (string.IsNullOrEmpty(comboBox1.Text))
+            {
+                MessageBox.Show("Не выбран тип образования!");
+                return;
+            }
+            if (string.IsNullOrEmpty(comboBox2.Text))
+            {
+                MessageBox.Show("Не выбрано образовательное учереждение!");
+                return;
+            }
+            if (string.IsNullOrEmpty(comboBox3.Text))
+            {
+                MessageBox.Show("Не выбран профиль подготовки!");
+                return;
+            }
             //Добавляем все пункты образования в datagridview на форме 1
             Program.f1.dataGridView4.Rows.Add();
             int kol = Program.f1.dataGridView4.Rows.Count - 1;
