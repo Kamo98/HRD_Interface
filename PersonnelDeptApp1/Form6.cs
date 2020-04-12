@@ -176,7 +176,7 @@ namespace PersonnelDeptApp1
             Program.f1.dataGridView4.Rows[kol].Cells[0].Value = textBox1.Text;
             Program.f1.dataGridView4.Rows[kol].Cells[1].Value = comboBox1.Text;
             Program.f1.dataGridView4.Rows[kol].Cells[2].Value = comboBox2.Text;
-            Program.f1.dataGridView4.Rows[kol].Cells[3].Value = comboBox2.Text;
+            Program.f1.dataGridView4.Rows[kol].Cells[3].Value = comboBox3.Text;
             Program.f1.dataGridView4.Rows[kol].Cells[4].Value = textBox2.Text;
             Program.f1.dataGridView4.Rows[kol].Cells[5].Value = textBox3.Text;
             MessageBox.Show("Образование добавлено в список!");
