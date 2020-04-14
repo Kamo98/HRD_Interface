@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using Npgsql;
 using Dadata;
 using Dadata.Model;
+using System.IO;
 
 
 namespace PersonnelDeptApp1
@@ -20,6 +21,7 @@ namespace PersonnelDeptApp1
         string token = "a1bd42a8be5934f72b0a5802e26c61cd7458ac51";
         public int pk_personal_card;
         public int flag = 0; //Флаг добавления=0/редактирования=1
+        public int flagnewfile = -1; //Флаг для файлов характеристики
         public Form1()
         {
             Program.f1 = this;
@@ -407,8 +409,8 @@ namespace PersonnelDeptApp1
                        // MessageBox.Show(pk_category_military.ToString());
                     }
 
-                    /*Надо придумать что-то с характеристикой*/
-                    string Characteristic = "";
+                    
+                    string Characteristic = richTextBox1.Text;
 
                 //Если форма открыта для добавления добавляем нового сотрудника
                 if (flag == 0)
@@ -499,7 +501,7 @@ namespace PersonnelDeptApp1
 
                         //int number = command.ExecuteNonQuery();
 
-                        MessageBox.Show("Сотрудник добавлен успешно!");
+                        //MessageBox.Show("Сотрудник добавлен успешно!");
                         
                         
                     }
@@ -700,9 +702,48 @@ namespace PersonnelDeptApp1
                         }
                     }
 
+                    //Проверка, были ли добавлены характеристики. Если да, то добавляем информацию в базу
+                    if (dataGridView5.Rows.Count != 0)
+                    {
+                        foreach (DataGridViewRow Row in dataGridView5.Rows)
+                        {
+                            string date = Row.Cells[0].Value.ToString();
+                            DateTime date_formate = Convert.ToDateTime(date);
+                            string fileReference = Row.Cells[1].Value.ToString();
+                            string characteristic_date;
+                            FileStream stream = new FileStream(Row.Cells[1].Value.ToString(), FileMode.Open);
+                            StreamReader reader = new StreamReader(stream);
+                            characteristic_date = (reader.ReadToEnd());
+                            richTextBox1.Text = (reader.ReadToEnd());
+                            reader.Close();
+                            string SqlExpression4 = "INSERT INTO \"Characteristic\" (\"date\",\"characteristic\",\"fileReference\"," +
+                                "\"pk_personal_card\") " +
+                                "VALUES (@date,@characteristic,@fileReference,@pk_personal_card)";
+                            NpgsqlConnection npgSqlConnection14 = new NpgsqlConnection(connectionString);
+                            npgSqlConnection14.Open();
+                            using (npgSqlConnection14)
+                            {
+                                NpgsqlCommand command = new NpgsqlCommand(SqlExpression4, npgSqlConnection14);
+                                // создаем параметры и добавляем их к команде
+                                NpgsqlParameter Param1 = new NpgsqlParameter("@date", date_formate);
+                                command.Parameters.Add(Param1);
+                                NpgsqlParameter Param2 = new NpgsqlParameter("@characteristic", characteristic_date);
+                                command.Parameters.Add(Param2);
+                                NpgsqlParameter Param3 = new NpgsqlParameter("@fileReference", fileReference);
+                                command.Parameters.Add(Param3);
+                                NpgsqlParameter Param4 = new NpgsqlParameter("@pk_personal_card", pk_personal_card);
+                                command.Parameters.Add(Param4);
+                                int number = command.ExecuteNonQuery();
+                                //MessageBox.Show("Характеристика добавлена успешно!");
+
+                            }
+                            npgSqlConnection14.Close();
+                        }
+                    }
+
                     //Добавим гражданство в карточку гражданства
                     string SqlExpression101 = "INSERT INTO \"card-citizenship\" (\"pk_sitizenship\",\"pk_personal_card\") " +
-                                "VALUES (@pk_citizenship,@pk_personal_card)";
+                    "VALUES (@pk_citizenship,@pk_personal_card)";
                     NpgsqlConnection npgSqlConnection101 = new NpgsqlConnection(connectionString);
                     npgSqlConnection101.Open();
                     using (npgSqlConnection101)
@@ -717,6 +758,8 @@ namespace PersonnelDeptApp1
                         //MessageBox.Show("Гражданство добавлено успешно!");
                     }
                     npgSqlConnection101.Close();
+                    MessageBox.Show("Сотрудник добавлен успешно!");
+
 
                 }
 
@@ -785,6 +828,11 @@ namespace PersonnelDeptApp1
         //Загрузка формы
         private void Form1_Load(object sender, EventArgs e)
         {
+            if (flag == 0)
+            {
+                tabPage9.Parent = null; //При добавлении скрываем таблицу должностей
+                panel2.Visible = false; //При добавлении еще нет текущей должности скрываем панель с ней
+            }
             //Вот тут необходимо после объединения модулей исправить подключение к БД
             String connectionString = "Server=hrd.cx7kyl76gv42.us-east-2.rds.amazonaws.com;User Id=postgres;Password=Ntcnbhjdfybt_01;Database=HRD;";
             NpgsqlConnection npgSqlConnection = new NpgsqlConnection(connectionString);
@@ -1109,9 +1157,35 @@ namespace PersonnelDeptApp1
 
         }
 
+        //Обработка нажатия сохранить изменения в графе характеристика
         private void button4_Click(object sender, EventArgs e)
         {
+            SaveFileDialog saveFileDialog = new SaveFileDialog();
+            saveFileDialog.Filter = "Текстовый документ (*.txt)|*.txt|Все файлы (*.*)|*.*";
+            string FileName="";
+            if (saveFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                StreamWriter streamWriter = new StreamWriter(saveFileDialog.FileName);
+                FileName = saveFileDialog.FileName;
+                streamWriter.WriteLine(richTextBox1.Text+"\n");
+                streamWriter.Close();
 
+            }
+
+            if (flagnewfile!=-1)
+            {
+                dataGridView5.Rows[flagnewfile].Cells[0].Value = dateTimePicker2.Value;
+                dataGridView5.Rows[flagnewfile].Cells[1].Value = FileName;
+            }
+            if (flagnewfile == -1)
+            {
+                
+                dataGridView5.Rows.Add();
+                int kol = dataGridView5.Rows.Count - 1;
+                flagnewfile = kol;
+                dataGridView5.Rows[kol].Cells[0].Value = dateTimePicker2.Value;
+                dataGridView5.Rows[kol].Cells[1].Value = FileName;
+            }
         }
 
         private void richTextBox2_TextChanged_1(object sender, EventArgs e)
@@ -1297,6 +1371,89 @@ namespace PersonnelDeptApp1
             {
                 int a = dataGridView4.CurrentRow.Index;
                 dataGridView4.Rows.Remove(dataGridView4.Rows[a]);
+            }
+        }
+
+        //Обработка нажатия добавить файл с компьютера во вкладке характеристика
+        private void button5_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.Filter = "Текстовый документ (*.txt)|*.txt|Все файлы (*.*)|*.*";
+            string FileName = "";
+            int flagcheckfile = 0;
+            if (openFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                flagcheckfile = 1;
+                StreamReader streamReader = new StreamReader(openFileDialog.FileName);
+                FileName = openFileDialog.FileName;
+                richTextBox1.Text= (streamReader.ReadToEnd());
+                streamReader.Close();
+
+            }
+            if (flagcheckfile == 1)
+            {
+                dataGridView5.Rows.Add();
+                int kol = dataGridView5.Rows.Count - 1;
+                flagnewfile = kol;
+                dataGridView5.Rows[kol].Cells[0].Value = dateTimePicker2.Value;
+                dataGridView5.Rows[kol].Cells[1].Value = FileName;
+            }
+
+        }
+
+        //Обработка нажатия открыть файл из таблицы во вкладке характеристика
+        private void button8_Click(object sender, EventArgs e)
+        {
+            if ((dataGridView5.Rows.Count == 0))
+            {
+                MessageBox.Show("Не выбрана запись!");
+                return;
+            }
+            if (dataGridView5.SelectedRows.Count < 0)
+            {
+                MessageBox.Show("Не выбрана запись!");
+                return;
+            }
+            else
+            {
+                flagnewfile = dataGridView5.CurrentRow.Index;
+                FileStream stream = new FileStream(dataGridView5.Rows[flagnewfile].Cells[1].Value.ToString(), FileMode.Open);
+                StreamReader reader = new StreamReader(stream);
+                richTextBox1.Text = reader.ReadToEnd();
+                stream.Close();
+
+            }
+        }
+
+        //Обработка нажатия новая характеристика во вкладке характеристика
+        private void button10_Click(object sender, EventArgs e)
+        {
+            flagnewfile = -1;
+            richTextBox1.Text = "";
+        }
+
+        //Обработка нажатия Удалить файл из таблицы во вкладке характеристика
+        private void button9_Click(object sender, EventArgs e)
+        {
+            if ((dataGridView5.Rows.Count == 0))
+            {
+                MessageBox.Show("Не выбрана запись!");
+                return;
+            }
+            if (dataGridView5.SelectedRows.Count < 0)
+            {
+                MessageBox.Show("Не выбрана запись!");
+                return;
+            }
+            else
+            {
+                int a = dataGridView5.CurrentRow.Index;
+                if(a==flagnewfile)
+                {
+                    flagnewfile = -1;
+                    richTextBox1.Text = "";
+                }
+                dataGridView5.Rows.Remove(dataGridView5.Rows[a]);
             }
         }
     }
