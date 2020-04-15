@@ -12,10 +12,14 @@ namespace PersonnelDeptApp1
 {
     public partial class Form2 : Form
     {
-        public Form2()
+
+		private FormAuthorization formAuthorization;
+
+		public Form2(FormAuthorization formAuthorization)
         {
-            InitializeComponent();
-        }
+			InitializeComponent();
+			this.formAuthorization = formAuthorization;
+		}
 
         private void label2_Click(object sender, EventArgs e)
         {
@@ -46,5 +50,23 @@ namespace PersonnelDeptApp1
             Form4 f4 = new Form4();
             f4.Show();
         }
-    }
+
+		private void выйтиToolStripMenuItem_Click(object sender, EventArgs e)
+		{
+			this.Close();
+		}
+
+		private void Form2_FormClosing(object sender, FormClosingEventArgs e)
+		{
+			DialogResult dialogResult = MessageBox.Show("Уверены, что хотите выйти из системы?", "Выход", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2);
+
+			if (dialogResult == DialogResult.Yes)
+			{
+				Connection.close_connection();
+				formAuthorization.Show();
+			}
+			else
+				e.Cancel = true;
+		}
+	}
 }

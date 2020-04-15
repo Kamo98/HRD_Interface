@@ -16,5 +16,19 @@ namespace PersonnelDeptApp1
 		{
 			InitializeComponent();
 		}
+
+		private void button1_Click(object sender, EventArgs e)
+		{
+			bool correctConn = Connection.create_instance(tb_login.Text, tb_pass.Text);
+
+			if (correctConn)
+			{
+				MessageBox.Show(Connection.get_role_str());
+			}
+
+			Form2 mainForm = new Form2(this);
+			this.Hide();
+			mainForm.Show();
+		}		
 	}
 }
