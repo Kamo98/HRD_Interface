@@ -585,7 +585,7 @@ namespace PersonnelDeptApp1
                             npgSqlConnection9.Close();
                         }
                     }
-                    //Проверка, были ли добавлены языки. Если да, то добавляем информацию в базу
+                    //Проверка, были ли добавлены образования. Если да, то добавляем информацию в базу
                     if (dataGridView4.Rows.Count != 0)
                     {
                         foreach (DataGridViewRow Row in dataGridView4.Rows)
@@ -843,10 +843,311 @@ namespace PersonnelDeptApp1
 
                         int number = command.ExecuteNonQuery();
 
-                        MessageBox.Show("Редактирование сотрудника успешно!");
+                       
 
 
                     }
+                    string sqlExpression900 = "DELETE FROM \"lang-card\" WHERE \"pk_personal_card\" = @pk_personal_card";
+                    NpgsqlConnection npgSqlConnection900 = new NpgsqlConnection(connectionString);
+                    npgSqlConnection900.Open();
+                    using (npgSqlConnection900)
+                    {
+                        NpgsqlCommand command900 = new NpgsqlCommand(sqlExpression900, npgSqlConnection900);
+                        // создаем параметры и добавляем их к команде
+                        NpgsqlParameter Param1 = new NpgsqlParameter("@pk_personal_card", pk_personal_card);
+                        command900.Parameters.Add(Param1);
+                        int number = command900.ExecuteNonQuery();
+                    }
+                    npgSqlConnection900.Close();
+                    //Проверка, были ли добавлены языки. Если да, то добавляем информацию в базу
+                    if (dataGridView3.Rows.Count != 0)
+                        {
+                        foreach (DataGridViewRow Row in dataGridView3.Rows)
+                        {
+                            string language = Row.Cells[0].Value.ToString();
+                            string language_degree = Row.Cells[1].Value.ToString();
+                            int pk_language = -1;
+                            int pk_degree_language = -1;
+                            string SqlExpression = "SELECT * FROM public.\"Language\" WHERE \"Name\"=@language";
+                            NpgsqlConnection npgSqlConnection7 = new NpgsqlConnection(connectionString);
+                            npgSqlConnection7.Open();
+                            using (npgSqlConnection7)
+                            {
+
+                                NpgsqlCommand command = new NpgsqlCommand(SqlExpression, npgSqlConnection7);
+                                // создаем параметр для имени
+                                NpgsqlParameter CWParam = new NpgsqlParameter("@language", language);
+                                command.Parameters.Add(CWParam);
+                                NpgsqlDataReader reader7 = command.ExecuteReader();
+                                if (reader7.HasRows) // если есть данные
+                                {
+                                    while (reader7.Read()) // построчно считываем данные
+                                    {
+                                        object language1 = reader7.GetValue(0);
+                                        pk_language = Convert.ToInt32(language1);
+
+                                    }
+                                }
+
+
+                            }
+                            npgSqlConnection7.Close();
+
+                            string SqlExpression1 = "SELECT * FROM public.\"DegreeLanguage\" WHERE \"Name\"=@language_degree";
+                            NpgsqlConnection npgSqlConnection8 = new NpgsqlConnection(connectionString);
+                            npgSqlConnection8.Open();
+                            using (npgSqlConnection8)
+                            {
+
+                                NpgsqlCommand command = new NpgsqlCommand(SqlExpression1, npgSqlConnection8);
+                                // создаем параметр для имени
+                                NpgsqlParameter CWParam = new NpgsqlParameter("@language_degree", language_degree);
+                                command.Parameters.Add(CWParam);
+                                NpgsqlDataReader reader8 = command.ExecuteReader();
+                                if (reader8.HasRows) // если есть данные
+                                {
+                                    while (reader8.Read()) // построчно считываем данные
+                                    {
+                                        object degree_language1 = reader8.GetValue(0);
+                                        pk_degree_language = Convert.ToInt32(degree_language1);
+
+                                    }
+                                }
+
+
+                            }
+                            npgSqlConnection8.Close();
+
+                            string SqlExpression2 = "INSERT INTO \"lang-card\" (\"pk_language\",\"pk_personal_card\",\"pk_degree_language\") " +
+                                "VALUES (@pk_language,@pk_personal_card,@pk_degree_language)";
+                            NpgsqlConnection npgSqlConnection9 = new NpgsqlConnection(connectionString);
+                            npgSqlConnection9.Open();
+                            using (npgSqlConnection9)
+                            {
+                                NpgsqlCommand command = new NpgsqlCommand(SqlExpression2, npgSqlConnection9);
+                                // создаем параметры и добавляем их к команде
+                                NpgsqlParameter Param1 = new NpgsqlParameter("@pk_language", pk_language);
+                                command.Parameters.Add(Param1);
+                                NpgsqlParameter Param2 = new NpgsqlParameter("@pk_personal_card", pk_personal_card);
+                                command.Parameters.Add(Param2);
+                                NpgsqlParameter Param3 = new NpgsqlParameter("@pk_degree_language", pk_degree_language);
+                                command.Parameters.Add(Param3);
+                                int number = command.ExecuteNonQuery();
+                                //MessageBox.Show("Знание языков добавлено успешно!");
+
+                            }
+                            npgSqlConnection9.Close();
+                        }
+                        string sqlExpression901 = "DELETE FROM \"card-education\" WHERE \"pk_personal_card\" = @pk_personal_card";
+                        NpgsqlConnection npgSqlConnection901 = new NpgsqlConnection(connectionString);
+                        npgSqlConnection901.Open();
+                        using (npgSqlConnection901)
+                        {
+                            NpgsqlCommand command901 = new NpgsqlCommand(sqlExpression901, npgSqlConnection901);
+                            // создаем параметры и добавляем их к команде
+                            NpgsqlParameter Param1 = new NpgsqlParameter("@pk_personal_card", pk_personal_card);
+                            command901.Parameters.Add(Param1);
+                            int number = command901.ExecuteNonQuery();
+                        }
+                        npgSqlConnection901.Close();
+                    }
+                    //Проверка, были ли добавлены образования. Если да, то добавляем информацию в базу
+                    if (dataGridView4.Rows.Count != 0)
+                    {
+                        foreach (DataGridViewRow Row in dataGridView4.Rows)
+                        {
+                            string document_name = Row.Cells[0].Value.ToString();
+                            string education = Row.Cells[1].Value.ToString();
+                            string institution = Row.Cells[2].Value.ToString();
+                            string specialty = Row.Cells[3].Value.ToString();
+                            string serial_number = Row.Cells[4].Value.ToString();
+                            int Year = Convert.ToInt32(Row.Cells[5].Value);
+                            int pk_education = -1;
+                            int pk_specialty = -1;
+                            int pk_nstitution = -1;
+                            string SqlExpression = "SELECT * FROM public.\"Education\" WHERE \"Name\"=@education";
+                            NpgsqlConnection npgSqlConnection10 = new NpgsqlConnection(connectionString);
+                            npgSqlConnection10.Open();
+                            using (npgSqlConnection10)
+                            {
+
+                                NpgsqlCommand command = new NpgsqlCommand(SqlExpression, npgSqlConnection10);
+                                // создаем параметр для имени
+                                NpgsqlParameter CWParam = new NpgsqlParameter("@education", education);
+                                command.Parameters.Add(CWParam);
+                                NpgsqlDataReader reader10 = command.ExecuteReader();
+                                if (reader10.HasRows) // если есть данные
+                                {
+                                    while (reader10.Read()) // построчно считываем данные
+                                    {
+                                        object education1 = reader10.GetValue(0);
+                                        pk_education = Convert.ToInt32(education1);
+
+                                    }
+                                }
+
+
+                            }
+                            npgSqlConnection10.Close();
+                            string SqlExpression1 = "SELECT * FROM public.\"Specialty\" WHERE \"Name\"=@specialty";
+                            NpgsqlConnection npgSqlConnection11 = new NpgsqlConnection(connectionString);
+                            npgSqlConnection11.Open();
+                            using (npgSqlConnection11)
+                            {
+
+                                NpgsqlCommand command = new NpgsqlCommand(SqlExpression1, npgSqlConnection11);
+                                // создаем параметр для имени
+                                NpgsqlParameter CWParam = new NpgsqlParameter("@specialty", specialty);
+                                command.Parameters.Add(CWParam);
+                                NpgsqlDataReader reader11 = command.ExecuteReader();
+                                if (reader11.HasRows) // если есть данные
+                                {
+                                    while (reader11.Read()) // построчно считываем данные
+                                    {
+                                        object speciality1 = reader11.GetValue(0);
+                                        pk_specialty = Convert.ToInt32(speciality1);
+
+                                    }
+                                }
+
+
+                            }
+                            npgSqlConnection11.Close();
+                            string SqlExpression2 = "SELECT * FROM public.\"Institution\" WHERE \"Name\"=@institution";
+                            NpgsqlConnection npgSqlConnection12 = new NpgsqlConnection(connectionString);
+                            npgSqlConnection12.Open();
+                            using (npgSqlConnection12)
+                            {
+
+                                NpgsqlCommand command = new NpgsqlCommand(SqlExpression2, npgSqlConnection12);
+                                // создаем параметр для имени
+                                NpgsqlParameter CWParam = new NpgsqlParameter("@institution", institution);
+                                command.Parameters.Add(CWParam);
+                                NpgsqlDataReader reader12 = command.ExecuteReader();
+                                if (reader12.HasRows) // если есть данные
+                                {
+                                    while (reader12.Read()) // построчно считываем данные
+                                    {
+                                        object institution1 = reader12.GetValue(0);
+                                        pk_nstitution = Convert.ToInt32(institution1);
+
+                                    }
+                                }
+
+
+                            }
+                            npgSqlConnection12.Close();
+                            string SqlExpression3 = "INSERT INTO \"card-education\" (\"pk_education\",\"pk_personal_card\",\"pk_specialty\"," +
+                                "\"pk_nstitution\",\"document_name\",\"serial_number\",\"Year\") " +
+                                "VALUES (@pk_education,@pk_personal_card,@pk_specialty,@pk_nstitution,@document_name,@serial_number,@Year)";
+                            NpgsqlConnection npgSqlConnection13 = new NpgsqlConnection(connectionString);
+                            npgSqlConnection13.Open();
+                            using (npgSqlConnection13)
+                            {
+                                NpgsqlCommand command = new NpgsqlCommand(SqlExpression3, npgSqlConnection13);
+                                // создаем параметры и добавляем их к команде
+                                NpgsqlParameter Param1 = new NpgsqlParameter("@pk_education", pk_education);
+                                command.Parameters.Add(Param1);
+                                NpgsqlParameter Param2 = new NpgsqlParameter("@pk_personal_card", pk_personal_card);
+                                command.Parameters.Add(Param2);
+                                NpgsqlParameter Param3 = new NpgsqlParameter("@pk_specialty", pk_specialty);
+                                command.Parameters.Add(Param3);
+                                NpgsqlParameter Param4 = new NpgsqlParameter("@pk_nstitution", pk_nstitution);
+                                command.Parameters.Add(Param4);
+                                NpgsqlParameter Param5 = new NpgsqlParameter("@document_name", document_name);
+                                command.Parameters.Add(Param5);
+                                NpgsqlParameter Param6 = new NpgsqlParameter("@serial_number", serial_number);
+                                command.Parameters.Add(Param6);
+                                NpgsqlParameter Param7 = new NpgsqlParameter("@Year", Year);
+                                command.Parameters.Add(Param7);
+                                int number = command.ExecuteNonQuery();
+                                //MessageBox.Show("Образование добавлено успешно!");
+
+                            }
+                            npgSqlConnection13.Close();
+                        }
+                    }
+                    string sqlExpression902 = "DELETE FROM \"Characteristic\" WHERE \"pk_personal_card\" = @pk_personal_card";
+                    NpgsqlConnection npgSqlConnection902 = new NpgsqlConnection(connectionString);
+                    npgSqlConnection902.Open();
+                    using (npgSqlConnection902)
+                    {
+                        NpgsqlCommand command902 = new NpgsqlCommand(sqlExpression902, npgSqlConnection902);
+                        // создаем параметры и добавляем их к команде
+                        NpgsqlParameter Param1 = new NpgsqlParameter("@pk_personal_card", pk_personal_card);
+                        command902.Parameters.Add(Param1);
+                        int number = command902.ExecuteNonQuery();
+                    }
+                    npgSqlConnection902.Close();
+                    //Проверка, были ли добавлены характеристики. Если да, то добавляем информацию в базу
+                    if (dataGridView5.Rows.Count != 0)
+                    {
+                        foreach (DataGridViewRow Row in dataGridView5.Rows)
+                        {
+                            string date = Row.Cells[0].Value.ToString();
+                            DateTime date_formate = Convert.ToDateTime(date);
+                            string fileReference = Row.Cells[1].Value.ToString();
+                            string characteristic_date;
+                            FileStream stream = new FileStream(Row.Cells[1].Value.ToString(), FileMode.Open);
+                            StreamReader reader = new StreamReader(stream);
+                            characteristic_date = (reader.ReadToEnd());
+                            richTextBox1.Text = (reader.ReadToEnd());
+                            reader.Close();
+                            string SqlExpression4 = "INSERT INTO \"Characteristic\" (\"date\",\"characteristic\",\"fileReference\"," +
+                                "\"pk_personal_card\") " +
+                                "VALUES (@date,@characteristic,@fileReference,@pk_personal_card)";
+                            NpgsqlConnection npgSqlConnection14 = new NpgsqlConnection(connectionString);
+                            npgSqlConnection14.Open();
+                            using (npgSqlConnection14)
+                            {
+                                NpgsqlCommand command = new NpgsqlCommand(SqlExpression4, npgSqlConnection14);
+                                // создаем параметры и добавляем их к команде
+                                NpgsqlParameter Param1 = new NpgsqlParameter("@date", date_formate);
+                                command.Parameters.Add(Param1);
+                                NpgsqlParameter Param2 = new NpgsqlParameter("@characteristic", characteristic_date);
+                                command.Parameters.Add(Param2);
+                                NpgsqlParameter Param3 = new NpgsqlParameter("@fileReference", fileReference);
+                                command.Parameters.Add(Param3);
+                                NpgsqlParameter Param4 = new NpgsqlParameter("@pk_personal_card", pk_personal_card);
+                                command.Parameters.Add(Param4);
+                                int number = command.ExecuteNonQuery();
+                                //MessageBox.Show("Характеристика добавлена успешно!");
+
+                            }
+                            npgSqlConnection14.Close();
+                        }
+                    }
+                    string sqlExpression903 = "DELETE FROM \"card-citizenship\" WHERE \"pk_personal_card\" = @pk_personal_card";
+                    NpgsqlConnection npgSqlConnection903 = new NpgsqlConnection(connectionString);
+                    npgSqlConnection903.Open();
+                    using (npgSqlConnection903)
+                    {
+                        NpgsqlCommand command903 = new NpgsqlCommand(sqlExpression903, npgSqlConnection903);
+                        // создаем параметры и добавляем их к команде
+                        NpgsqlParameter Param1 = new NpgsqlParameter("@pk_personal_card", pk_personal_card);
+                        command903.Parameters.Add(Param1);
+                        int number = command903.ExecuteNonQuery();
+                    }
+                    npgSqlConnection903.Close();
+                    //Добавим гражданство в карточку гражданства
+                    string SqlExpression101 = "INSERT INTO \"card-citizenship\" (\"pk_sitizenship\",\"pk_personal_card\") " +
+                    "VALUES (@pk_citizenship,@pk_personal_card)";
+                    NpgsqlConnection npgSqlConnection101 = new NpgsqlConnection(connectionString);
+                    npgSqlConnection101.Open();
+                    using (npgSqlConnection101)
+                    {
+                        NpgsqlCommand command = new NpgsqlCommand(SqlExpression101, npgSqlConnection101);
+                        // создаем параметры и добавляем их к команде
+                        NpgsqlParameter Param1 = new NpgsqlParameter("@pk_citizenship", pk_citizenship);
+                        command.Parameters.Add(Param1);
+                        NpgsqlParameter Param2 = new NpgsqlParameter("@pk_personal_card", pk_personal_card);
+                        command.Parameters.Add(Param2);
+                        int number = command.ExecuteNonQuery();
+                        //MessageBox.Show("Гражданство добавлено успешно!");
+                    }
+                    npgSqlConnection101.Close();
+                    MessageBox.Show("Редактирование сотрудника успешно!");
+
                 }
 
 
