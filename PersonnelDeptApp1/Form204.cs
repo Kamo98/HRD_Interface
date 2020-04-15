@@ -16,15 +16,18 @@ namespace PersonnelDeptApp1
 {
     public partial class Form204 : Form
     {
-        Connection connectPSQL;
+        //Connection connectPSQL;
+
         NpgsqlConnection npgSqlConnection;
         public Form204()
         {
             InitializeComponent();
-            connectPSQL = Connection.get_instance("postgres", "Ntcnbhjdfybt_01");
-            npgSqlConnection = connectPSQL.get_connect();
+			
 
-            numericUpDown1.Value = DateTime.Now.Year;
+			//Поменял подключение
+			npgSqlConnection = Connection.get_connect();
+
+			numericUpDown1.Value = DateTime.Now.Year;
             numericUpDown2.Value = DateTime.Now.Month;
         }
 

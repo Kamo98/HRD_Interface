@@ -23,12 +23,13 @@ namespace PersonnelDeptApp1
 
 			if (correctConn)
 			{
-				MessageBox.Show(Connection.get_role_str());
+				//MessageBox.Show(Connection.get_role_str());
+				Form2 mainForm = new Form2(this);
+				this.Hide();
+				mainForm.Show();
 			}
 
-			Form2 mainForm = new Form2(this);
-			this.Hide();
-			mainForm.Show();
+			
 		}		
 	}
 }

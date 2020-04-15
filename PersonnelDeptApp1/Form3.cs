@@ -17,7 +17,7 @@ namespace PersonnelDeptApp1
 {
     public partial class Form3 : Form
     {
-        Connection connectPSQL;
+        //Connection connectPSQL;
         NpgsqlConnection npgSqlConnection;
 
         Color colorYavka = System.Drawing.Color.ForestGreen;
@@ -37,10 +37,9 @@ namespace PersonnelDeptApp1
         public Form3()
         {
             InitializeComponent();
-            
-
-            connectPSQL = Connection.get_instance("postgres", "Ntcnbhjdfybt_01");
-            npgSqlConnection = connectPSQL.get_connect();
+			
+			//Поменял подключение
+            npgSqlConnection = Connection.get_connect();
 
             numericUpDown1.Value = DateTime.Now.Year;
             numericUpDown2.Value = DateTime.Now.Month;
@@ -81,7 +80,7 @@ namespace PersonnelDeptApp1
                     return;
             }
             
-            Form ifrm = System.Windows.Forms.Application.OpenForms[0];
+            Form ifrm = System.Windows.Forms.Application.OpenForms[System.Windows.Forms.Application.OpenForms.Count-1];
             ifrm.Show();
         }
 
