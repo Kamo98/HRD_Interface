@@ -762,6 +762,92 @@ namespace PersonnelDeptApp1
 
 
                 }
+                //Если форма открыта для редактирования добавляем нового сотрудника
+                if (flag==1)
+                {
+                    string sqlExpression = "UPDATE \"PersonalCard\" SET \"pk_marital_status\"=@pk_marital_status, \"pk_character_work\"=@pk_character_work," +
+                        "\"surname\"=@surname,\"name\"=@name,\"otchestvo\"=@otchestvo,\"birthday\"=@birthday,\"Characteristic\"=@Characteristic," +
+                        "\"INN\"=@INN,\"SSN\"=@SSN,\"Serial_number\"=@Serial_number,\"Passport_date\"=@Passport_date,\"Vidan\"=@Vidan,\"Home_date\"=@Home_date," +
+                        "\"Propiska\"=@Propiska,\"Fact_address\"=@Fact_address,\"Phone\"=@Phone,\"pk_military_rank\"=@pk_military_rank," +
+                        "\"pk_category_military\"=@pk_category_military,\"pk_stock_category\"=@pk_stock_category,\"Birth_place\"=@Birth_place," +
+                        "\"Creation_date\"=@Creation_date,\"Gender\"=@Gender,\"Military_profile\"=@Military_profile,\"Military_code\"=@Military_code," +
+                        "\"Military_name\"=@Military_name,\"Military_status\"=@Military_status,\"Military_cancel\"=@Military_cancel,\"Work_kind\"=@Work_kind," +
+                        "\"Index_fact\"=@Index_fact,\"Index_real\"=@Index_real WHERE \"pk_personal_card\"=@pk_personal_card";
+                    using (npgSqlConnection)
+                    {
+                        NpgsqlCommand command = new NpgsqlCommand(sqlExpression, npgSqlConnection);
+                        // создаем параметры и добавляем их к команде
+                        NpgsqlParameter Param1 = new NpgsqlParameter("@pk_marital_status", pk_marital_status);
+                        command.Parameters.Add(Param1);
+                        NpgsqlParameter Param2 = new NpgsqlParameter("@pk_character_work", pk_character_work);
+                        command.Parameters.Add(Param2);
+                        NpgsqlParameter Param3 = new NpgsqlParameter("@surname", surname);
+                        command.Parameters.Add(Param3);
+                        NpgsqlParameter Param4 = new NpgsqlParameter("@name", name);
+                        command.Parameters.Add(Param4);
+                        NpgsqlParameter Param5 = new NpgsqlParameter("@otchestvo", otchestvo);
+                        command.Parameters.Add(Param5);
+                        NpgsqlParameter Param6 = new NpgsqlParameter("@birthday", Date_birth);
+                        command.Parameters.Add(Param6);
+                        NpgsqlParameter Param7 = new NpgsqlParameter("@Characteristic", Characteristic);
+                        command.Parameters.Add(Param7);
+                        NpgsqlParameter Param8 = new NpgsqlParameter("@INN", INN);
+                        command.Parameters.Add(Param8);
+                        NpgsqlParameter Param9 = new NpgsqlParameter("@SSN", SNN);
+                        command.Parameters.Add(Param9);
+                        NpgsqlParameter Param10 = new NpgsqlParameter("@Serial_number", Serial_number);
+                        command.Parameters.Add(Param10);
+                        NpgsqlParameter Param11 = new NpgsqlParameter("@Passport_date", Passport_date);
+                        command.Parameters.Add(Param11);
+                        NpgsqlParameter Param12 = new NpgsqlParameter("@Vidan", Vidan);
+                        command.Parameters.Add(Param12);
+                        NpgsqlParameter Param13 = new NpgsqlParameter("@Home_date", Home_date);
+                        command.Parameters.Add(Param13);
+                        NpgsqlParameter Param14 = new NpgsqlParameter("@Propiska", Propiska);
+                        command.Parameters.Add(Param14);
+                        NpgsqlParameter Param15 = new NpgsqlParameter("@Fact_address", Fact_address);
+                        command.Parameters.Add(Param15);
+                        NpgsqlParameter Param16 = new NpgsqlParameter("@Phone", Phone);
+                        command.Parameters.Add(Param16);
+                        NpgsqlParameter Param17 = new NpgsqlParameter("@pk_military_rank", pk_military_rank);
+                        command.Parameters.Add(Param17);
+                        NpgsqlParameter Param18 = new NpgsqlParameter("@pk_category_military", pk_category_military);
+                        command.Parameters.Add(Param18);
+                        NpgsqlParameter Param19 = new NpgsqlParameter("@pk_stock_category", pk_stock_category);
+                        command.Parameters.Add(Param19);
+                        NpgsqlParameter Param20 = new NpgsqlParameter("@Birth_place", Birth_place);
+                        command.Parameters.Add(Param20);
+                        NpgsqlParameter Param21 = new NpgsqlParameter("@Creation_date", Creation_date);
+                        command.Parameters.Add(Param21);
+                        NpgsqlParameter Param22 = new NpgsqlParameter("@Gender", Gender);
+                        command.Parameters.Add(Param22);
+                        NpgsqlParameter Param23 = new NpgsqlParameter("@Military_profile", Military_profile);
+                        command.Parameters.Add(Param23);
+                        NpgsqlParameter Param24 = new NpgsqlParameter("@Military_code", Military_code);
+                        command.Parameters.Add(Param24);
+                        NpgsqlParameter Param25 = new NpgsqlParameter("@Military_name", Military_name);
+                        command.Parameters.Add(Param25);
+                        NpgsqlParameter Param26 = new NpgsqlParameter("@Military_status", Military_status);
+                        command.Parameters.Add(Param26);
+                        NpgsqlParameter Param27 = new NpgsqlParameter("@Military_cancel", Military_cancel);
+                        command.Parameters.Add(Param27);
+                        NpgsqlParameter Param28 = new NpgsqlParameter("@Work_kind", Work_kind);
+                        command.Parameters.Add(Param28);
+                        NpgsqlParameter Param29 = new NpgsqlParameter("@Index_fact", Index_fact);
+                        command.Parameters.Add(Param29);
+                        NpgsqlParameter Param30 = new NpgsqlParameter("@Index_real", Index_real);
+                        command.Parameters.Add(Param30);
+                        NpgsqlParameter Param31 = new NpgsqlParameter("@pk_personal_card",pk_personal_card );
+                        command.Parameters.Add(Param31);
+
+
+                        int number = command.ExecuteNonQuery();
+
+                        MessageBox.Show("Редактирование сотрудника успешно!");
+
+
+                    }
+                }
 
 
 
@@ -934,7 +1020,7 @@ namespace PersonnelDeptApp1
 
                 try
                 {
-                    //Вот тут я запросом считываю из базы языки в comboBox
+                    //Вот тут я запросом считываю из базы языки 
                     string sqlExpression21 = "SELECT \"Language\".\"Name\",\"DegreeLanguage\".\"Name\"" +
                         "FROM \"Language\",\"DegreeLanguage\",\"lang-card\"" +
                         "WHERE \"lang-card\".\"pk_personal_card\"=@pk_personal_card and \"lang-card\".\"pk_language\"=\"Language\".\"pk_language\"" +
@@ -1002,7 +1088,7 @@ namespace PersonnelDeptApp1
 
                 try
                 {
-                    //Вот тут я запросом считываю из базы языки в comboBox
+                    //Вот тут я запросом считываю из базы образования 
                     string sqlExpression23 = "SELECT \"card-education\".\"document_name\",\"Education\".\"Name\",\"Institution\".\"Name\"" +
                         ",\"Specialty\".\"Name\",\"card-education\".\"serial_number\",\"card-education\".\"Year\"" +
                         "FROM \"card-education\",\"Education\",\"Institution\",\"Specialty\"" +
@@ -1033,6 +1119,50 @@ namespace PersonnelDeptApp1
                             dataGridView4.Rows[kol].Cells[3].Value = specialty_name;
                             dataGridView4.Rows[kol].Cells[4].Value = serial_number;
                             dataGridView4.Rows[kol].Cells[5].Value = Year;
+                        }
+                    }
+
+                }
+                catch (NpgsqlException ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+                finally
+                {
+                    npgSqlConnection.Close();
+                    //  MessageBox.Show("Подключение закрыто!!");
+                }
+
+                try
+                {
+                    //Вот тут я запросом считываю из базы характеристики
+                    string sqlExpression24 = "SELECT * FROM public.\"Characteristic\" WHERE \"pk_personal_card\"=@pk_personal_card";
+                    npgSqlConnection.Open();
+                    // MessageBox.Show("Подключение открыто!!");
+                    NpgsqlCommand command24 = new NpgsqlCommand(sqlExpression24, npgSqlConnection);
+                    NpgsqlParameter CWParam = new NpgsqlParameter("@pk_personal_card", pk_personal_card);
+                    command24.Parameters.Add(CWParam);
+                    NpgsqlDataReader reader24 = command24.ExecuteReader();
+                    if (reader24.HasRows) // если есть данные
+                    {
+                        while (reader24.Read()) // построчно считываем данные
+                        {
+                            object id_characteristic = reader24.GetValue(0);
+                            object date = reader24.GetValue(1);
+                            object Characteristic= reader24.GetValue(2);
+                            object fileReference = reader24.GetValue(3);
+                            string path = @"C:\KADRY_CHARACTERISTIC";
+                            DirectoryInfo dirInfo = new DirectoryInfo(path);
+                            if (!dirInfo.Exists)
+                            {
+                                dirInfo.Create();
+                                
+                            }
+                            System.IO.File.WriteAllText("C:\\KADRY_CHARACTERISTIC\\Characteristic" + id_characteristic.ToString() + ".txt", Characteristic.ToString());
+                            dataGridView5.Rows.Add();
+                            int kol = dataGridView5.Rows.Count - 1;
+                            dataGridView5.Rows[kol].Cells[0].Value = date;
+                            dataGridView5.Rows[kol].Cells[1].Value = "C:\\KADRY_CHARACTERISTIC\\Characteristic" + id_characteristic.ToString() + ".txt";
                         }
                     }
 
@@ -1508,6 +1638,7 @@ namespace PersonnelDeptApp1
             {
                 e.Handled = true;
             }
+            
         }
 
         //Ограничение на ввод индекса в фактическом адресе
@@ -1722,6 +1853,70 @@ namespace PersonnelDeptApp1
                     richTextBox1.Text = "";
                 }
                 dataGridView5.Rows.Remove(dataGridView5.Rows[a]);
+            }
+        }
+
+        
+        private void richTextBox8_TextChanged(object sender, EventArgs e)
+        {
+            
+            
+        }
+
+        //Защита индекса по паспорту для пользователей, кто любит ctrl-c ctrl-v 
+        private void richTextBox8_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Control && e.KeyCode == Keys.V)
+            {
+
+                string Clipboard_data = Clipboard.GetText();
+                foreach (var symbol in Clipboard_data)
+                    if (!char.IsDigit(symbol))
+                    {
+                        MessageBox.Show("Индекс должен состоять только из цифр!");
+                        break;
+                    }
+
+            }
+        }
+
+        
+        private void richTextBox10_TextChanged(object sender, EventArgs e)
+        {
+            
+        }
+
+        //Защита индекса фактического адреса для пользователей, кто любит ctrl-c ctrl-v
+        private void richTextBox10_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Control && e.KeyCode == Keys.V)
+            {
+
+                string Clipboard_data = Clipboard.GetText();
+                foreach (var symbol in Clipboard_data)
+                    if (!char.IsDigit(symbol))
+                    {
+                        MessageBox.Show("Индекс должен состоять только из цифр!");
+                        break;
+                    }
+
+            }
+        }
+
+        //Защита ИНН для пользователей, кто любит ctrl-c ctrl-v
+        private void richTextBox4_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Control && e.KeyCode == Keys.V)
+            {
+
+                string Clipboard_data = Clipboard.GetText();
+                foreach (var symbol in Clipboard_data)
+                    if (!char.IsDigit(symbol))
+                    {
+                        MessageBox.Show("ИНН должен состоять только из цифр!");
+                        break;
+                    }
+                
             }
         }
     }

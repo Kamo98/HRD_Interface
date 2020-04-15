@@ -56,8 +56,11 @@
             this.dataGridView5 = new System.Windows.Forms.DataGridView();
             this.Column11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.button5 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
+            this.button8 = new System.Windows.Forms.Button();
+            this.button5 = new System.Windows.Forms.Button();
+            this.button9 = new System.Windows.Forms.Button();
+            this.button10 = new System.Windows.Forms.Button();
             this.tabPage5 = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.label14 = new System.Windows.Forms.Label();
@@ -163,9 +166,6 @@
             this.оПрограммеToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.начинаяРаботуToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.button8 = new System.Windows.Forms.Button();
-            this.button9 = new System.Windows.Forms.Button();
-            this.button10 = new System.Windows.Forms.Button();
             this.tabPage9.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
@@ -400,7 +400,7 @@
             this.comboBox13.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.tableLayoutPanel3.SetColumnSpan(this.comboBox13, 2);
             this.comboBox13.FormattingEnabled = true;
-            this.comboBox13.Location = new System.Drawing.Point(123, 405);
+            this.comboBox13.Location = new System.Drawing.Point(123, 406);
             this.comboBox13.Margin = new System.Windows.Forms.Padding(4);
             this.comboBox13.Name = "comboBox13";
             this.comboBox13.Size = new System.Drawing.Size(230, 24);
@@ -570,6 +570,34 @@
             this.Column12.ReadOnly = true;
             this.Column12.Width = 400;
             // 
+            // button4
+            // 
+            this.button4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tableLayoutPanel8.SetColumnSpan(this.button4, 2);
+            this.button4.Location = new System.Drawing.Point(844, 612);
+            this.button4.Margin = new System.Windows.Forms.Padding(4);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(232, 28);
+            this.button4.TabIndex = 3;
+            this.button4.Text = "Сохранить изменения";
+            this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
+            // 
+            // button8
+            // 
+            this.button8.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tableLayoutPanel8.SetColumnSpan(this.button8, 2);
+            this.button8.Location = new System.Drawing.Point(4, 612);
+            this.button8.Margin = new System.Windows.Forms.Padding(4);
+            this.button8.Name = "button8";
+            this.button8.Size = new System.Drawing.Size(232, 28);
+            this.button8.TabIndex = 4;
+            this.button8.Text = "Открыть файл из таблицы";
+            this.button8.UseVisualStyleBackColor = true;
+            this.button8.Click += new System.EventHandler(this.button8_Click);
+            // 
             // button5
             // 
             this.button5.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
@@ -584,19 +612,33 @@
             this.button5.UseVisualStyleBackColor = true;
             this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
-            // button4
+            // button9
             // 
-            this.button4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.button9.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.tableLayoutPanel8.SetColumnSpan(this.button4, 2);
-            this.button4.Location = new System.Drawing.Point(844, 612);
-            this.button4.Margin = new System.Windows.Forms.Padding(4);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(232, 28);
-            this.button4.TabIndex = 3;
-            this.button4.Text = "Сохранить изменения";
-            this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
+            this.tableLayoutPanel8.SetColumnSpan(this.button9, 2);
+            this.button9.Location = new System.Drawing.Point(244, 612);
+            this.button9.Margin = new System.Windows.Forms.Padding(4);
+            this.button9.Name = "button9";
+            this.button9.Size = new System.Drawing.Size(232, 28);
+            this.button9.TabIndex = 5;
+            this.button9.Text = "Удалить файл из таблицы";
+            this.button9.UseVisualStyleBackColor = true;
+            this.button9.Click += new System.EventHandler(this.button9_Click);
+            // 
+            // button10
+            // 
+            this.button10.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tableLayoutPanel8.SetColumnSpan(this.button10, 2);
+            this.button10.Location = new System.Drawing.Point(1084, 612);
+            this.button10.Margin = new System.Windows.Forms.Padding(4);
+            this.button10.Name = "button10";
+            this.button10.Size = new System.Drawing.Size(232, 28);
+            this.button10.TabIndex = 6;
+            this.button10.Text = "Новая характеристика";
+            this.button10.UseVisualStyleBackColor = true;
+            this.button10.Click += new System.EventHandler(this.button10_Click);
             // 
             // tabPage5
             // 
@@ -1228,7 +1270,7 @@
             // 
             this.comboBox4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.comboBox4.FormattingEnabled = true;
-            this.comboBox4.Location = new System.Drawing.Point(964, 329);
+            this.comboBox4.Location = new System.Drawing.Point(964, 330);
             this.comboBox4.Margin = new System.Windows.Forms.Padding(4);
             this.comboBox4.Name = "comboBox4";
             this.comboBox4.Size = new System.Drawing.Size(112, 24);
@@ -1378,6 +1420,8 @@
             this.richTextBox8.Size = new System.Drawing.Size(164, 30);
             this.richTextBox8.TabIndex = 3;
             this.richTextBox8.Text = "";
+            this.richTextBox8.TextChanged += new System.EventHandler(this.richTextBox8_TextChanged);
+            this.richTextBox8.KeyDown += new System.Windows.Forms.KeyEventHandler(this.richTextBox8_KeyDown);
             this.richTextBox8.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.richTextBox8_KeyPress);
             // 
             // label6
@@ -1475,6 +1519,8 @@
             this.richTextBox10.Size = new System.Drawing.Size(164, 30);
             this.richTextBox10.TabIndex = 3;
             this.richTextBox10.Text = "";
+            this.richTextBox10.TextChanged += new System.EventHandler(this.richTextBox10_TextChanged);
+            this.richTextBox10.KeyDown += new System.Windows.Forms.KeyEventHandler(this.richTextBox10_KeyDown);
             this.richTextBox10.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.richTextBox10_KeyPress);
             // 
             // label10
@@ -1619,7 +1665,7 @@
             this.comboBox9.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.tableLayoutPanel17.SetColumnSpan(this.comboBox9, 2);
             this.comboBox9.FormattingEnabled = true;
-            this.comboBox9.Location = new System.Drawing.Point(126, 329);
+            this.comboBox9.Location = new System.Drawing.Point(126, 330);
             this.comboBox9.Margin = new System.Windows.Forms.Padding(4);
             this.comboBox9.Name = "comboBox9";
             this.comboBox9.Size = new System.Drawing.Size(228, 24);
@@ -1689,7 +1735,7 @@
             this.comboBox7.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.tableLayoutPanel17.SetColumnSpan(this.comboBox7, 4);
             this.comboBox7.FormattingEnabled = true;
-            this.comboBox7.Location = new System.Drawing.Point(964, 25);
+            this.comboBox7.Location = new System.Drawing.Point(964, 26);
             this.comboBox7.Margin = new System.Windows.Forms.Padding(4);
             this.comboBox7.Name = "comboBox7";
             this.comboBox7.Size = new System.Drawing.Size(472, 24);
@@ -1772,6 +1818,7 @@
             this.richTextBox4.TabIndex = 1;
             this.richTextBox4.Text = "";
             this.richTextBox4.TextChanged += new System.EventHandler(this.richTextBox4_TextChanged);
+            this.richTextBox4.KeyDown += new System.Windows.Forms.KeyEventHandler(this.richTextBox4_KeyDown);
             this.richTextBox4.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.richTextBox4_KeyPress);
             // 
             // label4
@@ -2016,48 +2063,6 @@
             this.menuStrip1.TabIndex = 2;
             this.menuStrip1.Text = "menuStrip1";
             this.menuStrip1.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.menuStrip1_ItemClicked);
-            // 
-            // button8
-            // 
-            this.button8.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.tableLayoutPanel8.SetColumnSpan(this.button8, 2);
-            this.button8.Location = new System.Drawing.Point(4, 612);
-            this.button8.Margin = new System.Windows.Forms.Padding(4);
-            this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(232, 28);
-            this.button8.TabIndex = 4;
-            this.button8.Text = "Открыть файл из таблицы";
-            this.button8.UseVisualStyleBackColor = true;
-            this.button8.Click += new System.EventHandler(this.button8_Click);
-            // 
-            // button9
-            // 
-            this.button9.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.tableLayoutPanel8.SetColumnSpan(this.button9, 2);
-            this.button9.Location = new System.Drawing.Point(244, 612);
-            this.button9.Margin = new System.Windows.Forms.Padding(4);
-            this.button9.Name = "button9";
-            this.button9.Size = new System.Drawing.Size(232, 28);
-            this.button9.TabIndex = 5;
-            this.button9.Text = "Удалить файл из таблицы";
-            this.button9.UseVisualStyleBackColor = true;
-            this.button9.Click += new System.EventHandler(this.button9_Click);
-            // 
-            // button10
-            // 
-            this.button10.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.tableLayoutPanel8.SetColumnSpan(this.button10, 2);
-            this.button10.Location = new System.Drawing.Point(1084, 612);
-            this.button10.Margin = new System.Windows.Forms.Padding(4);
-            this.button10.Name = "button10";
-            this.button10.Size = new System.Drawing.Size(232, 28);
-            this.button10.TabIndex = 6;
-            this.button10.Text = "Новая характеристика";
-            this.button10.UseVisualStyleBackColor = true;
-            this.button10.Click += new System.EventHandler(this.button10_Click);
             // 
             // Form1
             // 
