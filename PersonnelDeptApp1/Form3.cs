@@ -109,6 +109,9 @@ namespace PersonnelDeptApp1
             {
                 menuStrip1.Items[0].Enabled = false;
                 dataGridView1.ReadOnly = true;
+                button2.Visible = false;
+                groupBox3.Visible = false;
+                groupBox4.Visible = false;
             }
         }
 
