@@ -828,14 +828,226 @@ namespace PersonnelDeptApp1
         //Загрузка формы
         private void Form1_Load(object sender, EventArgs e)
         {
+            //Вот тут необходимо после объединения модулей исправить подключение к БД
+            String connectionString = "Server=hrd.cx7kyl76gv42.us-east-2.rds.amazonaws.com;User Id=postgres;Password=Ntcnbhjdfybt_01;Database=HRD;";
+            NpgsqlConnection npgSqlConnection = new NpgsqlConnection(connectionString);
+            int pk_marital_status = -1;
+            int pk_character_work = -1;
+            int pk_military_rank = -1;
+            int pk_category_military = -1;
+            int pk_stock_category = -1;
+            int pk_citizenship = -1;
             if (flag == 0)
             {
                 tabPage9.Parent = null; //При добавлении скрываем таблицу должностей
                 panel2.Visible = false; //При добавлении еще нет текущей должности скрываем панель с ней
             }
-            //Вот тут необходимо после объединения модулей исправить подключение к БД
-            String connectionString = "Server=hrd.cx7kyl76gv42.us-east-2.rds.amazonaws.com;User Id=postgres;Password=Ntcnbhjdfybt_01;Database=HRD;";
-            NpgsqlConnection npgSqlConnection = new NpgsqlConnection(connectionString);
+            //Если форма открыта для редактирования считываем из базы данных информацию о сотруднике
+            if (flag == 1)
+            {
+                
+                try
+                {
+                    //Вот тут я запросом считываю из базы личную карточку
+                    string sqlExpression20 = "SELECT * FROM public.\"PersonalCard\" WHERE \"pk_personal_card\"=@pk_personal_card";
+                    npgSqlConnection.Open();
+                    NpgsqlCommand command20 = new NpgsqlCommand(sqlExpression20, npgSqlConnection);
+                    NpgsqlParameter CWParam = new NpgsqlParameter("@pk_personal_card", pk_personal_card);
+                    command20.Parameters.Add(CWParam);
+                    NpgsqlDataReader reader20 = command20.ExecuteReader();
+                    if (reader20.HasRows) // если есть данные
+                    {
+                        while (reader20.Read()) // построчно считываем данные
+                        {
+                            object marital_status = reader20.GetValue(1);
+                            pk_marital_status = Convert.ToInt32(marital_status);
+                            object character_work = reader20.GetValue(2);
+                            pk_character_work = Convert.ToInt32(character_work);
+                            object surname = reader20.GetValue(3);
+                            richTextBox14.Text = surname.ToString();
+                            object name = reader20.GetValue(4);
+                            richTextBox15.Text = name.ToString();
+                            object otchestvo = reader20.GetValue(5);
+                            richTextBox13.Text = otchestvo.ToString();
+                            object birthday_date = reader20.GetValue(6);
+                            dateTimePicker6.Value = Convert.ToDateTime(birthday_date);
+                            object INN = reader20.GetValue(8);
+                            richTextBox4.Text = INN.ToString();
+                            object SSN = reader20.GetValue(9);
+                            richTextBox3.Text = SSN.ToString();
+                            object Serial_number = reader20.GetValue(11);
+                            richTextBox6.Text = Serial_number.ToString();
+                            object Passport_date = reader20.GetValue(12);
+                            dateTimePicker4.Value = Convert.ToDateTime(Passport_date);
+                            object Vidan = reader20.GetValue(13);
+                            richTextBox5.Text = Vidan.ToString();
+                            object Home_date = reader20.GetValue(14);
+                            dateTimePicker1.Value = Convert.ToDateTime(Home_date);
+                            object Propiska = reader20.GetValue(15);
+                            richTextBox9.Text = Propiska.ToString();
+                            object Fact_address = reader20.GetValue(16);
+                            richTextBox11.Text = Fact_address.ToString();
+                            object Phone = reader20.GetValue(17);
+                            richTextBox2.Text = Phone.ToString();
+                            object military_rank = reader20.GetValue(18);
+                            pk_military_rank = Convert.ToInt32(military_rank);
+                            object category_military = reader20.GetValue(19);
+                            pk_category_military = Convert.ToInt32(category_military);
+                            object stock_category = reader20.GetValue(20);
+                            pk_stock_category = Convert.ToInt32(stock_category);
+                            object Birth_place = reader20.GetValue(21);
+                            richTextBox7.Text = Birth_place.ToString();
+                            object Creation_date = reader20.GetValue(22);
+                            dateTimePicker2.Value = Convert.ToDateTime(Creation_date);
+                            object Gender = reader20.GetValue(23);
+                            if (Gender.ToString() == "М") radioButton3.Checked = true;
+                            if (Gender.ToString() == "Ж") radioButton4.Checked = true;
+                            object Military_profile = reader20.GetValue(24);
+                            richTextBox16.Text = Military_profile.ToString();
+                            object Military_code = reader20.GetValue(25);
+                            richTextBox17.Text = Military_code.ToString();
+                            object Military_name = reader20.GetValue(26);
+                            richTextBox18.Text = Military_name.ToString();
+                            object Military_status = reader20.GetValue(27);
+                            comboBox11.Text = Military_status.ToString();
+                            object Military_cancel = reader20.GetValue(28);
+                            richTextBox19.Text = Military_cancel.ToString();
+                            object Work_kind = reader20.GetValue(29);
+                            richTextBox12.Text = Work_kind.ToString();
+                            object Index_fact = reader20.GetValue(30);
+                            richTextBox10.Text = Index_fact.ToString();
+                            object Index_real = reader20.GetValue(31);
+                            richTextBox8.Text = Index_real.ToString();
+
+                        }
+                    }
+                }
+                catch (NpgsqlException ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+                finally
+                {
+                    npgSqlConnection.Close();
+                    //  MessageBox.Show("Подключение закрыто!!");
+                }
+
+                try
+                {
+                    //Вот тут я запросом считываю из базы языки в comboBox
+                    string sqlExpression21 = "SELECT \"Language\".\"Name\",\"DegreeLanguage\".\"Name\"" +
+                        "FROM \"Language\",\"DegreeLanguage\",\"lang-card\"" +
+                        "WHERE \"lang-card\".\"pk_personal_card\"=@pk_personal_card and \"lang-card\".\"pk_language\"=\"Language\".\"pk_language\"" +
+                        "and \"lang-card\".\"pk_degree_language\"=\"DegreeLanguage\".\"pk_degree_language\""; 
+                    npgSqlConnection.Open();
+                    // MessageBox.Show("Подключение открыто!!");
+                    NpgsqlCommand command21 = new NpgsqlCommand(sqlExpression21, npgSqlConnection);
+                    NpgsqlParameter CWParam = new NpgsqlParameter("@pk_personal_card", pk_personal_card);
+                    command21.Parameters.Add(CWParam);
+                    NpgsqlDataReader reader21 = command21.ExecuteReader();
+                    if (reader21.HasRows) // если есть данные
+                    {
+                        while (reader21.Read()) // построчно считываем данные
+                        {
+                            object Lang_name = reader21.GetValue(0);
+                            object Degree_name = reader21.GetValue(1);
+                            dataGridView3.Rows.Add();
+                            int kol = dataGridView3.Rows.Count - 1;
+                            dataGridView3.Rows[kol].Cells[0].Value = Lang_name;
+                            dataGridView3.Rows[kol].Cells[1].Value = Degree_name;
+
+                        }
+                    }
+
+                }
+                catch (NpgsqlException ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+                finally
+                {
+                    npgSqlConnection.Close();
+                    //  MessageBox.Show("Подключение закрыто!!");
+                }
+
+                try
+                {
+                    //Вот тут я запросом считываю из базы карточку-гражданство сотрудника
+                    string sqlExpression22 = "SELECT * FROM public.\"card-citizenship\" WHERE \"pk_personal_card\"=@pk_personal_card";
+                    npgSqlConnection.Open();
+                    // MessageBox.Show("Подключение открыто!!");
+                    NpgsqlCommand command22 = new NpgsqlCommand(sqlExpression22, npgSqlConnection);
+                    NpgsqlParameter CWParam = new NpgsqlParameter("@pk_personal_card", pk_personal_card);
+                    command22.Parameters.Add(CWParam);
+                    NpgsqlDataReader reader22 = command22.ExecuteReader();
+                    if (reader22.HasRows) // если есть данные
+                    {
+                        while (reader22.Read()) // построчно считываем данные
+                        {
+                            object pk = reader22.GetValue(1);
+                            pk_citizenship = Convert.ToInt32(pk);
+                        }
+                    }
+
+                }
+                catch (NpgsqlException ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+                finally
+                {
+                    npgSqlConnection.Close();
+                    //  MessageBox.Show("Подключение закрыто!!");
+                }
+
+                try
+                {
+                    //Вот тут я запросом считываю из базы языки в comboBox
+                    string sqlExpression23 = "SELECT \"card-education\".\"document_name\",\"Education\".\"Name\",\"Institution\".\"Name\"" +
+                        ",\"Specialty\".\"Name\",\"card-education\".\"serial_number\",\"card-education\".\"Year\"" +
+                        "FROM \"card-education\",\"Education\",\"Institution\",\"Specialty\"" +
+                        "WHERE \"card-education\".\"pk_personal_card\"=@pk_personal_card and \"card-education\".\"pk_education\"=\"Education\".\"pk_education\"" +
+                        "and \"card-education\".\"pk_nstitution\"=\"Institution\".\"pk_nstitution\" " +
+                        "and \"card-education\".\"pk_specialty\"=\"Specialty\".\"pk_specialty\"";
+                    npgSqlConnection.Open();
+                    // MessageBox.Show("Подключение открыто!!");
+                    NpgsqlCommand command23 = new NpgsqlCommand(sqlExpression23, npgSqlConnection);
+                    NpgsqlParameter CWParam = new NpgsqlParameter("@pk_personal_card", pk_personal_card);
+                    command23.Parameters.Add(CWParam);
+                    NpgsqlDataReader reader23 = command23.ExecuteReader();
+                    if (reader23.HasRows) // если есть данные
+                    {
+                        while (reader23.Read()) // построчно считываем данные
+                        {
+                            object document_name = reader23.GetValue(0);
+                            object education_name = reader23.GetValue(1);
+                            object institution_name = reader23.GetValue(2);
+                            object specialty_name = reader23.GetValue(3);
+                            object serial_number = reader23.GetValue(4);
+                            object Year = reader23.GetValue(5);
+                            dataGridView4.Rows.Add();
+                            int kol = dataGridView4.Rows.Count - 1;
+                            dataGridView4.Rows[kol].Cells[0].Value = document_name;
+                            dataGridView4.Rows[kol].Cells[1].Value = education_name;
+                            dataGridView4.Rows[kol].Cells[2].Value = institution_name;
+                            dataGridView4.Rows[kol].Cells[3].Value = specialty_name;
+                            dataGridView4.Rows[kol].Cells[4].Value = serial_number;
+                            dataGridView4.Rows[kol].Cells[5].Value = Year;
+                        }
+                    }
+
+                }
+                catch (NpgsqlException ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+                finally
+                {
+                    npgSqlConnection.Close();
+                    //  MessageBox.Show("Подключение закрыто!!");
+                }
+            }
+            
             try
             {
                 //Вот тут я запросом считываю из базы Гражданство в comboBox
@@ -848,6 +1060,15 @@ namespace PersonnelDeptApp1
                 {
                     while (reader.Read()) // построчно считываем данные
                     {
+                        if (flag == 1)
+                        {
+                            object Id = reader.GetValue(0);
+                            if (Convert.ToInt32(Id) == pk_citizenship)
+                            {
+                                object Name1 = reader.GetValue(1);
+                                comboBox9.Text = Name1.ToString();
+                            }
+                        }
                         object Name = reader.GetValue(1);
                         comboBox9.Items.Add(Name);
                     }
@@ -877,8 +1098,18 @@ namespace PersonnelDeptApp1
                 {
                     while (reader1.Read()) // построчно считываем данные
                     {
+                        if (flag == 1)
+                        {
+                            object Id = reader1.GetValue(0);
+                            if (Convert.ToInt32(Id) == pk_marital_status)
+                            {
+                                object Name1 = reader1.GetValue(1);
+                                comboBox7.Text=Name1.ToString();
+                            }
+                        }
                         object Name = reader1.GetValue(1);
                         comboBox7.Items.Add(Name);
+                        
                     }
                 }
             }
@@ -904,6 +1135,15 @@ namespace PersonnelDeptApp1
                 {
                     while (reader2.Read()) // построчно считываем данные
                     {
+                        if (flag == 1)
+                        {
+                            object Id = reader2.GetValue(0);
+                            if (Convert.ToInt32(Id) == pk_character_work)
+                            {
+                                object Name1 = reader2.GetValue(1);
+                                comboBox4.Text = Name1.ToString();
+                            }
+                        }
                         object Name = reader2.GetValue(1);
                         comboBox4.Items.Add(Name);
                     }
@@ -930,6 +1170,15 @@ namespace PersonnelDeptApp1
                 {
                     while (reader3.Read()) // построчно считываем данные
                     {
+                        if (flag == 1)
+                        {
+                            object Id = reader3.GetValue(0);
+                            if (Convert.ToInt32(Id) == pk_stock_category)
+                            {
+                                object Name1 = reader3.GetValue(1);
+                                comboBox8.Text = Name1.ToString();
+                            }
+                        }
                         object Name = reader3.GetValue(1);
                         comboBox8.Items.Add(Name);
                     }
@@ -956,6 +1205,15 @@ namespace PersonnelDeptApp1
                 {
                     while (reader4.Read()) // построчно считываем данные
                     {
+                        if (flag == 1)
+                        {
+                            object Id = reader4.GetValue(0);
+                            if (Convert.ToInt32(Id) == pk_category_military)
+                            {
+                                object Name1 = reader4.GetValue(1);
+                                comboBox5.Text = Name1.ToString();
+                            }
+                        }
                         object Name = reader4.GetValue(1);
                         comboBox5.Items.Add(Name);
                     }
@@ -982,6 +1240,15 @@ namespace PersonnelDeptApp1
                 {
                     while (reader5.Read()) // построчно считываем данные
                     {
+                        if (flag == 1)
+                        {
+                            object Id = reader5.GetValue(0);
+                            if (Convert.ToInt32(Id) == pk_military_rank)
+                            {
+                                object Name1 = reader5.GetValue(1);
+                                comboBox6.Text = Name1.ToString();
+                            }
+                        }
                         object Name = reader5.GetValue(1);
                         comboBox6.Items.Add(Name);
                     }
@@ -999,6 +1266,7 @@ namespace PersonnelDeptApp1
 
             comboBox11.Items.Add("Состоит");
             comboBox11.Items.Add("Не состоит");
+            
 
         }
 

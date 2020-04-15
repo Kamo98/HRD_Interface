@@ -46,5 +46,17 @@ namespace PersonnelDeptApp1
             Form4 f4 = new Form4();
             f4.Show();
         }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+
+            Form1 f1 = new Form1();
+            f1.flag = 1; //Открываем форму для редактирования
+            f1.pk_personal_card = 1480; //ID карточки сотрудника для редактирования
+            f1.Show();
+            this.Hide();
+
+            
+        }
     }
 }
