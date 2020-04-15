@@ -25,7 +25,7 @@ namespace PersonnelDeptApp1
 
 		private static Dictionary<Role, string> role2str = new Dictionary<Role, string>()
 		{
-			{ Role.admin, "admin"},
+			{Role.admin, "admin"},
 			{Role.accounting, "accounting"},
 			{Role.reception, "reception"}
 		};
@@ -64,7 +64,7 @@ namespace PersonnelDeptApp1
 				} else
 				{
 					npgSqlConnection = null;
-					MessageBox.Show("Подключение НЕ выполнено.\n Роль пользователя " + login + " не найдена\n");
+					MessageBox.Show("Подключение НЕ выполнено.\nРоль пользователя " + login + " не найдена\n");
 				}
 				reader.Close();
 
@@ -72,7 +72,7 @@ namespace PersonnelDeptApp1
 			catch (NpgsqlException e)
 			{
 				npgSqlConnection = null;
-				MessageBox.Show("Подключение НЕ выполнено.\n Проверьте правильность введённых логина и пароля\n" + e.Message + "\n");
+				MessageBox.Show("Подключение НЕ выполнено.\nПроверьте правильность введённых логина и пароля\n" + e.Message + "\n");
 			}
 		}
 		

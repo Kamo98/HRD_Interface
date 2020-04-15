@@ -194,12 +194,12 @@
             // button6
             // 
             this.button6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-<<<<<<< HEAD
+//<<<<<<< HEAD
             this.button6.Location = new System.Drawing.Point(1042, 712);
-=======
+////=======
             this.button6.Location = new System.Drawing.Point(1389, 891);
             this.button6.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
->>>>>>> AutocompleteAndOrders
+//>>>>>>> AutocompleteAndOrders
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(173, 31);
             this.button6.TabIndex = 1;
@@ -260,7 +260,7 @@
             this.tableLayoutPanel3.TabIndex = 0;
             // 
             // dataGridView2
-<<<<<<< HEAD
+//<<<<<<< HEAD
             // 
             this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -307,7 +307,7 @@
             // 
             this.dataGridViewTextBoxColumn1.Frozen = true;
             this.dataGridViewTextBoxColumn1.HeaderText = "Дата вступления в должность";
-=======
+//=======
             // 
             this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -360,7 +360,7 @@
             this.dataGridViewTextBoxColumn1.Frozen = true;
             this.dataGridViewTextBoxColumn1.HeaderText = "Дата вступления в должность";
             this.dataGridViewTextBoxColumn1.MinimumWidth = 6;
->>>>>>> AutocompleteAndOrders
+//>>>>>>> AutocompleteAndOrders
             this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
             this.dataGridViewTextBoxColumn1.ReadOnly = true;
             this.dataGridViewTextBoxColumn1.Width = 195;
@@ -369,10 +369,10 @@
             // 
             this.dataGridViewTextBoxColumn3.Frozen = true;
             this.dataGridViewTextBoxColumn3.HeaderText = "Дата уволеньения/перехода";
-<<<<<<< HEAD
-=======
+//<<<<<<< HEAD
+//=======
             this.dataGridViewTextBoxColumn3.MinimumWidth = 6;
->>>>>>> AutocompleteAndOrders
+//>>>>>>> AutocompleteAndOrders
             this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
             this.dataGridViewTextBoxColumn3.ReadOnly = true;
             this.dataGridViewTextBoxColumn3.Width = 195;
@@ -381,10 +381,10 @@
             // 
             this.Column4.Frozen = true;
             this.Column4.HeaderText = "Основание";
-<<<<<<< HEAD
-=======
+//<<<<<<< HEAD
+//=======
             this.Column4.MinimumWidth = 6;
->>>>>>> AutocompleteAndOrders
+//>>>>>>> AutocompleteAndOrders
             this.Column4.Name = "Column4";
             this.Column4.ReadOnly = true;
             this.Column4.Width = 195;
@@ -413,13 +413,13 @@
             // Column10
             // 
             this.Column10.HeaderText = "";
-<<<<<<< HEAD
+//<<<<<<< HEAD
             this.Column10.Name = "Column10";
-=======
+//=======
             this.Column10.MinimumWidth = 6;
             this.Column10.Name = "Column10";
             this.Column10.Width = 125;
->>>>>>> AutocompleteAndOrders
+//>>>>>>> AutocompleteAndOrders
             // 
             // dataGridViewTextBoxColumn7
             // 
@@ -432,10 +432,10 @@
             // dataGridViewTextBoxColumn8
             // 
             this.dataGridViewTextBoxColumn8.HeaderText = "Непрерывный";
-<<<<<<< HEAD
-=======
+//<<<<<<< HEAD
+//=======
             this.dataGridViewTextBoxColumn8.MinimumWidth = 6;
->>>>>>> AutocompleteAndOrders
+//>>>>>>> AutocompleteAndOrders
             this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
             this.dataGridViewTextBoxColumn8.ReadOnly = true;
             this.dataGridViewTextBoxColumn8.Width = 170;
@@ -443,10 +443,10 @@
             // Column9
             // 
             this.Column9.HeaderText = "Дающий право на надбавку за выслугу лет";
-<<<<<<< HEAD
-=======
+//<<<<<<< HEAD
+//=======
             this.Column9.MinimumWidth = 6;
->>>>>>> AutocompleteAndOrders
+//>>>>>>> AutocompleteAndOrders
             this.Column9.Name = "Column9";
             this.Column9.ReadOnly = true;
             this.Column9.Width = 170;
@@ -455,16 +455,16 @@
             // 
             this.label41.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.label41.AutoSize = true;
-<<<<<<< HEAD
+//<<<<<<< HEAD
             this.label41.Location = new System.Drawing.Point(3, 334);
             this.label41.Name = "label41";
             this.label41.Size = new System.Drawing.Size(83, 13);
-=======
+//=======
             this.label41.Location = new System.Drawing.Point(4, 409);
             this.label41.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label41.Name = "label41";
             this.label41.Size = new System.Drawing.Size(111, 17);
->>>>>>> AutocompleteAndOrders
+//>>>>>>> AutocompleteAndOrders
             this.label41.TabIndex = 0;
             this.label41.Text = "Должность";
             this.label41.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -474,16 +474,16 @@
             this.comboBox13.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.tableLayoutPanel3.SetColumnSpan(this.comboBox13, 2);
             this.comboBox13.FormattingEnabled = true;
-<<<<<<< HEAD
+//<<<<<<< HEAD
             this.comboBox13.Location = new System.Drawing.Point(92, 330);
             this.comboBox13.Name = "comboBox13";
             this.comboBox13.Size = new System.Drawing.Size(172, 21);
-=======
+//=======
             this.comboBox13.Location = new System.Drawing.Point(123, 406);
             this.comboBox13.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.comboBox13.Name = "comboBox13";
             this.comboBox13.Size = new System.Drawing.Size(230, 24);
->>>>>>> AutocompleteAndOrders
+//>>>>>>> AutocompleteAndOrders
             this.comboBox13.TabIndex = 2;
             this.comboBox13.SelectedIndexChanged += new System.EventHandler(this.comboBox13_SelectedIndexChanged);
             // 
@@ -491,16 +491,16 @@
             // 
             this.label17.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.label17.AutoSize = true;
-<<<<<<< HEAD
+//<<<<<<< HEAD
             this.label17.Location = new System.Drawing.Point(270, 334);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(83, 13);
-=======
+//=======
             this.label17.Location = new System.Drawing.Point(361, 409);
             this.label17.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(111, 17);
->>>>>>> AutocompleteAndOrders
+//>>>>>>> AutocompleteAndOrders
             this.label17.TabIndex = 0;
             this.label17.Text = "Стаж работы";
             this.label17.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -509,32 +509,32 @@
             // 
             this.dateTimePicker7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.tableLayoutPanel3.SetColumnSpan(this.dateTimePicker7, 2);
-<<<<<<< HEAD
+//<<<<<<< HEAD
             this.dateTimePicker7.Location = new System.Drawing.Point(359, 331);
             this.dateTimePicker7.Name = "dateTimePicker7";
             this.dateTimePicker7.Size = new System.Drawing.Size(172, 20);
-=======
+//=======
             this.dateTimePicker7.Location = new System.Drawing.Point(480, 407);
             this.dateTimePicker7.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dateTimePicker7.Name = "dateTimePicker7";
             this.dateTimePicker7.Size = new System.Drawing.Size(230, 22);
->>>>>>> AutocompleteAndOrders
+//>>>>>>> AutocompleteAndOrders
             this.dateTimePicker7.TabIndex = 2;
             // 
             // button1
             // 
             this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.tableLayoutPanel3.SetColumnSpan(this.button1, 2);
-<<<<<<< HEAD
+//<<<<<<< HEAD
             this.button1.Location = new System.Drawing.Point(982, 453);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(185, 24);
-=======
+//=======
             this.button1.Location = new System.Drawing.Point(1313, 555);
             this.button1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(243, 30);
->>>>>>> AutocompleteAndOrders
+//>>>>>>> AutocompleteAndOrders
             this.button1.TabIndex = 3;
             this.button1.Text = "Расчитать стаж";
             this.button1.UseVisualStyleBackColor = true;
@@ -597,16 +597,16 @@
             this.label19.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.label19.AutoSize = true;
             this.tableLayoutPanel8.SetColumnSpan(this.label19, 4);
-<<<<<<< HEAD
+//<<<<<<< HEAD
             this.label19.Location = new System.Drawing.Point(92, 24);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(350, 13);
-=======
+//=======
             this.label19.Location = new System.Drawing.Point(124, 29);
             this.label19.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(472, 17);
->>>>>>> AutocompleteAndOrders
+//>>>>>>> AutocompleteAndOrders
             this.label19.TabIndex = 1;
             this.label19.Text = "Список характеристик и поощрительных писем";
             this.label19.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -615,14 +615,14 @@
             // 
             this.richTextBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.tableLayoutPanel8.SetColumnSpan(this.richTextBox1, 6);
-<<<<<<< HEAD
+//<<<<<<< HEAD
             this.richTextBox1.Location = new System.Drawing.Point(626, 65);
             this.richTextBox1.Name = "richTextBox1";
             this.tableLayoutPanel8.SetRowSpan(this.richTextBox1, 7);
             this.richTextBox1.Size = new System.Drawing.Size(541, 428);
             this.richTextBox1.TabIndex = 0;
             this.richTextBox1.Text = "";
-=======
+//=======
             this.richTextBox1.Location = new System.Drawing.Point(844, 80);
             this.richTextBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.richTextBox1.Name = "richTextBox1";
@@ -643,7 +643,7 @@
             this.label30.TabIndex = 1;
             this.label30.Text = "Характериситика";
             this.label30.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
->>>>>>> AutocompleteAndOrders
+//>>>>>>> AutocompleteAndOrders
             // 
             // label30
             // 
@@ -683,7 +683,7 @@
             this.Column11.Width = 134;
             // 
             // Column12
-<<<<<<< HEAD
+//<<<<<<< HEAD
             // 
             this.Column12.Frozen = true;
             this.Column12.HeaderText = "Имя файла";
@@ -711,7 +711,7 @@
             this.button4.Location = new System.Drawing.Point(626, 499);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(172, 23);
-=======
+//=======
             // 
             this.Column12.Frozen = true;
             this.Column12.HeaderText = "Имя файла";
@@ -742,7 +742,7 @@
             this.button4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(232, 28);
->>>>>>> AutocompleteAndOrders
+//>>>>>>> AutocompleteAndOrders
             this.button4.TabIndex = 3;
             this.button4.Text = "Сохранить изменения";
             this.button4.UseVisualStyleBackColor = true;
@@ -814,16 +814,16 @@
             this.label14.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.label14.AutoSize = true;
             this.tableLayoutPanel1.SetColumnSpan(this.label14, 2);
-<<<<<<< HEAD
+//<<<<<<< HEAD
             this.label14.Location = new System.Drawing.Point(3, 24);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(174, 13);
-=======
+//=======
             this.label14.Location = new System.Drawing.Point(4, 30);
             this.label14.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(232, 17);
->>>>>>> AutocompleteAndOrders
+//>>>>>>> AutocompleteAndOrders
             this.label14.TabIndex = 0;
             this.label14.Text = "Катергория запаса";
             this.label14.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -833,16 +833,16 @@
             this.label29.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.label29.AutoSize = true;
             this.tableLayoutPanel1.SetColumnSpan(this.label29, 2);
-<<<<<<< HEAD
+//<<<<<<< HEAD
             this.label29.Location = new System.Drawing.Point(3, 86);
             this.label29.Name = "label29";
             this.label29.Size = new System.Drawing.Size(174, 13);
-=======
+//=======
             this.label29.Location = new System.Drawing.Point(4, 107);
             this.label29.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label29.Name = "label29";
             this.label29.Size = new System.Drawing.Size(232, 17);
->>>>>>> AutocompleteAndOrders
+//>>>>>>> AutocompleteAndOrders
             this.label29.TabIndex = 0;
             this.label29.Text = "Воинское звание";
             this.label29.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -852,16 +852,16 @@
             this.label31.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.label31.AutoSize = true;
             this.tableLayoutPanel1.SetColumnSpan(this.label31, 2);
-<<<<<<< HEAD
+//<<<<<<< HEAD
             this.label31.Location = new System.Drawing.Point(3, 148);
             this.label31.Name = "label31";
             this.label31.Size = new System.Drawing.Size(174, 13);
-=======
+//=======
             this.label31.Location = new System.Drawing.Point(4, 184);
             this.label31.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label31.Name = "label31";
             this.label31.Size = new System.Drawing.Size(232, 17);
->>>>>>> AutocompleteAndOrders
+//>>>>>>> AutocompleteAndOrders
             this.label31.TabIndex = 0;
             this.label31.Text = "Состав(Профиль)";
             this.label31.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -871,16 +871,16 @@
             this.label32.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.label32.AutoSize = true;
             this.tableLayoutPanel1.SetColumnSpan(this.label32, 2);
-<<<<<<< HEAD
+//<<<<<<< HEAD
             this.label32.Location = new System.Drawing.Point(3, 204);
             this.label32.Name = "label32";
             this.label32.Size = new System.Drawing.Size(174, 26);
-=======
+//=======
             this.label32.Location = new System.Drawing.Point(4, 252);
             this.label32.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label32.Name = "label32";
             this.label32.Size = new System.Drawing.Size(232, 34);
->>>>>>> AutocompleteAndOrders
+//>>>>>>> AutocompleteAndOrders
             this.label32.TabIndex = 0;
             this.label32.Text = "Полное кодовое обозначение ВУС";
             this.label32.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -890,16 +890,16 @@
             this.label37.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.label37.AutoSize = true;
             this.tableLayoutPanel1.SetColumnSpan(this.label37, 2);
-<<<<<<< HEAD
+//<<<<<<< HEAD
             this.label37.Location = new System.Drawing.Point(633, 73);
             this.label37.Name = "label37";
             this.label37.Size = new System.Drawing.Size(174, 39);
-=======
+//=======
             this.label37.Location = new System.Drawing.Point(844, 90);
             this.label37.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label37.Name = "label37";
             this.label37.Size = new System.Drawing.Size(232, 51);
->>>>>>> AutocompleteAndOrders
+//>>>>>>> AutocompleteAndOrders
             this.label37.TabIndex = 0;
             this.label37.Text = "Наименование военного комиссариата по месту  жительства";
             this.label37.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -910,16 +910,16 @@
             this.label39.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.label39.AutoSize = true;
             this.tableLayoutPanel1.SetColumnSpan(this.label39, 2);
-<<<<<<< HEAD
+//<<<<<<< HEAD
             this.label39.Location = new System.Drawing.Point(633, 18);
             this.label39.Name = "label39";
             this.label39.Size = new System.Drawing.Size(174, 26);
-=======
+//=======
             this.label39.Location = new System.Drawing.Point(844, 21);
             this.label39.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label39.Name = "label39";
             this.label39.Size = new System.Drawing.Size(232, 34);
->>>>>>> AutocompleteAndOrders
+//>>>>>>> AutocompleteAndOrders
             this.label39.TabIndex = 0;
             this.label39.Text = "Категория годности к военной службе";
             this.label39.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -929,16 +929,16 @@
             this.label34.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.label34.AutoSize = true;
             this.tableLayoutPanel1.SetColumnSpan(this.label34, 2);
-<<<<<<< HEAD
+//<<<<<<< HEAD
             this.label34.Location = new System.Drawing.Point(633, 148);
             this.label34.Name = "label34";
             this.label34.Size = new System.Drawing.Size(174, 13);
-=======
+//=======
             this.label34.Location = new System.Drawing.Point(844, 184);
             this.label34.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label34.Name = "label34";
             this.label34.Size = new System.Drawing.Size(232, 17);
->>>>>>> AutocompleteAndOrders
+//>>>>>>> AutocompleteAndOrders
             this.label34.TabIndex = 0;
             this.label34.Text = "Состоит на воинском учёте";
             this.label34.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -960,16 +960,16 @@
             // 
             this.richTextBox16.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.tableLayoutPanel1.SetColumnSpan(this.richTextBox16, 4);
-<<<<<<< HEAD
+//<<<<<<< HEAD
             this.richTextBox16.Location = new System.Drawing.Point(183, 142);
             this.richTextBox16.Name = "richTextBox16";
             this.richTextBox16.Size = new System.Drawing.Size(354, 25);
-=======
+//=======
             this.richTextBox16.Location = new System.Drawing.Point(244, 177);
             this.richTextBox16.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.richTextBox16.Name = "richTextBox16";
             this.richTextBox16.Size = new System.Drawing.Size(472, 30);
->>>>>>> AutocompleteAndOrders
+//>>>>>>> AutocompleteAndOrders
             this.richTextBox16.TabIndex = 2;
             this.richTextBox16.Text = "";
             // 
@@ -978,16 +978,16 @@
             this.comboBox6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.tableLayoutPanel1.SetColumnSpan(this.comboBox6, 4);
             this.comboBox6.FormattingEnabled = true;
-<<<<<<< HEAD
+//<<<<<<< HEAD
             this.comboBox6.Location = new System.Drawing.Point(183, 82);
             this.comboBox6.Name = "comboBox6";
             this.comboBox6.Size = new System.Drawing.Size(354, 21);
-=======
+//=======
             this.comboBox6.Location = new System.Drawing.Point(244, 103);
             this.comboBox6.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.comboBox6.Name = "comboBox6";
             this.comboBox6.Size = new System.Drawing.Size(472, 24);
->>>>>>> AutocompleteAndOrders
+//>>>>>>> AutocompleteAndOrders
             this.comboBox6.TabIndex = 1;
             // 
             // comboBox8
@@ -995,16 +995,16 @@
             this.comboBox8.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.tableLayoutPanel1.SetColumnSpan(this.comboBox8, 4);
             this.comboBox8.FormattingEnabled = true;
-<<<<<<< HEAD
+//<<<<<<< HEAD
             this.comboBox8.Location = new System.Drawing.Point(183, 20);
             this.comboBox8.Name = "comboBox8";
             this.comboBox8.Size = new System.Drawing.Size(354, 21);
-=======
+//=======
             this.comboBox8.Location = new System.Drawing.Point(244, 26);
             this.comboBox8.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.comboBox8.Name = "comboBox8";
             this.comboBox8.Size = new System.Drawing.Size(472, 24);
->>>>>>> AutocompleteAndOrders
+//>>>>>>> AutocompleteAndOrders
             this.comboBox8.TabIndex = 1;
             this.comboBox8.SelectedIndexChanged += new System.EventHandler(this.comboBox8_SelectedIndexChanged);
             // 
@@ -1012,16 +1012,16 @@
             // 
             this.richTextBox17.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.tableLayoutPanel1.SetColumnSpan(this.richTextBox17, 4);
-<<<<<<< HEAD
+//<<<<<<< HEAD
             this.richTextBox17.Location = new System.Drawing.Point(183, 204);
             this.richTextBox17.Name = "richTextBox17";
             this.richTextBox17.Size = new System.Drawing.Size(354, 25);
-=======
+//=======
             this.richTextBox17.Location = new System.Drawing.Point(244, 254);
             this.richTextBox17.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.richTextBox17.Name = "richTextBox17";
             this.richTextBox17.Size = new System.Drawing.Size(472, 30);
->>>>>>> AutocompleteAndOrders
+//>>>>>>> AutocompleteAndOrders
             this.richTextBox17.TabIndex = 2;
             this.richTextBox17.Text = "";
             // 
@@ -1030,32 +1030,32 @@
             this.comboBox5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.tableLayoutPanel1.SetColumnSpan(this.comboBox5, 4);
             this.comboBox5.FormattingEnabled = true;
-<<<<<<< HEAD
+//<<<<<<< HEAD
             this.comboBox5.Location = new System.Drawing.Point(813, 20);
             this.comboBox5.Name = "comboBox5";
             this.comboBox5.Size = new System.Drawing.Size(360, 21);
-=======
+//=======
             this.comboBox5.Location = new System.Drawing.Point(1084, 26);
             this.comboBox5.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.comboBox5.Name = "comboBox5";
             this.comboBox5.Size = new System.Drawing.Size(483, 24);
->>>>>>> AutocompleteAndOrders
+//>>>>>>> AutocompleteAndOrders
             this.comboBox5.TabIndex = 1;
             // 
             // richTextBox18
             // 
             this.richTextBox18.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.tableLayoutPanel1.SetColumnSpan(this.richTextBox18, 4);
-<<<<<<< HEAD
+//<<<<<<< HEAD
             this.richTextBox18.Location = new System.Drawing.Point(813, 80);
             this.richTextBox18.Name = "richTextBox18";
             this.richTextBox18.Size = new System.Drawing.Size(360, 25);
-=======
+//=======
             this.richTextBox18.Location = new System.Drawing.Point(1084, 100);
             this.richTextBox18.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.richTextBox18.Name = "richTextBox18";
             this.richTextBox18.Size = new System.Drawing.Size(483, 30);
->>>>>>> AutocompleteAndOrders
+//>>>>>>> AutocompleteAndOrders
             this.richTextBox18.TabIndex = 2;
             this.richTextBox18.Text = "";
             // 
@@ -1064,32 +1064,32 @@
             this.comboBox11.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.tableLayoutPanel1.SetColumnSpan(this.comboBox11, 4);
             this.comboBox11.FormattingEnabled = true;
-<<<<<<< HEAD
+//<<<<<<< HEAD
             this.comboBox11.Location = new System.Drawing.Point(813, 144);
             this.comboBox11.Name = "comboBox11";
             this.comboBox11.Size = new System.Drawing.Size(360, 21);
-=======
+//=======
             this.comboBox11.Location = new System.Drawing.Point(1084, 180);
             this.comboBox11.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.comboBox11.Name = "comboBox11";
             this.comboBox11.Size = new System.Drawing.Size(483, 24);
->>>>>>> AutocompleteAndOrders
+//>>>>>>> AutocompleteAndOrders
             this.comboBox11.TabIndex = 1;
             // 
             // richTextBox19
             // 
             this.richTextBox19.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.tableLayoutPanel1.SetColumnSpan(this.richTextBox19, 4);
-<<<<<<< HEAD
+//<<<<<<< HEAD
             this.richTextBox19.Location = new System.Drawing.Point(813, 204);
             this.richTextBox19.Name = "richTextBox19";
             this.richTextBox19.Size = new System.Drawing.Size(360, 25);
-=======
+//=======
             this.richTextBox19.Location = new System.Drawing.Point(1084, 254);
             this.richTextBox19.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.richTextBox19.Name = "richTextBox19";
             this.richTextBox19.Size = new System.Drawing.Size(483, 30);
->>>>>>> AutocompleteAndOrders
+//>>>>>>> AutocompleteAndOrders
             this.richTextBox19.TabIndex = 2;
             this.richTextBox19.Text = "";
             // 
@@ -1146,7 +1146,7 @@
             this.tableLayoutPanel12.TabIndex = 2;
             // 
             // dataGridView4
-<<<<<<< HEAD
+//<<<<<<< HEAD
             // 
             this.dataGridView4.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView4.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -1174,7 +1174,7 @@
             // 
             this.dataGridViewTextBoxColumn5.Frozen = true;
             this.dataGridViewTextBoxColumn5.HeaderText = "Образовательное учереждение";
-=======
+//=======
             // 
             this.dataGridView4.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView4.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -1206,7 +1206,7 @@
             this.dataGridViewTextBoxColumn5.Frozen = true;
             this.dataGridViewTextBoxColumn5.HeaderText = "Образовательное учереждение";
             this.dataGridViewTextBoxColumn5.MinimumWidth = 6;
->>>>>>> AutocompleteAndOrders
+//>>>>>>> AutocompleteAndOrders
             this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
             this.dataGridViewTextBoxColumn5.ReadOnly = true;
             this.dataGridViewTextBoxColumn5.Width = 586;
@@ -1215,10 +1215,10 @@
             // 
             this.dataGridViewTextBoxColumn6.Frozen = true;
             this.dataGridViewTextBoxColumn6.HeaderText = "Профиль подготовки";
-<<<<<<< HEAD
-=======
+//<<<<<<< HEAD
+//=======
             this.dataGridViewTextBoxColumn6.MinimumWidth = 6;
->>>>>>> AutocompleteAndOrders
+//>>>>>>> AutocompleteAndOrders
             this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
             this.dataGridViewTextBoxColumn6.ReadOnly = true;
             this.dataGridViewTextBoxColumn6.Width = 200;
@@ -1227,16 +1227,16 @@
             // 
             this.button11.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.tableLayoutPanel12.SetColumnSpan(this.button11, 2);
-<<<<<<< HEAD
+//<<<<<<< HEAD
             this.button11.Location = new System.Drawing.Point(982, 453);
             this.button11.Name = "button11";
             this.button11.Size = new System.Drawing.Size(185, 24);
-=======
+//=======
             this.button11.Location = new System.Drawing.Point(1324, 555);
             this.button11.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.button11.Name = "button11";
             this.button11.Size = new System.Drawing.Size(235, 30);
->>>>>>> AutocompleteAndOrders
+//>>>>>>> AutocompleteAndOrders
             this.button11.TabIndex = 1;
             this.button11.Text = "Добавить образование";
             this.button11.UseVisualStyleBackColor = true;
@@ -1269,7 +1269,7 @@
             this.Column7.Width = 493;
             // 
             // Column8
-<<<<<<< HEAD
+//<<<<<<< HEAD
             // 
             this.Column8.Frozen = true;
             this.Column8.HeaderText = "Степень владения языком";
@@ -1312,7 +1312,7 @@
             this.label26.Text = "Образование";
             this.label26.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-=======
+//=======
             // 
             this.Column8.Frozen = true;
             this.Column8.HeaderText = "Степень владения языком";
@@ -1359,7 +1359,7 @@
             this.label26.Text = "Образование";
             this.label26.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
->>>>>>> AutocompleteAndOrders
+//>>>>>>> AutocompleteAndOrders
             // tabPage1
             // 
             this.tabPage1.BackColor = System.Drawing.Color.WhiteSmoke;
@@ -1443,7 +1443,7 @@
             this.tableLayoutPanel17.TabIndex = 0;
             // 
             // richTextBox13
-<<<<<<< HEAD
+//<<<<<<< HEAD
             // 
             this.richTextBox13.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.richTextBox13.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -1804,7 +1804,7 @@
             this.label40.TabIndex = 0;
             this.label40.Text = "Дата выдачи";
             this.label40.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-=======
+//=======
             // 
             this.richTextBox13.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.richTextBox13.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -2217,18 +2217,18 @@
             this.label45.TabIndex = 0;
             this.label45.Text = "Дата рождения";
             this.label45.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
->>>>>>> AutocompleteAndOrders
+//>>>>>>> AutocompleteAndOrders
             // 
             // dateTimePicker4
             // 
-<<<<<<< HEAD
+//<<<<<<< HEAD
             this.dateTimePicker4.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.tableLayoutPanel17.SetColumnSpan(this.dateTimePicker4, 2);
             this.dateTimePicker4.Location = new System.Drawing.Point(359, 331);
             this.dateTimePicker4.Name = "dateTimePicker4";
             this.dateTimePicker4.Size = new System.Drawing.Size(172, 20);
             this.dateTimePicker4.TabIndex = 5;
-=======
+//=======
             this.dateTimePicker6.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.tableLayoutPanel17.SetColumnSpan(this.dateTimePicker6, 2);
             this.dateTimePicker6.Location = new System.Drawing.Point(126, 255);
@@ -2236,7 +2236,7 @@
             this.dateTimePicker6.Name = "dateTimePicker6";
             this.dateTimePicker6.Size = new System.Drawing.Size(228, 22);
             this.dateTimePicker6.TabIndex = 5;
->>>>>>> AutocompleteAndOrders
+//>>>>>>> AutocompleteAndOrders
             // 
             // label47
             // 
@@ -2250,7 +2250,7 @@
             this.label47.Text = "Место рождения";
             this.label47.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-<<<<<<< HEAD
+//<<<<<<< HEAD
             // dateTimePicker6
             // 
             this.dateTimePicker6.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -2501,7 +2501,7 @@
             this.comboBox1.Location = new System.Drawing.Point(125, 63);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(366, 21);
-=======
+//=======
             // comboBox10
             // 
             this.comboBox10.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -2753,39 +2753,39 @@
             this.comboBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(481, 24);
->>>>>>> AutocompleteAndOrders
+//>>>>>>> AutocompleteAndOrders
             this.comboBox1.TabIndex = 8;
             // 
             // comboBox4
             // 
             this.comboBox4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.comboBox4.FormattingEnabled = true;
-<<<<<<< HEAD
+//<<<<<<< HEAD
             this.comboBox4.Location = new System.Drawing.Point(125, 4);
             this.comboBox4.Name = "comboBox4";
             this.comboBox4.Size = new System.Drawing.Size(134, 21);
-=======
+//=======
             this.comboBox4.Location = new System.Drawing.Point(167, 5);
             this.comboBox4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.comboBox4.Name = "comboBox4";
             this.comboBox4.Size = new System.Drawing.Size(171, 24);
->>>>>>> AutocompleteAndOrders
+//>>>>>>> AutocompleteAndOrders
             this.comboBox4.TabIndex = 8;
             // 
             // label11
             // 
             this.label11.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.label11.AutoSize = true;
-<<<<<<< HEAD
+//<<<<<<< HEAD
             this.label11.Location = new System.Drawing.Point(24, 8);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(95, 13);
-=======
+//=======
             this.label11.Location = new System.Drawing.Point(32, 10);
             this.label11.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(124, 17);
->>>>>>> AutocompleteAndOrders
+//>>>>>>> AutocompleteAndOrders
             this.label11.TabIndex = 5;
             this.label11.Text = "Характер работы";
             this.label11.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -2794,16 +2794,16 @@
             // 
             this.label18.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.label18.AutoSize = true;
-<<<<<<< HEAD
+//<<<<<<< HEAD
             this.label18.Location = new System.Drawing.Point(331, 38);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(19, 13);
-=======
+//=======
             this.label18.Location = new System.Drawing.Point(441, 47);
             this.label18.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(24, 17);
->>>>>>> AutocompleteAndOrders
+//>>>>>>> AutocompleteAndOrders
             this.label18.TabIndex = 6;
             this.label18.Text = "по";
             this.label18.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -2812,16 +2812,16 @@
             // 
             this.label12.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.label12.AutoSize = true;
-<<<<<<< HEAD
+//<<<<<<< HEAD
             this.label12.Location = new System.Drawing.Point(284, 10);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(66, 13);
-=======
+//=======
             this.label12.Location = new System.Drawing.Point(379, 12);
             this.label12.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(86, 17);
->>>>>>> AutocompleteAndOrders
+//>>>>>>> AutocompleteAndOrders
             this.label12.TabIndex = 7;
             this.label12.Text = "Вид работы";
             this.label12.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -2830,62 +2830,62 @@
             // 
             this.comboBox12.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.comboBox12.FormattingEnabled = true;
-<<<<<<< HEAD
+//<<<<<<< HEAD
             this.comboBox12.Location = new System.Drawing.Point(356, 5);
             this.comboBox12.Name = "comboBox12";
             this.comboBox12.Size = new System.Drawing.Size(135, 21);
-=======
+//=======
             this.comboBox12.Location = new System.Drawing.Point(475, 6);
             this.comboBox12.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.comboBox12.Name = "comboBox12";
             this.comboBox12.Size = new System.Drawing.Size(173, 24);
->>>>>>> AutocompleteAndOrders
+//>>>>>>> AutocompleteAndOrders
             this.comboBox12.TabIndex = 9;
             // 
             // dateTimePicker8
             // 
             this.dateTimePicker8.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-<<<<<<< HEAD
+//<<<<<<< HEAD
             this.dateTimePicker8.Location = new System.Drawing.Point(356, 34);
             this.dateTimePicker8.Name = "dateTimePicker8";
             this.dateTimePicker8.Size = new System.Drawing.Size(135, 20);
-=======
+//=======
             this.dateTimePicker8.Location = new System.Drawing.Point(475, 42);
             this.dateTimePicker8.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dateTimePicker8.Name = "dateTimePicker8";
             this.dateTimePicker8.Size = new System.Drawing.Size(173, 22);
->>>>>>> AutocompleteAndOrders
+//>>>>>>> AutocompleteAndOrders
             this.dateTimePicker8.TabIndex = 11;
             // 
             // dateTimePicker3
             // 
             this.dateTimePicker3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-<<<<<<< HEAD
+//<<<<<<< HEAD
             this.dateTimePicker3.Location = new System.Drawing.Point(125, 34);
             this.dateTimePicker3.Name = "dateTimePicker3";
             this.dateTimePicker3.Size = new System.Drawing.Size(134, 20);
-=======
+//=======
             this.dateTimePicker3.Location = new System.Drawing.Point(167, 42);
             this.dateTimePicker3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dateTimePicker3.Name = "dateTimePicker3";
             this.dateTimePicker3.Size = new System.Drawing.Size(171, 22);
->>>>>>> AutocompleteAndOrders
+//>>>>>>> AutocompleteAndOrders
             this.dateTimePicker3.TabIndex = 12;
             // 
             // label3
             // 
             this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.label3.AutoSize = true;
-<<<<<<< HEAD
+//<<<<<<< HEAD
             this.label3.Location = new System.Drawing.Point(626, 396);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(83, 13);
-=======
+//=======
             this.label3.Location = new System.Drawing.Point(844, 485);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(112, 17);
->>>>>>> AutocompleteAndOrders
+//>>>>>>> AutocompleteAndOrders
             this.label3.TabIndex = 0;
             this.label3.Text = "Номер (ИНН)";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -2897,16 +2897,16 @@
             this.richTextBox4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.tableLayoutPanel17.SetColumnSpan(this.richTextBox4, 2);
             this.richTextBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-<<<<<<< HEAD
+//<<<<<<< HEAD
             this.richTextBox4.Location = new System.Drawing.Point(715, 390);
             this.richTextBox4.Name = "richTextBox4";
             this.richTextBox4.Size = new System.Drawing.Size(172, 25);
-=======
+//=======
             this.richTextBox4.Location = new System.Drawing.Point(964, 479);
             this.richTextBox4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.richTextBox4.Name = "richTextBox4";
             this.richTextBox4.Size = new System.Drawing.Size(232, 30);
->>>>>>> AutocompleteAndOrders
+//>>>>>>> AutocompleteAndOrders
             this.richTextBox4.TabIndex = 1;
             this.richTextBox4.Text = "";
             this.richTextBox4.TextChanged += new System.EventHandler(this.richTextBox4_TextChanged);
@@ -2915,16 +2915,16 @@
             // 
             this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.label4.AutoSize = true;
-<<<<<<< HEAD
+//<<<<<<< HEAD
             this.label4.Location = new System.Drawing.Point(893, 383);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(83, 39);
-=======
+//=======
             this.label4.Location = new System.Drawing.Point(1204, 468);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(112, 51);
->>>>>>> AutocompleteAndOrders
+//>>>>>>> AutocompleteAndOrders
             this.label4.TabIndex = 0;
             this.label4.Text = "Номер страхового свидетельства";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -2936,16 +2936,16 @@
             this.richTextBox3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.tableLayoutPanel17.SetColumnSpan(this.richTextBox3, 2);
             this.richTextBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-<<<<<<< HEAD
+//<<<<<<< HEAD
             this.richTextBox3.Location = new System.Drawing.Point(982, 390);
             this.richTextBox3.Name = "richTextBox3";
             this.richTextBox3.Size = new System.Drawing.Size(185, 25);
-=======
+//=======
             this.richTextBox3.Location = new System.Drawing.Point(1324, 479);
             this.richTextBox3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.richTextBox3.Name = "richTextBox3";
             this.richTextBox3.Size = new System.Drawing.Size(235, 30);
->>>>>>> AutocompleteAndOrders
+//>>>>>>> AutocompleteAndOrders
             this.richTextBox3.TabIndex = 1;
             this.richTextBox3.Text = "";
             // 
@@ -2977,21 +2977,21 @@
             // печатьToolStripMenuItem1
             // 
             this.печатьToolStripMenuItem1.Name = "печатьToolStripMenuItem1";
-<<<<<<< HEAD
+//<<<<<<< HEAD
             this.печатьToolStripMenuItem1.Size = new System.Drawing.Size(163, 22);
-=======
+//=======
             this.печатьToolStripMenuItem1.Size = new System.Drawing.Size(204, 26);
->>>>>>> AutocompleteAndOrders
+//>>>>>>> AutocompleteAndOrders
             this.печатьToolStripMenuItem1.Text = "Печать";
             // 
             // экспортДанныхToolStripMenuItem
             // 
             this.экспортДанныхToolStripMenuItem.Name = "экспортДанныхToolStripMenuItem";
-<<<<<<< HEAD
+//<<<<<<< HEAD
             this.экспортДанныхToolStripMenuItem.Size = new System.Drawing.Size(163, 22);
-=======
+//=======
             this.экспортДанныхToolStripMenuItem.Size = new System.Drawing.Size(204, 26);
->>>>>>> AutocompleteAndOrders
+//>>>>>>> AutocompleteAndOrders
             this.экспортДанныхToolStripMenuItem.Text = "Экспорт данных";
             // 
             // спарвкаToolStripMenuItem
@@ -3006,40 +3006,40 @@
             // оПрограммеToolStripMenuItem
             // 
             this.оПрограммеToolStripMenuItem.Name = "оПрограммеToolStripMenuItem";
-<<<<<<< HEAD
+//<<<<<<< HEAD
             this.оПрограммеToolStripMenuItem.Size = new System.Drawing.Size(163, 22);
-=======
+//=======
             this.оПрограммеToolStripMenuItem.Size = new System.Drawing.Size(205, 26);
->>>>>>> AutocompleteAndOrders
+//>>>>>>> AutocompleteAndOrders
             this.оПрограммеToolStripMenuItem.Text = "О программе";
             // 
             // начинаяРаботуToolStripMenuItem
             // 
             this.начинаяРаботуToolStripMenuItem.Name = "начинаяРаботуToolStripMenuItem";
-<<<<<<< HEAD
+//<<<<<<< HEAD
             this.начинаяРаботуToolStripMenuItem.Size = new System.Drawing.Size(163, 22);
-=======
+//=======
             this.начинаяРаботуToolStripMenuItem.Size = new System.Drawing.Size(205, 26);
->>>>>>> AutocompleteAndOrders
+//>>>>>>> AutocompleteAndOrders
             this.начинаяРаботуToolStripMenuItem.Text = "Начиная работу";
             // 
             // menuStrip1
             // 
             this.menuStrip1.BackColor = System.Drawing.SystemColors.Menu;
-<<<<<<< HEAD
-=======
+//<<<<<<< HEAD
+//=======
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
->>>>>>> AutocompleteAndOrders
+//>>>>>>> AutocompleteAndOrders
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.управлениеToolStripMenuItem,
             this.спарвкаToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-<<<<<<< HEAD
+//<<<<<<< HEAD
             this.menuStrip1.Size = new System.Drawing.Size(1184, 24);
-=======
+//=======
             this.menuStrip1.Size = new System.Drawing.Size(1579, 28);
->>>>>>> AutocompleteAndOrders
+//>>>>>>> AutocompleteAndOrders
             this.menuStrip1.TabIndex = 2;
             this.menuStrip1.Text = "menuStrip1";
             this.menuStrip1.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.menuStrip1_ItemClicked);
@@ -3048,11 +3048,11 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-<<<<<<< HEAD
+//<<<<<<< HEAD
             this.ClientSize = new System.Drawing.Size(1184, 749);
-=======
+//=======
             this.ClientSize = new System.Drawing.Size(1579, 937);
->>>>>>> AutocompleteAndOrders
+//>>>>>>> AutocompleteAndOrders
             this.Controls.Add(this.button6);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.menuStrip1);

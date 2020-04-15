@@ -1,5 +1,4 @@
-﻿using HRD_GenerateData;
-using Npgsql;
+﻿using Npgsql;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -36,7 +35,10 @@ namespace PersonnelDeptApp1
         BindingList<Employee> employees = new BindingList<Employee>();
         BindingList<Department> departments = new BindingList<Department>();
         BindingList<Occupation> occupations = new BindingList<Occupation>();
-        Connection connection = Connection.get_instance("postgres", "Ntcnbhjdfybt_01");
+        
+		//Это больше не нужно
+		//Connection connection = Connection.get_instance("postgres", "Ntcnbhjdfybt_01");
+
         public Form4()
         {
             InitializeComponent();
@@ -58,9 +60,9 @@ namespace PersonnelDeptApp1
             try
             {
                 string sql = "select * from \"Unit\";";
-                if (connection.get_connect() == null)
+                if (Connection.get_connect() == null)
                     throw new NullReferenceException("Не удалось подключиться к базе данных");
-                NpgsqlCommand command = new NpgsqlCommand(sql, connection.get_connect());
+                NpgsqlCommand command = new NpgsqlCommand(sql, Connection.get_connect());
                 NpgsqlDataReader reader = command.ExecuteReader();
                 foreach (DbDataRecord record in reader)
                 {
@@ -91,7 +93,7 @@ namespace PersonnelDeptApp1
                 string sql = "select \"pos\".\"pk_position\", \"pos\".\"Name\", \"pos\".\"Rate\""
                                 + " from \"Position\" as \"pos\", \"Unit\" as \"un\""
                                 + " where \"pos\".\"pk_unit\" = \"un\".\"pk_unit\" and \"un\".\"pk_unit\" = " + ((sender as ComboBox).SelectedItem as Department).Id + ";";
-                NpgsqlCommand command = new NpgsqlCommand(sql, connection.get_connect());
+                NpgsqlCommand command = new NpgsqlCommand(sql, Connection.get_connect());
                 NpgsqlDataReader reader = command.ExecuteReader();
                 foreach (DbDataRecord record in reader)
                 {
@@ -119,15 +121,15 @@ namespace PersonnelDeptApp1
          */
         private void FIO_Autocomplete(object sender, EventArgs e)
         {
-            if (connection == null)
-                return;
+            //if (connection == null)
+            //    return;
 
             employees.Clear();
 
             if ((sender as RichTextBox).Text.Equals(""))
                 return;
             string sql = "select * from getlist_by_substring('" + (sender as RichTextBox).Text.Split('#')[0].Trim() + "');";
-            NpgsqlCommand command = new NpgsqlCommand(sql, connection.get_connect());
+            NpgsqlCommand command = new NpgsqlCommand(sql, Connection.get_connect());
             NpgsqlDataReader reader = command.ExecuteReader();
             foreach (DbDataRecord record in reader)
             {
@@ -166,7 +168,7 @@ namespace PersonnelDeptApp1
                                 " and \"pp\".\"pk_position\" = \"pos\".\"pk_position\" and" +
                                 " \"pp\".\"pk_move_order\" = \"doc\".\"pk_string_order\" and" +
                                 " \"pos\".\"pk_unit\" = \"dep\".\"pk_unit\"";
-                    NpgsqlCommand command = new NpgsqlCommand(sql, connection.get_connect());
+                    NpgsqlCommand command = new NpgsqlCommand(sql, Connection.get_connect());
                     NpgsqlDataReader reader = command.ExecuteReader();
                     if (!reader.HasRows)
                     {
@@ -199,7 +201,7 @@ namespace PersonnelDeptApp1
 
         private void InputLimitOnlyLetters(object sender, KeyPressEventArgs e)
         {
-            if (!char.IsLetter(e.KeyChar) && !char.IsControl(e.KeyChar))
+            if (!char.IsLetter(e.KeyChar) && !char.IsControl(e.KeyChar) && !char.IsWhiteSpace(e.KeyChar))
                 e.Handled = true;
         }
 
@@ -233,7 +235,7 @@ namespace PersonnelDeptApp1
             {
                 string sql = "Select * from \"PeriodPosition\"" 
                     + " where \"pk_personal_card\" = " + (employeesVars.SelectedItem as Employee).Id + " and \"DateTo\" is null";
-                NpgsqlCommand command = new NpgsqlCommand(sql, connection.get_connect());
+                NpgsqlCommand command = new NpgsqlCommand(sql, Connection.get_connect());
                 NpgsqlDataReader reader = command.ExecuteReader();
                 if (reader.HasRows) {
                     reader.Close();
@@ -314,7 +316,7 @@ namespace PersonnelDeptApp1
             {
                 string sql = "Select * from \"PeriodPosition\""
                     + " where \"pk_personal_card\" = " + (employeesVars.SelectedItem as Employee).Id + " and \"DateTo\" is null";
-                NpgsqlCommand command = new NpgsqlCommand(sql, connection.get_connect());
+                NpgsqlCommand command = new NpgsqlCommand(sql, Connection.get_connect());
                 NpgsqlDataReader reader = command.ExecuteReader();
                 if (!reader.HasRows)
                 {
@@ -352,7 +354,7 @@ namespace PersonnelDeptApp1
             {
                 string sql = "Select * from \"PeriodPosition\""
                    + " where \"pk_personal_card\" = " + (employeesVars.SelectedItem as Employee).Id + " and \"DateTo\" is null";
-                NpgsqlCommand command = new NpgsqlCommand(sql, connection.get_connect());
+                NpgsqlCommand command = new NpgsqlCommand(sql, Connection.get_connect());
                 NpgsqlDataReader reader = command.ExecuteReader();
                 if (!reader.HasRows)
                 {
@@ -426,10 +428,10 @@ namespace PersonnelDeptApp1
                 string sql;
                 foreach (int one in orderStrings) {
                     sql = "Delete from \"String_order\" where \"pk_string_order\" = " + one;
-                    new NpgsqlCommand(sql, connection.get_connect()).ExecuteNonQuery();
+                    new NpgsqlCommand(sql, Connection.get_connect()).ExecuteNonQuery();
                 }
                 sql = "Delete from \"Order\" where \"pk_order\" = " + order;
-                new NpgsqlCommand(sql, connection.get_connect()).ExecuteNonQuery();
+                new NpgsqlCommand(sql, Connection.get_connect()).ExecuteNonQuery();
                 return;
             }
             catch (EmptyTableError ETerr)
@@ -464,7 +466,7 @@ namespace PersonnelDeptApp1
                     orderStrings.Add(oneString);
                     string sql = "Update \"PeriodPosition\" set \"pk_fire_order_string\" = " + oneString
                        + " where \"pk_personal_card\" = " + (int)fireTable.Rows[i].Cells[1].Value + " and \"DateTo\" is null;";
-                    new NpgsqlCommand(sql, connection.get_connect()).ExecuteNonQuery();
+                    new NpgsqlCommand(sql, Connection.get_connect()).ExecuteNonQuery();
                     ClosePeriodPosition(
                         (int)fireTable.Rows[i].Cells[1].Value,
                         fireTable.Rows[i].Cells[7].Value.ToString());
@@ -481,10 +483,10 @@ namespace PersonnelDeptApp1
                 foreach (int one in orderStrings)
                 {
                     sql = "Delete from \"String_order\" where \"pk_string_order\" = " + one;
-                    new NpgsqlCommand(sql, connection.get_connect()).ExecuteNonQuery();
+                    new NpgsqlCommand(sql, Connection.get_connect()).ExecuteNonQuery();
                 }
                 sql = "Delete from \"Order\" where \"pk_order\" = " + order;
-                new NpgsqlCommand(sql, connection.get_connect()).ExecuteNonQuery();
+                new NpgsqlCommand(sql, Connection.get_connect()).ExecuteNonQuery();
                 return;
             }
             catch (EmptyTableError ETerr) {
@@ -535,10 +537,10 @@ namespace PersonnelDeptApp1
                 foreach (int one in orderStrings)
                 {
                     sql = "Delete from \"String_order\" where \"pk_string_order\" = " + one;
-                    new NpgsqlCommand(sql, connection.get_connect()).ExecuteNonQuery();
+                    new NpgsqlCommand(sql, Connection.get_connect()).ExecuteNonQuery();
                 }
                 sql = "Delete from \"Order\" where \"pk_order\" = " + order;
-                new NpgsqlCommand(sql, connection.get_connect()).ExecuteNonQuery();
+                new NpgsqlCommand(sql, Connection.get_connect()).ExecuteNonQuery();
                 return;
             }
             catch (EmptyTableError ETerr)
@@ -570,7 +572,7 @@ namespace PersonnelDeptApp1
                     + " values ("
                     + "(select \"pk_type_order\" from \"TypeOrder\" where \"Name\" = '" + oTypeName + "'), "
                     + oNum + ", to_date('" + date + "', 'dd-MM-yyyy')) returning \"pk_order\"";
-                NpgsqlCommand command = new NpgsqlCommand(sql, connection.get_connect());
+                NpgsqlCommand command = new NpgsqlCommand(sql, Connection.get_connect());
                 NpgsqlDataReader reader = command.ExecuteReader();
                 if (reader.HasRows)
                 {
@@ -597,7 +599,7 @@ namespace PersonnelDeptApp1
                 string sql = "insert into \"String_order\"(\"pk_order\", \"Number_work_doc\",\"Work_doc_date\", \"Reason\")"
                     + " values ("
                     + order + ", '" + contractNum + "', to_date('" + contractDate + "', 'dd-MM-yyyy'), '" + reason + "') returning \"pk_string_order\"";
-                NpgsqlCommand command = new NpgsqlCommand(sql, connection.get_connect());
+                NpgsqlCommand command = new NpgsqlCommand(sql, Connection.get_connect());
                 NpgsqlDataReader reader = command.ExecuteReader();
                 if (reader.HasRows)
                 {
@@ -626,7 +628,7 @@ namespace PersonnelDeptApp1
                 string sql = "insert into \"PeriodPosition\"(\"pk_position\", \"pk_personal_card\",\"pk_move_order\", \"DataFrom\")"
                     + " values ("
                     + position + ", " + personalCard + ", " + stringOrder + ", to_date('" + startDate + "', 'dd-MM-yyyy')) returning \"pk_period_position\"";
-                NpgsqlCommand command = new NpgsqlCommand(sql, connection.get_connect());
+                NpgsqlCommand command = new NpgsqlCommand(sql, Connection.get_connect());
                 NpgsqlDataReader reader = command.ExecuteReader();
                 if (reader.HasRows)
                 {
@@ -652,7 +654,7 @@ namespace PersonnelDeptApp1
             try {
                     string sql = "Update \"PeriodPosition\" set \"DateTo\" = to_date('" + date + "', 'dd-MM-yyyy')"
                         + " where \"pk_personal_card\" = " + person + " and \"DateTo\" is null;";
-                    new NpgsqlCommand(sql, connection.get_connect()).ExecuteNonQuery();
+                    new NpgsqlCommand(sql, Connection.get_connect()).ExecuteNonQuery();
 
             }
             catch (Exception ex) {
@@ -664,7 +666,7 @@ namespace PersonnelDeptApp1
 
             string sql = "select \"pk_position\" from \"Position\""
                        + " where \"Name\" = '" + name + "'";
-            NpgsqlDataReader reader = new NpgsqlCommand(sql, connection.get_connect()).ExecuteReader();
+            NpgsqlDataReader reader = new NpgsqlCommand(sql, Connection.get_connect()).ExecuteReader();
             reader.Read();
             int posPK = reader.GetInt32(0);
             reader.Close();
@@ -969,5 +971,11 @@ namespace PersonnelDeptApp1
 
             MessageBox.Show("Приказ сохранен по пути: " + fileName + ".xls", "Успех", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
-    }
+
+		private void Form4_FormClosed(object sender, FormClosedEventArgs e)
+		{
+			Form ifrm = Application.OpenForms[Application.OpenForms.Count - 1];
+			ifrm.Show();
+		}
+	}
 }
