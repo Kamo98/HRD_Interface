@@ -2220,5 +2220,33 @@ namespace PersonnelDeptApp1
                 
             }
         }
+
+        private void richTextBox9_TextChanged(object sender, EventArgs e)
+        {
+            var api = new SuggestClient(token);
+
+            AutoCompleteStringCollection help = new AutoCompleteStringCollection();
+            var response = api.SuggestAddress(richTextBox9.Text);
+
+            listBox3.Items.Clear();
+            for (int i = 0; i < response.suggestions.Count; i++)
+            {
+                listBox3.Items.Add(response.suggestions[i].value.ToString());
+            }
+        }
+
+        private void richTextBox11_TextChanged_1(object sender, EventArgs e)
+        {
+            var api = new SuggestClient(token);
+
+            AutoCompleteStringCollection help = new AutoCompleteStringCollection();
+            var response = api.SuggestAddress(richTextBox11.Text);
+
+            listBox4.Items.Clear();
+            for (int i = 0; i < response.suggestions.Count; i++)
+            {
+                listBox4.Items.Add(response.suggestions[i].value.ToString());
+            }
+        }
     }
 }

@@ -115,10 +115,12 @@
             this.label5 = new System.Windows.Forms.Label();
             this.richTextBox8 = new System.Windows.Forms.RichTextBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.richTextBox9 = new System.Windows.Forms.RichTextBox();
             this.label7 = new System.Windows.Forms.Label();
+            this.richTextBox9 = new System.Windows.Forms.RichTextBox();
+            this.listBox3 = new System.Windows.Forms.ListBox();
             this.tabPage11 = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this.listBox4 = new System.Windows.Forms.ListBox();
             this.label9 = new System.Windows.Forms.Label();
             this.richTextBox10 = new System.Windows.Forms.RichTextBox();
             this.label10 = new System.Windows.Forms.Label();
@@ -400,7 +402,7 @@
             this.comboBox13.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.tableLayoutPanel3.SetColumnSpan(this.comboBox13, 2);
             this.comboBox13.FormattingEnabled = true;
-            this.comboBox13.Location = new System.Drawing.Point(123, 406);
+            this.comboBox13.Location = new System.Drawing.Point(123, 405);
             this.comboBox13.Margin = new System.Windows.Forms.Padding(4);
             this.comboBox13.Name = "comboBox13";
             this.comboBox13.Size = new System.Drawing.Size(230, 24);
@@ -1160,8 +1162,8 @@
             this.tableLayoutPanel17.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 7.692307F));
             this.tableLayoutPanel17.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 7.692307F));
             this.tableLayoutPanel17.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 7.692307F));
-            this.tableLayoutPanel17.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 7.692307F));
-            this.tableLayoutPanel17.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 7.692307F));
+            this.tableLayoutPanel17.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 7.805502F));
+            this.tableLayoutPanel17.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 7.549584F));
             this.tableLayoutPanel17.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 7.692307F));
             this.tableLayoutPanel17.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 7.692307F));
             this.tableLayoutPanel17.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 7.692307F));
@@ -1201,10 +1203,10 @@
             this.tableLayoutPanel17.Controls.Add(this.richTextBox3, 11, 3);
             this.tableLayoutPanel17.Controls.Add(this.panel2, 7, 5);
             this.tableLayoutPanel17.Controls.Add(this.label1, 7, 7);
-            this.tableLayoutPanel17.Controls.Add(this.richTextBox2, 8, 7);
             this.tableLayoutPanel17.Controls.Add(this.label8, 10, 7);
             this.tableLayoutPanel17.Controls.Add(this.dateTimePicker2, 11, 7);
             this.tableLayoutPanel17.Controls.Add(this.richTextBox12, 11, 4);
+            this.tableLayoutPanel17.Controls.Add(this.richTextBox2, 8, 7);
             this.tableLayoutPanel17.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel17.Location = new System.Drawing.Point(4, 4);
             this.tableLayoutPanel17.Margin = new System.Windows.Forms.Padding(4);
@@ -1235,7 +1237,7 @@
             this.richTextBox13.Location = new System.Drawing.Point(124, 175);
             this.richTextBox13.Margin = new System.Windows.Forms.Padding(4);
             this.richTextBox13.Name = "richTextBox13";
-            this.richTextBox13.Size = new System.Drawing.Size(472, 30);
+            this.richTextBox13.Size = new System.Drawing.Size(474, 30);
             this.richTextBox13.TabIndex = 2;
             this.richTextBox13.Text = "";
             // 
@@ -1248,7 +1250,7 @@
             this.richTextBox15.Location = new System.Drawing.Point(124, 99);
             this.richTextBox15.Margin = new System.Windows.Forms.Padding(4);
             this.richTextBox15.Name = "richTextBox15";
-            this.richTextBox15.Size = new System.Drawing.Size(472, 30);
+            this.richTextBox15.Size = new System.Drawing.Size(474, 30);
             this.richTextBox15.TabIndex = 1;
             this.richTextBox15.Text = "";
             // 
@@ -1261,7 +1263,7 @@
             this.richTextBox14.Location = new System.Drawing.Point(124, 23);
             this.richTextBox14.Margin = new System.Windows.Forms.Padding(4);
             this.richTextBox14.Name = "richTextBox14";
-            this.richTextBox14.Size = new System.Drawing.Size(472, 30);
+            this.richTextBox14.Size = new System.Drawing.Size(474, 30);
             this.richTextBox14.TabIndex = 1;
             this.richTextBox14.Text = "";
             this.richTextBox14.TextChanged += new System.EventHandler(this.richTextBox14_TextChanged);
@@ -1270,7 +1272,7 @@
             // 
             this.comboBox4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.comboBox4.FormattingEnabled = true;
-            this.comboBox4.Location = new System.Drawing.Point(964, 330);
+            this.comboBox4.Location = new System.Drawing.Point(964, 329);
             this.comboBox4.Margin = new System.Windows.Forms.Padding(4);
             this.comboBox4.Name = "comboBox4";
             this.comboBox4.Size = new System.Drawing.Size(112, 24);
@@ -1349,7 +1351,7 @@
             this.tabControl3.Name = "tabControl3";
             this.tableLayoutPanel17.SetRowSpan(this.tabControl3, 3);
             this.tabControl3.SelectedIndex = 0;
-            this.tabControl3.Size = new System.Drawing.Size(704, 222);
+            this.tabControl3.Size = new System.Drawing.Size(704, 228);
             this.tabControl3.TabIndex = 2;
             // 
             // tabPage10
@@ -1360,7 +1362,7 @@
             this.tabPage10.Margin = new System.Windows.Forms.Padding(4);
             this.tabPage10.Name = "tabPage10";
             this.tabPage10.Padding = new System.Windows.Forms.Padding(4);
-            this.tabPage10.Size = new System.Drawing.Size(696, 193);
+            this.tabPage10.Size = new System.Drawing.Size(696, 199);
             this.tabPage10.TabIndex = 0;
             this.tabPage10.Text = "Адрес по паспорту";
             // 
@@ -1368,40 +1370,43 @@
             // 
             this.tableLayoutPanel4.ColumnCount = 4;
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel4.Controls.Add(this.dateTimePicker1, 1, 2);
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25.14535F));
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25.72674F));
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 24.12791F));
             this.tableLayoutPanel4.Controls.Add(this.label5, 0, 0);
             this.tableLayoutPanel4.Controls.Add(this.richTextBox8, 1, 0);
             this.tableLayoutPanel4.Controls.Add(this.label6, 0, 1);
+            this.tableLayoutPanel4.Controls.Add(this.listBox3, 1, 2);
             this.tableLayoutPanel4.Controls.Add(this.richTextBox9, 1, 1);
-            this.tableLayoutPanel4.Controls.Add(this.label7, 0, 2);
+            this.tableLayoutPanel4.Controls.Add(this.dateTimePicker1, 1, 3);
+            this.tableLayoutPanel4.Controls.Add(this.label7, 0, 3);
             this.tableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel4.Location = new System.Drawing.Point(4, 4);
             this.tableLayoutPanel4.Margin = new System.Windows.Forms.Padding(4);
             this.tableLayoutPanel4.Name = "tableLayoutPanel4";
-            this.tableLayoutPanel4.RowCount = 3;
-            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 43F));
+            this.tableLayoutPanel4.RowCount = 4;
+            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 38F));
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 43F));
-            this.tableLayoutPanel4.Size = new System.Drawing.Size(688, 185);
+            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 84F));
+            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 33F));
+            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel4.Size = new System.Drawing.Size(688, 191);
             this.tableLayoutPanel4.TabIndex = 3;
             // 
             // dateTimePicker1
             // 
             this.dateTimePicker1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.dateTimePicker1.Location = new System.Drawing.Point(176, 152);
+            this.dateTimePicker1.Location = new System.Drawing.Point(176, 163);
             this.dateTimePicker1.Margin = new System.Windows.Forms.Padding(4);
             this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(164, 22);
+            this.dateTimePicker1.Size = new System.Drawing.Size(165, 22);
             this.dateTimePicker1.TabIndex = 5;
             // 
             // label5
             // 
             this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(4, 13);
+            this.label5.Location = new System.Drawing.Point(4, 10);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(164, 17);
@@ -1414,10 +1419,10 @@
             this.richTextBox8.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.richTextBox8.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.richTextBox8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.richTextBox8.Location = new System.Drawing.Point(176, 6);
+            this.richTextBox8.Location = new System.Drawing.Point(176, 4);
             this.richTextBox8.Margin = new System.Windows.Forms.Padding(4);
             this.richTextBox8.Name = "richTextBox8";
-            this.richTextBox8.Size = new System.Drawing.Size(164, 30);
+            this.richTextBox8.Size = new System.Drawing.Size(165, 30);
             this.richTextBox8.TabIndex = 3;
             this.richTextBox8.Text = "";
             this.richTextBox8.TextChanged += new System.EventHandler(this.richTextBox8_TextChanged);
@@ -1429,7 +1434,7 @@
             this.label6.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(4, 43);
+            this.label6.Location = new System.Drawing.Point(4, 38);
             this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(164, 17);
@@ -1437,30 +1442,40 @@
             this.label6.Text = "Адрес";
             this.label6.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
-            // richTextBox9
-            // 
-            this.richTextBox9.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.tableLayoutPanel4.SetColumnSpan(this.richTextBox9, 3);
-            this.richTextBox9.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.richTextBox9.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.richTextBox9.Location = new System.Drawing.Point(176, 47);
-            this.richTextBox9.Margin = new System.Windows.Forms.Padding(4);
-            this.richTextBox9.Name = "richTextBox9";
-            this.richTextBox9.Size = new System.Drawing.Size(508, 91);
-            this.richTextBox9.TabIndex = 3;
-            this.richTextBox9.Text = "";
-            // 
             // label7
             // 
             this.label7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(4, 155);
+            this.label7.Location = new System.Drawing.Point(4, 166);
             this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(164, 17);
             this.label7.TabIndex = 0;
             this.label7.Text = "Дата регистрации";
             this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // richTextBox9
+            // 
+            this.richTextBox9.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.tableLayoutPanel4.SetColumnSpan(this.richTextBox9, 3);
+            this.richTextBox9.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.richTextBox9.Location = new System.Drawing.Point(176, 42);
+            this.richTextBox9.Margin = new System.Windows.Forms.Padding(4);
+            this.richTextBox9.Name = "richTextBox9";
+            this.richTextBox9.Size = new System.Drawing.Size(508, 28);
+            this.richTextBox9.TabIndex = 1;
+            this.richTextBox9.Text = "";
+            this.richTextBox9.TextChanged += new System.EventHandler(this.richTextBox9_TextChanged);
+            // 
+            // listBox3
+            // 
+            this.tableLayoutPanel4.SetColumnSpan(this.listBox3, 3);
+            this.listBox3.FormattingEnabled = true;
+            this.listBox3.ItemHeight = 16;
+            this.listBox3.Location = new System.Drawing.Point(175, 77);
+            this.listBox3.Name = "listBox3";
+            this.listBox3.Size = new System.Drawing.Size(509, 68);
+            this.listBox3.TabIndex = 17;
             // 
             // tabPage11
             // 
@@ -1470,7 +1485,7 @@
             this.tabPage11.Margin = new System.Windows.Forms.Padding(4);
             this.tabPage11.Name = "tabPage11";
             this.tabPage11.Padding = new System.Windows.Forms.Padding(4);
-            this.tabPage11.Size = new System.Drawing.Size(696, 193);
+            this.tabPage11.Size = new System.Drawing.Size(696, 199);
             this.tabPage11.TabIndex = 1;
             this.tabPage11.Text = "Фактический адрес";
             // 
@@ -1481,6 +1496,7 @@
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel2.Controls.Add(this.listBox4, 1, 2);
             this.tableLayoutPanel2.Controls.Add(this.label9, 0, 0);
             this.tableLayoutPanel2.Controls.Add(this.richTextBox10, 1, 0);
             this.tableLayoutPanel2.Controls.Add(this.label10, 0, 1);
@@ -1492,9 +1508,22 @@
             this.tableLayoutPanel2.RowCount = 3;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 43F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 43F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(688, 185);
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 112F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(688, 191);
             this.tableLayoutPanel2.TabIndex = 4;
+            // 
+            // listBox4
+            // 
+            this.tableLayoutPanel2.SetColumnSpan(this.listBox4, 3);
+            this.listBox4.FormattingEnabled = true;
+            this.listBox4.ItemHeight = 16;
+            this.listBox4.Location = new System.Drawing.Point(175, 82);
+            this.listBox4.Name = "listBox4";
+            this.listBox4.Size = new System.Drawing.Size(509, 100);
+            this.listBox4.TabIndex = 18;
             // 
             // label9
             // 
@@ -1540,14 +1569,14 @@
             // 
             this.richTextBox11.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.tableLayoutPanel2.SetColumnSpan(this.richTextBox11, 3);
-            this.richTextBox11.Dock = System.Windows.Forms.DockStyle.Fill;
             this.richTextBox11.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.richTextBox11.Location = new System.Drawing.Point(176, 47);
             this.richTextBox11.Margin = new System.Windows.Forms.Padding(4);
             this.richTextBox11.Name = "richTextBox11";
-            this.richTextBox11.Size = new System.Drawing.Size(508, 91);
-            this.richTextBox11.TabIndex = 3;
+            this.richTextBox11.Size = new System.Drawing.Size(508, 28);
+            this.richTextBox11.TabIndex = 1;
             this.richTextBox11.Text = "";
+            this.richTextBox11.TextChanged += new System.EventHandler(this.richTextBox11_TextChanged_1);
             // 
             // richTextBox5
             // 
@@ -1665,7 +1694,7 @@
             this.comboBox9.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.tableLayoutPanel17.SetColumnSpan(this.comboBox9, 2);
             this.comboBox9.FormattingEnabled = true;
-            this.comboBox9.Location = new System.Drawing.Point(126, 330);
+            this.comboBox9.Location = new System.Drawing.Point(126, 329);
             this.comboBox9.Margin = new System.Windows.Forms.Padding(4);
             this.comboBox9.Name = "comboBox9";
             this.comboBox9.Size = new System.Drawing.Size(228, 24);
@@ -1690,7 +1719,7 @@
             this.radioButton3.AutoSize = true;
             this.radioButton3.Checked = true;
             this.radioButton3.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.radioButton3.Location = new System.Drawing.Point(515, 331);
+            this.radioButton3.Location = new System.Drawing.Point(516, 331);
             this.radioButton3.Margin = new System.Windows.Forms.Padding(4);
             this.radioButton3.Name = "radioButton3";
             this.radioButton3.Size = new System.Drawing.Size(49, 22);
@@ -1705,7 +1734,7 @@
             this.radioButton4.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.radioButton4.AutoSize = true;
             this.radioButton4.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.radioButton4.Location = new System.Drawing.Point(634, 331);
+            this.radioButton4.Location = new System.Drawing.Point(635, 331);
             this.radioButton4.Margin = new System.Windows.Forms.Padding(4);
             this.radioButton4.Name = "radioButton4";
             this.radioButton4.Size = new System.Drawing.Size(51, 22);
@@ -1735,7 +1764,7 @@
             this.comboBox7.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.tableLayoutPanel17.SetColumnSpan(this.comboBox7, 4);
             this.comboBox7.FormattingEnabled = true;
-            this.comboBox7.Location = new System.Drawing.Point(964, 26);
+            this.comboBox7.Location = new System.Drawing.Point(964, 25);
             this.comboBox7.Margin = new System.Windows.Forms.Padding(4);
             this.comboBox7.Name = "comboBox7";
             this.comboBox7.Size = new System.Drawing.Size(472, 24);
@@ -2257,6 +2286,8 @@
         private System.Windows.Forms.Button button8;
         private System.Windows.Forms.Button button9;
         private System.Windows.Forms.Button button10;
+        private System.Windows.Forms.ListBox listBox3;
+        private System.Windows.Forms.ListBox listBox4;
     }
 }
 
