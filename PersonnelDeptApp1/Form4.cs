@@ -858,7 +858,7 @@ namespace PersonnelDeptApp1
             string fileDir = Environment.CurrentDirectory + "\\Orders";
             if (!Directory.Exists(fileDir))
                 Directory.CreateDirectory(fileDir);
-            string fileName = fileDir + "\\FIRE_" + hireDocNum.Text + "_" + hireDocDate.Value.ToString(dateFormat);
+            string fileName = fileDir + "\\FIRE_" + fireDocNum.Text + "_" + fireDocDate.Value.ToString(dateFormat);
             if (File.Exists(fileName + ".xls"))
                 fileName = fileName + "(" + DateTime.Now.ToString("dd-MM-yyyy HH-mm") + ")";
 
@@ -958,7 +958,7 @@ namespace PersonnelDeptApp1
             string fileDir = Environment.CurrentDirectory + "\\Orders";
             if (!Directory.Exists(fileDir))
                 Directory.CreateDirectory(fileDir);
-            string fileName = fileDir + "\\MOVE_" + hireDocNum.Text + "_" + hireDocDate.Value.ToString(dateFormat);
+            string fileName = fileDir + "\\MOVE_" + moveDocNum.Text + "_" + moveDocDate.Value.ToString(dateFormat);
             if (File.Exists(fileName + ".xls"))
                 fileName = fileName + "(" + DateTime.Now.ToString("dd-MM-yyyy HH-mm") + ")";
 
