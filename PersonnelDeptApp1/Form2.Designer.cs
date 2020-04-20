@@ -43,13 +43,6 @@
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.button4 = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.ColumnSearchPC = new System.Windows.Forms.DataGridViewLinkColumn();
-            this.ColumnSearchF = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnSearchN = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnSearchO = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnSearchPD = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnSearchDL = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnSearchTD = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -66,6 +59,12 @@
             this.label8 = new System.Windows.Forms.Label();
             this.отчётыToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.табельУчётаРабочегоВремениToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ColumnSearchPC = new System.Windows.Forms.DataGridViewLinkColumn();
+            this.ColumnSearchF = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnSearchN = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnSearchO = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnSearchPD = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnSearchDL = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.menuStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -213,62 +212,12 @@
             this.ColumnSearchN,
             this.ColumnSearchO,
             this.ColumnSearchPD,
-            this.ColumnSearchDL,
-            this.ColumnSearchTD});
+            this.ColumnSearchDL});
             this.dataGridView1.Location = new System.Drawing.Point(0, 155);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.Size = new System.Drawing.Size(1159, 513);
             this.dataGridView1.TabIndex = 2;
-            // 
-            // ColumnSearchPC
-            // 
-            this.ColumnSearchPC.HeaderText = "Личная карта сотрудника";
-            this.ColumnSearchPC.Name = "ColumnSearchPC";
-            this.ColumnSearchPC.ReadOnly = true;
-            this.ColumnSearchPC.Width = 150;
-            // 
-            // ColumnSearchF
-            // 
-            this.ColumnSearchF.HeaderText = "Фамилия";
-            this.ColumnSearchF.Name = "ColumnSearchF";
-            this.ColumnSearchF.ReadOnly = true;
-            this.ColumnSearchF.Width = 200;
-            // 
-            // ColumnSearchN
-            // 
-            this.ColumnSearchN.HeaderText = "Имя";
-            this.ColumnSearchN.Name = "ColumnSearchN";
-            this.ColumnSearchN.ReadOnly = true;
-            this.ColumnSearchN.Width = 200;
-            // 
-            // ColumnSearchO
-            // 
-            this.ColumnSearchO.HeaderText = "Отчество";
-            this.ColumnSearchO.Name = "ColumnSearchO";
-            this.ColumnSearchO.ReadOnly = true;
-            this.ColumnSearchO.Width = 200;
-            // 
-            // ColumnSearchPD
-            // 
-            this.ColumnSearchPD.HeaderText = "Подразделение";
-            this.ColumnSearchPD.Name = "ColumnSearchPD";
-            this.ColumnSearchPD.ReadOnly = true;
-            this.ColumnSearchPD.Width = 150;
-            // 
-            // ColumnSearchDL
-            // 
-            this.ColumnSearchDL.HeaderText = "Должность";
-            this.ColumnSearchDL.Name = "ColumnSearchDL";
-            this.ColumnSearchDL.ReadOnly = true;
-            this.ColumnSearchDL.Width = 150;
-            // 
-            // ColumnSearchTD
-            // 
-            this.ColumnSearchTD.HeaderText = "Номер трудового договора";
-            this.ColumnSearchTD.Name = "ColumnSearchTD";
-            this.ColumnSearchTD.ReadOnly = true;
-            this.ColumnSearchTD.Width = 105;
             // 
             // comboBox1
             // 
@@ -416,6 +365,48 @@
             this.табельУчётаРабочегоВремениToolStripMenuItem.Size = new System.Drawing.Size(251, 22);
             this.табельУчётаРабочегоВремениToolStripMenuItem.Text = "Табель учёта рабочего времени";
             // 
+            // ColumnSearchPC
+            // 
+            this.ColumnSearchPC.HeaderText = "Личная карта сотрудника";
+            this.ColumnSearchPC.Name = "ColumnSearchPC";
+            this.ColumnSearchPC.ReadOnly = true;
+            this.ColumnSearchPC.Width = 155;
+            // 
+            // ColumnSearchF
+            // 
+            this.ColumnSearchF.HeaderText = "Фамилия";
+            this.ColumnSearchF.Name = "ColumnSearchF";
+            this.ColumnSearchF.ReadOnly = true;
+            this.ColumnSearchF.Width = 200;
+            // 
+            // ColumnSearchN
+            // 
+            this.ColumnSearchN.HeaderText = "Имя";
+            this.ColumnSearchN.Name = "ColumnSearchN";
+            this.ColumnSearchN.ReadOnly = true;
+            this.ColumnSearchN.Width = 200;
+            // 
+            // ColumnSearchO
+            // 
+            this.ColumnSearchO.HeaderText = "Отчество";
+            this.ColumnSearchO.Name = "ColumnSearchO";
+            this.ColumnSearchO.ReadOnly = true;
+            this.ColumnSearchO.Width = 200;
+            // 
+            // ColumnSearchPD
+            // 
+            this.ColumnSearchPD.HeaderText = "Подразделение";
+            this.ColumnSearchPD.Name = "ColumnSearchPD";
+            this.ColumnSearchPD.ReadOnly = true;
+            this.ColumnSearchPD.Width = 200;
+            // 
+            // ColumnSearchDL
+            // 
+            this.ColumnSearchDL.HeaderText = "Должность";
+            this.ColumnSearchDL.Name = "ColumnSearchDL";
+            this.ColumnSearchDL.ReadOnly = true;
+            this.ColumnSearchDL.Width = 200;
+            // 
             // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -469,17 +460,16 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox comboBox2;
         private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.ToolStripMenuItem отчётыToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem табельУчётаРабочегоВремениToolStripMenuItem;
         private System.Windows.Forms.DataGridViewLinkColumn ColumnSearchPC;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnSearchF;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnSearchN;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnSearchO;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnSearchPD;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnSearchDL;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnSearchTD;
-        private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.ToolStripMenuItem отчётыToolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem табельУчётаРабочегоВремениToolStripMenuItem;
     }
 }
