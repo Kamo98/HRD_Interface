@@ -29,11 +29,22 @@ namespace PersonnelDeptApp1
             init_dataGridExpFill();
         }
 
-        private void init_dataGridExpFill() 
+		public Form1(int id_personal_card)
+		{
+			Program.f1 = this;
+			InitializeComponent();
+			init_dataGridExpFill();
+
+			pk_personal_card = id_personal_card;
+			flag = 1;
+		}
+
+
+		private void init_dataGridExpFill() 
         {
-            this.dataGridViewExpirience.Rows.Add(new object[] { "Дней"});
-            this.dataGridViewExpirience.Rows.Add(new object[] { "Месяцев" });
-            this.dataGridViewExpirience.Rows.Add(new object[] { "Лет" });
+            //this.dataGridViewExpirience.Rows.Add(new object[] { "Дней"});
+            //this.dataGridViewExpirience.Rows.Add(new object[] { "Месяцев" });
+            //this.dataGridViewExpirience.Rows.Add(new object[] { "Лет" });
         }
 
         private void label2_Click(object sender, EventArgs e)
@@ -1899,8 +1910,8 @@ namespace PersonnelDeptApp1
 
         private void Form1_FormClosed(object sender, FormClosedEventArgs e)
         {
-            Form ifrm = Application.OpenForms[0];
-            ifrm.Show();
+            Form ifrm = Application.OpenForms[Application.OpenForms.Count - 1];
+			ifrm.Show();
         }
 
         //Ограничение на ввод серии и номера паспорта
