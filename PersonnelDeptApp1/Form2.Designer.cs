@@ -41,6 +41,8 @@
 			this.button2 = new System.Windows.Forms.Button();
 			this.button3 = new System.Windows.Forms.Button();
 			this.label2 = new System.Windows.Forms.Label();
+			this.созданиеToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.поискToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.menuStrip1.SuspendLayout();
 			this.SuspendLayout();
 			// 
@@ -109,10 +111,12 @@
 			// 
 			// приказыToolStripMenuItem
 			// 
+			this.приказыToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.созданиеToolStripMenuItem,
+            this.поискToolStripMenuItem});
 			this.приказыToolStripMenuItem.Name = "приказыToolStripMenuItem";
 			this.приказыToolStripMenuItem.Size = new System.Drawing.Size(68, 20);
 			this.приказыToolStripMenuItem.Text = "Приказы";
-			this.приказыToolStripMenuItem.Click += new System.EventHandler(this.приказыToolStripMenuItem_Click);
 			// 
 			// button1
 			// 
@@ -156,6 +160,20 @@
 			this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
 			this.label2.Click += new System.EventHandler(this.label2_Click);
 			// 
+			// созданиеToolStripMenuItem
+			// 
+			this.созданиеToolStripMenuItem.Name = "созданиеToolStripMenuItem";
+			this.созданиеToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+			this.созданиеToolStripMenuItem.Text = "Создание";
+			this.созданиеToolStripMenuItem.Click += new System.EventHandler(this.созданиеToolStripMenuItem_Click_1);
+			// 
+			// поискToolStripMenuItem
+			// 
+			this.поискToolStripMenuItem.Name = "поискToolStripMenuItem";
+			this.поискToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+			this.поискToolStripMenuItem.Text = "Поиск";
+			this.поискToolStripMenuItem.Click += new System.EventHandler(this.поискToolStripMenuItem_Click_1);
+			// 
 			// Form2
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -191,5 +209,7 @@
         private System.Windows.Forms.ToolStripMenuItem оПрограммеToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem начинаяРаботуToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem приказыToolStripMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem созданиеToolStripMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem поискToolStripMenuItem;
 	}
 }

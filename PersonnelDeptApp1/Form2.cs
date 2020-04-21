@@ -63,18 +63,19 @@ namespace PersonnelDeptApp1
 				e.Cancel = true;
 		}
 
-        private void созданиеToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Form4 f4 = new Form4();
-            this.Hide();
-            f4.Show();
-        }
 
-        private void поискToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            FormOrderSearch fos = new FormOrderSearch();
-            this.Hide();
-            fos.Show();
-        }
-    }
+		private void созданиеToolStripMenuItem_Click_1(object sender, EventArgs e)
+		{
+			Form4 f4 = new Form4();
+			this.Hide();
+			f4.Show();
+		}
+
+		private void поискToolStripMenuItem_Click_1(object sender, EventArgs e)
+		{
+			FormOrderSearch fos = new FormOrderSearch();
+			this.Hide();
+			fos.Show();
+		}
+	}
 }

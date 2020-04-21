@@ -76,18 +76,14 @@ namespace PersonnelDeptApp1
             if (modinfied_cells.Count != 0)
             {
                 DialogResult result = MessageBox.Show("Изменения не были сохранены. Вы уверены, что хотите выйти?", "Сообщение", MessageBoxButtons.YesNo, MessageBoxIcon.Information, MessageBoxDefaultButton.Button2, MessageBoxOptions.DefaultDesktopOnly);
-                if (result == DialogResult.Yes)
-				{
-					Form ifrm = System.Windows.Forms.Application.OpenForms[System.Windows.Forms.Application.OpenForms.Count - 1];
-					ifrm.Show();
-				} else
-				{
-					e.Cancel = true;
-				}
+				if (result == DialogResult.Yes)
+					return;
             }
-            
-            
-        }
+
+			Form ifrm = System.Windows.Forms.Application.OpenForms[System.Windows.Forms.Application.OpenForms.Count - 1];
+			ifrm.Show();
+
+		}
 
         private void Form3_Load(object sender, EventArgs e)
         {
