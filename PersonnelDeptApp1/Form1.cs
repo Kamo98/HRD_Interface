@@ -2248,5 +2248,15 @@ namespace PersonnelDeptApp1
                 listBox4.Items.Add(response.suggestions[i].value.ToString());
             }
         }
+
+        private void listBox3_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            richTextBox9.Text = listBox3.SelectedItem.ToString();
+        }
+
+        private void listBox4_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            richTextBox11.Text = listBox4.SelectedItem.ToString();
+        }
     }
 }
