@@ -163,6 +163,7 @@ namespace PersonnelDeptApp1
 
         private void button1_Click(object sender, EventArgs e)
         {
+            button1.Enabled = false;
             switch (orderType)
             {
                 case "Приём":
@@ -175,6 +176,7 @@ namespace PersonnelDeptApp1
                     MoveToExcel();
                     break;
             }
+            button1.Enabled = true;
         }
 
         private void HireToExcel()

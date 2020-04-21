@@ -392,6 +392,7 @@ namespace PersonnelDeptApp1
 
         private void addMoveOrder_Click(object sender, EventArgs e)
         {
+            addMoveOrder.Enabled = false;
             List<int> orderStrings = new List<int>();
             int order = 0;
             try
@@ -401,7 +402,8 @@ namespace PersonnelDeptApp1
                 order = CreateOrder(OrderType.Move, moveDocNum.Text, moveDocDate.Value.ToString(dateFormat));
                 if (order == -1)
                     return;
-                for (int i = 0; i < moveTable.Rows.Count; i++) {
+                for (int i = 0; i < moveTable.Rows.Count; i++)
+                {
                     int oneString = CreateOrderString(
                                             order,
                                             moveTable.Rows[i].Cells[7].Value.ToString(),
@@ -411,12 +413,12 @@ namespace PersonnelDeptApp1
                         throw new DbInsertErrorException();
                     orderStrings.Add(oneString);
                     ClosePeriodPosition(
-                        (int)moveTable.Rows[i].Cells[1].Value, 
+                        (int)moveTable.Rows[i].Cells[1].Value,
                         moveTable.Rows[i].Cells[9].Value.ToString());
                     CreatePeriodPosition(
-                        oneString, 
-                        (int)moveTable.Rows[i].Cells[1].Value, 
-                        GetPositionPKByName(moveTable.Rows[i].Cells[5].Value.ToString()), 
+                        oneString,
+                        (int)moveTable.Rows[i].Cells[1].Value,
+                        GetPositionPKByName(moveTable.Rows[i].Cells[5].Value.ToString()),
                         moveTable.Rows[i].Cells[9].Value.ToString());
                 }
 
@@ -424,9 +426,11 @@ namespace PersonnelDeptApp1
                     MoveToExcel();
                 MoveTabReset();
             }
-            catch (DbInsertErrorException ex) {
+            catch (DbInsertErrorException ex)
+            {
                 string sql;
-                foreach (int one in orderStrings) {
+                foreach (int one in orderStrings)
+                {
                     sql = "Delete from \"String_order\" where \"pk_string_order\" = " + one;
                     new NpgsqlCommand(sql, Connection.get_connect()).ExecuteNonQuery();
                 }
@@ -438,13 +442,19 @@ namespace PersonnelDeptApp1
             {
                 MessageBox.Show(ETerr.Message, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            catch (Exception ex) {
+            catch (Exception ex)
+            {
                 MessageBox.Show("Неизвестная ошибка.\n" + ex.Message, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+            finally {
+                addMoveOrder.Enabled = true;
+            }
+
         }
 
         private void addFireOrder_Click(object sender, EventArgs e)
         {
+            addFireOrder.Enabled = false;
             List<int> orderStrings = new List<int>();
             int order = 0;
             try
@@ -475,7 +485,7 @@ namespace PersonnelDeptApp1
                 if (MessageBox.Show("Приказ успешно добавлен!\nСохранить в Excel-файл?", "Успех", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
                     FireToExcel();
                 FireTabReset();
-                
+
             }
             catch (DbInsertErrorException ex)
             {
@@ -489,17 +499,23 @@ namespace PersonnelDeptApp1
                 new NpgsqlCommand(sql, Connection.get_connect()).ExecuteNonQuery();
                 return;
             }
-            catch (EmptyTableError ETerr) {
+            catch (EmptyTableError ETerr)
+            {
                 MessageBox.Show(ETerr.Message, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Неизвестная ошибка.\n" + ex.Message, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+            finally {
+                addFireOrder.Enabled = true;
+            }
+
         }
 
         private void addHireOrderBTN_Click(object sender, EventArgs e)
         {
+            addHireOrderBTN.Enabled = false;
             List<int> orderStrings = new List<int>();
             int order = 0;
             try
@@ -551,6 +567,10 @@ namespace PersonnelDeptApp1
             {
                 MessageBox.Show("Неизвестная ошибка.\n" + ex.Message, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+            finally{
+                addHireOrderBTN.Enabled = true;
+            }
+
         }
 
 
