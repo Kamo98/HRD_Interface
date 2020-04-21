@@ -131,6 +131,17 @@
     <Compile Include="Form4.Designer.cs">
       <DependentUpon>Form4.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormOrderSearch.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormOrderSearch.Designer.cs">
+      <DependentUpon>FormOrderSearch.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormOrderView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormOrderView.Designer.cs">
+      <DependentUpon>FormOrderView.cs</DependentUpon>
     <Compile Include="Form5.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -150,6 +161,7 @@
     <Compile Include="FormAuthorization.Designer.cs">
       <DependentUpon>FormAuthorization.cs</DependentUpon>
     </Compile>
+    <Compile Include="OrderType.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="EmptyTableError.cs" />
@@ -179,6 +191,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormAuthorization.resx">
       <DependentUpon>FormAuthorization.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormOrderSearch.resx">
+      <DependentUpon>FormOrderSearch.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormOrderView.resx">
+      <DependentUpon>FormOrderView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

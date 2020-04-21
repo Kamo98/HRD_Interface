@@ -45,13 +45,6 @@ namespace PersonnelDeptApp1
             this.Close();
         }
 
-        private void приказыToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Form4 f4 = new Form4();
-            f4.Show();
-			this.Hide();
-        }
-
 		private void выйтиToolStripMenuItem_Click(object sender, EventArgs e)
 		{
 			this.Close();
@@ -69,5 +62,19 @@ namespace PersonnelDeptApp1
 			else
 				e.Cancel = true;
 		}
-	}
+
+        private void созданиеToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form4 f4 = new Form4();
+            this.Hide();
+            f4.Show();
+        }
+
+        private void поискToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FormOrderSearch fos = new FormOrderSearch();
+            this.Hide();
+            fos.Show();
+        }
+    }
 }
