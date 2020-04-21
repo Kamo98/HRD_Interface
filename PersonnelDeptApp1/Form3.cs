@@ -43,7 +43,7 @@ namespace PersonnelDeptApp1
 
             numericUpDown1.Value = DateTime.Now.Year;
             numericUpDown2.Value = DateTime.Now.Month;
-            //button2.Enabled = false;
+
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -76,8 +76,8 @@ namespace PersonnelDeptApp1
             if (modinfied_cells.Count != 0)
             {
                 DialogResult result = MessageBox.Show("Изменения не были сохранены. Вы уверены, что хотите выйти?", "Сообщение", MessageBoxButtons.YesNo, MessageBoxIcon.Information, MessageBoxDefaultButton.Button2, MessageBoxOptions.DefaultDesktopOnly);
-				if (result == DialogResult.Yes)
-					return;
+                if (result == DialogResult.No)
+                    return;
             }
 
 			Form ifrm = System.Windows.Forms.Application.OpenForms[System.Windows.Forms.Application.OpenForms.Count - 1];
@@ -106,6 +106,14 @@ namespace PersonnelDeptApp1
             comboBox1.AutoCompleteSource = AutoCompleteSource.CustomSource;
             comboBox1.AutoCompleteCustomSource = listUnit;
 
+            if (Connection.get_role_str() == "reception")
+            {
+                menuStrip1.Items[0].Enabled = false;
+                dataGridView1.ReadOnly = true;
+                button2.Visible = false;
+                groupBox3.Visible = false;
+                groupBox4.Visible = false;
+            }
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -240,6 +248,21 @@ namespace PersonnelDeptApp1
 
         private void numericUpDown2_ValueChanged(object sender, EventArgs e)
         {
+
+            if (modinfied_cells.Count != 0)
+            {
+                DialogResult result = MessageBox.Show("Изменения не были сохранены. Вы уверены, что хотите посмотреть другой табель?", "Сообщение", MessageBoxButtons.YesNo, MessageBoxIcon.Information, MessageBoxDefaultButton.Button2, MessageBoxOptions.DefaultDesktopOnly);
+                if (result == DialogResult.No)
+                {
+                    numericUpDown2.ValueChanged -= numericUpDown2_ValueChanged;
+                    numericUpDown2.Value++;
+                    numericUpDown2.ValueChanged += numericUpDown2_ValueChanged;
+                    return;
+                }
+            }
+            modinfied_cells.Clear();
+            button2.Enabled = false;
+
             dataGridView1.Rows.Clear();
             pk_fact.Clear();
             button15.Enabled = false;
@@ -302,6 +325,20 @@ namespace PersonnelDeptApp1
 
         private void numericUpDown1_ValueChanged(object sender, EventArgs e)
         {
+            if (modinfied_cells.Count != 0)
+            {
+                DialogResult result = MessageBox.Show("Изменения не были сохранены. Вы уверены, что хотите посмотреть другой табель?", "Сообщение", MessageBoxButtons.YesNo, MessageBoxIcon.Information, MessageBoxDefaultButton.Button2, MessageBoxOptions.DefaultDesktopOnly);
+                if (result == DialogResult.No)
+                {
+                    numericUpDown1.ValueChanged -= numericUpDown1_ValueChanged;
+                    numericUpDown1.Value++;
+                    numericUpDown1.ValueChanged += numericUpDown1_ValueChanged;
+                    return;
+                }
+            }
+            modinfied_cells.Clear();
+            button2.Enabled = false;
+
             dataGridView1.Rows.Clear();
             button15.Enabled = false;
         }
