@@ -1,25 +1,35 @@
 ﻿using System;
+using System.Diagnostics;
 using System.Collections.Generic;
 using System.ComponentModel;
+using Npgsql;
 using System.Data;
+using System.Data.Common;
 using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Microsoft.Office.Interop.Excel;
+using System.IO;
 
 namespace PersonnelDeptApp1
 {
+   
+
     public partial class Form2 : Form
     {
+        NpgsqlConnection npgSqlConnection;
 
-		private FormAuthorization formAuthorization;
+        private FormAuthorization formAuthorization;
 
 		public Form2(FormAuthorization formAuthorization)
         {
 			InitializeComponent();
 			this.formAuthorization = formAuthorization;
-		}
+
+            npgSqlConnection = Connection.get_connect();
+        }
 
         private void label2_Click(object sender, EventArgs e)
         {
@@ -93,6 +103,67 @@ namespace PersonnelDeptApp1
         private void отчётыToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void Form2_Load(object sender, EventArgs e)
+        {
+            AutoCompleteStringCollection listUnit_1 = new AutoCompleteStringCollection();
+            NpgsqlCommand com = new NpgsqlCommand("SELECT \"Name\" FROM \"Unit\"", npgSqlConnection);
+            NpgsqlDataReader reader = com.ExecuteReader();
+
+            if (reader.HasRows)
+            {
+                foreach (DbDataRecord rec in reader)
+                {
+                    listUnit_1.Add(rec.GetString(0));
+                }
+
+            }
+            reader.Close();
+
+            comboBox1.DataSource = listUnit_1;
+            comboBox1.AutoCompleteMode = AutoCompleteMode.Suggest;
+            comboBox1.AutoCompleteSource = AutoCompleteSource.CustomSource;
+            comboBox1.AutoCompleteCustomSource = listUnit_1;
+
+        }
+
+        private void comboBox1_SelectedValueChanged(object sender, EventArgs e)
+        {
+          
+        }
+
+        private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            AutoCompleteStringCollection listPos = new AutoCompleteStringCollection();
+            try
+            {
+                string sql = "select \"pos\".\"pk_position\", \"pos\".\"Name\", \"pos\".\"Rate\""
+                                + " from \"Position\" as \"pos\", \"Unit\" as \"un\""
+                                + " where \"pos\".\"pk_unit\" = \"un\".\"pk_unit\" and \"un\".\"pk_unit\" = " + ((sender as ComboBox).SelectedItem as Department).Id + ";";
+                NpgsqlCommand command = new NpgsqlCommand(sql, Connection.get_connect());
+                NpgsqlDataReader reader = command.ExecuteReader();
+                foreach (DbDataRecord record in reader)
+                {
+                    listPos.Add(record.GetString(0));
+                }
+                reader.Close();
+
+                comboBox2.DataSource = listPos;
+                comboBox2.AutoCompleteMode = AutoCompleteMode.Suggest;
+                comboBox2.AutoCompleteSource = AutoCompleteSource.CustomSource;
+                comboBox2.AutoCompleteCustomSource = listPos;
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Неизвестная ошибка.\n" + ex.Message, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }
