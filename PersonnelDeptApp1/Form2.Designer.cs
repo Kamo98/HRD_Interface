@@ -53,16 +53,16 @@
             this.label7 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.button4 = new System.Windows.Forms.Button();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.ColumnSearchPC = new System.Windows.Forms.DataGridViewLinkColumn();
             this.ColumnSearchF = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnSearchN = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnSearchO = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnSearchPD = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnSearchDL = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.button4 = new System.Windows.Forms.Button();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.menuStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -284,7 +284,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(650, 19);
+            this.label3.Location = new System.Drawing.Point(656, 19);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(65, 13);
             this.label3.TabIndex = 4;
@@ -292,6 +292,8 @@
             // 
             // dataGridView1
             // 
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -308,12 +310,52 @@
             this.dataGridView1.Size = new System.Drawing.Size(1159, 534);
             this.dataGridView1.TabIndex = 2;
             // 
+            // comboBox2
+            // 
+            this.comboBox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox2.FormattingEnabled = true;
+            this.comboBox2.Location = new System.Drawing.Point(653, 40);
+            this.comboBox2.Name = "comboBox2";
+            this.comboBox2.Size = new System.Drawing.Size(172, 21);
+            this.comboBox2.TabIndex = 3;
+            this.comboBox2.SelectedIndexChanged += new System.EventHandler(this.comboBox2_SelectedIndexChanged);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(472, 19);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(87, 13);
+            this.label2.TabIndex = 4;
+            this.label2.Text = "Подразделение";
+            // 
+            // button4
+            // 
+            this.button4.Location = new System.Drawing.Point(468, 68);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(360, 60);
+            this.button4.TabIndex = 1;
+            this.button4.Text = "Найти";
+            this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(469, 40);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(172, 21);
+            this.comboBox1.TabIndex = 3;
+            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
+            this.comboBox1.SelectedValueChanged += new System.EventHandler(this.comboBox1_SelectedValueChanged);
+            // 
             // ColumnSearchPC
             // 
             this.ColumnSearchPC.HeaderText = "Личная карта сотрудника";
             this.ColumnSearchPC.Name = "ColumnSearchPC";
             this.ColumnSearchPC.ReadOnly = true;
-            this.ColumnSearchPC.Width = 155;
+            this.ColumnSearchPC.Width = 150;
             // 
             // ColumnSearchF
             // 
@@ -349,44 +391,6 @@
             this.ColumnSearchDL.Name = "ColumnSearchDL";
             this.ColumnSearchDL.ReadOnly = true;
             this.ColumnSearchDL.Width = 200;
-            // 
-            // comboBox2
-            // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(653, 40);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(172, 21);
-            this.comboBox2.TabIndex = 3;
-            this.comboBox2.SelectedIndexChanged += new System.EventHandler(this.comboBox2_SelectedIndexChanged);
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(468, 19);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(87, 13);
-            this.label2.TabIndex = 4;
-            this.label2.Text = "Подразделение";
-            // 
-            // button4
-            // 
-            this.button4.Location = new System.Drawing.Point(468, 68);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(360, 60);
-            this.button4.TabIndex = 1;
-            this.button4.Text = "Найти";
-            this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
-            // 
-            // comboBox1
-            // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(465, 40);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(172, 21);
-            this.comboBox1.TabIndex = 3;
-            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
-            this.comboBox1.SelectedValueChanged += new System.EventHandler(this.comboBox1_SelectedValueChanged);
             // 
             // Form2
             // 
@@ -442,14 +446,14 @@
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.ToolStripMenuItem отчётыToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem табельУчётаРабочегоВремениToolStripMenuItem;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Label label7;
         private System.Windows.Forms.DataGridViewLinkColumn ColumnSearchPC;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnSearchF;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnSearchN;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnSearchO;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnSearchPD;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnSearchDL;
-        private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Label label7;
     }
 }

@@ -130,9 +130,9 @@ namespace PersonnelDeptApp1
 
 				comboBox1.DataSource = departments;
 				comboBox1.DisplayMember = "Name";
-				comboBox1.DataSource = departments;
+				/*comboBox1.DataSource = departments;
 				comboBox1.AutoCompleteMode = AutoCompleteMode.Suggest;
-				comboBox1.AutoCompleteSource = AutoCompleteSource.CustomSource;
+				comboBox1.AutoCompleteSource = AutoCompleteSource.ListItems;*/
 
 			}
 			catch (NullReferenceException ex)
@@ -203,6 +203,10 @@ namespace PersonnelDeptApp1
 					}
 					k++;
 
+				}
+				if (!reader.HasRows) 
+				{
+					MessageBox.Show("С такими параметрами записей не найдено.", "Поиск", MessageBoxButtons.OK, MessageBoxIcon.Information);
 				}
 				reader.Close();
 			}
