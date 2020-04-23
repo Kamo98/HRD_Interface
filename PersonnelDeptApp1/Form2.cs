@@ -69,5 +69,12 @@ namespace PersonnelDeptApp1
 			else
 				e.Cancel = true;
 		}
+
+		private void тестToolStripMenuItem_Click(object sender, EventArgs e)
+		{
+			StatTimeTracking f4 = new StatTimeTracking();
+			f4.Show();
+			this.Hide();
+		}
 	}
 }

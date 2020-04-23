@@ -138,6 +138,12 @@
     <Compile Include="StaffTurnover.Designer.cs">
       <DependentUpon>StaffTurnover.cs</DependentUpon>
     </Compile>
+    <Compile Include="StatTimeTracking.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="StatTimeTracking.Designer.cs">
+      <DependentUpon>StatTimeTracking.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
@@ -167,6 +173,9 @@
     </Compile>
     <EmbeddedResource Include="StaffTurnover.resx">
       <DependentUpon>StaffTurnover.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="StatTimeTracking.resx">
+      <DependentUpon>StatTimeTracking.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Orders\Templates\FireOrderTemplate.xls" />
     <None Include="Orders\Templates\HireOrderTemplate.xls" />
