@@ -117,6 +117,9 @@ namespace PersonnelDeptApp1
 					throw new NullReferenceException("Не удалось подключиться к базе данных");
 				NpgsqlCommand command = new NpgsqlCommand(sql, Connection.get_connect());
 				NpgsqlDataReader reader = command.ExecuteReader();
+
+				departments.Add(new Department(-1, ""));
+
 				foreach (DbDataRecord record in reader)
 				{
 					Department newDept = new Department((int)record["pk_unit"], (string)record["Name"]);
@@ -143,26 +146,76 @@ namespace PersonnelDeptApp1
 		}
 
 
+		private void FillGrid()
+		{
+			try
+			{
+				string baseStr = "select c.\"pk_personal_card\", c.\"surname\", c.\"name\", c.\"otchestvo\", u.\"Name\", d.\"Name\" " +
+				" from \"PersonalCard\" c, \"PeriodPosition\" p, \"Position\" d, \"Unit\" u" +
+				" where c.\"pk_personal_card\" = p.\"pk_personal_card\" " +
+				" and d.\"pk_position\" = p.\"pk_position\" " +
+				" and u.\"pk_unit\" = d.\"pk_unit\" " +
+				" and p.\"DateTo\" is null ";
+
+
+				if (comboBox1.SelectedIndex != -1)
+				{
+					int idUnit = (comboBox1.SelectedItem as Department).Id;
+					baseStr += " and d.\"pk_unit\" ='" + idUnit + "' ";
+				}
+				if (comboBox2.SelectedIndex != -1)
+				{
+					int idPosition = (comboBox2.SelectedItem as Occupation).Id;
+					baseStr += " and p.\"pk_position\" ='" + idPosition + "' ";
+				}
+				if (richTextBox1.Text != null)
+				{
+					string surename = richTextBox1.Text;
+					baseStr += " and c.\"surname\" ='" + surename + "' ";
+				}
+				if (richTextBox2.Text != null)
+				{
+					string name = richTextBox2.Text;
+					baseStr += " and c.\"name\" ='" + name + "' ";
+				}
+				if (richTextBox3.Text != null)
+				{
+					string otchestvo = richTextBox3.Text;
+					baseStr += " and c.\"otchestvo\" ='" + otchestvo + "' ";
+				}
+
+
+				if (Connection.get_connect() == null)
+					throw new NullReferenceException("Не удалось подключиться к базе данных");
+
+				NpgsqlCommand command = new NpgsqlCommand(baseStr, Connection.get_connect());
+				NpgsqlDataReader reader = command.ExecuteReader();
+				foreach (DbDataRecord record in reader)
+				{
+					dataGridView1.Rows.Add();
+					for (int i = 0; i < 6; i++)
+					{
+						dataGridView1.Rows[dataGridView1.Rows.Count - 1].Cells[i].Value = (string)record[i];
+					}
+
+				}
+				reader.Close();
+			}
+			catch (NullReferenceException ex)
+			{
+				MessageBox.Show(ex.Message, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+			}
+			catch (Exception ex)
+			{
+				MessageBox.Show("Неизвестная ошибка.\n" + ex.Message, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+			}
+		}
 
 		private void Form2_Load(object sender, EventArgs e)
         {
-            //AutoCompleteStringCollection listUnit_1 = new AutoCompleteStringCollection();
-            //NpgsqlCommand com = new NpgsqlCommand("SELECT \"Name\" FROM \"Unit\"", npgSqlConnection);
-            //NpgsqlDataReader reader = com.ExecuteReader();
-
-            //if (reader.HasRows)
-            //{
-            //    foreach (DbDataRecord rec in reader)
-            //    {
-            //        listUnit_1.Add(rec.GetString(0));
-            //    }
-
-            //}
-            //reader.Close();
-
-
-			FillDepts();	
-
+           
+			FillDepts();
+			FillGrid();
 
 		}
 
@@ -182,34 +235,10 @@ namespace PersonnelDeptApp1
 			
 		}
 
+
 		private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            //AutoCompleteStringCollection listPos = new AutoCompleteStringCollection();
-            //try
-            //{
-            //    string sql = "select \"pos\".\"pk_position\", \"pos\".\"Name\", \"pos\".\"Rate\""
-            //                    + " from \"Position\" as \"pos\", \"Unit\" as \"un\""
-            //                    + " where \"pos\".\"pk_unit\" = \"un\".\"pk_unit\" and \"un\".\"pk_unit\" = " + ((sender as ComboBox).SelectedItem as Department).Id + ";";
-            //    NpgsqlCommand command = new NpgsqlCommand(sql, Connection.get_connect());
-            //    NpgsqlDataReader reader = command.ExecuteReader();
-            //    foreach (DbDataRecord record in reader)
-            //    {
-            //        listPos.Add(record.GetString(0));
-            //    }
-            //    reader.Close();
-
-            //    comboBox2.DataSource = listPos;
-            //    comboBox2.AutoCompleteMode = AutoCompleteMode.Suggest;
-            //    comboBox2.AutoCompleteSource = AutoCompleteSource.CustomSource;
-            //    comboBox2.AutoCompleteCustomSource = listPos;
-
-            //}
-            //catch (Exception ex)
-            //{
-            //    MessageBox.Show("Неизвестная ошибка.\n" + ex.Message, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            //}
-
-
+            
 			occupations.Clear();
 
 			try
@@ -219,6 +248,9 @@ namespace PersonnelDeptApp1
 								+ " where \"pos\".\"pk_unit\" = \"un\".\"pk_unit\" and \"un\".\"pk_unit\" = " + ((sender as ComboBox).SelectedItem as Department).Id + ";";
 				NpgsqlCommand command = new NpgsqlCommand(sql, Connection.get_connect());
 				NpgsqlDataReader reader = command.ExecuteReader();
+
+				occupations.Add(new Occupation(-1, ""));
+
 				foreach (DbDataRecord record in reader)
 				{
 					occupations.Add(new Occupation((int)record["pk_position"], (string)record["Name"], (decimal)record["Rate"]));
@@ -235,5 +267,18 @@ namespace PersonnelDeptApp1
 			}
 
 		}
-	}
+
+	
+		private void button4_Click(object sender, EventArgs e)
+		{
+			button4.Enabled = false;
+			dataGridView1.Rows.Clear(); //очещаем грид
+
+			FillGrid();
+
+			button4.Enabled = true;
+		}
+            
+    }
+
 }
