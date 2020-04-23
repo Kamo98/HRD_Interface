@@ -158,29 +158,29 @@ namespace PersonnelDeptApp1
 				" and p.\"DateTo\" is null ";
 
 
-				if (comboBox1.SelectedIndex != -1)
+				if ((comboBox1.SelectedItem as Department).Id != -1)
 				{
 					int idUnit = (comboBox1.SelectedItem as Department).Id;
 					baseStr += " and d.\"pk_unit\" ='" + idUnit + "' ";
 				}
-				if (comboBox2.SelectedIndex != -1)
+				if ((comboBox2.SelectedItem as Occupation).Id != -1)
 				{
 					int idPosition = (comboBox2.SelectedItem as Occupation).Id;
 					baseStr += " and p.\"pk_position\" ='" + idPosition + "' ";
 				}
-				if (richTextBox1.Text != null)
+				if (richTextBox1.Text != "")
 				{
-					string surename = richTextBox1.Text;
+					string surename = richTextBox1.Text.Trim();
 					baseStr += " and c.\"surname\" ='" + surename + "' ";
 				}
-				if (richTextBox2.Text != null)
+				if (richTextBox2.Text != "")
 				{
-					string name = richTextBox2.Text;
+					string name = richTextBox2.Text.Trim();
 					baseStr += " and c.\"name\" ='" + name + "' ";
 				}
-				if (richTextBox3.Text != null)
+				if (richTextBox3.Text != "")
 				{
-					string otchestvo = richTextBox3.Text;
+					string otchestvo = richTextBox3.Text.Trim();
 					baseStr += " and c.\"otchestvo\" ='" + otchestvo + "' ";
 				}
 
@@ -190,13 +190,18 @@ namespace PersonnelDeptApp1
 
 				NpgsqlCommand command = new NpgsqlCommand(baseStr, Connection.get_connect());
 				NpgsqlDataReader reader = command.ExecuteReader();
+				int k = 0;
 				foreach (DbDataRecord record in reader)
 				{
+					object[] obj = new object[record.FieldCount];
+					record.GetValues(obj);
+
 					dataGridView1.Rows.Add();
 					for (int i = 0; i < 6; i++)
 					{
-						dataGridView1.Rows[dataGridView1.Rows.Count - 1].Cells[i].Value = (string)record[i];
+						dataGridView1.Rows[k].Cells[i].Value = obj[i].ToString();
 					}
+					k++;
 
 				}
 				reader.Close();
