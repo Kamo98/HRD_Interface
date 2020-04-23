@@ -33,6 +33,7 @@
 			this.TableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
 			this.panel2 = new System.Windows.Forms.Panel();
 			this.groupBox1 = new System.Windows.Forms.GroupBox();
+			this.checkBoxОД = new System.Windows.Forms.CheckBox();
 			this.checkBoxОТ = new System.Windows.Forms.CheckBox();
 			this.checkBoxК = new System.Windows.Forms.CheckBox();
 			this.checkBoxС = new System.Windows.Forms.CheckBox();
@@ -46,10 +47,6 @@
 			this.groupBox2 = new System.Windows.Forms.GroupBox();
 			this.label2 = new System.Windows.Forms.Label();
 			this.label10 = new System.Windows.Forms.Label();
-			this.rb_accumulative = new System.Windows.Forms.RadioButton();
-			this.label9 = new System.Windows.Forms.Label();
-			this.rb_simple = new System.Windows.Forms.RadioButton();
-			this.cb_allUnits = new System.Windows.Forms.CheckBox();
 			this.label6 = new System.Windows.Forms.Label();
 			this.yearTo = new System.Windows.Forms.NumericUpDown();
 			this.label7 = new System.Windows.Forms.Label();
@@ -64,7 +61,6 @@
 			this.department = new System.Windows.Forms.ComboBox();
 			this.btn_buildGraphic = new System.Windows.Forms.Button();
 			this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
-			this.checkBoxОД = new System.Windows.Forms.CheckBox();
 			this.TableLayoutPanel1.SuspendLayout();
 			this.panel2.SuspendLayout();
 			this.groupBox1.SuspendLayout();
@@ -124,10 +120,6 @@
 			this.TableLayoutPanel1.SetColumnSpan(this.panel2, 13);
 			this.panel2.Controls.Add(this.groupBox1);
 			this.panel2.Controls.Add(this.groupBox2);
-			this.panel2.Controls.Add(this.rb_accumulative);
-			this.panel2.Controls.Add(this.label9);
-			this.panel2.Controls.Add(this.rb_simple);
-			this.panel2.Controls.Add(this.cb_allUnits);
 			this.panel2.Controls.Add(this.label6);
 			this.panel2.Controls.Add(this.yearTo);
 			this.panel2.Controls.Add(this.label7);
@@ -167,6 +159,16 @@
 			this.groupBox1.TabIndex = 44;
 			this.groupBox1.TabStop = false;
 			this.groupBox1.Text = "Шифры";
+			// 
+			// checkBoxОД
+			// 
+			this.checkBoxОД.AutoSize = true;
+			this.checkBoxОД.Location = new System.Drawing.Point(130, 66);
+			this.checkBoxОД.Name = "checkBoxОД";
+			this.checkBoxОД.Size = new System.Drawing.Size(43, 17);
+			this.checkBoxОД.TabIndex = 10;
+			this.checkBoxОД.Text = "ОД";
+			this.checkBoxОД.UseVisualStyleBackColor = true;
 			// 
 			// checkBoxОТ
 			// 
@@ -300,52 +302,6 @@
 			this.label10.TabIndex = 15;
 			this.label10.Text = "Я - Работа в дневное время\r\nБ - Больничный\r\nВ - Выходные и праздничные дни\r\nНН - " +
     "Неявка по невыясненным\r\n         причинам\r\nПР - Прогрул\r\nН - Ночные смены";
-			// 
-			// rb_accumulative
-			// 
-			this.rb_accumulative.AutoSize = true;
-			this.rb_accumulative.Location = new System.Drawing.Point(580, 157);
-			this.rb_accumulative.Name = "rb_accumulative";
-			this.rb_accumulative.Size = new System.Drawing.Size(106, 17);
-			this.rb_accumulative.TabIndex = 42;
-			this.rb_accumulative.TabStop = true;
-			this.rb_accumulative.Text = "Накопительный";
-			this.rb_accumulative.UseVisualStyleBackColor = true;
-			// 
-			// label9
-			// 
-			this.label9.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-			this.label9.AutoSize = true;
-			this.label9.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			this.label9.Location = new System.Drawing.Point(397, 160);
-			this.label9.Name = "label9";
-			this.label9.Size = new System.Drawing.Size(72, 13);
-			this.label9.TabIndex = 41;
-			this.label9.Text = "Тип графика";
-			this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			// 
-			// rb_simple
-			// 
-			this.rb_simple.AutoSize = true;
-			this.rb_simple.Checked = true;
-			this.rb_simple.Location = new System.Drawing.Point(491, 158);
-			this.rb_simple.Name = "rb_simple";
-			this.rb_simple.Size = new System.Drawing.Size(72, 17);
-			this.rb_simple.TabIndex = 40;
-			this.rb_simple.TabStop = true;
-			this.rb_simple.Text = "Обычный";
-			this.rb_simple.UseVisualStyleBackColor = true;
-			// 
-			// cb_allUnits
-			// 
-			this.cb_allUnits.AutoSize = true;
-			this.cb_allUnits.Location = new System.Drawing.Point(34, 25);
-			this.cb_allUnits.Name = "cb_allUnits";
-			this.cb_allUnits.Size = new System.Drawing.Size(165, 17);
-			this.cb_allUnits.TabIndex = 38;
-			this.cb_allUnits.Text = "Отчёт по всей организации";
-			this.cb_allUnits.UseVisualStyleBackColor = true;
-			this.cb_allUnits.CheckedChanged += new System.EventHandler(this.cb_allUnits_CheckedChanged);
 			// 
 			// label6
 			// 
@@ -506,7 +462,7 @@
 			// 
 			this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
 			this.label1.AutoSize = true;
-			this.label1.Location = new System.Drawing.Point(31, 68);
+			this.label1.Location = new System.Drawing.Point(36, 45);
 			this.label1.Name = "label1";
 			this.label1.Size = new System.Drawing.Size(87, 13);
 			this.label1.TabIndex = 26;
@@ -517,7 +473,7 @@
 			// 
 			this.department.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
 			this.department.FormattingEnabled = true;
-			this.department.Location = new System.Drawing.Point(34, 91);
+			this.department.Location = new System.Drawing.Point(39, 68);
 			this.department.Name = "department";
 			this.department.Size = new System.Drawing.Size(354, 21);
 			this.department.TabIndex = 21;
@@ -546,16 +502,6 @@
 			this.chart1.Size = new System.Drawing.Size(954, 394);
 			this.chart1.TabIndex = 9;
 			this.chart1.Text = "chart1";
-			// 
-			// checkBoxОД
-			// 
-			this.checkBoxОД.AutoSize = true;
-			this.checkBoxОД.Location = new System.Drawing.Point(130, 66);
-			this.checkBoxОД.Name = "checkBoxОД";
-			this.checkBoxОД.Size = new System.Drawing.Size(43, 17);
-			this.checkBoxОД.TabIndex = 10;
-			this.checkBoxОД.Text = "ОД";
-			this.checkBoxОД.UseVisualStyleBackColor = true;
 			// 
 			// StatTimeTracking
 			// 
@@ -586,10 +532,6 @@
 
 		private System.Windows.Forms.TableLayoutPanel TableLayoutPanel1;
 		private System.Windows.Forms.Panel panel2;
-		private System.Windows.Forms.RadioButton rb_accumulative;
-		private System.Windows.Forms.Label label9;
-		private System.Windows.Forms.RadioButton rb_simple;
-		private System.Windows.Forms.CheckBox cb_allUnits;
 		private System.Windows.Forms.Label label6;
 		private System.Windows.Forms.NumericUpDown yearTo;
 		private System.Windows.Forms.Label label7;

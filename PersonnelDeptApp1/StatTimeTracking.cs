@@ -85,49 +85,68 @@ namespace PersonnelDeptApp1
 			ifrm.Show();
 		}
 
-		private void cb_allUnits_CheckedChanged(object sender, EventArgs e)
-		{
-			if (cb_allUnits.Checked)
-			{
-				department.Enabled = false;
-				department.Text = "";
-
-			}
-			else
-			{
-				department.Enabled = true;
-				department.SelectedIndex = 0;
-			}
-		}
-
 		private void btn_buildGraphic_Click(object sender, EventArgs e)
 		{
 
 			HashSet<string> marks = new HashSet<string>();
 			Dictionary<string, Series> mark2series = new Dictionary<string, Series>();
+			Dictionary<string, long> mark2val = new Dictionary<string, long>();
 
 			if (checkBox_Я.Checked)
+			{
 				marks.Add("Я");
+				mark2val.Add("Я", 0);
+			}
 			if (checkBoxБ.Checked)
+			{
 				marks.Add("Б");
+				mark2val.Add("Б", 0);
+			}
 			if (checkBoxВ.Checked)
+			{
 				marks.Add("В");
+				mark2val.Add("В", 0);
+			}
 			if (checkBoxНН.Checked)
+			{
 				marks.Add("НН");
+				mark2val.Add("НН", 0);
+			}
 			if (checkBoxПР.Checked)
+			{
 				marks.Add("ПР");
+				mark2val.Add("ПР", 0);
+			}
 			if (checkBoxН.Checked)
+			{
 				marks.Add("Н");
+				mark2val.Add("Н", 0);
+			}
 			if (checkBoxРВ.Checked)
+			{
 				marks.Add("РВ");
+				mark2val.Add("РВ", 0);
+			}
 			if (checkBoxС.Checked)
+			{
 				marks.Add("С");
+				mark2val.Add("С", 0);
+			}
 			if (checkBoxК.Checked)
+			{
 				marks.Add("К");
+				mark2val.Add("К", 0);
+			}
 			if (checkBoxОТ.Checked)
+			{
 				marks.Add("ОТ");
+				mark2val.Add("ОТ", 0);
+			}
 			if (checkBoxОД.Checked)
+			{
 				marks.Add("ОД");
+				mark2val.Add("ОД", 0);
+			}
 
 
 			//Настройка графика
@@ -196,8 +215,12 @@ namespace PersonnelDeptApp1
 						record.GetValues(obj);
 
 						string curM = (string)obj[0];
-						if (marks.Contains(curM))
-							mark2series[curM].Points.AddXY(today, (long)obj[1]);
+						if (marks.Contains(curM)) {
+							long newVal = (long)obj[1];
+							mark2val[curM] += newVal;
+							
+							mark2series[curM].Points.AddXY(today, newVal);						
+						}
 						break;
 					}
 					reader.Close();
