@@ -28,12 +28,15 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
-			System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-			System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-			System.Windows.Forms.DataVisualization.Charting.Series series5 = new System.Windows.Forms.DataVisualization.Charting.Series();
-			System.Windows.Forms.DataVisualization.Charting.Series series6 = new System.Windows.Forms.DataVisualization.Charting.Series();
+			System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+			System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+			System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+			System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
 			this.TableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
 			this.panel2 = new System.Windows.Forms.Panel();
+			this.rb_accumulative = new System.Windows.Forms.RadioButton();
+			this.label9 = new System.Windows.Forms.Label();
+			this.rb_simple = new System.Windows.Forms.RadioButton();
 			this.cb_allPositions = new System.Windows.Forms.CheckBox();
 			this.cb_allUnits = new System.Windows.Forms.CheckBox();
 			this.label6 = new System.Windows.Forms.Label();
@@ -52,9 +55,6 @@
 			this.btn_buildGraphic = new System.Windows.Forms.Button();
 			this.position = new System.Windows.Forms.ComboBox();
 			this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
-			this.rb_simple = new System.Windows.Forms.RadioButton();
-			this.label9 = new System.Windows.Forms.Label();
-			this.rb_accumulative = new System.Windows.Forms.RadioButton();
 			this.TableLayoutPanel1.SuspendLayout();
 			this.panel2.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.yearTo)).BeginInit();
@@ -109,7 +109,7 @@
 			// 
 			this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
 			this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-			this.TableLayoutPanel1.SetColumnSpan(this.panel2, 12);
+			this.TableLayoutPanel1.SetColumnSpan(this.panel2, 13);
 			this.panel2.Controls.Add(this.rb_accumulative);
 			this.panel2.Controls.Add(this.label9);
 			this.panel2.Controls.Add(this.rb_simple);
@@ -133,8 +133,43 @@
 			this.panel2.Location = new System.Drawing.Point(77, 47);
 			this.panel2.Name = "panel2";
 			this.TableLayoutPanel1.SetRowSpan(this.panel2, 4);
-			this.panel2.Size = new System.Drawing.Size(880, 226);
+			this.panel2.Size = new System.Drawing.Size(954, 226);
 			this.panel2.TabIndex = 8;
+			// 
+			// rb_accumulative
+			// 
+			this.rb_accumulative.AutoSize = true;
+			this.rb_accumulative.Location = new System.Drawing.Point(459, 194);
+			this.rb_accumulative.Name = "rb_accumulative";
+			this.rb_accumulative.Size = new System.Drawing.Size(106, 17);
+			this.rb_accumulative.TabIndex = 42;
+			this.rb_accumulative.TabStop = true;
+			this.rb_accumulative.Text = "Накопительный";
+			this.rb_accumulative.UseVisualStyleBackColor = true;
+			// 
+			// label9
+			// 
+			this.label9.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+			this.label9.AutoSize = true;
+			this.label9.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			this.label9.Location = new System.Drawing.Point(456, 135);
+			this.label9.Name = "label9";
+			this.label9.Size = new System.Drawing.Size(72, 13);
+			this.label9.TabIndex = 41;
+			this.label9.Text = "Тип графика";
+			this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			// 
+			// rb_simple
+			// 
+			this.rb_simple.AutoSize = true;
+			this.rb_simple.Checked = true;
+			this.rb_simple.Location = new System.Drawing.Point(459, 166);
+			this.rb_simple.Name = "rb_simple";
+			this.rb_simple.Size = new System.Drawing.Size(72, 17);
+			this.rb_simple.TabIndex = 40;
+			this.rb_simple.TabStop = true;
+			this.rb_simple.Text = "Обычный";
+			this.rb_simple.UseVisualStyleBackColor = true;
 			// 
 			// cb_allPositions
 			// 
@@ -341,7 +376,7 @@
 			this.department.FormattingEnabled = true;
 			this.department.Location = new System.Drawing.Point(28, 83);
 			this.department.Name = "department";
-			this.department.Size = new System.Drawing.Size(280, 21);
+			this.department.Size = new System.Drawing.Size(354, 21);
 			this.department.TabIndex = 21;
 			this.department.SelectedIndexChanged += new System.EventHandler(this.FillOccups);
 			// 
@@ -350,7 +385,7 @@
 			this.btn_buildGraphic.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
 			this.btn_buildGraphic.Location = new System.Drawing.Point(663, 188);
 			this.btn_buildGraphic.Name = "btn_buildGraphic";
-			this.btn_buildGraphic.Size = new System.Drawing.Size(190, 23);
+			this.btn_buildGraphic.Size = new System.Drawing.Size(264, 23);
 			this.btn_buildGraphic.TabIndex = 25;
 			this.btn_buildGraphic.Text = "Построить график";
 			this.btn_buildGraphic.UseVisualStyleBackColor = true;
@@ -362,67 +397,32 @@
 			this.position.FormattingEnabled = true;
 			this.position.Location = new System.Drawing.Point(322, 83);
 			this.position.Name = "position";
-			this.position.Size = new System.Drawing.Size(323, 21);
+			this.position.Size = new System.Drawing.Size(397, 21);
 			this.position.TabIndex = 23;
 			// 
 			// chart1
 			// 
-			chartArea3.Name = "ChartArea1";
-			this.chart1.ChartAreas.Add(chartArea3);
+			chartArea1.Name = "ChartArea1";
+			this.chart1.ChartAreas.Add(chartArea1);
 			this.TableLayoutPanel1.SetColumnSpan(this.chart1, 13);
-			legend3.Name = "Legend1";
-			this.chart1.Legends.Add(legend3);
+			legend1.Name = "Legend1";
+			this.chart1.Legends.Add(legend1);
 			this.chart1.Location = new System.Drawing.Point(77, 323);
 			this.chart1.Name = "chart1";
 			this.TableLayoutPanel1.SetRowSpan(this.chart1, 5);
-			series5.ChartArea = "ChartArea1";
-			series5.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
-			series5.Legend = "Legend1";
-			series5.Name = "Приём";
-			series6.ChartArea = "ChartArea1";
-			series6.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
-			series6.Legend = "Legend1";
-			series6.Name = "Увольнение";
-			this.chart1.Series.Add(series5);
-			this.chart1.Series.Add(series6);
+			series1.ChartArea = "ChartArea1";
+			series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
+			series1.Legend = "Legend1";
+			series1.Name = "Приём";
+			series2.ChartArea = "ChartArea1";
+			series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
+			series2.Legend = "Legend1";
+			series2.Name = "Увольнение";
+			this.chart1.Series.Add(series1);
+			this.chart1.Series.Add(series2);
 			this.chart1.Size = new System.Drawing.Size(954, 394);
 			this.chart1.TabIndex = 9;
 			this.chart1.Text = "chart1";
-			// 
-			// rb_simple
-			// 
-			this.rb_simple.AutoSize = true;
-			this.rb_simple.Checked = true;
-			this.rb_simple.Location = new System.Drawing.Point(459, 166);
-			this.rb_simple.Name = "rb_simple";
-			this.rb_simple.Size = new System.Drawing.Size(72, 17);
-			this.rb_simple.TabIndex = 40;
-			this.rb_simple.TabStop = true;
-			this.rb_simple.Text = "Обычный";
-			this.rb_simple.UseVisualStyleBackColor = true;
-			// 
-			// label9
-			// 
-			this.label9.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-			this.label9.AutoSize = true;
-			this.label9.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			this.label9.Location = new System.Drawing.Point(456, 135);
-			this.label9.Name = "label9";
-			this.label9.Size = new System.Drawing.Size(72, 13);
-			this.label9.TabIndex = 41;
-			this.label9.Text = "Тип графика";
-			this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			// 
-			// rb_accumulative
-			// 
-			this.rb_accumulative.AutoSize = true;
-			this.rb_accumulative.Location = new System.Drawing.Point(459, 194);
-			this.rb_accumulative.Name = "rb_accumulative";
-			this.rb_accumulative.Size = new System.Drawing.Size(106, 17);
-			this.rb_accumulative.TabIndex = 42;
-			this.rb_accumulative.TabStop = true;
-			this.rb_accumulative.Text = "Накопительный";
-			this.rb_accumulative.UseVisualStyleBackColor = true;
 			// 
 			// StaffTurnover
 			// 

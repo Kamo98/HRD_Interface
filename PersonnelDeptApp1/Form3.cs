@@ -106,9 +106,9 @@ namespace PersonnelDeptApp1
             comboBox1.AutoCompleteSource = AutoCompleteSource.CustomSource;
             comboBox1.AutoCompleteCustomSource = listUnit;
 
-            if (Connection.get_role_str() == "reception")
+            if (Connection.get_role() == Connection.Role.reception)
             {
-                menuStrip1.Items[0].Enabled = false;
+                //menuStrip1.Items[0].Enabled = false;
                 dataGridView1.ReadOnly = true;
                 button2.Visible = false;
                 groupBox3.Visible = false;

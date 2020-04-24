@@ -56,9 +56,9 @@
 			this.dataGridView5 = new System.Windows.Forms.DataGridView();
 			this.Column11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.Column12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.button5 = new System.Windows.Forms.Button();
 			this.button4 = new System.Windows.Forms.Button();
 			this.button8 = new System.Windows.Forms.Button();
+			this.button5 = new System.Windows.Forms.Button();
 			this.button9 = new System.Windows.Forms.Button();
 			this.button10 = new System.Windows.Forms.Button();
 			this.tabPage5 = new System.Windows.Forms.TabPage();
@@ -94,9 +94,9 @@
 			this.label15 = new System.Windows.Forms.Label();
 			this.label26 = new System.Windows.Forms.Label();
 			this.button3 = new System.Windows.Forms.Button();
-			this.button2 = new System.Windows.Forms.Button();
 			this.button11 = new System.Windows.Forms.Button();
 			this.button7 = new System.Windows.Forms.Button();
+			this.button2 = new System.Windows.Forms.Button();
 			this.tabPage1 = new System.Windows.Forms.TabPage();
 			this.tableLayoutPanel17 = new System.Windows.Forms.TableLayoutPanel();
 			this.richTextBox13 = new System.Windows.Forms.RichTextBox();
@@ -161,13 +161,6 @@
 			this.richTextBox12 = new System.Windows.Forms.RichTextBox();
 			this.richTextBox2 = new System.Windows.Forms.RichTextBox();
 			this.tabControl1 = new System.Windows.Forms.TabControl();
-			this.управлениеToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.печатьToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-			this.экспортДанныхToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.спарвкаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.оПрограммеToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.начинаяРаботуToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.menuStrip1 = new System.Windows.Forms.MenuStrip();
 			this.tabPage9.SuspendLayout();
 			this.tableLayoutPanel3.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
@@ -191,7 +184,6 @@
 			this.panel1.SuspendLayout();
 			this.panel2.SuspendLayout();
 			this.tabControl1.SuspendLayout();
-			this.menuStrip1.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// button6
@@ -211,7 +203,7 @@
 			this.tabPage9.Controls.Add(this.tableLayoutPanel3);
 			this.tabPage9.Location = new System.Drawing.Point(4, 22);
 			this.tabPage9.Name = "tabPage9";
-			this.tabPage9.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+			this.tabPage9.Padding = new System.Windows.Forms.Padding(3);
 			this.tabPage9.Size = new System.Drawing.Size(1176, 628);
 			this.tabPage9.TabIndex = 6;
 			this.tabPage9.Text = "Таблица должностей";
@@ -439,7 +431,7 @@
 			this.tabPage6.Controls.Add(this.tableLayoutPanel8);
 			this.tabPage6.Location = new System.Drawing.Point(4, 22);
 			this.tabPage6.Name = "tabPage6";
-			this.tabPage6.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+			this.tabPage6.Padding = new System.Windows.Forms.Padding(3);
 			this.tabPage6.Size = new System.Drawing.Size(1176, 628);
 			this.tabPage6.TabIndex = 5;
 			this.tabPage6.Text = "Характеристика";
@@ -556,19 +548,6 @@
 			this.Column12.ReadOnly = true;
 			this.Column12.Width = 400;
 			// 
-			// button5
-			// 
-			this.button5.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-			this.tableLayoutPanel8.SetColumnSpan(this.button5, 2);
-			this.button5.Location = new System.Drawing.Point(3, 561);
-			this.button5.Name = "button5";
-			this.button5.Size = new System.Drawing.Size(172, 23);
-			this.button5.TabIndex = 3;
-			this.button5.Text = "Добавить файл с компьютера";
-			this.button5.UseVisualStyleBackColor = true;
-			this.button5.Click += new System.EventHandler(this.button5_Click);
-			// 
 			// button4
 			// 
 			this.button4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
@@ -594,6 +573,19 @@
 			this.button8.Text = "Открыть файл из таблицы";
 			this.button8.UseVisualStyleBackColor = true;
 			this.button8.Click += new System.EventHandler(this.button8_Click);
+			// 
+			// button5
+			// 
+			this.button5.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+			this.tableLayoutPanel8.SetColumnSpan(this.button5, 2);
+			this.button5.Location = new System.Drawing.Point(3, 561);
+			this.button5.Name = "button5";
+			this.button5.Size = new System.Drawing.Size(172, 23);
+			this.button5.TabIndex = 3;
+			this.button5.Text = "Добавить файл с компьютера";
+			this.button5.UseVisualStyleBackColor = true;
+			this.button5.Click += new System.EventHandler(this.button5_Click);
 			// 
 			// button9
 			// 
@@ -864,7 +856,7 @@
 			this.tabPage2.Controls.Add(this.tableLayoutPanel12);
 			this.tabPage2.Location = new System.Drawing.Point(4, 22);
 			this.tabPage2.Name = "tabPage2";
-			this.tabPage2.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+			this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
 			this.tabPage2.Size = new System.Drawing.Size(1176, 628);
 			this.tabPage2.TabIndex = 1;
 			this.tabPage2.Text = "Образование";
@@ -1057,17 +1049,6 @@
 			this.button3.UseVisualStyleBackColor = true;
 			this.button3.Click += new System.EventHandler(this.button3_Click);
 			// 
-			// button2
-			// 
-			this.button2.Anchor = System.Windows.Forms.AnchorStyles.Right;
-			this.button2.Location = new System.Drawing.Point(901, 204);
-			this.button2.Name = "button2";
-			this.button2.Size = new System.Drawing.Size(174, 24);
-			this.button2.TabIndex = 3;
-			this.button2.Text = "Удалить язык";
-			this.button2.UseVisualStyleBackColor = true;
-			this.button2.Click += new System.EventHandler(this.button2_Click);
-			// 
 			// button11
 			// 
 			this.button11.Anchor = System.Windows.Forms.AnchorStyles.Right;
@@ -1092,13 +1073,24 @@
 			this.button7.UseVisualStyleBackColor = true;
 			this.button7.Click += new System.EventHandler(this.button7_Click);
 			// 
+			// button2
+			// 
+			this.button2.Anchor = System.Windows.Forms.AnchorStyles.Right;
+			this.button2.Location = new System.Drawing.Point(901, 204);
+			this.button2.Name = "button2";
+			this.button2.Size = new System.Drawing.Size(174, 24);
+			this.button2.TabIndex = 3;
+			this.button2.Text = "Удалить язык";
+			this.button2.UseVisualStyleBackColor = true;
+			this.button2.Click += new System.EventHandler(this.button2_Click);
+			// 
 			// tabPage1
 			// 
 			this.tabPage1.BackColor = System.Drawing.Color.WhiteSmoke;
 			this.tabPage1.Controls.Add(this.tableLayoutPanel17);
 			this.tabPage1.Location = new System.Drawing.Point(4, 22);
 			this.tabPage1.Name = "tabPage1";
-			this.tabPage1.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+			this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
 			this.tabPage1.Size = new System.Drawing.Size(1176, 628);
 			this.tabPage1.TabIndex = 0;
 			this.tabPage1.Text = "Общие сведения";
@@ -1156,6 +1148,7 @@
 			this.tableLayoutPanel17.Controls.Add(this.richTextBox12, 11, 4);
 			this.tableLayoutPanel17.Controls.Add(this.richTextBox2, 8, 7);
 			this.tableLayoutPanel17.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.tableLayoutPanel17.Enabled = false;
 			this.tableLayoutPanel17.Location = new System.Drawing.Point(3, 3);
 			this.tableLayoutPanel17.Name = "tableLayoutPanel17";
 			this.tableLayoutPanel17.RowCount = 10;
@@ -1297,7 +1290,7 @@
 			this.tabPage10.Controls.Add(this.tableLayoutPanel4);
 			this.tabPage10.Location = new System.Drawing.Point(4, 22);
 			this.tabPage10.Name = "tabPage10";
-			this.tabPage10.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+			this.tabPage10.Padding = new System.Windows.Forms.Padding(3);
 			this.tabPage10.Size = new System.Drawing.Size(520, 156);
 			this.tabPage10.TabIndex = 0;
 			this.tabPage10.Text = "Адрес по паспорту";
@@ -1370,7 +1363,7 @@
 			this.tableLayoutPanel4.SetColumnSpan(this.listBox3, 3);
 			this.listBox3.FormattingEnabled = true;
 			this.listBox3.Location = new System.Drawing.Point(130, 57);
-			this.listBox3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+			this.listBox3.Margin = new System.Windows.Forms.Padding(2);
 			this.listBox3.Name = "listBox3";
 			this.listBox3.Size = new System.Drawing.Size(382, 56);
 			this.listBox3.TabIndex = 17;
@@ -1413,8 +1406,8 @@
 			this.tabPage11.Controls.Add(this.tableLayoutPanel2);
 			this.tabPage11.Location = new System.Drawing.Point(4, 22);
 			this.tabPage11.Name = "tabPage11";
-			this.tabPage11.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
-			this.tabPage11.Size = new System.Drawing.Size(520, 159);
+			this.tabPage11.Padding = new System.Windows.Forms.Padding(3);
+			this.tabPage11.Size = new System.Drawing.Size(520, 156);
 			this.tabPage11.TabIndex = 1;
 			this.tabPage11.Text = "Фактический адрес";
 			// 
@@ -1440,15 +1433,15 @@
 			this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 16F));
 			this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 16F));
 			this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 16F));
-			this.tableLayoutPanel2.Size = new System.Drawing.Size(514, 153);
+			this.tableLayoutPanel2.Size = new System.Drawing.Size(514, 150);
 			this.tableLayoutPanel2.TabIndex = 4;
 			// 
 			// listBox4
 			// 
 			this.tableLayoutPanel2.SetColumnSpan(this.listBox4, 3);
 			this.listBox4.FormattingEnabled = true;
-			this.listBox4.Location = new System.Drawing.Point(130, 64);
-			this.listBox4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+			this.listBox4.Location = new System.Drawing.Point(130, 61);
+			this.listBox4.Margin = new System.Windows.Forms.Padding(2);
 			this.listBox4.Name = "listBox4";
 			this.listBox4.Size = new System.Drawing.Size(382, 82);
 			this.listBox4.TabIndex = 18;
@@ -1498,7 +1491,7 @@
 			this.richTextBox11.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
 			this.richTextBox11.Location = new System.Drawing.Point(131, 38);
 			this.richTextBox11.Name = "richTextBox11";
-			this.richTextBox11.Size = new System.Drawing.Size(380, 21);
+			this.richTextBox11.Size = new System.Drawing.Size(380, 18);
 			this.richTextBox11.TabIndex = 1;
 			this.richTextBox11.Text = "";
 			this.richTextBox11.TextChanged += new System.EventHandler(this.richTextBox11_TextChanged_1);
@@ -1702,7 +1695,7 @@
 			// 
 			this.listBox1.FormattingEnabled = true;
 			this.listBox1.Location = new System.Drawing.Point(5, 44);
-			this.listBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+			this.listBox1.Margin = new System.Windows.Forms.Padding(2);
 			this.listBox1.Name = "listBox1";
 			this.listBox1.Size = new System.Drawing.Size(528, 69);
 			this.listBox1.TabIndex = 14;
@@ -1922,68 +1915,12 @@
 			this.tabControl1.Controls.Add(this.tabPage6);
 			this.tabControl1.Controls.Add(this.tabPage9);
 			this.tabControl1.Dock = System.Windows.Forms.DockStyle.Top;
-			this.tabControl1.Location = new System.Drawing.Point(0, 24);
+			this.tabControl1.Location = new System.Drawing.Point(0, 0);
 			this.tabControl1.Multiline = true;
 			this.tabControl1.Name = "tabControl1";
 			this.tabControl1.SelectedIndex = 0;
 			this.tabControl1.Size = new System.Drawing.Size(1184, 654);
 			this.tabControl1.TabIndex = 0;
-			// 
-			// управлениеToolStripMenuItem
-			// 
-			this.управлениеToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.печатьToolStripMenuItem1,
-            this.экспортДанныхToolStripMenuItem});
-			this.управлениеToolStripMenuItem.Name = "управлениеToolStripMenuItem";
-			this.управлениеToolStripMenuItem.Size = new System.Drawing.Size(85, 20);
-			this.управлениеToolStripMenuItem.Text = "Управление";
-			// 
-			// печатьToolStripMenuItem1
-			// 
-			this.печатьToolStripMenuItem1.Name = "печатьToolStripMenuItem1";
-			this.печатьToolStripMenuItem1.Size = new System.Drawing.Size(162, 22);
-			this.печатьToolStripMenuItem1.Text = "Печать";
-			// 
-			// экспортДанныхToolStripMenuItem
-			// 
-			this.экспортДанныхToolStripMenuItem.Name = "экспортДанныхToolStripMenuItem";
-			this.экспортДанныхToolStripMenuItem.Size = new System.Drawing.Size(162, 22);
-			this.экспортДанныхToolStripMenuItem.Text = "Экспорт данных";
-			// 
-			// спарвкаToolStripMenuItem
-			// 
-			this.спарвкаToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.оПрограммеToolStripMenuItem,
-            this.начинаяРаботуToolStripMenuItem});
-			this.спарвкаToolStripMenuItem.Name = "спарвкаToolStripMenuItem";
-			this.спарвкаToolStripMenuItem.Size = new System.Drawing.Size(65, 20);
-			this.спарвкаToolStripMenuItem.Text = "Спарвка";
-			// 
-			// оПрограммеToolStripMenuItem
-			// 
-			this.оПрограммеToolStripMenuItem.Name = "оПрограммеToolStripMenuItem";
-			this.оПрограммеToolStripMenuItem.Size = new System.Drawing.Size(163, 22);
-			this.оПрограммеToolStripMenuItem.Text = "О программе";
-			// 
-			// начинаяРаботуToolStripMenuItem
-			// 
-			this.начинаяРаботуToolStripMenuItem.Name = "начинаяРаботуToolStripMenuItem";
-			this.начинаяРаботуToolStripMenuItem.Size = new System.Drawing.Size(163, 22);
-			this.начинаяРаботуToolStripMenuItem.Text = "Начиная работу";
-			// 
-			// menuStrip1
-			// 
-			this.menuStrip1.BackColor = System.Drawing.SystemColors.Menu;
-			this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
-			this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.управлениеToolStripMenuItem,
-            this.спарвкаToolStripMenuItem});
-			this.menuStrip1.Location = new System.Drawing.Point(0, 0);
-			this.menuStrip1.Name = "menuStrip1";
-			this.menuStrip1.Size = new System.Drawing.Size(1184, 24);
-			this.menuStrip1.TabIndex = 2;
-			this.menuStrip1.Text = "menuStrip1";
-			this.menuStrip1.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.menuStrip1_ItemClicked);
 			// 
 			// Form1
 			// 
@@ -1992,8 +1929,6 @@
 			this.ClientSize = new System.Drawing.Size(1184, 717);
 			this.Controls.Add(this.button6);
 			this.Controls.Add(this.tabControl1);
-			this.Controls.Add(this.menuStrip1);
-			this.MainMenuStrip = this.menuStrip1;
 			this.Name = "Form1";
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
 			this.Text = "Личная карточка сотрудника";
@@ -2031,10 +1966,7 @@
 			this.panel2.ResumeLayout(false);
 			this.panel2.PerformLayout();
 			this.tabControl1.ResumeLayout(false);
-			this.menuStrip1.ResumeLayout(false);
-			this.menuStrip1.PerformLayout();
 			this.ResumeLayout(false);
-			this.PerformLayout();
 
         }
 
@@ -2152,13 +2084,6 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.RichTextBox richTextBox3;
         private System.Windows.Forms.TabControl tabControl1;
-        private System.Windows.Forms.ToolStripMenuItem управлениеToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem печатьToolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem экспортДанныхToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem спарвкаToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem оПрограммеToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem начинаяРаботуToolStripMenuItem;
-        private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.RichTextBox richTextBox7;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.ListBox listBox1;

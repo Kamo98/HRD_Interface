@@ -51,7 +51,7 @@
 			this.tb_login.Name = "tb_login";
 			this.tb_login.Size = new System.Drawing.Size(176, 20);
 			this.tb_login.TabIndex = 1;
-			this.tb_login.Text = "admin1";
+			this.tb_login.Text = "accounting1";
 			// 
 			// tb_pass
 			// 
@@ -60,7 +60,7 @@
 			this.tb_pass.PasswordChar = '*';
 			this.tb_pass.Size = new System.Drawing.Size(176, 20);
 			this.tb_pass.TabIndex = 2;
-			this.tb_pass.Text = "admin1";
+			this.tb_pass.Text = "accounting1";
 			// 
 			// label1
 			// 

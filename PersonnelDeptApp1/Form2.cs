@@ -36,9 +36,7 @@ namespace PersonnelDeptApp1
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Form1 f1 = new Form1();
-            f1.Show();
-            this.Hide();
+            
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -213,7 +211,17 @@ namespace PersonnelDeptApp1
            
 			FillDepts();
 			FillGrid();
+			roles();
+		}
 
+
+		private void roles()
+		{
+			if (Connection.get_role() == Connection.Role.accounting)
+			{
+				добавитьПользователяToolStripMenuItem.Visible = false;
+				добавлениеToolStripMenuItem.Visible = false;
+			}
 		}
 
         private void comboBox1_SelectedValueChanged(object sender, EventArgs e)
@@ -291,27 +299,58 @@ namespace PersonnelDeptApp1
 		private void добавлениеToolStripMenuItem_Click(object sender, EventArgs e)
 		{
 			Form4 f4 = new Form4();
-			this.Hide();
 			f4.Show();
+			this.Hide();
 		}
 
 		private void поискToolStripMenuItem_Click(object sender, EventArgs e)
 		{
 			FormOrderSearch fos = new FormOrderSearch();
-			this.Hide();
 			fos.Show();
+			this.Hide();
 		}
 
 		private void табельУчётаРабочегоВремениToolStripMenuItem_Click(object sender, EventArgs e)
 		{
 			Form3 f3 = new Form3();
-			this.Hide();
 			f3.Show();
+			this.Hide();
 		}
 
 		private void отчётПоТекучестиКадровToolStripMenuItem_Click(object sender, EventArgs e)
 		{
+			StaffTurnover f3 = new StaffTurnover();
+			f3.Show();
+			this.Hide();
+		}
 
+		private void отчётПоРабочемуВремениToolStripMenuItem_Click(object sender, EventArgs e)
+		{
+			StatTimeTracking f3 = new StatTimeTracking();
+			f3.Show();
+			this.Hide();
+		}
+
+		private void добавитьПользователяToolStripMenuItem_Click(object sender, EventArgs e)
+		{
+			Form1 f1 = new Form1();
+			f1.Show();
+			this.Hide();
+		}
+
+		private void сменитьПользователяToolStripMenuItem_Click(object sender, EventArgs e)
+		{
+			this.Close();
+		}
+
+		private void Form2_Shown(object sender, EventArgs e)
+		{
+			//FillGrid();
+		}
+
+		private void Form2_Activated(object sender, EventArgs e)
+		{
+			FillGrid();
 		}
 	}
 }
