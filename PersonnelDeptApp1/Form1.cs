@@ -11,7 +11,7 @@ using Npgsql;
 using Dadata;
 using Dadata.Model;
 using System.IO;
-
+using System.Data.Common;
 
 namespace PersonnelDeptApp1
 {
@@ -1708,11 +1708,70 @@ namespace PersonnelDeptApp1
 
             comboBox11.Items.Add("Состоит");
             comboBox11.Items.Add("Не состоит");
-            
+
+			roles();
+
+			if (flag == 1)
+				fillPositions();
 
         }
 
-        private void tableLayoutPanel4_Paint(object sender, PaintEventArgs e)
+
+		private void fillPositions ()
+		{
+			string strCom = "select u.\"Name\", d.\"Name\", d.\"Rate\", \"DataFrom\", \"DateTo\",  s.\"Reason\" " +
+				" from \"PeriodPosition\" p, \"Position\" d, \"String_order\" s, \"Order\" o, \"TypeOrder\" t, \"Unit\" u" +
+				" where d.\"pk_position\" = p.\"pk_position\" and p.\"pk_move_order\" = s.\"pk_string_order\" and o.\"pk_order\" = s.\"pk_order\" " +
+				" and t.\"pk_type_order\" = o.\"pk_type_order\" and d.\"pk_unit\" = u.\"pk_unit\" and \"pk_personal_card\" = '" + pk_personal_card + "'";
+
+
+			NpgsqlCommand command = new NpgsqlCommand(strCom, Connection.get_connect());
+			NpgsqlDataReader reader = command.ExecuteReader();
+
+			if (reader.HasRows)
+			{
+				int i = 0;
+				foreach (DbDataRecord rec in reader)
+				{
+					object[] obj = new object[rec.FieldCount];
+					rec.GetValues(obj);
+
+					dataGridView2.Rows.Add();
+					for (int j = 0; j < rec.FieldCount; j++)
+					{
+						dataGridView2.Rows[i].Cells[j].Value = obj[j].ToString();
+					}
+					i++;
+				}
+			}
+			reader.Close();
+		}
+
+		private void roles()
+		{
+			if (Connection.get_role() == Connection.Role.accounting)
+			{
+				tableLayoutPanel17.Enabled = false;
+				tableLayoutPanel1.Enabled = false;
+
+				tabControl3.Enabled = true;
+				tableLayoutPanel4.Enabled = false;
+				tableLayoutPanel2.Enabled = false;
+
+				button6.Enabled = false;
+				button3.Enabled = false;
+				button11.Enabled = false;
+				button7.Enabled = false;
+
+				button4.Enabled = false;
+				button5.Enabled = false;
+				button9.Enabled = false;
+				button10.Enabled = false;
+
+			}
+		}
+
+		private void tableLayoutPanel4_Paint(object sender, PaintEventArgs e)
         {
 
         }

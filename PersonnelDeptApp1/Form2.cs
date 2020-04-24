@@ -170,6 +170,7 @@ namespace PersonnelDeptApp1
 					baseStr += " and c.\"otchestvo\" ='" + otchestvo + "' ";
 				}
 
+				baseStr += " order by c.\"pk_personal_card\"";
 
 				if (Connection.get_connect() == null)
 					throw new NullReferenceException("Не удалось подключиться к базе данных");
@@ -350,7 +351,7 @@ namespace PersonnelDeptApp1
 
 		private void Form2_Activated(object sender, EventArgs e)
 		{
-			FillGrid();
+			//FillGrid();
 		}
 	}
 }
