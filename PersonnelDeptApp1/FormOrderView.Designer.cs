@@ -97,6 +97,7 @@
             this.orderTable.Location = new System.Drawing.Point(3, 48);
             this.orderTable.Name = "orderTable";
             this.orderTable.ReadOnly = true;
+            this.orderTable.RowHeadersVisible = false;
             this.orderTable.RowHeadersWidth = 51;
             this.orderTable.RowTemplate.Height = 24;
             this.orderTable.Size = new System.Drawing.Size(1536, 356);

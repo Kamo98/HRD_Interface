@@ -30,7 +30,7 @@ namespace PersonnelDeptApp1
             num = reader.GetString(0);
             date = reader.GetDateTime(1);
             reader.Close();
-            label1.Text = "Договор №" + num + " от " + date.ToString("dd-MM-yyyy");
+            label1.Text = "Приказ №" + num + " от " + date.ToString("dd-MM-yyyy");
             switch (orderType)
             {
                 case "Приём":
