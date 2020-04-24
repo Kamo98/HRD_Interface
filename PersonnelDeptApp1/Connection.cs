@@ -35,9 +35,15 @@ namespace PersonnelDeptApp1
 		private static Connection connect = null;
 		private static Role role = Role.unknown;
 
+		public static string login;
+		public static string password;
+		
+
 		private Connection (string login, string pass)
 		{
 			string connectionString = "Server = hrd.cx7kyl76gv42.us-east-2.rds.amazonaws.com; DataBase = HRD; Integrated Security = false; User Id = " + login + "; password = " + pass;
+			Connection.login = login;
+			Connection.password = pass;
 
 			//Создание соединения с БД
 			npgSqlConnection = new NpgsqlConnection(connectionString);

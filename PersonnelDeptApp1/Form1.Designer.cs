@@ -1148,7 +1148,6 @@
 			this.tableLayoutPanel17.Controls.Add(this.richTextBox12, 11, 4);
 			this.tableLayoutPanel17.Controls.Add(this.richTextBox2, 8, 7);
 			this.tableLayoutPanel17.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.tableLayoutPanel17.Enabled = false;
 			this.tableLayoutPanel17.Location = new System.Drawing.Point(3, 3);
 			this.tableLayoutPanel17.Name = "tableLayoutPanel17";
 			this.tableLayoutPanel17.RowCount = 10;

@@ -56,7 +56,7 @@ namespace PersonnelDeptApp1
         private void button6_Click(object sender, EventArgs e)
         {
             //Вот тут необходимо после объединения модулей исправить подключение к БД
-            String connectionString = "Server=hrd.cx7kyl76gv42.us-east-2.rds.amazonaws.com;User Id=postgres;Password=Ntcnbhjdfybt_01;Database=HRD;";
+            String connectionString = "Server=hrd.cx7kyl76gv42.us-east-2.rds.amazonaws.com;User Id=" + Connection.login + ";Password=" + Connection.password + ";Database=HRD;";
             NpgsqlConnection npgSqlConnection = new NpgsqlConnection(connectionString);
             try
             {
@@ -1226,9 +1226,9 @@ namespace PersonnelDeptApp1
         //Загрузка формы
         private void Form1_Load(object sender, EventArgs e)
         {
-            //Вот тут необходимо после объединения модулей исправить подключение к БД
-            String connectionString = "Server=hrd.cx7kyl76gv42.us-east-2.rds.amazonaws.com;User Id=postgres;Password=Ntcnbhjdfybt_01;Database=HRD;";
-            NpgsqlConnection npgSqlConnection = new NpgsqlConnection(connectionString);
+			//Вот тут необходимо после объединения модулей исправить подключение к БД
+			String connectionString = "Server=hrd.cx7kyl76gv42.us-east-2.rds.amazonaws.com;User Id=" + Connection.login + ";Password=" + Connection.password + ";Database=HRD;";
+			NpgsqlConnection npgSqlConnection = new NpgsqlConnection(connectionString);
             int pk_marital_status = -1;
             int pk_character_work = -1;
             int pk_military_rank = -1;
