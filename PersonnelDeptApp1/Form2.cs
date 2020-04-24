@@ -34,11 +34,6 @@ namespace PersonnelDeptApp1
             npgSqlConnection = Connection.get_connect();
         }
 
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void button1_Click(object sender, EventArgs e)
         {
             Form1 f1 = new Form1();
@@ -280,22 +275,43 @@ namespace PersonnelDeptApp1
 
 			button4.Enabled = true;
 		}
-            
-    }
 
 
-		private void созданиеToolStripMenuItem_Click_1(object sender, EventArgs e)
+
+		private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+		{
+			if (e.ColumnIndex == 0)
+			{
+				Form1 f1 = new Form1(Int32.Parse(dataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString()));
+				f1.Show();
+				this.Hide();
+			}
+		}
+
+		private void добавлениеToolStripMenuItem_Click(object sender, EventArgs e)
 		{
 			Form4 f4 = new Form4();
 			this.Hide();
 			f4.Show();
 		}
 
-		private void поискToolStripMenuItem_Click_1(object sender, EventArgs e)
+		private void поискToolStripMenuItem_Click(object sender, EventArgs e)
 		{
 			FormOrderSearch fos = new FormOrderSearch();
 			this.Hide();
 			fos.Show();
+		}
+
+		private void табельУчётаРабочегоВремениToolStripMenuItem_Click(object sender, EventArgs e)
+		{
+			Form3 f3 = new Form3();
+			this.Hide();
+			f3.Show();
+		}
+
+		private void отчётПоТекучестиКадровToolStripMenuItem_Click(object sender, EventArgs e)
+		{
+
 		}
 	}
 }
