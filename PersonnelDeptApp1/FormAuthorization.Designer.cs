@@ -91,7 +91,7 @@
 			this.Controls.Add(this.tb_login);
 			this.Controls.Add(this.button1);
 			this.Name = "FormAuthorization";
-			this.Text = "Авторизация";
+			this.Text = "Авторизация | Система \"КАДРЫ\"";
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
