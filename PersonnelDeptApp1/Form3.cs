@@ -108,7 +108,7 @@ namespace PersonnelDeptApp1
 
             if (Connection.get_role() == Connection.Role.reception)
             {
-                //menuStrip1.Items[0].Enabled = false;
+                menuStrip1.Items[0].Enabled = false;
                 dataGridView1.ReadOnly = true;
                 button2.Visible = false;
                 groupBox3.Visible = false;

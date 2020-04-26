@@ -1238,7 +1238,7 @@ namespace PersonnelDeptApp1
             if (flag == 0)
             {
                 tabPage9.Parent = null; //При добавлении скрываем таблицу должностей
-                panel2.Visible = false; //При добавлении еще нет текущей должности скрываем панель с ней
+                //panel2.Visible = false; //При добавлении еще нет текущей должности скрываем панель с ней
             }
             //Если форма открыта для редактирования считываем из базы данных информацию о сотруднике
             if (flag == 1)
@@ -1766,6 +1766,7 @@ namespace PersonnelDeptApp1
 				button3.Enabled = false;
 				button11.Enabled = false;
 				button7.Enabled = false;
+				button1.Enabled = false;
 
 				button4.Enabled = false;
 				button5.Enabled = false;

@@ -93,6 +93,8 @@
 			this.button14 = new System.Windows.Forms.Button();
 			this.label7 = new System.Windows.Forms.Label();
 			this.numericUpDown3 = new System.Windows.Forms.NumericUpDown();
+			this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+			this.созToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).BeginInit();
@@ -101,6 +103,7 @@
 			this.groupBox3.SuspendLayout();
 			this.groupBox4.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).BeginInit();
+			this.menuStrip1.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// comboBox1
@@ -788,6 +791,23 @@
 			this.numericUpDown3.Size = new System.Drawing.Size(54, 20);
 			this.numericUpDown3.TabIndex = 0;
 			// 
+			// menuStrip1
+			// 
+			this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.созToolStripMenuItem});
+			this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+			this.menuStrip1.Name = "menuStrip1";
+			this.menuStrip1.Size = new System.Drawing.Size(1198, 24);
+			this.menuStrip1.TabIndex = 27;
+			this.menuStrip1.Text = "menuStrip1";
+			// 
+			// созToolStripMenuItem
+			// 
+			this.созToolStripMenuItem.Name = "созToolStripMenuItem";
+			this.созToolStripMenuItem.Size = new System.Drawing.Size(153, 20);
+			this.созToolStripMenuItem.Text = "Создание нового табеля";
+			this.созToolStripMenuItem.Click += new System.EventHandler(this.управлениеToolStripMenuItem_Click);
+			// 
 			// Form3
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -799,7 +819,9 @@
 			this.Controls.Add(this.groupBox1);
 			this.Controls.Add(this.label3);
 			this.Controls.Add(this.dataGridView1);
+			this.Controls.Add(this.menuStrip1);
 			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+			this.MainMenuStrip = this.menuStrip1;
 			this.MaximizeBox = false;
 			this.Name = "Form3";
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -818,6 +840,8 @@
 			this.groupBox4.ResumeLayout(false);
 			this.groupBox4.PerformLayout();
 			((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).EndInit();
+			this.menuStrip1.ResumeLayout(false);
+			this.menuStrip1.PerformLayout();
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
@@ -889,5 +913,7 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.NumericUpDown numericUpDown3;
         private System.Windows.Forms.Button button15;
-    }
+		private System.Windows.Forms.MenuStrip menuStrip1;
+		private System.Windows.Forms.ToolStripMenuItem созToolStripMenuItem;
+	}
 }
