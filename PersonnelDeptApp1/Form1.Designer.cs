@@ -38,16 +38,6 @@
 			this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.dataGridViewExpirience = new System.Windows.Forms.DataGridView();
-			this.Column10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.label41 = new System.Windows.Forms.Label();
-			this.comboBox13 = new System.Windows.Forms.ComboBox();
-			this.label17 = new System.Windows.Forms.Label();
-			this.dateTimePicker7 = new System.Windows.Forms.DateTimePicker();
-			this.button1 = new System.Windows.Forms.Button();
 			this.tabPage6 = new System.Windows.Forms.TabPage();
 			this.tableLayoutPanel8 = new System.Windows.Forms.TableLayoutPanel();
 			this.label19 = new System.Windows.Forms.Label();
@@ -96,7 +86,6 @@
 			this.button3 = new System.Windows.Forms.Button();
 			this.button11 = new System.Windows.Forms.Button();
 			this.button7 = new System.Windows.Forms.Button();
-			this.button2 = new System.Windows.Forms.Button();
 			this.tabPage1 = new System.Windows.Forms.TabPage();
 			this.tableLayoutPanel17 = new System.Windows.Forms.TableLayoutPanel();
 			this.richTextBox13 = new System.Windows.Forms.RichTextBox();
@@ -161,10 +150,10 @@
 			this.richTextBox12 = new System.Windows.Forms.RichTextBox();
 			this.richTextBox2 = new System.Windows.Forms.RichTextBox();
 			this.tabControl1 = new System.Windows.Forms.TabControl();
+			this.button2 = new System.Windows.Forms.Button();
 			this.tabPage9.SuspendLayout();
 			this.tableLayoutPanel3.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.dataGridViewExpirience)).BeginInit();
 			this.tabPage6.SuspendLayout();
 			this.tableLayoutPanel8.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.dataGridView5)).BeginInit();
@@ -206,7 +195,7 @@
 			this.tabPage9.Padding = new System.Windows.Forms.Padding(3);
 			this.tabPage9.Size = new System.Drawing.Size(1176, 628);
 			this.tabPage9.TabIndex = 6;
-			this.tabPage9.Text = "Таблица должностей";
+			this.tabPage9.Text = "Должности сорудника";
 			// 
 			// tableLayoutPanel3
 			// 
@@ -225,12 +214,6 @@
 			this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 7.692307F));
 			this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 7.692307F));
 			this.tableLayoutPanel3.Controls.Add(this.dataGridView2, 0, 0);
-			this.tableLayoutPanel3.Controls.Add(this.dataGridViewExpirience, 6, 5);
-			this.tableLayoutPanel3.Controls.Add(this.label41, 0, 5);
-			this.tableLayoutPanel3.Controls.Add(this.comboBox13, 1, 5);
-			this.tableLayoutPanel3.Controls.Add(this.label17, 3, 5);
-			this.tableLayoutPanel3.Controls.Add(this.dateTimePicker7, 4, 5);
-			this.tableLayoutPanel3.Controls.Add(this.button1, 11, 7);
 			this.tableLayoutPanel3.Location = new System.Drawing.Point(3, 3);
 			this.tableLayoutPanel3.Name = "tableLayoutPanel3";
 			this.tableLayoutPanel3.RowCount = 10;
@@ -320,110 +303,6 @@
 			this.Column4.Name = "Column4";
 			this.Column4.ReadOnly = true;
 			this.Column4.Width = 195;
-			// 
-			// dataGridViewExpirience
-			// 
-			this.dataGridViewExpirience.AllowUserToAddRows = false;
-			this.dataGridViewExpirience.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-			this.dataGridViewExpirience.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Column10,
-            this.dataGridViewTextBoxColumn7,
-            this.dataGridViewTextBoxColumn8,
-            this.Column9});
-			this.tableLayoutPanel3.SetColumnSpan(this.dataGridViewExpirience, 7);
-			this.dataGridViewExpirience.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.dataGridViewExpirience.Location = new System.Drawing.Point(537, 313);
-			this.dataGridViewExpirience.Name = "dataGridViewExpirience";
-			this.dataGridViewExpirience.RowHeadersVisible = false;
-			this.dataGridViewExpirience.RowHeadersWidth = 51;
-			this.tableLayoutPanel3.SetRowSpan(this.dataGridViewExpirience, 2);
-			this.dataGridViewExpirience.Size = new System.Drawing.Size(630, 118);
-			this.dataGridViewExpirience.TabIndex = 4;
-			this.dataGridViewExpirience.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewExpirience_CellContentClick);
-			// 
-			// Column10
-			// 
-			this.Column10.HeaderText = "";
-			this.Column10.MinimumWidth = 6;
-			this.Column10.Name = "Column10";
-			this.Column10.Width = 125;
-			// 
-			// dataGridViewTextBoxColumn7
-			// 
-			this.dataGridViewTextBoxColumn7.HeaderText = "Общий";
-			this.dataGridViewTextBoxColumn7.MinimumWidth = 6;
-			this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
-			this.dataGridViewTextBoxColumn7.ReadOnly = true;
-			this.dataGridViewTextBoxColumn7.Width = 170;
-			// 
-			// dataGridViewTextBoxColumn8
-			// 
-			this.dataGridViewTextBoxColumn8.HeaderText = "Непрерывный";
-			this.dataGridViewTextBoxColumn8.MinimumWidth = 6;
-			this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
-			this.dataGridViewTextBoxColumn8.ReadOnly = true;
-			this.dataGridViewTextBoxColumn8.Width = 170;
-			// 
-			// Column9
-			// 
-			this.Column9.HeaderText = "Дающий право на надбавку за выслугу лет";
-			this.Column9.MinimumWidth = 6;
-			this.Column9.Name = "Column9";
-			this.Column9.ReadOnly = true;
-			this.Column9.Width = 170;
-			// 
-			// label41
-			// 
-			this.label41.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-			this.label41.AutoSize = true;
-			this.label41.Location = new System.Drawing.Point(3, 334);
-			this.label41.Name = "label41";
-			this.label41.Size = new System.Drawing.Size(83, 13);
-			this.label41.TabIndex = 0;
-			this.label41.Text = "Должность";
-			this.label41.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-			// 
-			// comboBox13
-			// 
-			this.comboBox13.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-			this.tableLayoutPanel3.SetColumnSpan(this.comboBox13, 2);
-			this.comboBox13.FormattingEnabled = true;
-			this.comboBox13.Location = new System.Drawing.Point(92, 330);
-			this.comboBox13.Name = "comboBox13";
-			this.comboBox13.Size = new System.Drawing.Size(172, 21);
-			this.comboBox13.TabIndex = 2;
-			this.comboBox13.SelectedIndexChanged += new System.EventHandler(this.comboBox13_SelectedIndexChanged);
-			// 
-			// label17
-			// 
-			this.label17.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-			this.label17.AutoSize = true;
-			this.label17.Location = new System.Drawing.Point(270, 334);
-			this.label17.Name = "label17";
-			this.label17.Size = new System.Drawing.Size(83, 13);
-			this.label17.TabIndex = 0;
-			this.label17.Text = "Стаж работы";
-			this.label17.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-			// 
-			// dateTimePicker7
-			// 
-			this.dateTimePicker7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-			this.tableLayoutPanel3.SetColumnSpan(this.dateTimePicker7, 2);
-			this.dateTimePicker7.Location = new System.Drawing.Point(359, 331);
-			this.dateTimePicker7.Name = "dateTimePicker7";
-			this.dateTimePicker7.Size = new System.Drawing.Size(172, 20);
-			this.dateTimePicker7.TabIndex = 2;
-			// 
-			// button1
-			// 
-			this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-			this.tableLayoutPanel3.SetColumnSpan(this.button1, 2);
-			this.button1.Location = new System.Drawing.Point(982, 453);
-			this.button1.Name = "button1";
-			this.button1.Size = new System.Drawing.Size(185, 24);
-			this.button1.TabIndex = 3;
-			this.button1.Text = "Расчитать стаж";
-			this.button1.UseVisualStyleBackColor = true;
 			// 
 			// tabPage6
 			// 
@@ -884,6 +763,7 @@
 			this.tableLayoutPanel12.Controls.Add(this.button3, 8, 3);
 			this.tableLayoutPanel12.Controls.Add(this.button11, 8, 7);
 			this.tableLayoutPanel12.Controls.Add(this.button7, 10, 7);
+			this.tableLayoutPanel12.Controls.Add(this.button2, 10, 3);
 			this.tableLayoutPanel12.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.tableLayoutPanel12.Location = new System.Drawing.Point(3, 3);
 			this.tableLayoutPanel12.Name = "tableLayoutPanel12";
@@ -1072,17 +952,6 @@
 			this.button7.Text = "Удалить образование";
 			this.button7.UseVisualStyleBackColor = true;
 			this.button7.Click += new System.EventHandler(this.button7_Click);
-			// 
-			// button2
-			// 
-			this.button2.Anchor = System.Windows.Forms.AnchorStyles.Right;
-			this.button2.Location = new System.Drawing.Point(901, 204);
-			this.button2.Name = "button2";
-			this.button2.Size = new System.Drawing.Size(174, 24);
-			this.button2.TabIndex = 3;
-			this.button2.Text = "Удалить язык";
-			this.button2.UseVisualStyleBackColor = true;
-			this.button2.Click += new System.EventHandler(this.button2_Click);
 			// 
 			// tabPage1
 			// 
@@ -1680,7 +1549,6 @@
 			this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
 			this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
 			this.tableLayoutPanel17.SetColumnSpan(this.panel1, 6);
-			this.panel1.Controls.Add(this.button2);
 			this.panel1.Controls.Add(this.listBox1);
 			this.panel1.Controls.Add(this.label47);
 			this.panel1.Controls.Add(this.richTextBox7);
@@ -1921,6 +1789,17 @@
 			this.tabControl1.Size = new System.Drawing.Size(1184, 654);
 			this.tabControl1.TabIndex = 0;
 			// 
+			// button2
+			// 
+			this.tableLayoutPanel12.SetColumnSpan(this.button2, 2);
+			this.button2.Location = new System.Drawing.Point(893, 189);
+			this.button2.Name = "button2";
+			this.button2.Size = new System.Drawing.Size(172, 25);
+			this.button2.TabIndex = 5;
+			this.button2.Text = "Удалить язык";
+			this.button2.UseVisualStyleBackColor = true;
+			this.button2.Click += new System.EventHandler(this.button2_Click);
+			// 
 			// Form1
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1935,9 +1814,7 @@
 			this.Load += new System.EventHandler(this.Form1_Load);
 			this.tabPage9.ResumeLayout(false);
 			this.tableLayoutPanel3.ResumeLayout(false);
-			this.tableLayoutPanel3.PerformLayout();
 			((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.dataGridViewExpirience)).EndInit();
 			this.tabPage6.ResumeLayout(false);
 			this.tableLayoutPanel8.ResumeLayout(false);
 			this.tableLayoutPanel8.PerformLayout();
@@ -1979,16 +1856,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
-        private System.Windows.Forms.DataGridView dataGridViewExpirience;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column10;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column9;
-        private System.Windows.Forms.Label label41;
-        private System.Windows.Forms.ComboBox comboBox13;
-        private System.Windows.Forms.Label label17;
-        private System.Windows.Forms.DateTimePicker dateTimePicker7;
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.TabPage tabPage6;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel8;
         private System.Windows.Forms.Label label19;
@@ -2088,7 +1955,6 @@
         private System.Windows.Forms.ListBox listBox1;
         public System.Windows.Forms.DataGridView dataGridView4;
         public System.Windows.Forms.DataGridView dataGridView3;
-        private System.Windows.Forms.Button button2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
@@ -2103,6 +1969,7 @@
         private System.Windows.Forms.Button button10;
         private System.Windows.Forms.ListBox listBox3;
         private System.Windows.Forms.ListBox listBox4;
-    }
+		private System.Windows.Forms.Button button2;
+	}
 }
 

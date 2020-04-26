@@ -45,40 +45,50 @@ namespace PersonnelDeptApp1
 			Connection.login = login;
 			Connection.password = pass;
 
-			//Создание соединения с БД
-			npgSqlConnection = new NpgsqlConnection(connectionString);
-
 			try
 			{
-				npgSqlConnection.Open();        //Открываем соединение
+				//Создание соединения с БД
+				npgSqlConnection = new NpgsqlConnection(connectionString);
 
-				//Получаем роль пользователя
-				string strCom = "select \"role_name\" from \"information_schema\".\"applicable_roles\" where \"grantee\" = '" + login +"'";
-				NpgsqlCommand command = new NpgsqlCommand(strCom, npgSqlConnection);
-				NpgsqlDataReader reader = command.ExecuteReader();
-
-				if (reader.HasRows)
+				try
 				{
-					string roleStr = "";
-					foreach (DbDataRecord rec in reader)
-					{
-						roleStr = rec.GetString(0);
-						break;
-					}
-					role = str2role[roleStr];
+					npgSqlConnection.Open();        //Открываем соединение
 
-				} else
+					//Получаем роль пользователя
+					string strCom = "select \"role_name\" from \"information_schema\".\"applicable_roles\" where \"grantee\" = '" + login + "'";
+					NpgsqlCommand command = new NpgsqlCommand(strCom, npgSqlConnection);
+					NpgsqlDataReader reader = command.ExecuteReader();
+
+					if (reader.HasRows)
+					{
+						string roleStr = "";
+						foreach (DbDataRecord rec in reader)
+						{
+							roleStr = rec.GetString(0);
+							break;
+						}
+						role = str2role[roleStr];
+
+					}
+					else
+					{
+						npgSqlConnection = null;
+						MessageBox.Show("Подключение НЕ выполнено.\nРоль пользователя " + login + " не найдена\n", "Ошибка авторизации", MessageBoxButtons.OK, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1);
+					}
+					reader.Close();
+
+				}
+				catch (NpgsqlException e)
 				{
 					npgSqlConnection = null;
-					MessageBox.Show("Подключение НЕ выполнено.\nРоль пользователя " + login + " не найдена\n");
+					MessageBox.Show("Подключение НЕ выполнено.\nПроверьте правильность введённых логина и пароля\n", "Ошибка авторизации", MessageBoxButtons.OK, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1);
 				}
-				reader.Close();
-
 			}
-			catch (NpgsqlException e)
+			catch (Exception e)
 			{
 				npgSqlConnection = null;
-				MessageBox.Show("Подключение НЕ выполнено.\nПроверьте правильность введённых логина и пароля\n" + e.Message + "\n");
+				MessageBox.Show("Подключение НЕ выполнено.\nПроверьте подклчение вашего компьютера к интернету\n", "Ошибка авторизации", MessageBoxButtons.OK, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1);
+
 			}
 		}
 		
@@ -103,6 +113,9 @@ namespace PersonnelDeptApp1
 		{
 			if (connect == null)
 				connect = new Connection(login, pass);
+
+			if (npgSqlConnection == null)
+				connect = null;
 
 			return (npgSqlConnection != null);			
 		}

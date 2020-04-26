@@ -31,7 +31,15 @@ namespace PersonnelDeptApp1
 			InitializeComponent();
 			this.formAuthorization = formAuthorization;
 
-            npgSqlConnection = Connection.get_connect();
+			Text = "Система \"Кадры\" | ";
+			if (Connection.get_role() == Connection.Role.admin)
+				Text += "Администратор";
+			if (Connection.get_role() == Connection.Role.accounting)
+				Text += "Сотрудник бюро учёта";
+			if (Connection.get_role() == Connection.Role.reception)
+				Text += "Сотрудник бюро приёма";
+
+			npgSqlConnection = Connection.get_connect();
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -193,7 +201,7 @@ namespace PersonnelDeptApp1
 				}
 				if (!reader.HasRows) 
 				{
-					MessageBox.Show("С такими параметрами записей не найдено.", "Поиск", MessageBoxButtons.OK, MessageBoxIcon.Information);
+					MessageBox.Show("С такими параметрами сотрудников не найдено.", "Поиск", MessageBoxButtons.OK, MessageBoxIcon.Information);
 				}
 				reader.Close();
 			}

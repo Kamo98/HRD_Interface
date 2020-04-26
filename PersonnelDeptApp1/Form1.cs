@@ -1267,7 +1267,11 @@ namespace PersonnelDeptApp1
                             richTextBox15.Text = name.ToString();
                             object otchestvo = reader20.GetValue(5);
                             richTextBox13.Text = otchestvo.ToString();
-                            object birthday_date = reader20.GetValue(6);
+
+							Text += " | " + surname.ToString() + " " + name.ToString() + " " + otchestvo.ToString();
+
+
+							object birthday_date = reader20.GetValue(6);
                             dateTimePicker6.Value = Convert.ToDateTime(birthday_date);
                             object INN = reader20.GetValue(8);
                             richTextBox4.Text = INN.ToString();
