@@ -997,5 +997,10 @@ namespace PersonnelDeptApp1
 			Form ifrm = Application.OpenForms[Application.OpenForms.Count - 1];
 			ifrm.Show();
 		}
-	}
+
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
+        }
+    }
 }

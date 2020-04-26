@@ -66,13 +66,14 @@
             this.tableLayoutPanel1.Controls.Add(this.FindBTN, 2, 2);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 4;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 85F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(865, 650);
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 26F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 29F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 28F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(784, 461);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // empListCB
@@ -80,9 +81,10 @@
             this.empListCB.Dock = System.Windows.Forms.DockStyle.Fill;
             this.empListCB.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.empListCB.FormattingEnabled = true;
-            this.empListCB.Location = new System.Drawing.Point(3, 35);
+            this.empListCB.Location = new System.Drawing.Point(2, 28);
+            this.empListCB.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.empListCB.Name = "empListCB";
-            this.empListCB.Size = new System.Drawing.Size(513, 27);
+            this.empListCB.Size = new System.Drawing.Size(466, 24);
             this.empListCB.TabIndex = 0;
             this.empListCB.SelectedIndexChanged += new System.EventHandler(this.empListCB_SelectedIndexChanged);
             // 
@@ -91,9 +93,10 @@
             this.orderTypesCB.Dock = System.Windows.Forms.DockStyle.Fill;
             this.orderTypesCB.Font = new System.Drawing.Font("Times New Roman", 10.2F);
             this.orderTypesCB.FormattingEnabled = true;
-            this.orderTypesCB.Location = new System.Drawing.Point(608, 35);
+            this.orderTypesCB.Location = new System.Drawing.Point(550, 28);
+            this.orderTypesCB.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.orderTypesCB.Name = "orderTypesCB";
-            this.orderTypesCB.Size = new System.Drawing.Size(254, 27);
+            this.orderTypesCB.Size = new System.Drawing.Size(232, 24);
             this.orderTypesCB.TabIndex = 1;
             // 
             // selectedEmpId
@@ -101,9 +104,10 @@
             this.selectedEmpId.AutoSize = true;
             this.selectedEmpId.Dock = System.Windows.Forms.DockStyle.Fill;
             this.selectedEmpId.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.selectedEmpId.Location = new System.Drawing.Point(522, 32);
+            this.selectedEmpId.Location = new System.Drawing.Point(472, 26);
+            this.selectedEmpId.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.selectedEmpId.Name = "selectedEmpId";
-            this.selectedEmpId.Size = new System.Drawing.Size(80, 32);
+            this.selectedEmpId.Size = new System.Drawing.Size(74, 29);
             this.selectedEmpId.TabIndex = 2;
             this.selectedEmpId.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
@@ -128,13 +132,14 @@
             this.ContractNum,
             this.ShowOrderBtnCol});
             this.tableLayoutPanel1.SetColumnSpan(this.ordersTable, 3);
-            this.ordersTable.Location = new System.Drawing.Point(3, 99);
+            this.ordersTable.Location = new System.Drawing.Point(2, 85);
+            this.ordersTable.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.ordersTable.Name = "ordersTable";
             this.ordersTable.ReadOnly = true;
             this.ordersTable.RowHeadersVisible = false;
             this.ordersTable.RowHeadersWidth = 51;
             this.ordersTable.RowTemplate.Height = 24;
-            this.ordersTable.Size = new System.Drawing.Size(859, 539);
+            this.ordersTable.Size = new System.Drawing.Size(780, 374);
             this.ordersTable.TabIndex = 3;
             this.ordersTable.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.ordersTable_CellContentClick);
             // 
@@ -207,9 +212,10 @@
             this.label1.AutoSize = true;
             this.label1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.label1.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label1.Location = new System.Drawing.Point(3, 13);
+            this.label1.Location = new System.Drawing.Point(2, 10);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(513, 19);
+            this.label1.Size = new System.Drawing.Size(466, 16);
             this.label1.TabIndex = 4;
             this.label1.Text = "Сотрудник";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -219,9 +225,10 @@
             this.label2.AutoSize = true;
             this.label2.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.label2.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label2.Location = new System.Drawing.Point(608, 13);
+            this.label2.Location = new System.Drawing.Point(550, 10);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(254, 19);
+            this.label2.Size = new System.Drawing.Size(232, 16);
             this.label2.TabIndex = 5;
             this.label2.Text = "Тип приказа";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -229,9 +236,10 @@
             // FindBTN
             // 
             this.FindBTN.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.FindBTN.Location = new System.Drawing.Point(608, 67);
+            this.FindBTN.Location = new System.Drawing.Point(550, 57);
+            this.FindBTN.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.FindBTN.Name = "FindBTN";
-            this.FindBTN.Size = new System.Drawing.Size(254, 26);
+            this.FindBTN.Size = new System.Drawing.Size(232, 24);
             this.FindBTN.TabIndex = 6;
             this.FindBTN.Text = "Найти приказы";
             this.FindBTN.UseVisualStyleBackColor = true;
@@ -239,12 +247,13 @@
             // 
             // FormOrderSearch
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.ClientSize = new System.Drawing.Size(865, 650);
+            this.ClientSize = new System.Drawing.Size(784, 461);
             this.Controls.Add(this.tableLayoutPanel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "FormOrderSearch";
